@@ -24,6 +24,7 @@ const Navbar = () => {
             alt="Manish Chawla"
             title="Manish Chawla"
             style={{ width: "100px" }}
+            className="cursor-pointer"
           />
         </Link>
       </div>
