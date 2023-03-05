@@ -18,14 +18,14 @@ const Navbar = () => {
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300">
       <div>
-        <a href="/">
+        <Link to="home" smooth={true} duration={500}>
           <img
             src={Logo}
             alt="Manish Chawla"
             title="Manish Chawla"
             style={{ width: "100px" }}
           />
-        </a>
+        </Link>
       </div>
 
       {/* {menu} */}
@@ -104,7 +104,7 @@ const Navbar = () => {
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
             <a
               className="flex justify-between items-center w-full text-gray-300"
-              href="/"
+              href="https://www.linkedin.com/in/mani0981/"
             >
               LinkedIn
               <FaLinkedin size={30} />
@@ -113,7 +113,7 @@ const Navbar = () => {
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#333333]">
             <a
               className="flex justify-between items-center w-full text-gray-300"
-              href="/"
+              href="https://github.com/ommanish"
             >
               GitHub
               <FaGithub size={30} />
@@ -122,7 +122,7 @@ const Navbar = () => {
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]">
             <a
               className="flex justify-between items-center w-full text-gray-300"
-              href="/"
+              href="mailto:someone@yoursite.com"
             >
               Email
               <HiOutlineMail size={30} />
@@ -131,7 +131,7 @@ const Navbar = () => {
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]">
             <a
               className="flex justify-between items-center w-full text-gray-300"
-              href="/"
+              href="https://resume.io/r/tuo4eVX1J"
             >
               Resume
               <BsFillPersonLinesFill size={30} />
