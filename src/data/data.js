@@ -1,35 +1,35 @@
-import WorkIm from '../assets/projects/workImg.jpeg'
-import RealEst from '../assets/projects/realestate.jpg'
+import Weather from "../assets/projects/weather.png";
+import CoinSearch from "../assets/projects/coinsearch.png";
+import Portfolio from "../assets/projects/portfolio.png";
+import Todo from "../assets/projects/todo.png";
 
-export const data=[
-    {
-        id:1,
-        name:"React JS Application",
-        image:WorkIm,
-        github:"",
-        live:"",
-    },
-    {
-        id:2,
-        name:"React JS Application",
-        image:RealEst,
-        github:"",
-        live:"",
-    },
-    {
-        id:3,
-        name:"React JS Application",
-        image:WorkIm,
-        github:"",
-        live:"",
-    },
-    {
-        id:4,
-        name:"React JS Application",
-        image:RealEst,
-        github:"",
-        live:"",
-    },
-
-
-]
+export const data = [
+  {
+    id: 1,
+    name: "Weather React App",
+    image: Weather,
+    github: "",
+    live: "https://ommanish.github.io/weather/",
+  },
+  {
+    id: 2,
+    name: "Crypto Search React App",
+    image: CoinSearch,
+    github: "",
+    live: "https://ommanish.github.io/cryptoProject/",
+  },
+  {
+    id: 3,
+    name: "Porfolio",
+    image: Portfolio,
+    github: "",
+    live: "http://manishchawla.com/",
+  },
+  {
+    id: 4,
+    name: "Prioritize Me React Application",
+    image: Todo,
+    github: "https://github.com/ommanish/prioritizeme",
+    live: "https://ommanish.github.io/prioritizeme/",
+  },
+];

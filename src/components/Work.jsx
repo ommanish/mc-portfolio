@@ -33,14 +33,16 @@ const Work = () => {
                 </span>
                 <div className="pt-8 text-center ">
                   {/* eslint-disable-next-line */}
-                  <a href={item.github} target="_blank">
-                    <button
-                      className="text-center rounded-lg px-4 py-3 m-2
+                  {item.github != "" ? (
+                    <a href={item.github} target="_blank" rel="noreferrer">
+                      <button
+                        className="text-center rounded-lg px-4 py-3 m-2
                        bg-white text-gray-700 font-bold text-lg"
-                    >
-                      Code
-                    </button>
-                  </a>
+                      >
+                        Code
+                      </button>
+                    </a>
+                  ) : null}
                   {/* eslint-disable-next-line */}
                   <a href={item.live} target="_blank">
                     <button
