@@ -2,6 +2,7 @@ import Weather from "../assets/projects/weather.png";
 import CoinSearch from "../assets/projects/coinsearch.png";
 import Portfolio from "../assets/projects/portfolio.png";
 import Todo from "../assets/projects/todo.png";
+import SearchFilter from "../assets/projects/searchfilter.png";
 
 export const data = [
   {
@@ -31,5 +32,12 @@ export const data = [
     image: Todo,
     github: "https://github.com/ommanish/prioritizeme",
     live: "https://ommanish.github.io/prioritizeme/",
+  },
+  {
+    id: 4,
+    name: "Contact Search",
+    image: SearchFilter,
+    github: "https://github.com/ommanish/components/searchfilter",
+    live: "https://ommanish.github.io/components/",
   },
 ];
