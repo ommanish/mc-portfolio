@@ -25,16 +25,17 @@ const About = () => {
               a software expert available at your fingertips?
             </p> */}
             <p>
-              Well, that's exactly what you get with me! As a skilled frontend
-              developer, you can count on me to create engaging and
-              user-friendly interfaces for your web applications. But what sets
-              me apart is my ability to learn quickly and adapt to new
-              technologies and programming languages. Whether it's mastering a
-              new framework or experimenting with cutting-edge design tools, I'm
-              always eager to expand my skillset and take on new challenges.
-              With my passion for frontend development and my natural curiosity,
-              I'm confident that I can help you build software that not only
-              meets your needs but exceeds your expectations.
+              Hello, I am a skilled frontend developer with a passion for
+              creating engaging and user-friendly interfaces for web
+              applications. I take pride in my ability to learn quickly and
+              adapt to new technologies and programming languages, which sets me
+              apart from others in my field. With my natural curiosity and
+              eagerness to expand my skillset, I am confident in my ability to
+              help you build software that not only meets your needs but exceeds
+              your expectations. I am always up for a challenge and excited to
+              experiment with cutting-edge design tools and master new
+              frameworks. Let me bring my expertise and passion to your team and
+              together we can build something truly remarkable.ç
             </p>
           </div>
         </div>
