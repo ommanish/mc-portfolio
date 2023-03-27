@@ -4,8 +4,8 @@ import HTML from "../assets/html.png";
 import CSS from "../assets/css.png";
 import JavaScript from "../assets/javascript.png";
 import ReactImg from "../assets/react.png";
-//import Node from "../assets/node.png";
-//import FireBase from "../assets/firebase.png";
+import Node from "../assets/node.png";
+import FireBase from "../assets/firebase.png";
 import GitHub from "../assets/github.png";
 import Tailwind from "../assets/tailwind.png";
 //import Mongo from "../assets/mongo.png";
@@ -27,24 +27,36 @@ const Skills = () => {
             <p className="my-4">HTML</p>
           </div>
           <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={CSS} alt="HTML icon" />
+            <img className="w-20 mx-auto" src={CSS} alt="CSS icon" />
             <p className="my-4">CSS</p>
           </div>
           <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={JavaScript} alt="HTML icon" />
+            <img
+              className="w-20 mx-auto"
+              src={JavaScript}
+              alt="JavaScript icon"
+            />
             <p className="my-4">JavaScript</p>
           </div>
           <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={ReactImg} alt="HTML icon" />
-            <p className="my-4">React</p>
+            <img className="w-20 mx-auto" src={ReactImg} alt="React icon" />
+            <p className="my-4">ReactJS</p>
           </div>
           <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={GitHub} alt="HTML icon" />
+            <img className="w-20 mx-auto" src={GitHub} alt="Git icon" />
             <p className="my-4">GitHub</p>
           </div>
           <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Tailwind} alt="HTML icon" />
+            <img className="w-20 mx-auto" src={Tailwind} alt="Tailwind icon" />
             <p className="my-4">Tailwind</p>
+          </div>
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+            <img className="w-20 mx-auto" src={Node} alt="Node icon" />
+            <p className="my-4">NodeJS</p>
+          </div>
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+            <img className="w-20 mx-auto" src={FireBase} alt="FireBase icon" />
+            <p className="my-4">FireBase</p>
           </div>
         </div>
       </div>
