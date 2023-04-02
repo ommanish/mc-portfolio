@@ -100,7 +100,7 @@ const Navbar = () => {
       </ul>
 
       {/* Social icons */}
-      <div className="hidden lg:flex flex fixed flex-col top-[35%] left-0">
+      <div className="lg:flex flex fixed flex-col top-[35%] left-0">
         <ul>
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
             <a
@@ -132,7 +132,9 @@ const Navbar = () => {
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]">
             <a
               className="flex justify-between items-center w-full text-gray-300"
-              href="https://resume.io/r/tuo4eVX1J"
+              href="https://resume.io/r/pM2EvEWHE"
+              target="_blank"
+              rel="noreferrer"
             >
               Resume
               <BsFillPersonLinesFill size={30} />
