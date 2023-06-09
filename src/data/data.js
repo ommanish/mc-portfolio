@@ -35,15 +35,15 @@ export const data = [
     live: "https://ommanish.github.io/prioritizeme/",
   },
   {
-    id: 4,
+    id: 5,
     name: "Contact Search",
     image: SearchFilter,
     github: "https://github.com/ommanish/components/searchfilter",
     live: "https://ommanish.github.io/components/",
   },
   {
-    id: 4,
-    name: "Contact Search",
+    id: 6,
+    name: "Quiz App - NextJs",
     image: QuizApp,
     github: "https://github.com/ommanish/quiz-a-mania",
     live: "https://ommanish.github.io/quiz-a-mania/",
