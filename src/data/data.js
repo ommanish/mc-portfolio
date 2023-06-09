@@ -3,6 +3,7 @@ import CoinSearch from "../assets/projects/coinsearch.png";
 import Portfolio from "../assets/projects/portfolio.png";
 import Todo from "../assets/projects/todo.png";
 import SearchFilter from "../assets/projects/searchfilter.png";
+import QuizApp from "../assets/projects/quiz-app.png";
 
 export const data = [
   {
@@ -39,5 +40,12 @@ export const data = [
     image: SearchFilter,
     github: "https://github.com/ommanish/components/searchfilter",
     live: "https://ommanish.github.io/components/",
+  },
+  {
+    id: 4,
+    name: "Contact Search",
+    image: QuizApp,
+    github: "https://github.com/ommanish/quiz-a-mania",
+    live: "https://ommanish.github.io/quiz-a-mania/",
   },
 ];
