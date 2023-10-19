@@ -12,17 +12,21 @@ const Home = () => {
           Manish Chawla
         </h1>
         <h2 className="text-4xl sm:text-7xl font-bold text-[#8892b0]">
-          I'm a Front-End Developer
+          I'm a Project Manager with a background in Front-End Development.
         </h2>
         <p className="text-[#8892b0] py-4 max-w-[900px]">
-          I'm Experienced Front-end Developer is adept in all stages of advanced
-          web development. Knowledgeable in user interface, testing, and
-          debugging processes. Able to effectively self-manage during
-          independent projects, as well as collaborate in a team setting.
-          Proficient in an assortment of technologies, including HTML, CSS,
-          JavaScript, Reactjs, Nodejs, and Typescript. Also, create visually
-          compelling user experience solutions for clients with design
-          technologies such as photoshop and Figma.
+          With extensive experience in guiding teams through all stages of web
+          development projects, I excel in ensuring that project milestones are
+          met while maintaining a keen attention to detail. My foundation in
+          front-end development, encompassing technologies like HTML, CSS,
+          JavaScript, Reactjs, Nodejs, and Typescript, allows me to bridge the
+          gap between technical teams and stakeholders effectively. Beyond just
+          technical know-how, I also bring a sharp understanding of user
+          experience design, having worked with tools such as Photoshop and
+          Figma. Whether working independently or collaborating within a team
+          setting, I pride myself on steering projects to successful outcomes,
+          delivering solutions that not only meet but exceed client
+          expectations.
         </p>
         <div>
           <Link

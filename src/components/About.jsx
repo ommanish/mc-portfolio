@@ -25,17 +25,21 @@ const About = () => {
               a software expert available at your fingertips?
             </p> */}
             <p>
-              Hello, I am a skilled frontend developer with a passion for
-              creating engaging and user-friendly interfaces for web
-              applications. I take pride in my ability to learn quickly and
-              adapt to new technologies and programming languages, which sets me
-              apart from others in my field. With my natural curiosity and
-              eagerness to expand my skillset, I am confident in my ability to
-              help you build software that not only meets your needs but exceeds
-              your expectations. I am always up for a challenge and excited to
-              experiment with cutting-edge design tools and master new
-              frameworks. Let me bring my expertise and passion to your team and
-              together we can build something truly remarkable.ç
+              Hello, I am an accomplished Project Manager with a strong
+              background in frontend development. I pride myself on my
+              capability to understand technical nuances, ensuring that projects
+              align with both business objectives and user needs. What sets me
+              apart is my adaptive nature and readiness to embrace new
+              technologies, methodologies, and tools. My background in frontend
+              development provides me with a unique perspective that facilitates
+              smooth communication between stakeholders and technical teams. I
+              possess an inherent curiosity and eagerness to enhance my
+              management and technical skills alike. With this attitude, I am
+              confident in guiding projects to not just meet but exceed your
+              expectations. I thrive when faced with challenges and am always on
+              the lookout to incorporate the latest in design and technological
+              innovations. Let's collaborate; with my leadership and your
+              vision, we can create something truly extraordinary.
             </p>
           </div>
         </div>
