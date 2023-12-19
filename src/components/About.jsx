@@ -24,7 +24,7 @@ const About = () => {
               way to large enterprise corporations. What would you do if you had
               a software expert available at your fingertips?
             </p> */}
-            <p>
+            {/* <p>
               Hello, I am an accomplished Project Manager with a strong
               background in frontend development. I pride myself on my
               capability to understand technical nuances, ensuring that projects
@@ -40,6 +40,20 @@ const About = () => {
               the lookout to incorporate the latest in design and technological
               innovations. Let's collaborate; with my leadership and your
               vision, we can create something truly extraordinary.
+            </p> */}
+            <p>
+              Hello! I'm a Project Manager with a strong focus on frontend
+              development. My approach is all about blending technical know-how
+              with business and user needs. I love adapting to new tech and
+              methods, which helps me keep projects fresh and innovative. <br />
+              With my background in frontend development, I'm great at
+              communicating with both stakeholders and tech teams. I'm always
+              keen to learn and grow in both management and tech areas. Leading
+              projects to success, and often beyond, is what I do best.
+              <br /> I enjoy tackling new challenges and keeping up with the
+              latest in design and tech. I'm looking forward to working together
+              to create something special and impactful. Let's make our visions
+              a reality!
             </p>
           </div>
         </div>
