@@ -12,7 +12,7 @@ const Home = () => {
           Manish Chawla
         </h1>
         <h2 className="text-3xl sm:text-5xl font-bold text-[#8892b0]">
-          I'm a Project Manager with a background in Front-End Development.
+          I'm a Senior Frontend Developer & Project Lead.
         </h2>
         <p className="text-[#8892b0] py-4 max-w-[900px]">
           With extensive experience in guiding teams through all stages of web
