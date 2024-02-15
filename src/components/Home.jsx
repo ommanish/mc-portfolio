@@ -15,18 +15,14 @@ const Home = () => {
           I'm a Senior Frontend Developer & Project Lead.
         </h2>
         <p className="text-[#8892b0] py-4 max-w-[900px]">
-          With extensive experience in guiding teams through all stages of web
-          development projects, I excel in ensuring that project milestones are
-          met while maintaining a keen attention to detail. My foundation in
-          front-end development, encompassing technologies like HTML, CSS,
-          JavaScript, Reactjs, Nodejs, and Typescript, allows me to bridge the
-          gap between technical teams and stakeholders effectively. Beyond just
-          technical know-how, I also bring a sharp understanding of user
-          experience design, having worked with tools such as Photoshop and
-          Figma. Whether working independently or collaborating within a team
-          setting, I pride myself on steering projects to successful outcomes,
-          delivering solutions that not only meet but exceed client
-          expectations.
+          With extensive experience working with web development teams, I excel
+          in meeting project milestones with meticulous attention to detail.
+          Proficient in front-end development with HTML, CSS, JavaScript,
+          React.js, Node.js, and Typescript, I effectively bridge technical
+          teams and stakeholders. I also possess a strong grasp of user
+          experience design, utilizing tools like Photoshop and Figma. Whether
+          working independently or collaboratively, I am dedicated to delivering
+          solutions that exceed client expectations.
         </p>
         <div>
           <Link

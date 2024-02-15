@@ -42,18 +42,14 @@ const About = () => {
               vision, we can create something truly extraordinary.
             </p> */}
             <p>
-              Hello! I'm a Project Manager with a strong focus on frontend
-              development. My approach is all about blending technical know-how
-              with business and user needs. I love adapting to new tech and
-              methods, which helps me keep projects fresh and innovative. <br />
-              With my background in frontend development, I'm great at
-              communicating with both stakeholders and tech teams. I'm always
-              keen to learn and grow in both management and tech areas. Leading
-              projects to success, and often beyond, is what I do best.
-              <br /> I enjoy tackling new challenges and keeping up with the
-              latest in design and tech. I'm looking forward to working together
-              to create something special and impactful. Let's make our visions
-              a reality!
+              Hello! I'm a Web Developer with strong project management skills.
+              I blend technical expertise with business understanding to create
+              innovative solutions. With my background in web development, I
+              ensure seamless communication between stakeholders and technical
+              teams. I'm always eager to learn and lead projects to successful
+              outcomes.I enjoy tackling challenges and staying updated on design
+              and technology trends. Let's collaborate to bring our visions to
+              life!
             </p>
           </div>
         </div>
