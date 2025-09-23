@@ -14,7 +14,7 @@ export default function Certifications() {
     <section
       id="certifications"
       aria-labelledby="certs-title"
-      className="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
+      className="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100"
     >
       <div className="container mx-auto px-4 py-14">
         <h2 id="certs-title" className="text-2xl md:text-3xl font-bold">
