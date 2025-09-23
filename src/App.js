@@ -5,6 +5,8 @@ import Skills from "./sections/Skills";
 import Contact from "./sections/Contact";
 import ThemeToggle from "./components/ThemeToggle";
 
+import Certifications from "./sections/Certifications";
+
 export default function App() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
@@ -45,12 +47,22 @@ export default function App() {
               </li>
               <li>
                 <a
+                  href="#certifications"
+                  className="hover:underline underline-offset-4"
+                >
+                  Certifications
+                </a>
+              </li>
+
+              <li>
+                <a
                   href="#contact"
                   className="text-zinc-900 dark:text-zinc-100 hover:text-brand-600 dark:hover:text-brand-400 hover:underline underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 rounded-sm"
                 >
                   Contact
                 </a>
               </li>
+
               <li>
                 <ThemeToggle />
               </li>
@@ -65,6 +77,7 @@ export default function App() {
         <About />
         <Projects />
         <Skills />
+        <Certifications />
         <Contact />
       </main>
 

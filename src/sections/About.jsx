@@ -10,7 +10,7 @@ export default function About() {
           About
         </h2>
         <p className="mt-4 max-w-3xl text-zinc-700 dark:text-zinc-700 leading-relaxed">
-          I’m a UI/Frontend Lead in San Jose, CA with 17+ years of experience
+          I'm a UI/Frontend Lead in San Jose, CA with 17+ years of experience
           across React, JavaScript, and UX. I lead front-end architecture,
           improve performance and accessibility, and ship reliably with CI/CD.
           PMP-certified; comfortable with AWS, Salesforce/Headless CMS, and
