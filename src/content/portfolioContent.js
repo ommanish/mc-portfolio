@@ -21,8 +21,16 @@ export const portfolioContent = {
 
   hero: {
     eyebrow: "Web Experience · Web Producer · Frontend UI · San Jose, CA",
-    title: "Building elegant, scalable",
-    gradientTitle: "enterprise web experiences.",
+    headlineLines: [
+      {
+        text: "Building elegant, scalable",
+        gradient: false,
+      },
+      {
+        text: "enterprise web experiences.",
+        gradient: true,
+      },
+    ],
     description:
       "I’m Manish Chawla, a Web Experience Manager, Web Producer, and Frontend Web Professional with 17+ years of experience across enterprise websites, CMS platforms, page builder workflows, campaign launches, responsive UI, accessibility, and modern design systems.",
     actions: [
