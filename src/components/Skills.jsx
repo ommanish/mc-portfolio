@@ -1,33 +1,35 @@
-import React from "react";
-import { skillsData } from "../data/skilldata";
+import { portfolioContent } from "../content/portfolioContent";
+import Reveal from "./Reveal";
+import SectionHeader from "./SectionHeader";
 
-const Skills = () => {
-  const skills = skillsData;
+export default function Skills() {
+  const { skills } = portfolioContent;
+
   return (
-    <div name="skills" className="w-full h-screen bg-[#0a192f]  text-gray-300">
-      {/* Container */}
-      <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
-        <div>
-          <p className="text-4xl font-bold inline border-b-4  border-pink-600">
-            Skills
-          </p>
-          <p className="py-4">\\ These are the technologies I've worked with</p>
-        </div>
+    <section id="skills">
+      <SectionHeader kicker={skills.kicker} title={skills.title} copy={skills.copy} />
 
-        <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-4 text-center pb-10">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="shadow-md shadow-[#040c16] hover:scale-110 duration-500"
-            >
-              <img className="w-20 mx-auto" src={skill.img} alt={skill.name} />
-              <p className="my-4">{skill.name}</p>
-            </div>
+      <div className="skills-wrap">
+        <Reveal as="article" className="skill-card" delay={100}>
+          <h3>{skills.intro.title}</h3>
+          <p>{skills.intro.description}</p>
+        </Reveal>
+
+        <div className="grid grid-2">
+          {skills.groups.map((skill, index) => (
+            <Reveal as="article" className="skill-card" key={skill.title} delay={index * 100}>
+              <h3>{skill.title}</h3>
+              <div className="skill-pills">
+                {skill.items.map((item) => (
+                  <span className="pill" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Skills;
+}

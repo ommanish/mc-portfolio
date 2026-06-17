@@ -1,51 +1,32 @@
-import React from "react";
+import { portfolioContent } from "../content/portfolioContent";
+import Reveal from "./Reveal";
 
-const Contact = () => {
+export default function Contact() {
+  const { contact } = portfolioContent;
+
   return (
-    <div
-      name="contact"
-      className="w-full h-screen flex justify-center items-center bg-[#0a192f]"
-    >
-      <form
-        action="https://getform.io/f/d0a0059d-9f07-4577-b3b6-2472d9663301"
-        method="POST"
-        className="flex flex-col max-w-[600px] w-full"
-      >
-        <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600">
-            Contact
-          </p>
-          <p className="py-4 text-gray-300">
-            \\ Submit the form or sent me an email - manishchawla09@gmail.com
-          </p>
+    <section id="contact">
+      <Reveal as="article" className="contact-card">
+        <div>
+          <div className="section-kicker">{contact.kicker}</div>
+          <h2>{contact.title}</h2>
+          <p>{contact.copy}</p>
         </div>
-        <input
-          className="bg-[#ccd6f6] p-2"
-          type="text"
-          placeholder="Name"
-          name="name"
-          required
-        />
-        <input
-          className="my-4 p-2 bg-[#ccd6f6]"
-          type="email"
-          placeholder="Email"
-          name="email"
-          required
-        />
-        <textarea
-          name="message"
-          className="bg-[#ccd6f6] p-2"
-          placeholder="message"
-          rows="10"
-          required
-        ></textarea>
-        <button className="text-white border-2 hover:bg-pink-600 hover:border-pink-600 px-4 py-3 my-8 mx-auto flex items-center">
-          Let's Collaborate
-        </button>
-      </form>
-    </div>
-  );
-};
 
-export default Contact;
+        <div className="hero-actions contact-actions">
+          {contact.actions.map((action) => (
+            <a
+              className={`btn ${action.variant === "primary" ? "btn-primary" : "btn-ghost"}`}
+              href={action.href}
+              key={action.label}
+              target={action.external ? "_blank" : undefined}
+              rel={action.external ? "noreferrer" : undefined}
+            >
+              {action.label}
+            </a>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
