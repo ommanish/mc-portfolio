@@ -307,7 +307,7 @@ export const portfolioContent = {
       },
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/",
+        href: "https://www.linkedin.com/in/manishchawla09/",
         variant: "ghost",
         external: true,
       },
