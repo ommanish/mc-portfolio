@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Manish Chawla Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React + Vite portfolio for `manishchawla.com`.
 
-## Available Scripts
+## Included
 
-In the project directory, you can run:
+- React + Vite project
+- Central content file for easy updates
+- Smooth appearing-on-scroll animation
+- Safe loader
+- Light/dark mode toggle
+- GitHub Pages deployment workflow
+- Pull Request build checks
+- Custom domain support with `public/CNAME`
 
-### `npm start`
+## Main editable content file
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Most future copy/content updates should happen here:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```text
+src/content/portfolioContent.js
+```
 
-### `npm test`
+Use this file to update:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Navigation
+- Hero text
+- CTAs
+- Featured work
+- Web Experience section
+- Case studies
+- Skills
+- AI section
+- Timeline
+- Contact info
+- Footer text
 
-### `npm run build`
+## Run locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+npm run dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run build
+```
 
-### `npm run eject`
+## Custom domain
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project is configured for:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```text
+manishchawla.com
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Important files:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```text
+vite.config.js
+public/CNAME
+```
 
-## Learn More
+`vite.config.js` uses:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+base: "/"
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+because the final site is served from the root of `manishchawla.com`.
 
-### Code Splitting
+## GitHub Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Go to your repo settings:
 
-### Analyzing the Bundle Size
+```text
+https://github.com/ommanish/mc-portfolio/settings/pages
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Set:
 
-### Making a Progressive Web App
+```text
+Source: GitHub Actions
+Custom domain: manishchawla.com
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Push to GitHub
 
-### Advanced Configuration
+```bash
+git init
+git add .
+git commit -m "Initial portfolio project setup"
+git branch -M main
+git remote add origin https://github.com/ommanish/mc-portfolio.git
+git push -u origin main
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future update workflow
 
-### Deployment
+```bash
+git checkout -b feature/update-content
+# update src/content/portfolioContent.js
+npm run build
+git add .
+git commit -m "Update portfolio content"
+git push -u origin feature/update-content
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Then open a Pull Request into `main`.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Merging to `main` deploys the site.
