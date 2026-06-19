@@ -11,8 +11,17 @@ export default function Hero() {
           {hero.eyebrow}
         </div>
 
-        <h1>
-          {hero.title} <span className="gradient-text">{hero.gradientTitle}</span>
+        <h1 className="hero-title">
+          {hero.headlineLines.map((line) => (
+            <span
+              className={
+                line.gradient ? "headline-line gradient-text" : "headline-line"
+              }
+              key={line.text}
+            >
+              {line.text}
+            </span>
+          ))}
         </h1>
 
         <p className="hero-copy">{hero.description}</p>
