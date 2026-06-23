@@ -7,17 +7,26 @@ export default function Skills() {
 
   return (
     <section id="skills">
-      <SectionHeader kicker={skills.kicker} title={skills.title} copy={skills.copy} />
+      <SectionHeader
+        kicker={skills.kicker}
+        title={skills.title}
+        copy={skills.copy}
+      />
 
       <div className="skills-wrap">
-        <Reveal as="article" className="skill-card" delay={100}>
+        <Reveal as="article" className="skill-card" delay={140}>
           <h3>{skills.intro.title}</h3>
           <p>{skills.intro.description}</p>
         </Reveal>
 
         <div className="grid grid-2">
           {skills.groups.map((skill, index) => (
-            <Reveal as="article" className="skill-card" key={skill.title} delay={index * 100}>
+            <Reveal
+              as="article"
+              className="skill-card"
+              key={skill.title}
+              delay={index * 140}
+            >
               <h3>{skill.title}</h3>
               <div className="skill-pills">
                 {skill.items.map((item) => (
