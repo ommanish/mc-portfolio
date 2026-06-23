@@ -7,10 +7,14 @@ export default function CaseStudies() {
 
   return (
     <section id="cases">
-      <SectionHeader kicker={caseStudies.kicker} title={caseStudies.title} copy={caseStudies.copy} />
+      <SectionHeader
+        kicker={caseStudies.kicker}
+        title={caseStudies.title}
+        copy={caseStudies.copy}
+      />
       <div className="grid grid-3">
         {caseStudies.items.map((item, index) => (
-          <CaseCard key={item.title} {...item} delay={index * 110} />
+          <CaseCard key={item.title} {...item} delay={index * 140} />
         ))}
       </div>
     </section>

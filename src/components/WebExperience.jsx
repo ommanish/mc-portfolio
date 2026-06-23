@@ -8,11 +8,15 @@ export default function WebExperience() {
 
   return (
     <section id="web-experience">
-      <SectionHeader kicker={webExperience.kicker} title={webExperience.title} copy={webExperience.copy} />
+      <SectionHeader
+        kicker={webExperience.kicker}
+        title={webExperience.title}
+        copy={webExperience.copy}
+      />
 
       <div className="grid grid-3">
         {webExperience.cards.map((item, index) => (
-          <FeatureCard key={item.title} {...item} delay={index * 110} />
+          <FeatureCard key={item.title} {...item} delay={index * 140} />
         ))}
       </div>
 

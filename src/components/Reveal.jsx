@@ -14,13 +14,15 @@ export default function Reveal({
       ? "reveal-left"
       : direction === "right"
         ? "reveal-right"
-        : "reveal-up";
+        : direction === "zoom"
+          ? "reveal-zoom"
+          : "reveal-up";
 
   return (
     <Tag
       ref={ref}
-      className={`${directionClass} ${isVisible ? "is-visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`reveal ${directionClass} ${isVisible ? "is-visible" : ""} ${className}`}
+      style={{ "--reveal-delay": `${delay}ms` }}
     >
       {children}
     </Tag>

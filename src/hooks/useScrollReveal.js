@@ -8,7 +8,9 @@ export function useScrollReveal(options = {}) {
     const element = ref.current;
     if (!element) return;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     if (reduceMotion || !("IntersectionObserver" in window)) {
       setIsVisible(true);
@@ -23,23 +25,17 @@ export function useScrollReveal(options = {}) {
         }
       },
       {
-        threshold: options.threshold ?? 0.12,
-        rootMargin: options.rootMargin ?? "0px 0px -60px 0px",
-      }
+        threshold: options.threshold ?? 0.16,
+        rootMargin: options.rootMargin ?? "0px 0px -80px 0px",
+      },
     );
 
     observer.observe(element);
 
-    // Safety fallback: content should never remain hidden.
-    const fallback = window.setTimeout(() => {
-      setIsVisible(true);
-    }, options.fallbackDelay ?? 1800);
-
     return () => {
       observer.disconnect();
-      window.clearTimeout(fallback);
     };
-  }, [options.threshold, options.rootMargin, options.fallbackDelay]);
+  }, [options.threshold, options.rootMargin]);
 
   return { ref, isVisible };
 }

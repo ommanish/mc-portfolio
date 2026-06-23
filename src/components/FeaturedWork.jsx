@@ -7,10 +7,14 @@ export default function FeaturedWork() {
 
   return (
     <section id="work">
-      <SectionHeader kicker={featuredWork.kicker} title={featuredWork.title} copy={featuredWork.copy} />
+      <SectionHeader
+        kicker={featuredWork.kicker}
+        title={featuredWork.title}
+        copy={featuredWork.copy}
+      />
       <div className="grid grid-3">
         {featuredWork.items.map((item, index) => (
-          <FeatureCard key={item.title} {...item} delay={index * 110} />
+          <FeatureCard key={item.title} {...item} delay={index * 140} />
         ))}
       </div>
     </section>

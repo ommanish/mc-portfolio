@@ -11,7 +11,12 @@ export default function Timeline() {
 
       <div className="timeline">
         {timeline.items.map((item, index) => (
-          <Reveal as="article" className="timeline-item" key={item.title} delay={index * 100}>
+          <Reveal
+            as="article"
+            className="timeline-item"
+            key={item.title}
+            delay={index * 140}
+          >
             <div className="time">{item.time}</div>
             <div>
               <h3>{item.title}</h3>
