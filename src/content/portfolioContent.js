@@ -6,7 +6,7 @@ export const portfolioContent = {
     location: "San Jose, CA",
     timezone: "PST",
     resumeUrl: "/resume.pdf",
-    linkedinUrl: "https://www.linkedin.com/",
+    linkedinUrl: "https://www.linkedin.com/in/manishchawla09/",
     domain: "https://manishchawla.com",
   },
 
@@ -21,6 +21,7 @@ export const portfolioContent = {
 
   hero: {
     eyebrow: "Web Experience · Web Producer · Frontend UI · San Jose, CA",
+
     headlineLines: [
       {
         text: "Building elegant, scalable",
@@ -31,25 +32,43 @@ export const portfolioContent = {
         gradient: true,
       },
     ],
+
     description:
       "I’m Manish Chawla, a Web Experience Manager, Web Producer, and Frontend Web Professional with 17+ years of experience across enterprise websites, CMS platforms, page builder workflows, campaign launches, responsive UI, accessibility, and modern design systems.",
+
     actions: [
       {
         label: "View Web Experience →",
         href: "#web-experience",
         variant: "primary",
       },
-      { label: "Contact Me", href: "#contact", variant: "ghost" },
-      { label: "Download Resume", href: "/resume.pdf", variant: "ghost" },
+      {
+        label: "Contact Me",
+        href: "#contact",
+        variant: "ghost",
+      },
+      {
+        label: "Download Resume",
+        href: "/resume.pdf",
+        variant: "ghost",
+      },
     ],
+
     stats: [
-      { value: "17+", label: "Years web & digital experience" },
+      {
+        value: "17+",
+        label: "Years web & digital experience",
+      },
       {
         value: "WebOps",
         label: "Campaign pages, CMS updates, QA, and launches",
       },
-      { value: "WCAG", label: "Accessibility-first implementation" },
+      {
+        value: "WCAG",
+        label: "Accessibility-first implementation",
+      },
     ],
+
     profileCard: {
       chips: ["Frontend · UI", "Web Producer · CMS", "AI Product Builder"],
       title: "Web Experience · Web Producer",
@@ -68,78 +87,77 @@ export const portfolioContent = {
 
   featuredWork: {
     kicker: "Featured Work",
-    title: "Enterprise experience with product-level polish.",
-    copy: "A portfolio direction that highlights business impact, technical execution, design thinking, and ownership across complex web platforms.",
+    title: "Web work focused on clarity, quality, and launch readiness.",
+    copy: "I help teams turn design, content, and business requests into polished web pages that are responsive, accessible, easy to review, and ready to publish.",
+
     items: [
       {
         icon: "⚡",
-        title: "Enterprise Web Experience Delivery",
+        title: "Enterprise Website Updates",
         description:
-          "Created and improved digital experiences across enterprise web platforms, including content pages, reusable sections, responsive layouts, previews, and stakeholder review workflows.",
+          "Built and updated enterprise web pages using reusable sections, CMS/page builder workflows, responsive layouts, and stakeholder feedback.",
       },
       {
         icon: "🚀",
-        title: "WebOps / Web Production",
+        title: "Campaign & Landing Page Support",
         description:
-          "Delivered landing pages, campaign updates, CMS-driven content, page fixes, QA coordination, launch support, and cross-functional web publishing work.",
+          "Supported marketing pages, content updates, launch requests, QA fixes, preview reviews, and production-ready publishing work.",
       },
       {
         icon: "🛡️",
-        title: "Internal Platform UX Improvements",
+        title: "Accessible Frontend Delivery",
         description:
-          "Improved internal business tools by focusing on usability, accessibility, performance, responsive behavior, and smoother workflows for operational teams.",
+          "Focused on clean UI implementation, responsive behavior, accessibility, browser testing, and smoother user experiences across devices.",
       },
     ],
   },
 
   webExperience: {
-    kicker: "Web Producer / Web Experience Manager",
-    title: "End-to-end ownership from request intake to launch.",
-    copy: "This section makes the portfolio stronger for Web Producer, Web Experience Manager, WebOps, CMS, and marketing technology roles.",
+    kicker: "Web Experience / Web Producer",
+    title: "From page request to production launch.",
+    copy: "My work sits between design, content, CMS, frontend, QA, and launch support. I help make sure web pages look right, work well, and are ready for real users.",
+
     cards: [
       {
         icon: "🧭",
-        title: "Web Request Intake & Planning",
+        title: "Request Intake & Planning",
         description:
-          "Partnered with stakeholders, PMs, designers, content teams, and developers to clarify requirements, define scope, align timelines, and move page requests from idea to execution.",
+          "Worked with PMs, designers, content teams, and stakeholders to understand page requests, confirm requirements, and keep updates moving toward launch.",
       },
       {
         icon: "🧩",
-        title: "CMS & Page Builder Execution",
+        title: "CMS & Page Builder Work",
         description:
-          "Created and updated landing pages, content modules, reusable sections, taxonomy-driven content, images, redirects, anchors, and responsive layouts across CMS and page builder systems.",
+          "Created and updated pages, content sections, images, links, anchors, redirects, reusable modules, and responsive layouts inside CMS and page builder systems.",
       },
       {
         icon: "✅",
-        title: "QA, Preview, Stage & Launch",
+        title: "QA, Review & Launch",
         description:
-          "Supported preview links, staging reviews, content validation, accessibility checks, cross-browser QA, stakeholder approvals, launch readiness, and post-launch fixes.",
+          "Supported preview links, staging reviews, content checks, accessibility review, cross-browser testing, stakeholder approvals, and post-launch fixes.",
       },
     ],
+
     strengths: {
-      title: "Web Experience Management Strengths",
-      labels: [
-        "Campaign Pages",
-        "CMS Governance",
-        "Stakeholder Updates",
-        "Launch Coordination",
-      ],
+      title: "What I help teams with",
+      labels: ["Landing Pages", "CMS Updates", "QA Reviews", "Launch Support"],
       bullets: [
-        "Managed page updates with clear communication across design, content, PM, and engineering teams",
-        "Balanced design accuracy, CMS limitations, delivery timelines, accessibility, and responsive behavior",
-        "Improved page quality through structured preview, QA, staging, and launch review processes",
+        "Convert design and content requirements into working web pages",
+        "Keep pages responsive, accessible, and aligned with brand/design expectations",
+        "Coordinate feedback, preview reviews, fixes, and production readiness",
       ],
     },
+
     roles: {
-      title: "Best-fit Role Titles",
+      title: "Roles this experience supports",
       description:
-        "This positioning helps show value for hybrid roles that need both technical frontend skill and web production ownership.",
+        "My background fits roles that need both technical frontend understanding and hands-on web production ownership.",
       items: [
         "Web Producer",
         "Web Experience Manager",
-        "WebOps Manager",
+        "WebOps Specialist",
         "CMS Specialist",
-        "Frontend UI Professional",
+        "Frontend UI Developer",
         "Marketing Web Engineer",
       ],
     },
@@ -147,52 +165,53 @@ export const portfolioContent = {
 
   caseStudies: {
     kicker: "Case Studies",
-    title: "Show the problem, solution, and measurable value.",
-    copy: "These cards can become dedicated pages later. For the first launch, keep them concise and scannable.",
+    title: "Practical examples of web delivery work.",
+    copy: "These examples show how I approach real web work: understand the request, build or update the page, review quality, and support launch.",
+
     items: [
       {
-        title: "Enterprise Web Experience Program",
+        title: "Enterprise Web Page Delivery",
         description:
-          "Translated design, content, and business requirements into polished web experiences for enterprise marketing and product pages.",
+          "Worked on enterprise web pages where design accuracy, content quality, responsive behavior, and stakeholder review were all important before launch.",
         labels: [
           "Role: Web Experience",
           "Focus: CMS / Page Builder",
-          "Outcome: Better Launch Flow",
+          "Outcome: Cleaner Launch Process",
         ],
         impact: [
-          "Reusable page patterns and content sections",
-          "Responsive layout and content alignment",
-          "Improved authoring, preview, and review flow support",
+          "Built and adjusted reusable content sections",
+          "Improved responsive layout and visual alignment",
+          "Supported preview, feedback, and launch review steps",
         ],
       },
       {
-        title: "Marketing WebOps & Campaign Delivery",
+        title: "Marketing WebOps Support",
         description:
-          "Supported marketing pages, migrations, content operations, and campaign delivery using modern web production and CMS workflows.",
+          "Supported ongoing page updates, campaign changes, content fixes, and publishing tasks for marketing and digital experience teams.",
         labels: [
           "Role: Web Producer",
           "Focus: Campaign Pages",
-          "Outcome: Faster Publishing",
+          "Outcome: Faster Updates",
         ],
         impact: [
-          "Landing page creation and migration support",
-          "Cross-browser QA and stakeholder coordination",
-          "Accessible and responsive web delivery",
+          "Handled page updates and content changes",
+          "Coordinated QA and stakeholder feedback",
+          "Helped prepare pages for production release",
         ],
       },
       {
-        title: "Business Workflow Platform UX",
+        title: "Frontend UI Improvements",
         description:
-          "Improved a high-volume internal workflow platform used by business users to process requests and complete operational tasks.",
+          "Improved user-facing and internal web experiences by focusing on usability, accessibility, performance, and clean frontend implementation.",
         labels: [
-          "Role: UI / Web Professional",
+          "Role: Frontend UI",
           "Focus: Usability",
-          "Outcome: Better Efficiency",
+          "Outcome: Better User Experience",
         ],
         impact: [
-          "Performance and usability improvements",
-          "Accessible UI patterns aligned to WCAG",
-          "Responsive UI and production issue support",
+          "Improved page structure and interface behavior",
+          "Supported accessibility and responsive design",
+          "Helped reduce UI issues before release",
         ],
       },
     ],
@@ -200,56 +219,58 @@ export const portfolioContent = {
 
   skills: {
     kicker: "Skills",
-    title: "A skill system recruiters can scan fast.",
-    copy: "Instead of a long resume-style list, group capabilities by business value and delivery area.",
+    title: "Skills I use to deliver better web experiences.",
+    copy: "My strength is not only writing frontend code. I also understand how web pages move through content, design, CMS, QA, stakeholder review, and launch.",
+
     intro: {
-      title: "Core Positioning",
+      title: "What I bring",
       description:
-        "Web Experience Manager, Web Producer, and Frontend Web Professional focused on scalable web platforms, CMS workflows, campaign launches, accessible design systems, and AI-powered product ideas.",
+        "I bring a mix of frontend development, CMS/page builder experience, web production, accessibility, and cross-functional delivery. This helps teams ship pages that are clean, accurate, responsive, and easier to maintain.",
     },
+
     groups: [
       {
-        title: "Web Experience",
+        title: "Web Production",
         items: [
-          "Web Production",
-          "Campaign Pages",
           "Landing Pages",
-          "Page Builder Workflows",
-          "Preview / Stage Reviews",
+          "Campaign Pages",
+          "Content Updates",
+          "Preview Reviews",
+          "Stage Reviews",
           "Launch Support",
         ],
       },
       {
-        title: "Frontend & UI",
+        title: "Frontend UI",
         items: [
-          "Responsive UI",
-          "Component-based Layouts",
-          "Modern JavaScript",
-          "Design Systems",
-          "Accessibility",
-          "Performance Optimization",
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "React",
+          "Responsive Layouts",
+          "Component-based UI",
         ],
       },
       {
-        title: "CMS / Content Operations",
+        title: "CMS & Page Builder",
         items: [
           "CMS Updates",
+          "Reusable Sections",
           "Content QA",
-          "Taxonomy-driven Content",
-          "Reusable Modules",
-          "Redirects / Anchors",
-          "Publishing Governance",
+          "Images & Links",
+          "Anchors / Redirects",
+          "Publishing Workflows",
         ],
       },
       {
-        title: "Collaboration & Delivery",
+        title: "Quality & Collaboration",
         items: [
-          "Stakeholder Communication",
+          "Accessibility Checks",
+          "Cross-browser QA",
+          "Stakeholder Feedback",
           "Requirement Clarification",
-          "Cross-functional Delivery",
-          "QA Coordination",
-          "Agile Workflow",
           "Documentation",
+          "Agile Delivery",
         ],
       },
     ],
@@ -257,56 +278,68 @@ export const portfolioContent = {
 
   ai: {
     kicker: "AI Product Direction",
-    title: "AI tools are your differentiator.",
-    copy: "This section shows future-facing thinking around AI-enabled workflows, prompt-to-interface generation, CMS automation, and creator/productivity tools.",
+    title: "Exploring practical AI for web and content workflows.",
+    copy: "I am interested in using AI to make web production faster and smarter — from generating UI ideas and page structures to helping teams create content, components, and developer-ready outputs.",
+
     actions: [
-      { label: "Discuss AI Projects →", href: "#contact", variant: "primary" },
-      { label: "See Web Work", href: "#work", variant: "ghost" },
+      {
+        label: "Discuss AI Projects →",
+        href: "#contact",
+        variant: "primary",
+      },
+      {
+        label: "See Web Work",
+        href: "#work",
+        variant: "ghost",
+      },
     ],
+
     promptLines: [
-      "create: AI UI Builder",
-      "input: user prompt + brand direction",
-      "output: wireframes, design system, components, exportable code",
-      "stack: React · Next.js · AI APIs · CMS-ready structure",
-      "status: concept → MVP planning",
+      "idea: AI-assisted UI and page builder",
+      "input: prompt, brand direction, and page goal",
+      "output: layout, sections, content ideas, and reusable components",
+      "focus: websites, CMS pages, and developer-ready handoff",
+      "status: concept and MVP planning",
     ],
   },
 
   timeline: {
     kicker: "Experience",
-    title: "A modern timeline, not a heavy resume dump.",
+    title: "Experience across frontend, CMS, and web delivery.",
+
     items: [
       {
         time: "Recent",
         title: "Web Experience / Frontend Web Professional",
         description:
-          "Focused on enterprise web experiences, CMS updates, page builder workflows, responsive UI, accessibility, quality reviews, and launch support.",
+          "Focused on enterprise web pages, CMS updates, page builder workflows, responsive UI, accessibility, QA reviews, and launch support.",
       },
       {
-        time: "Enterprise Web",
-        title: "Web Producer / Web Experience Manager",
+        time: "Web Production",
+        title: "Web Producer / Web Experience Work",
         description:
-          "Managed request intake, page updates, content alignment, preview and staging reviews, stakeholder feedback, launch readiness, and post-launch fixes.",
+          "Supported page requests, content updates, design alignment, preview reviews, stakeholder feedback, and production readiness.",
       },
       {
         time: "Marketing WebOps",
-        title: "Web Production & Campaign Delivery",
+        title: "Campaign & Landing Page Delivery",
         description:
-          "Supported landing pages, campaign calendars, CMS migrations, content updates, QA coordination, and cross-functional publishing workflows.",
+          "Worked on landing pages, campaign updates, CMS workflows, content fixes, QA coordination, and publishing support.",
       },
       {
-        time: "UI Foundation",
-        title: "Frontend UI & Digital Experience",
+        time: "Frontend Foundation",
+        title: "UI Development & Digital Experience",
         description:
-          "Built responsive web experiences, prototypes, microsites, accessibility improvements, UX enhancements, and reusable interface patterns.",
+          "Built responsive interfaces, reusable UI patterns, accessibility improvements, prototypes, and web experiences across different platforms.",
       },
     ],
   },
 
   contact: {
     kicker: "Contact",
-    title: "Let’s build something useful.",
-    copy: "Open to Web Experience Manager, Web Producer, CMS, WebOps, frontend UI, page builder, digital experience, and AI-enabled product opportunities.",
+    title: "Let’s build better web experiences.",
+    copy: "I’m open to roles and projects around Web Experience, Web Production, CMS, WebOps, Frontend UI, Page Builder workflows, and AI-assisted digital products.",
+
     actions: [
       {
         label: "Email Me",
@@ -315,7 +348,7 @@ export const portfolioContent = {
       },
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/manishchawla09/",
+        href: "https://www.linkedin.com/",
         variant: "ghost",
         external: true,
       },
@@ -323,7 +356,7 @@ export const portfolioContent = {
   },
 
   footer: {
-    left: "",
+    left: "Built with clarity, speed, and accessibility in mind.",
     right: "Web Experience · CMS · WebOps · AI Workflows",
   },
 };
