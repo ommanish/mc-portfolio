@@ -356,7 +356,7 @@ export const portfolioContent = {
   },
 
   footer: {
-    left: "Built with clarity, speed, and accessibility in mind.",
+    left: "",
     right: "Web Experience · CMS · WebOps · AI Workflows",
   },
 };
