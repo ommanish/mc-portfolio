@@ -1,22 +1,30 @@
 import { portfolioContent } from "../content/portfolioContent";
 
-export default function Hero() {
+export default function Hero({ audienceProfile }) {
   const { hero, site } = portfolioContent;
+  const adaptive = audienceProfile || {};
+  const headlineLines = adaptive.headlineLines
+    ? adaptive.headlineLines.map((text, index) => ({ text, gradient: index === 1 }))
+    : hero.headlineLines;
+  const actions = adaptive.primaryAction
+    ? [
+        { ...adaptive.primaryAction, variant: "primary" },
+        ...hero.actions.filter((action) => action.variant !== "primary"),
+      ]
+    : hero.actions;
 
   return (
     <section className="hero" aria-label="Hero">
       <div className="hero-content">
         <div className="eyebrow">
           <span className="pulse" />
-          {hero.eyebrow}
+          {adaptive.eyebrow || hero.eyebrow}
         </div>
 
         <h1 className="hero-title">
-          {hero.headlineLines.map((line) => (
+          {headlineLines.map((line) => (
             <span
-              className={
-                line.gradient ? "headline-line gradient-text" : "headline-line"
-              }
+              className={line.gradient ? "headline-line gradient-text" : "headline-line"}
               key={line.text}
             >
               {line.text}
@@ -24,10 +32,10 @@ export default function Hero() {
           ))}
         </h1>
 
-        <p className="hero-copy">{hero.description}</p>
+        <p className="hero-copy">{adaptive.description || hero.description}</p>
 
         <div className="hero-actions">
-          {hero.actions.map((action) => (
+          {actions.map((action) => (
             <a
               className={`btn ${action.variant === "primary" ? "btn-primary" : "btn-ghost"}`}
               href={action.href}

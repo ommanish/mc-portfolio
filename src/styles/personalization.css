@@ -1,0 +1,103 @@
+.personalization {
+  margin: 42px 0 18px;
+  padding: clamp(22px, 4vw, 36px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.personalization h2 {
+  margin: 6px 0 10px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.personalization p,
+.intent-search label {
+  color: var(--muted);
+}
+
+.personalization-controls,
+.intent-search {
+  display: grid;
+  gap: 14px;
+}
+
+.audience-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.audience-chip,
+.reset-personalization {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card-soft);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 750;
+  padding: 10px 14px;
+}
+
+.audience-chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.intent-search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.intent-search input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 16px;
+  color: var(--text);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.intent-search input:focus-visible,
+.audience-chip:focus-visible,
+.reset-personalization:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.reset-personalization {
+  justify-self: start;
+  background: transparent;
+}
+
+@media (max-width: 820px) {
+  .personalization {
+    grid-template-columns: 1fr;
+  }
+
+  .intent-search-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
