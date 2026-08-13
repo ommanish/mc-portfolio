@@ -36,7 +36,18 @@ jobs:
       - name: Test personalization logic
         run: node --test src/lib/personalization.test.js
 
+      - name: Validate production configuration
+        env:
+          VITE_PORTFOLIO_API_BASE: ${{ vars.VITE_PORTFOLIO_API_BASE }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
+        run: |
+          test -n "$VITE_PORTFOLIO_API_BASE" || { echo "VITE_PORTFOLIO_API_BASE is missing"; exit 1; }
+          test -n "$VITE_TURNSTILE_SITE_KEY" || { echo "VITE_TURNSTILE_SITE_KEY is missing"; exit 1; }
+
       - name: Build production files
+        env:
+          VITE_PORTFOLIO_API_BASE: ${{ vars.VITE_PORTFOLIO_API_BASE }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
         run: npm run build
 
       - name: Upload GitHub Pages artifact
