@@ -2,21 +2,21 @@ export const AUDIENCE_PROFILES = {
   general: {
     key: "general",
     label: "General view",
-    eyebrow: "Web Experience · AI · Frontend leadership",
-    headlineLines: ["Web + AI leader helping teams", "build better digital experiences."],
+    eyebrow: "17+ years · Enterprise Web · Frontend · CMS · AI",
+    headlineLines: ["I make complex web delivery", "clearer, stronger, and easier to ship."],
     description:
-      "I’m Manish Chawla, a web experience and frontend leader with 17+ years of experience across enterprise websites, CMS platforms, accessibility, launch workflows, modern UI systems, and practical AI-assisted delivery.",
-    primaryAction: { label: "Explore my work →", href: "#work" },
+      "I’m Manish Chawla, a Web Experience Manager and frontend professional with 17+ years across enterprise websites, CMS and page-builder platforms, accessibility, design systems, QA, and launch workflows. I work where design, content, engineering, and business teams need to move together.",
+    primaryAction: { label: "See how I work →", href: "#work" },
     sectionOrder: ["work", "services", "web-experience", "cases", "skills", "ai", "timeline", "contact"],
   },
   recruiter: {
     key: "recruiter",
     label: "Recruiter / talent",
     eyebrow: "17+ years · Web Experience · Frontend · Enterprise delivery",
-    headlineLines: ["A senior web professional", "who can bridge delivery and engineering."],
+    headlineLines: ["A senior web professional", "who can move between delivery and code."],
     description:
-      "Explore Manish’s experience, core skills, enterprise delivery background, accessibility focus, and the roles where his web production and frontend depth are strongest.",
-    primaryAction: { label: "Review experience →", href: "#timeline" },
+      "My background combines hands-on frontend depth with the ownership needed to move enterprise web work from requirements through CMS implementation, QA, stakeholder review, and launch.",
+    primaryAction: { label: "Review my experience →", href: "#timeline" },
     sectionOrder: ["timeline", "skills", "web-experience", "cases", "work", "services", "ai", "contact"],
   },
   engineering: {
@@ -25,7 +25,7 @@ export const AUDIENCE_PROFILES = {
     eyebrow: "Frontend architecture · React · Accessibility · Performance",
     headlineLines: ["Frontend depth with", "enterprise delivery discipline."],
     description:
-      "See the technical side of Manish’s work: component-based UI, responsive implementation, accessibility, maintainability, QA, and collaboration across complex web platforms.",
+      "My technical work is grounded in real delivery: component-based UI, responsive implementation, accessibility, maintainability, QA, and the practical tradeoffs that come with large web platforms.",
     primaryAction: { label: "See technical work →", href: "#cases" },
     sectionOrder: ["cases", "skills", "work", "web-experience", "services", "ai", "timeline", "contact"],
   },
@@ -33,9 +33,9 @@ export const AUDIENCE_PROFILES = {
     key: "marketing",
     label: "Marketing / web leader",
     eyebrow: "Web Experience · CMS · WebOps · Launch readiness",
-    headlineLines: ["Turning content and design", "into launch-ready web experiences."],
+    headlineLines: ["From brief to launch,", "I make enterprise web delivery easier to run."],
     description:
-      "See how Manish connects content, design, CMS, QA, accessibility, stakeholder feedback, and frontend implementation to help enterprise web teams ship confidently.",
+      "I connect content, design, CMS, frontend implementation, accessibility, QA, and stakeholder review so enterprise web teams can move quickly without losing control of quality.",
     primaryAction: { label: "Explore web delivery →", href: "#web-experience" },
     sectionOrder: ["web-experience", "work", "services", "cases", "timeline", "skills", "ai", "contact"],
   },
@@ -43,9 +43,9 @@ export const AUDIENCE_PROFILES = {
     key: "client",
     label: "Client / consulting",
     eyebrow: "Web delivery · UI modernization · CMS · Accessibility",
-    headlineLines: ["Practical web expertise", "focused on useful outcomes."],
+    headlineLines: ["Bring me the web problem.", "I’ll help make the path to launch clear."],
     description:
-      "Explore the problems Manish can help solve across web experience, UI implementation, CMS/page-builder delivery, accessibility, QA, and AI-assisted workflows.",
+      "I help turn unclear or fragmented web work into a practical delivery path across UI implementation, CMS and page builders, accessibility, QA, launch readiness, and AI-assisted workflows.",
     primaryAction: { label: "How I can help →", href: "#services" },
     sectionOrder: ["services", "work", "cases", "web-experience", "skills", "ai", "timeline", "contact"],
   },
@@ -53,9 +53,9 @@ export const AUDIENCE_PROFILES = {
     key: "ai",
     label: "AI / automation",
     eyebrow: "AI-assisted web workflows · UI systems · Automation",
-    headlineLines: ["Exploring practical AI", "for better digital delivery."],
+    headlineLines: ["Practical AI for web teams,", "grounded in real delivery."],
     description:
-      "See how Manish is applying AI thinking to web production, UI generation, content workflows, reusable components, and developer-ready handoff without losing human review and quality control.",
+      "My AI focus is practical: use it to reduce repetitive work, improve content and UI workflows, strengthen developer handoff, and personalize experiences while keeping human review in control of facts, quality, accessibility, and security.",
     primaryAction: { label: "Explore AI direction →", href: "#ai" },
     sectionOrder: ["ai", "services", "cases", "skills", "work", "web-experience", "timeline", "contact"],
   },

@@ -9,14 +9,20 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run src/App.test.jsx"
   },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.4",
     "@vitejs/plugin-react": "latest",
-    "vite": "latest"
+    "jsdom": "^30.0.1",
+    "vite": "latest",
+    "vitest": "^4.1.10"
   }
 }

@@ -1,99 +1,130 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { getAudienceProfile, inferAudience } from '../lib/personalization';
-import { collectSafeSignals, localDecision, requestAiDecision, shouldRequestAi } from '../lib/hybridPersonalization';
+import { useMemo, useState } from "react";
+import { getAudienceProfile } from "../lib/personalization";
+import { collectSafeSignals, localDecision, requestAiDecision } from "../lib/hybridPersonalization";
 
-const STORAGE_KEY = 'mc-portfolio-audience';
-const API_BASE = import.meta.env.VITE_PORTFOLIO_API_BASE || '';
+export const AUDIENCE_STORAGE_KEY = "mc-portfolio-audience";
+export const EXPLORE_SESSION_KEY = "mc-portfolio-explore-general";
+const DEFAULT_API_BASE = import.meta.env.VITE_PORTFOLIO_API_BASE || "";
 
-function readInitialAudience() {
-  if (typeof window === 'undefined') return 'general';
-  try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored) return getAudienceProfile(stored).key;
-  } catch {}
-  return inferAudience({ search: window.location.search, referrer: document.referrer });
+const safeGet = (storage, key) => {
+  try { return storage?.getItem?.(key) || ""; } catch { return ""; }
+};
+const safeSet = (storage, key, value) => {
+  try { storage?.setItem?.(key, value); } catch {}
+};
+const safeRemove = (storage, key) => {
+  try { storage?.removeItem?.(key); } catch {}
+};
+
+function initialState(win = globalThis.window) {
+  if (!win) return { audienceKey: "general", source: "welcome", stage: "welcome", decision: null };
+  const saved = safeGet(win.localStorage, AUDIENCE_STORAGE_KEY);
+  if (saved) {
+    const profile = getAudienceProfile(saved);
+    if (profile.key !== "general" || saved === "general") {
+      return { audienceKey: profile.key, source: "selected", stage: "portfolio", decision: null };
+    }
+  }
+  if (safeGet(win.sessionStorage, EXPLORE_SESSION_KEY) === "1") {
+    return { audienceKey: "general", source: "explore", stage: "portfolio", decision: null };
+  }
+  return { audienceKey: "general", source: "welcome", stage: "welcome", decision: null };
 }
 
-export default function usePersonalization() {
-  const [audienceKey, setAudienceKey] = useState(readInitialAudience);
-  const [source, setSource] = useState('inferred');
-  const [aiDecision, setAiDecision] = useState(null);
-  const viewedSections = useRef(new Set());
-  const behaviorRefined = useRef(false);
-  const manualSelection = useRef(false);
-
-  useEffect(() => {
-    try {
-      manualSelection.current = Boolean(window.localStorage.getItem(STORAGE_KEY));
-    } catch {
-      manualSelection.current = false;
-    }
-  }, []);
+export default function usePersonalization({
+  apiBase = DEFAULT_API_BASE,
+  fetchImpl = globalThis.fetch,
+  timeoutMs = 2000,
+  win = globalThis.window,
+  doc = globalThis.document,
+} = {}) {
+  const initial = useMemo(() => initialState(win), [win]);
+  const [audienceKey, setAudienceKey] = useState(initial.audienceKey);
+  const [source, setSource] = useState(initial.source);
+  const [stage, setStage] = useState(initial.stage);
+  const [decision, setDecision] = useState(initial.decision);
 
   const baseProfile = useMemo(() => getAudienceProfile(audienceKey), [audienceKey]);
   const profile = useMemo(() => {
-    if (!aiDecision || aiDecision.confidence < 0.55) return baseProfile;
-    const aiBase = getAudienceProfile(aiDecision.intent);
-    return { ...aiBase, sectionOrder: aiDecision.sectionOrder };
-  }, [baseProfile, aiDecision]);
+    if (!decision || decision.confidence < 0.55) return baseProfile;
+    const selected = getAudienceProfile(decision.intent);
+    return { ...selected, sectionOrder: [...decision.sectionOrder] };
+  }, [baseProfile, decision]);
 
-  const runAi = async (query = '', { force = false } = {}) => {
-    if (!API_BASE || !shouldRequestAi({ manualSelection: manualSelection.current, force })) return null;
-    const signals = collectSafeSignals({ query, viewedSections: [...viewedSections.current] });
-    try {
-      const result = await requestAiDecision(API_BASE, signals);
-      if (result && result.confidence >= 0.55) {
-        setAiDecision(result);
-        setAudienceKey(result.intent);
-        setSource('ai');
-      }
-      return result;
-    } catch {
-      return null;
-    }
+  const selectAudience = (key) => {
+    const normalized = getAudienceProfile(key).key;
+    setAudienceKey(normalized);
+    setDecision(null);
+    setSource("selected");
+    setStage("portfolio");
+    safeSet(win?.localStorage, AUDIENCE_STORAGE_KEY, normalized);
+    safeRemove(win?.sessionStorage, EXPLORE_SESSION_KEY);
   };
 
-  useEffect(() => {
-    if (!API_BASE) return undefined;
-    const timer = window.setTimeout(() => runAi(), 400);
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.target.id) viewedSections.current.add(entry.target.id);
-      });
-      if (!behaviorRefined.current && viewedSections.current.size >= 2) {
-        behaviorRefined.current = true;
-        runAi();
-      }
-    }, { threshold: 0.35 });
-    document.querySelectorAll('main section[id]').forEach((node) => observer.observe(node));
-    return () => { window.clearTimeout(timer); observer.disconnect(); };
-  }, []);
-
-  const selectAudience = (nextKey) => {
-    const normalized = getAudienceProfile(nextKey).key;
-    manualSelection.current = true;
-    setAudienceKey(normalized);
-    setAiDecision(null);
-    setSource('selected');
-    try { window.localStorage.setItem(STORAGE_KEY, normalized); } catch {}
+  const exploreNormally = () => {
+    setAudienceKey("general");
+    setDecision(null);
+    setSource("explore");
+    setStage("portfolio");
+    safeSet(win?.sessionStorage, EXPLORE_SESSION_KEY, "1");
   };
 
   const searchIntent = async (query) => {
-    manualSelection.current = false;
-    const fallback = localDecision({ query });
+    const text = String(query || "").trim();
+    if (!text) return null;
+
+    const fallback = localDecision({
+      search: win?.location?.search || "",
+      referrer: doc?.referrer || "",
+      query: text,
+    });
+
     setAudienceKey(fallback.intent);
-    setAiDecision(fallback);
-    setSource('search');
-    await runAi(query, { force: true });
+    setDecision(fallback);
+    setSource("search");
+    setStage("personalizing");
+
+    if (!apiBase || !fetchImpl) {
+      setStage("portfolio");
+      return fallback;
+    }
+
+    const signals = collectSafeSignals({ win, doc, query: text, viewedSections: [] });
+    let timer;
+    const timeout = new Promise((resolve) => {
+      timer = setTimeout(() => resolve(null), timeoutMs);
+    });
+
+    let result = null;
+    try {
+      result = await Promise.race([
+        requestAiDecision(apiBase, signals, fetchImpl),
+        timeout,
+      ]);
+    } catch {
+      result = null;
+    } finally {
+      clearTimeout(timer);
+    }
+
+    if (result && result.confidence >= 0.55) {
+      setAudienceKey(result.intent);
+      setDecision(result);
+      setSource("ai");
+    }
+
+    setStage("portfolio");
+    return result || fallback;
   };
 
   const resetAudience = () => {
-    manualSelection.current = false;
-    setAudienceKey('general');
-    setAiDecision(null);
-    setSource('reset');
-    try { window.localStorage.removeItem(STORAGE_KEY); } catch {}
+    safeRemove(win?.localStorage, AUDIENCE_STORAGE_KEY);
+    safeRemove(win?.sessionStorage, EXPLORE_SESSION_KEY);
+    setAudienceKey("general");
+    setDecision(null);
+    setSource("welcome");
+    setStage("welcome");
   };
 
-  return { profile, source, selectAudience, searchIntent, resetAudience };
+  return { profile, source, stage, selectAudience, exploreNormally, searchIntent, resetAudience };
 }

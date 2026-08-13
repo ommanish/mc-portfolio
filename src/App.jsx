@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import AISection from "./components/AISection";
 import CaseStudies from "./components/CaseStudies";
 import Contact from "./components/Contact";
@@ -8,32 +8,55 @@ import Hero from "./components/Hero";
 import HowICanHelp from "./components/HowICanHelp";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
-import PersonalizationBar from "./components/PersonalizationBar";
+import PersonalizingTransition from "./components/PersonalizingTransition";
 import ScrollProgress from "./components/ScrollProgress";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
+import ViewSelector from "./components/ViewSelector";
 import WebExperience from "./components/WebExperience";
+import WelcomeExperience from "./components/WelcomeExperience";
 import usePersonalization from "./hooks/usePersonalization";
 import "./styles/global.css";
 import "./styles/personalization.css";
 import "./styles/contact.css";
+import "./styles/redesign.css";
 
 export default function App() {
-  const [isLight, setIsLight] = useState(true);
-  const { profile, source, selectAudience, searchIntent, resetAudience } = usePersonalization();
+  const [isLight, setIsLight] = useState(false);
+  const [selectorOpen, setSelectorOpen] = useState(false);
+  const { profile, source, stage, selectAudience, exploreNormally, searchIntent, resetAudience } = usePersonalization();
+  const closeSelector = useCallback(() => setSelectorOpen(false), []);
+
   const sections = {
     work: <FeaturedWork key="work" />,
-    services: <HowICanHelp key="services" />, "web-experience": <WebExperience key="web-experience" />,
-    cases: <CaseStudies key="cases" />, skills: <Skills key="skills" />, ai: <AISection key="ai" />,
-    timeline: <Timeline key="timeline" />, contact: <Contact key="contact" />,
+    services: <HowICanHelp key="services" />,
+    "web-experience": <WebExperience key="web-experience" />,
+    cases: <CaseStudies key="cases" />,
+    skills: <Skills key="skills" />,
+    ai: <AISection key="ai" />,
+    timeline: <Timeline key="timeline" />,
+    contact: <Contact key="contact" />,
   };
-  return <div className={isLight ? "app light" : "app"} id="top">
-    <Loader /><ScrollProgress />
-    <Navbar isLight={isLight} onThemeToggle={() => setIsLight((value) => !value)} />
-    <main className="site-shell">
-      <PersonalizationBar profile={profile} source={source} onSelectAudience={selectAudience} onSearchIntent={searchIntent} onReset={resetAudience} />
-      <Hero audienceProfile={profile} />
-      {profile.sectionOrder.map((sectionKey) => sections[sectionKey])}
-    </main><Footer />
-  </div>;
+  const portfolioVisible = stage === "portfolio";
+
+  return (
+    <div className={isLight ? "app light premium-app" : "app premium-app"} id="top">
+      <Loader />
+      {portfolioVisible && <ScrollProgress />}
+      <Navbar isLight={isLight} onThemeToggle={() => setIsLight((v) => !v)} showNavigation={portfolioVisible} />
+
+      <main className={`site-shell experience-stage experience-stage-${stage}`}>
+        {stage === "welcome" && <WelcomeExperience onSelectAudience={selectAudience} onSearchIntent={searchIntent} onExploreNormally={exploreNormally} />}
+        {stage === "personalizing" && <PersonalizingTransition />}
+        {portfolioVisible && <>
+          <Hero audienceProfile={profile} source={source} onAdjust={() => setSelectorOpen(true)} />
+          {profile.sectionOrder.map((key) => sections[key])}
+        </>}
+      </main>
+
+      {portfolioVisible && <Footer />}
+      <ViewSelector open={selectorOpen && portfolioVisible} onClose={closeSelector}
+        onSelectAudience={selectAudience} onSearchIntent={searchIntent} onReset={resetAudience} />
+    </div>
+  );
 }
