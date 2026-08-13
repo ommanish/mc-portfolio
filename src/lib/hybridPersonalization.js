@@ -3,16 +3,34 @@ import { getAudienceProfile, inferAudience, getDevicePreferences } from './perso
 const ALLOWED_SECTIONS = ['work','services','web-experience','cases','skills','ai','timeline','contact'];
 const ALLOWED_AUDIENCES = ['general','recruiter','engineering','marketing','client','ai'];
 
+function generateSecureSessionId(cryptoObj) {
+  if (typeof cryptoObj?.randomUUID === 'function') {
+    return cryptoObj.randomUUID();
+  }
+
+  if (typeof cryptoObj?.getRandomValues === 'function') {
+    const bytes = new Uint8Array(16);
+    cryptoObj.getRandomValues(bytes);
+    const value = Array.from(
+      bytes,
+      (byte) => byte.toString(16).padStart(2, '0')
+    ).join('');
+    return `session-${value}`;
+  }
+
+  return `session-${Date.now()}`;
+}
+
 export function createSessionId(storage = globalThis.sessionStorage, cryptoObj = globalThis.crypto) {
   const key = 'mc-portfolio-session-id';
   try {
     const existing = storage?.getItem?.(key);
     if (existing) return existing;
-    const next = cryptoObj?.randomUUID?.() || `session-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    const next = generateSecureSessionId(cryptoObj);
     storage?.setItem?.(key, next);
     return next;
   } catch {
-    return cryptoObj?.randomUUID?.() || `session-${Date.now()}`;
+    return generateSecureSessionId(cryptoObj);
   }
 }
 
