@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { sanitizeAiDecision, localDecision, shouldRequestAi } from './hybridPersonalization.js';
+import { createSessionId, sanitizeAiDecision, localDecision, shouldRequestAi } from './hybridPersonalization.js';
 
 test('AI decision cannot inject unknown sections or audience keys', () => {
   const result = sanitizeAiDecision({ intent: 'admin', confidence: 4, sectionOrder: ['cases','evil','contact'] });
@@ -25,4 +25,34 @@ test('local fallback still maps explicit technical intent', () => {
 test('manual audience choice blocks automatic AI until explicitly forced', () => {
   assert.equal(shouldRequestAi({ manualSelection: true }), false);
   assert.equal(shouldRequestAi({ manualSelection: true, force: true }), true);
+});
+
+
+test('session ID fallback uses cryptographic random values', () => {
+  let randomValuesCalls = 0;
+
+  const cryptoObj = {
+    getRandomValues(buffer) {
+      randomValuesCalls += 1;
+      for (let i = 0; i < buffer.length; i += 1) {
+        buffer[i] = i + 1;
+      }
+      return buffer;
+    },
+  };
+
+  const storage = {
+    getItem() {
+      return null;
+    },
+    setItem() {},
+  };
+
+  const id = createSessionId(storage, cryptoObj);
+
+  assert.equal(randomValuesCalls, 1);
+  assert.equal(
+    id,
+    'session-0102030405060708090a0b0c0d0e0f10'
+  );
 });
