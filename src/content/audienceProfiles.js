@@ -2,12 +2,12 @@ export const AUDIENCE_PROFILES = {
   general: {
     key: "general",
     label: "General view",
-    eyebrow: "Web Experience · Frontend UI · AI-enabled delivery",
-    headlineLines: ["Building elegant, scalable", "enterprise web experiences."],
+    eyebrow: "Web Experience · AI · Frontend leadership",
+    headlineLines: ["Web + AI leader helping teams", "build better digital experiences."],
     description:
-      "I’m Manish Chawla, a Web Experience Manager and frontend professional with 17+ years of experience across enterprise websites, CMS platforms, accessibility, launch workflows, and modern UI systems.",
-    primaryAction: { label: "View Web Experience →", href: "#web-experience" },
-    sectionOrder: ["work", "web-experience", "cases", "skills", "ai", "timeline", "contact"],
+      "I’m Manish Chawla, a web experience and frontend leader with 17+ years of experience across enterprise websites, CMS platforms, accessibility, launch workflows, modern UI systems, and practical AI-assisted delivery.",
+    primaryAction: { label: "Explore my work →", href: "#work" },
+    sectionOrder: ["work", "services", "web-experience", "cases", "skills", "ai", "timeline", "contact"],
   },
   recruiter: {
     key: "recruiter",
@@ -17,7 +17,7 @@ export const AUDIENCE_PROFILES = {
     description:
       "Explore Manish’s experience, core skills, enterprise delivery background, accessibility focus, and the roles where his web production and frontend depth are strongest.",
     primaryAction: { label: "Review experience →", href: "#timeline" },
-    sectionOrder: ["timeline", "skills", "web-experience", "cases", "work", "ai", "contact"],
+    sectionOrder: ["timeline", "skills", "web-experience", "cases", "work", "services", "ai", "contact"],
   },
   engineering: {
     key: "engineering",
@@ -27,7 +27,7 @@ export const AUDIENCE_PROFILES = {
     description:
       "See the technical side of Manish’s work: component-based UI, responsive implementation, accessibility, maintainability, QA, and collaboration across complex web platforms.",
     primaryAction: { label: "See technical work →", href: "#cases" },
-    sectionOrder: ["cases", "skills", "work", "web-experience", "ai", "timeline", "contact"],
+    sectionOrder: ["cases", "skills", "work", "web-experience", "services", "ai", "timeline", "contact"],
   },
   marketing: {
     key: "marketing",
@@ -37,7 +37,7 @@ export const AUDIENCE_PROFILES = {
     description:
       "See how Manish connects content, design, CMS, QA, accessibility, stakeholder feedback, and frontend implementation to help enterprise web teams ship confidently.",
     primaryAction: { label: "Explore web delivery →", href: "#web-experience" },
-    sectionOrder: ["web-experience", "work", "cases", "timeline", "skills", "ai", "contact"],
+    sectionOrder: ["web-experience", "work", "services", "cases", "timeline", "skills", "ai", "contact"],
   },
   client: {
     key: "client",
@@ -46,8 +46,8 @@ export const AUDIENCE_PROFILES = {
     headlineLines: ["Practical web expertise", "focused on useful outcomes."],
     description:
       "Explore the problems Manish can help solve across web experience, UI implementation, CMS/page-builder delivery, accessibility, QA, and AI-assisted workflows.",
-    primaryAction: { label: "See relevant work →", href: "#work" },
-    sectionOrder: ["work", "cases", "web-experience", "skills", "ai", "timeline", "contact"],
+    primaryAction: { label: "How I can help →", href: "#services" },
+    sectionOrder: ["services", "work", "cases", "web-experience", "skills", "ai", "timeline", "contact"],
   },
   ai: {
     key: "ai",
@@ -57,7 +57,7 @@ export const AUDIENCE_PROFILES = {
     description:
       "See how Manish is applying AI thinking to web production, UI generation, content workflows, reusable components, and developer-ready handoff without losing human review and quality control.",
     primaryAction: { label: "Explore AI direction →", href: "#ai" },
-    sectionOrder: ["ai", "cases", "skills", "work", "web-experience", "timeline", "contact"],
+    sectionOrder: ["ai", "services", "cases", "skills", "work", "web-experience", "timeline", "contact"],
   },
 };
 

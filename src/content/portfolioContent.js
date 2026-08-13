@@ -2,7 +2,6 @@ export const portfolioContent = {
   site: {
     name: "Manish Chawla",
     initials: "MC",
-    email: "om.manishchawla@gmail.com",
     location: "San Jose, CA",
     timezone: "PST",
     resumeUrl: "/resume.pdf",
@@ -12,6 +11,7 @@ export const portfolioContent = {
 
   nav: [
     { label: "Work", href: "#work" },
+    { label: "How I Can Help", href: "#services" },
     { label: "Web Experience", href: "#web-experience" },
     { label: "Case Studies", href: "#cases" },
     { label: "Skills", href: "#skills" },
@@ -343,12 +343,12 @@ export const portfolioContent = {
     actions: [
       {
         label: "Email Me",
-        href: "mailto:om.manishchawla@gmail.com",
+        href: "#contact",
         variant: "primary",
       },
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/",
+        href: "https://www.linkedin.com/in/manishchawla09/",
         variant: "ghost",
         external: true,
       },
