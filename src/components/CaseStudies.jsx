@@ -3,10 +3,10 @@ import SectionHeader from "./SectionHeader";
 
 const outcome = (labels) => (labels.find((x) => x.startsWith("Outcome:")) || "Outcome: Quality-focused delivery").replace("Outcome:", "").trim();
 
-export default function CaseStudies() {
+export default function CaseStudies({ embedded = false }) {
   const content = portfolioContent.caseStudies;
   return (
-    <section id="cases" className="editorial-section">
+    <section id={embedded ? undefined : "cases"} className="editorial-section">
       <SectionHeader kicker={content.kicker} title="How I think through real web delivery." copy={content.copy} />
       <div className="case-narratives">
         {content.items.map((item, index) => (

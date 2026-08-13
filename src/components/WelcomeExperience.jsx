@@ -100,7 +100,7 @@ export default function WelcomeExperience({ onSelectAudience, onSearchIntent, on
           Explore the full portfolio <span aria-hidden="true">→</span>
         </button>
         <p>
-          The five lenses above use predefined portfolio rules — not AI. If you use the AI prompt, AI can only select and prioritize verified content already in this portfolio. It does not read your browsing history.
+          The five lenses above use transparent preset relevance rules — not AI. If you use the AI prompt, AI only recommends existing verified portfolio content. It does not rewrite the portfolio or read your browsing history.
         </p>
       </div>
     </section>

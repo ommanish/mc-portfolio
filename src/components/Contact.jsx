@@ -10,7 +10,7 @@ const COPY = {
   other: "Tell me what you have in mind.",
 };
 
-export default function Contact({ apiBase = DEFAULT_API_BASE, turnstileSiteKey = DEFAULT_SITE_KEY, fetchImpl = globalThis.fetch }) {
+export default function Contact({ embedded = false, apiBase = DEFAULT_API_BASE, turnstileSiteKey = DEFAULT_SITE_KEY, fetchImpl = globalThis.fetch }) {
   const startedAt = useRef(Date.now());
   const container = useRef(null);
   const widget = useRef(null);
@@ -80,7 +80,7 @@ export default function Contact({ apiBase = DEFAULT_API_BASE, turnstileSiteKey =
   };
 
   return (
-    <section id="contact" className="editorial-section contact-executive">
+    <section id={embedded ? undefined : "contact"} className="editorial-section contact-executive">
       <div className="premium-contact-card">
         <div className="contact-intro">
           <div className="section-kicker">Contact</div>

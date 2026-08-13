@@ -7,10 +7,10 @@ const FOCUS = [
   ["Responsive UI", "Accessibility", "Browser testing"],
 ];
 
-export default function FeaturedWork() {
+export default function FeaturedWork({ embedded = false }) {
   const content = portfolioContent.featuredWork;
   return (
-    <section id="work" className="editorial-section">
+    <section id={embedded ? undefined : "work"} className="editorial-section">
       <SectionHeader kicker={content.kicker} title={content.title} copy={content.copy} />
       <div className="editorial-work-list">
         {content.items.map((item, index) => (

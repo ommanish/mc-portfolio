@@ -9,10 +9,10 @@ const PIPELINE = [
   ["Production", "Ship only validated output that is useful and maintainable."],
 ];
 
-export default function AISection() {
+export default function AISection({ embedded = false }) {
   const content = portfolioContent.ai;
   return (
-    <section id="ai" className="editorial-section ai-executive-section">
+    <section id={embedded ? undefined : "ai"} className="editorial-section ai-executive-section">
       <SectionHeader kicker="AI in practice" title="I use AI where it improves the workflow — not where it weakens judgment." copy={content.copy} />
       <div className="ai-pipeline">
         {PIPELINE.map(([title, copy], index) => (

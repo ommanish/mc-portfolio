@@ -1,10 +1,10 @@
 import { portfolioContent } from "../content/portfolioContent";
 import SectionHeader from "./SectionHeader";
 
-export default function Skills() {
+export default function Skills({ embedded = false }) {
   const content = portfolioContent.skills;
   return (
-    <section id="skills" className="editorial-section">
+    <section id={embedded ? undefined : "skills"} className="editorial-section">
       <SectionHeader kicker={content.kicker} title={content.title} copy={content.copy} />
       <div className="skill-clusters">
         {content.groups.map((group, index) => (

@@ -1,4 +1,4 @@
-import { lazy, useState } from "react";
+import { lazy, useMemo, useState } from "react";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
@@ -7,6 +7,7 @@ import PersonalizingTransition from "./components/PersonalizingTransition";
 import ProgressiveSection from "./components/ProgressiveSection";
 import ScrollProgress from "./components/ScrollProgress";
 import WelcomeExperience from "./components/WelcomeExperience";
+import { CANONICAL_SECTION_ORDER, getRecommendedSections } from "./content/lensConfig";
 import usePersonalization from "./hooks/usePersonalization";
 import "./styles/global.css";
 import "./styles/personalization.css";
@@ -46,7 +47,6 @@ const SECTION_COMPONENTS = {
 
 export default function App() {
   const [isLight, setIsLight] = useState(false);
-
   const {
     profile,
     source,
@@ -58,6 +58,14 @@ export default function App() {
   } = usePersonalization();
 
   const portfolioVisible = stage === "portfolio";
+  const recommendedSections = useMemo(
+    () => getRecommendedSections(profile, source),
+    [profile, source]
+  );
+  const recommended = useMemo(
+    () => new Set(recommendedSections),
+    [recommendedSections]
+  );
 
   return (
     <div className={isLight ? "app light premium-app" : "app premium-app"} id="top">
@@ -68,6 +76,7 @@ export default function App() {
         isLight={isLight}
         onThemeToggle={() => setIsLight((value) => !value)}
         showNavigation={portfolioVisible}
+        recommendedSections={recommendedSections}
       />
 
       <main className={`site-shell experience-stage experience-stage-${stage}`}>
@@ -86,13 +95,15 @@ export default function App() {
             <Hero
               audienceProfile={profile}
               source={source}
+              recommendedSections={recommendedSections}
               onChangeLens={resetAudience}
             />
 
             <div className="portfolio-spine" aria-label="Portfolio chapters">
-              {profile.sectionOrder.map((key, index) => {
+              {CANONICAL_SECTION_ORDER.map((key, index) => {
                 const Section = SECTION_COMPONENTS[key];
-                if (!Section) return null;
+                const isRecommended = recommended.has(key);
+                const sectionProps = key === "services" ? { lensKey: profile.key } : {};
 
                 return (
                   <ProgressiveSection
@@ -100,9 +111,10 @@ export default function App() {
                     sectionId={key}
                     chapter={CHAPTERS[key]}
                     index={index}
-                    eager={index < 2}
+                    recommended={isRecommended}
+                    eager={index < 2 || isRecommended}
                   >
-                    <Section />
+                    <Section embedded {...sectionProps} />
                   </ProgressiveSection>
                 );
               })}

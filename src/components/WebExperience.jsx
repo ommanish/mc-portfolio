@@ -9,9 +9,9 @@ const STEPS = [
   ["Optimize", "Use post-launch feedback and real delivery lessons to improve the next update, component, or workflow."],
 ];
 
-export default function WebExperience() {
+export default function WebExperience({ embedded = false }) {
   return (
-    <section id="web-experience" className="editorial-section">
+    <section id={embedded ? undefined : "web-experience"} className="editorial-section">
       <SectionHeader kicker="Web Experience / Web Producer"
         title="A clear path from request to production."
         copy="Good web delivery is a chain of decisions, not a handoff. I help connect requirements, design, CMS constraints, frontend quality, review, and launch." />

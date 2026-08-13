@@ -16,6 +16,7 @@ export const portfolioContent = {
     { label: "Case Studies", href: "#cases" },
     { label: "Skills", href: "#skills" },
     { label: "AI Projects", href: "#ai" },
+    { label: "Experience", href: "#timeline" },
     { label: "Contact", href: "#contact" },
   ],
 

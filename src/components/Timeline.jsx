@@ -10,9 +10,9 @@ const EXPERIENCE = [
   ["Feb 2007 — Aug 2008","Classic Informatics — Web & UI Development","Early-career web and interface development work that established the frontend and digital design foundation for later enterprise roles."],
 ];
 
-export default function Timeline() {
+export default function Timeline({ embedded = false }) {
   return (
-    <section id="timeline" className="editorial-section timeline-executive">
+    <section id={embedded ? undefined : "timeline"} className="editorial-section timeline-executive">
       <SectionHeader kicker="Experience" title="17+ years of building, improving, and shipping digital experiences."
         copy="My career has moved from hands-on UI development to broader ownership of enterprise web delivery — without losing the technical foundation." />
       <div className="timeline-layout">
