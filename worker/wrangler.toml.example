@@ -1,0 +1,30 @@
+name = "mc-portfolio-api"
+main = "src/index.js"
+compatibility_date = "2026-08-12"
+
+[vars]
+ALLOWED_ORIGINS = "https://manishchawla.com,https://www.manishchawla.com,http://localhost:5173"
+TURNSTILE_HOSTNAME = "manishchawla.com"
+OPENAI_MODEL = "gpt-5-mini"
+
+# Use unique positive integer namespace IDs in your Cloudflare account.
+[[ratelimits]]
+name = "CONTACT_RATE_LIMITER"
+namespace_id = "1001"
+  [ratelimits.simple]
+  limit = 5
+  period = 60
+
+[[ratelimits]]
+name = "AI_RATE_LIMITER"
+namespace_id = "1002"
+  [ratelimits.simple]
+  limit = 12
+  period = 60
+
+# Configure these with `wrangler secret put`, never in this file:
+# OPENAI_API_KEY
+# TURNSTILE_SECRET_KEY
+# RESEND_API_KEY
+# CONTACT_TO_EMAIL
+# CONTACT_FROM_EMAIL
