@@ -1,4 +1,5 @@
 import SectionHeader from "./SectionHeader";
+import CareerCapabilityMap from "./CareerCapabilityMap";
 
 const EXPERIENCE = [
   ["Jul 2026 — Present","Salesforce — Web Experience Manager, Data 360","Focused on Data 360 web experience delivery across enterprise pages, CMS/page-builder workflows, frontend implementation, responsive design, accessibility, QA, and launch readiness."],
@@ -18,6 +19,8 @@ export default function Timeline({ embedded = false }) {
         title="17+ years of building, improving, and shipping digital experiences."
         copy="My career has moved from hands-on UI development to broader ownership of enterprise web delivery — without losing the technical foundation."
       />
+
+      <CareerCapabilityMap />
 
       <div className="timeline-layout">
         <aside className="timeline-anchor">

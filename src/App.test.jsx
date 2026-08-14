@@ -5,6 +5,8 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import App from "./App";
 import Contact from "./components/Contact";
+import CareerCapabilityMap from "./components/CareerCapabilityMap";
+import WebDeliveryInfographic from "./components/WebDeliveryInfographic";
 import Hero from "./components/Hero";
 import usePersonalization, { AUDIENCE_STORAGE_KEY, EXPLORE_SESSION_KEY } from "./hooks/usePersonalization";
 import { getAudienceProfile } from "./lib/personalization";
@@ -307,5 +309,26 @@ describe("Trust-first adaptive portfolio", () => {
     expect(screen.getByText("Feb 2024 — Jul 2026")).toBeInTheDocument();
     expect(screen.getByText("TechDemocracy — Senior UI Frontend Developer & Designer")).toBeInTheDocument();
   });
+
+  test("Web delivery infographic keeps the six verified delivery stages", () => {
+    render(<WebDeliveryInfographic />);
+
+    expect(screen.getByRole("figure",{name:/web delivery process infographic/i})).toBeInTheDocument();
+    expect(screen.getAllByTestId("delivery-infographic-step")).toHaveLength(6);
+    expect(screen.getByRole("heading",{name:"Strategy"})).toBeInTheDocument();
+    expect(screen.getByRole("heading",{name:"Optimize"})).toBeInTheDocument();
+  });
+
+  test("Career capability infographic shows four evidence-based capability stages", () => {
+    render(<CareerCapabilityMap />);
+
+    expect(screen.getByRole("figure",{name:/career capability evolution infographic/i})).toBeInTheDocument();
+    expect(screen.getAllByTestId("career-capability-stage")).toHaveLength(4);
+    expect(screen.getByRole("heading",{name:"UI & Frontend"})).toBeInTheDocument();
+    expect(screen.getByRole("heading",{name:"AI-assisted Delivery"})).toBeInTheDocument();
+    expect(screen.getByText("2007")).toBeInTheDocument();
+    expect(screen.getByText("NOW")).toBeInTheDocument();
+  });
+
 
 });

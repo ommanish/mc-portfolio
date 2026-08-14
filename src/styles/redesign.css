@@ -1987,3 +1987,398 @@ summary:focus-visible {
     transform: none;
   }
 }
+
+
+/* Adaptive editorial infographics */
+
+.delivery-infographic,
+.career-capability-map {
+  margin: var(--content-gap) 0 0;
+}
+
+.delivery-infographic figcaption,
+.career-capability-map figcaption {
+  max-width: 760px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.delivery-infographic-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.delivery-infographic-track::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: calc(100% / 12);
+  right: calc(100% / 12);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--exec-blue) 55%, var(--line)),
+    color-mix(in srgb, var(--exec-cyan) 70%, var(--line)),
+    color-mix(in srgb, var(--exec-warm) 58%, var(--line))
+  );
+  pointer-events: none;
+}
+
+.delivery-infographic-step {
+  position: relative;
+  min-width: 0;
+  padding: 24px clamp(13px, 1.6vw, 22px) 30px;
+  border-right: 1px solid var(--line);
+}
+
+.delivery-infographic-step:last-child {
+  border-right: 0;
+}
+
+.delivery-infographic-node {
+  position: relative;
+  z-index: 1;
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 25px;
+  border: 1px solid color-mix(in srgb, var(--exec-cyan) 62%, var(--line));
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--card) 88%, transparent);
+  color: var(--exec-cyan);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  animation: editorialNodeIn 420ms ease both;
+  animation-delay: calc(var(--infographic-index) * 60ms);
+}
+
+.delivery-infographic-copy {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.delivery-infographic-copy h3 {
+  margin: 0;
+  font-size: clamp(17px, 1.45vw, 22px);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+
+.delivery-infographic-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.58;
+}
+
+.delivery-infographic-step:nth-child(5) .delivery-infographic-node,
+.delivery-infographic-step:nth-child(6) .delivery-infographic-node {
+  border-color: color-mix(in srgb, var(--exec-warm) 60%, var(--line));
+  color: var(--exec-warm);
+}
+
+.career-capability-map {
+  display: grid;
+  grid-template-columns: minmax(190px, .24fr) minmax(0, 1fr);
+  gap: clamp(34px, 6vw, 84px);
+  padding: clamp(30px, 4.5vw, 54px) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.career-capability-summary {
+  align-self: start;
+  display: grid;
+  gap: 15px;
+}
+
+.career-capability-range {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.career-capability-range strong {
+  font-size: clamp(54px, 6.8vw, 88px);
+  line-height: .82;
+  letter-spacing: -.07em;
+  background: linear-gradient(135deg, var(--exec-blue), var(--exec-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.career-capability-range span {
+  color: var(--muted);
+  font-size: 20px;
+}
+
+.career-capability-range b {
+  color: var(--exec-warm);
+  font-size: 13px;
+  letter-spacing: .12em;
+}
+
+.career-capability-summary p {
+  max-width: 260px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.58;
+}
+
+.career-capability-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.career-capability-track::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--exec-blue),
+    var(--exec-cyan) 58%,
+    var(--exec-warm)
+  );
+  opacity: .68;
+  pointer-events: none;
+}
+
+.career-capability-stage {
+  position: relative;
+  min-width: 0;
+  padding-right: clamp(18px, 2.5vw, 34px);
+}
+
+.career-capability-stage:last-child {
+  padding-right: 0;
+}
+
+.career-capability-node {
+  position: relative;
+  z-index: 1;
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 1px solid color-mix(in srgb, var(--exec-blue) 65%, var(--line));
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--exec-blue);
+  font-size: 10px;
+  font-weight: 900;
+  animation: editorialNodeIn 420ms ease both;
+  animation-delay: calc(var(--capability-index) * 70ms);
+}
+
+.career-capability-stage:nth-child(3) .career-capability-node {
+  border-color: color-mix(in srgb, var(--exec-cyan) 70%, var(--line));
+  color: var(--exec-cyan);
+}
+
+.career-capability-stage:nth-child(4) .career-capability-node {
+  border-color: color-mix(in srgb, var(--exec-warm) 70%, var(--line));
+  color: var(--exec-warm);
+}
+
+.career-capability-content {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.career-capability-content h3 {
+  margin: 0;
+  font-size: clamp(18px, 1.65vw, 24px);
+  line-height: 1.1;
+  letter-spacing: -.03em;
+}
+
+.career-capability-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.58;
+}
+
+.career-capability-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 7px;
+}
+
+.career-capability-skills span {
+  color: var(--soft);
+  font-size: 10px;
+  font-weight: 760;
+}
+
+.career-capability-skills span::before {
+  content: "·";
+  margin-right: 6px;
+  color: var(--exec-cyan);
+}
+
+@keyframes editorialNodeIn {
+  from {
+    opacity: 0;
+    transform: scale(.78);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1040px) {
+  .delivery-infographic-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .delivery-infographic-track::before {
+    display: none;
+  }
+
+  .delivery-infographic-step {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .delivery-infographic-step:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .delivery-infographic-step:nth-child(n + 4) {
+    border-bottom: 0;
+  }
+
+  .delivery-infographic-node {
+    margin-left: 0;
+  }
+
+  .career-capability-map {
+    grid-template-columns: 1fr;
+  }
+
+  .career-capability-summary {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px 24px;
+    align-items: end;
+  }
+
+  .career-capability-summary .micro-label {
+    grid-column: 1 / -1;
+  }
+
+  .career-capability-summary p {
+    max-width: 560px;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 760px) {
+  .delivery-infographic-track {
+    grid-template-columns: 1fr;
+    border-bottom: 0;
+  }
+
+  .delivery-infographic-step {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+    padding: 22px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .delivery-infographic-step::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: color-mix(in srgb, var(--exec-cyan) 42%, var(--line));
+  }
+
+  .delivery-infographic-step:first-child::before {
+    top: 22px;
+  }
+
+  .delivery-infographic-step:last-child::before {
+    bottom: calc(100% - 59px);
+  }
+
+  .delivery-infographic-node {
+    margin: 0;
+  }
+
+  .career-capability-track {
+    grid-template-columns: 1fr;
+  }
+
+  .career-capability-track::before {
+    top: 18px;
+    bottom: 18px;
+    left: 18px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(
+      180deg,
+      var(--exec-blue),
+      var(--exec-cyan) 58%,
+      var(--exec-warm)
+    );
+  }
+
+  .career-capability-stage {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+    padding: 0 0 30px;
+  }
+
+  .career-capability-stage:last-child {
+    padding-bottom: 0;
+  }
+
+  .career-capability-node {
+    margin: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .career-capability-summary {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .career-capability-range strong {
+    font-size: 58px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .delivery-infographic-node,
+  .career-capability-node {
+    animation: none;
+  }
+}
