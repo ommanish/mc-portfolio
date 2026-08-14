@@ -13,7 +13,10 @@ export default function AISection({ embedded = false }) {
   const content = portfolioContent.ai;
   return (
     <section id={embedded ? undefined : "ai"} className="editorial-section ai-executive-section">
-      <SectionHeader kicker="AI in practice" title="I use AI where it improves the workflow — not where it weakens judgment." copy={content.copy} />
+      <SectionHeader kicker="AI in practice" title="I use AI where it improves the workflow — not where it weakens judgment." copy={content.copy}
+        accentType="marker"
+        accentLabel="human in the loop"
+      />
       <div className="ai-pipeline">
         {PIPELINE.map(([title, copy], index) => (
           <article key={title}><span className="micro-label">{String(index + 1).padStart(2,"0")}</span><h3>{title}</h3><p>{copy}</p></article>

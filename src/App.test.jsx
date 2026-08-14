@@ -9,6 +9,7 @@ import CareerCapabilityMap from "./components/CareerCapabilityMap";
 import WebDeliveryInfographic from "./components/WebDeliveryInfographic";
 import Hero from "./components/Hero";
 import HandwrittenAccent from "./components/HandwrittenAccent";
+import SectionHeader from "./components/SectionHeader";
 import usePersonalization, { AUDIENCE_STORAGE_KEY, EXPLORE_SESSION_KEY } from "./hooks/usePersonalization";
 import { getAudienceProfile } from "./lib/personalization";
 
@@ -368,6 +369,25 @@ test("infographics add handwritten emphasis without changing their verified stru
     const career = render(<CareerCapabilityMap />);
     expect(career.container.querySelectorAll(".infographic-handwritten-accent")).toHaveLength(2);
     expect(career.container.querySelectorAll('[data-testid="career-capability-stage"]')).toHaveLength(4);
+  });
+
+test("SectionHeader keeps accents optional and preserves heading semantics", () => {
+    const accented = render(
+      <SectionHeader
+        kicker="Example"
+        title="A stable professional heading."
+        copy="Example copy."
+        accentType="underline"
+        accentLabel="small human note"
+      />
+    );
+
+    expect(accented.container.querySelectorAll(".section-header-handwritten")).toHaveLength(1);
+    expect(screen.getByRole("heading",{name:"A stable professional heading."})).toBeInTheDocument();
+    cleanup();
+
+    const plain = render(<SectionHeader kicker="Plain" title="No accent here." />);
+    expect(plain.container.querySelector(".section-header-handwritten")).not.toBeInTheDocument();
   });
 
 });

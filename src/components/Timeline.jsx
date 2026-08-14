@@ -18,6 +18,8 @@ export default function Timeline({ embedded = false }) {
         kicker="Experience"
         title="17+ years of building, improving, and shipping digital experiences."
         copy="My career has moved from hands-on UI development to broader ownership of enterprise web delivery — without losing the technical foundation."
+        accentType="circle"
+        accentLabel="built over time"
       />
 
       <CareerCapabilityMap />
