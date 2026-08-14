@@ -2382,3 +2382,91 @@ summary:focus-visible {
     animation: none;
   }
 }
+
+/* Handwritten Accent v1 — shared primitive */
+.handwritten-accent {
+  --hand-color: var(--exec-warm);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--hand-color);
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.handwritten-accent-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.handwritten-accent-path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: handwrittenDraw 620ms cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+.handwritten-accent-path-secondary {
+  opacity: .44;
+  animation-delay: 110ms;
+}
+
+.handwritten-accent-fill {
+  fill: currentColor;
+  opacity: .13;
+  transform-origin: center;
+  animation: handwrittenFillIn 480ms ease-out both;
+}
+
+.handwritten-note {
+  position: absolute;
+  color: currentColor;
+  font-family: "Bradley Hand", "Segoe Print", "Marker Felt", cursive;
+  font-size: clamp(15px, 1.45vw, 21px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  opacity: 0;
+  animation: handwrittenNoteIn 430ms 280ms ease-out forwards;
+}
+
+.premium-app.light .handwritten-accent {
+  --hand-color: #8a5a00;
+}
+
+@keyframes handwrittenDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes handwrittenFillIn {
+  from { opacity: 0; transform: scaleX(.72) rotate(-1deg); }
+  to { opacity: .13; transform: scaleX(1) rotate(0); }
+}
+
+@keyframes handwrittenNoteIn {
+  from { opacity: 0; transform: translateY(5px) rotate(-5deg); }
+  to { opacity: .9; transform: translateY(0) rotate(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .handwritten-accent-path,
+  .handwritten-accent-fill,
+  .handwritten-note {
+    animation: none !important;
+    stroke-dashoffset: 0;
+    opacity: .9;
+    transform: none;
+  }
+
+  .handwritten-accent-fill {
+    opacity: .13;
+  }
+}

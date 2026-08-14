@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import CareerCapabilityMap from "./components/CareerCapabilityMap";
 import WebDeliveryInfographic from "./components/WebDeliveryInfographic";
 import Hero from "./components/Hero";
+import HandwrittenAccent from "./components/HandwrittenAccent";
 import usePersonalization, { AUDIENCE_STORAGE_KEY, EXPLORE_SESSION_KEY } from "./hooks/usePersonalization";
 import { getAudienceProfile } from "./lib/personalization";
 
@@ -330,5 +331,15 @@ describe("Trust-first adaptive portfolio", () => {
     expect(screen.getByText("NOW")).toBeInTheDocument();
   });
 
+
+test("handwritten accent primitive renders decorative reusable SVG marks", () => {
+    const { container } = render(<HandwrittenAccent type="underline" label="hands-on" />);
+
+    const accent = container.querySelector(".handwritten-accent");
+    expect(accent).toBeInTheDocument();
+    expect(accent).toHaveAttribute("data-accent-type","underline");
+    expect(container.querySelector(".handwritten-accent svg")).toHaveAttribute("aria-hidden","true");
+    expect(container.querySelector(".handwritten-note")).toHaveTextContent("hands-on");
+  });
 
 });
