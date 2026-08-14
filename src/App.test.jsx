@@ -260,6 +260,17 @@ describe("Trust-first adaptive portfolio", () => {
     expect(screen.getByRole("textbox",{name:/^company/i})).toBeRequired();
   });
 
+  test("Change reason uses the visible adaptive secondary control", async () => {
+    const user = userEvent.setup();
+    render(<Contact />);
+
+    await user.click(screen.getByRole("button",{name:/job opportunity/i}));
+
+    const changeReason = screen.getByRole("button",{name:/change reason/i});
+    expect(changeReason).toHaveClass("contact-change-reason");
+    expect(changeReason).toHaveTextContent("Change reason");
+  });
+
   test("Contact success still replaces the form", async () => {
     const user = userEvent.setup();
     const fetchImpl = vi.fn(async () => ({ok:true,json:async () => ({ok:true})}));
