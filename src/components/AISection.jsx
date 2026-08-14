@@ -1,39 +1,30 @@
 import { portfolioContent } from "../content/portfolioContent";
-import Reveal from "./Reveal";
+import SectionHeader from "./SectionHeader";
 
-export default function AISection() {
-  const { ai } = portfolioContent;
+const PIPELINE = [
+  ["Human intent", "Start with a real user, content, or delivery need."],
+  ["AI assistance", "Use AI to accelerate exploration, organization, or generation."],
+  ["Structured output", "Turn the result into reusable content, UI, components, or handoff."],
+  ["Human validation", "Review facts, UX, accessibility, security, and brand alignment."],
+  ["Production", "Ship only validated output that is useful and maintainable."],
+];
 
+export default function AISection({ embedded = false }) {
+  const content = portfolioContent.ai;
   return (
-    <section id="ai">
-      <Reveal className="ai-panel">
-        <div className="ai-layout">
-          <div>
-            <div className="section-kicker">{ai.kicker}</div>
-            <h2 className="section-title">{ai.title}</h2>
-            <p className="section-copy ai-copy">{ai.copy}</p>
-            <div className="hero-actions">
-              {ai.actions.map((action) => (
-                <a
-                  className={`btn ${action.variant === "primary" ? "btn-primary" : "btn-ghost"}`}
-                  href={action.href}
-                  key={action.label}
-                >
-                  {action.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="prompt-box" aria-label="AI product prompt example">
-            {ai.promptLines.map((line) => (
-              <span className="prompt-line" key={line}>
-                {line}
-              </span>
-            ))}
-          </div>
+    <section id={embedded ? undefined : "ai"} className="editorial-section ai-executive-section">
+      <SectionHeader kicker="AI in practice" title="I use AI where it improves the workflow — not where it weakens judgment." copy={content.copy} />
+      <div className="ai-pipeline">
+        {PIPELINE.map(([title, copy], index) => (
+          <article key={title}><span className="micro-label">{String(index + 1).padStart(2,"0")}</span><h3>{title}</h3><p>{copy}</p></article>
+        ))}
+      </div>
+      <div className="ai-evidence">
+        <div><div className="micro-label">Working direction</div><h3>Practical AI for web, content, UI, and delivery workflows.</h3>
+          <p>This portfolio demonstrates the model: user intent influences prioritization, AI returns a constrained structured decision, and React renders only verified content already present in the portfolio.</p>
         </div>
-      </Reveal>
+        <div className="ai-prompt-lines">{content.promptLines.map((line) => <code key={line}>{line}</code>)}</div>
+      </div>
     </section>
   );
 }

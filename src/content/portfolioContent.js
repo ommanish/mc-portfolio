@@ -16,6 +16,7 @@ export const portfolioContent = {
     { label: "Case Studies", href: "#cases" },
     { label: "Skills", href: "#skills" },
     { label: "AI Projects", href: "#ai" },
+    { label: "Experience", href: "#timeline" },
     { label: "Contact", href: "#contact" },
   ],
 
@@ -24,17 +25,17 @@ export const portfolioContent = {
 
     headlineLines: [
       {
-        text: "Building elegant, scalable",
+        text: "Turning complex web work into",
         gradient: false,
       },
       {
-        text: "enterprise web experiences.",
+        text: "experiences teams can ship with confidence.",
         gradient: true,
       },
     ],
 
     description:
-      "I’m Manish Chawla, a Web Experience Manager, Web Producer, and Frontend Web Professional with 17+ years of experience across enterprise websites, CMS platforms, page builder workflows, campaign launches, responsive UI, accessibility, and modern design systems.",
+      "I’m Manish Chawla, a Web Experience Manager and frontend professional with 17+ years across enterprise websites, CMS and page-builder platforms, responsive UI, accessibility, design systems, QA, and launch workflows.",
 
     actions: [
       {
@@ -87,35 +88,35 @@ export const portfolioContent = {
 
   featuredWork: {
     kicker: "Featured Work",
-    title: "Web work focused on clarity, quality, and launch readiness.",
-    copy: "I help teams turn design, content, and business requests into polished web pages that are responsive, accessible, easy to review, and ready to publish.",
+    title: "Where I create leverage for web teams.",
+    copy: "The value is not only in building a page. It is in reducing friction between design, content, engineering, QA, and launch so teams can move with confidence.",
 
     items: [
       {
         icon: "⚡",
-        title: "Enterprise Website Updates",
+        title: "Enterprise Web Delivery",
         description:
-          "Built and updated enterprise web pages using reusable sections, CMS/page builder workflows, responsive layouts, and stakeholder feedback.",
+          "Translate approved designs and business requirements into reusable, responsive, production-ready pages across enterprise CMS and page-builder environments.",
       },
       {
         icon: "🚀",
-        title: "Campaign & Landing Page Support",
+        title: "Campaign & Content Operations",
         description:
-          "Supported marketing pages, content updates, launch requests, QA fixes, preview reviews, and production-ready publishing work.",
+          "Handle fast-moving landing page updates, content changes, QA fixes, previews, and publish readiness without letting speed erode quality.",
       },
       {
         icon: "🛡️",
-        title: "Accessible Frontend Delivery",
+        title: "Frontend Quality & Accessibility",
         description:
-          "Focused on clean UI implementation, responsive behavior, accessibility, browser testing, and smoother user experiences across devices.",
+          "Strengthen the final experience through responsive implementation, accessibility checks, cross-browser QA, and maintainable UI patterns.",
       },
     ],
   },
 
   webExperience: {
     kicker: "Web Experience / Web Producer",
-    title: "From page request to production launch.",
-    copy: "My work sits between design, content, CMS, frontend, QA, and launch support. I help make sure web pages look right, work well, and are ready for real users.",
+    title: "A clear path from request to production.",
+    copy: "Good web delivery is a chain of decisions, not a handoff. I help connect requirements, design, CMS constraints, frontend quality, review, and launch so issues are solved earlier.",
 
     cards: [
       {
@@ -165,53 +166,53 @@ export const portfolioContent = {
 
   caseStudies: {
     kicker: "Case Studies",
-    title: "Practical examples of web delivery work.",
-    copy: "These examples show how I approach real web work: understand the request, build or update the page, review quality, and support launch.",
+    title: "How I solve recurring enterprise web problems.",
+    copy: "These are representative delivery patterns from my work across enterprise web, CMS, WebOps, and frontend implementation.",
 
     items: [
       {
-        title: "Enterprise Web Page Delivery",
+        title: "Shipping within CMS constraints",
         description:
-          "Worked on enterprise web pages where design accuracy, content quality, responsive behavior, and stakeholder review were all important before launch.",
+          "The challenge is rarely just matching a design. Enterprise pages also have to work within reusable components, page-builder rules, responsive behavior, content needs, and stakeholder review.",
         labels: [
           "Role: Web Experience",
           "Focus: CMS / Page Builder",
-          "Outcome: Cleaner Launch Process",
+          "Outcome: Cleaner Launch Path",
         ],
         impact: [
-          "Built and adjusted reusable content sections",
-          "Improved responsive layout and visual alignment",
-          "Supported preview, feedback, and launch review steps",
+          "Translated design intent into reusable page sections",
+          "Resolved responsive and visual alignment issues before launch",
+          "Used previews and stakeholder feedback to tighten the review cycle",
         ],
       },
       {
-        title: "Marketing WebOps Support",
+        title: "Keeping fast-moving web updates controlled",
         description:
-          "Supported ongoing page updates, campaign changes, content fixes, and publishing tasks for marketing and digital experience teams.",
+          "Campaign and content work moves quickly, but speed cannot come at the cost of broken links, inconsistent layouts, or last-minute publishing surprises.",
         labels: [
           "Role: Web Producer",
           "Focus: Campaign Pages",
-          "Outcome: Faster Updates",
+          "Outcome: Faster, Controlled Updates",
         ],
         impact: [
-          "Handled page updates and content changes",
-          "Coordinated QA and stakeholder feedback",
-          "Helped prepare pages for production release",
+          "Moved content and campaign changes through implementation efficiently",
+          "Kept QA and stakeholder feedback connected to the work",
+          "Prepared updates for a more predictable production release",
         ],
       },
       {
-        title: "Frontend UI Improvements",
+        title: "Improving UI quality before release",
         description:
-          "Improved user-facing and internal web experiences by focusing on usability, accessibility, performance, and clean frontend implementation.",
+          "Small frontend issues compound quickly across devices. My approach is to catch usability, accessibility, responsive, and implementation problems before they reach production.",
         labels: [
           "Role: Frontend UI",
           "Focus: Usability",
-          "Outcome: Better User Experience",
+          "Outcome: More Consistent User Experience",
         ],
         impact: [
           "Improved page structure and interface behavior",
-          "Supported accessibility and responsive design",
-          "Helped reduce UI issues before release",
+          "Built accessibility and responsive checks into delivery",
+          "Resolved UI issues earlier in the release cycle",
         ],
       },
     ],
@@ -219,18 +220,18 @@ export const portfolioContent = {
 
   skills: {
     kicker: "Skills",
-    title: "Skills I use to deliver better web experiences.",
-    copy: "My strength is not only writing frontend code. I also understand how web pages move through content, design, CMS, QA, stakeholder review, and launch.",
+    title: "A skill set built around shipping, not silos.",
+    copy: "My strongest work happens across boundaries: frontend engineering, CMS and WebOps, accessibility and QA, stakeholder communication, and the practical use of AI to remove repetitive friction.",
 
     intro: {
       title: "What I bring",
       description:
-        "I bring a mix of frontend development, CMS/page builder experience, web production, accessibility, and cross-functional delivery. This helps teams ship pages that are clean, accurate, responsive, and easier to maintain.",
+        "I bring technical frontend depth together with the operational discipline of CMS, WebOps, QA, accessibility, and cross-functional delivery. That combination helps teams make better decisions earlier and ship with fewer surprises.",
     },
 
     groups: [
       {
-        title: "Web Production",
+        title: "Delivery & WebOps",
         items: [
           "Landing Pages",
           "Campaign Pages",
@@ -241,7 +242,7 @@ export const portfolioContent = {
         ],
       },
       {
-        title: "Frontend UI",
+        title: "Frontend Engineering",
         items: [
           "HTML",
           "CSS",
@@ -252,7 +253,7 @@ export const portfolioContent = {
         ],
       },
       {
-        title: "CMS & Page Builder",
+        title: "CMS & Content Systems",
         items: [
           "CMS Updates",
           "Reusable Sections",
@@ -263,7 +264,7 @@ export const portfolioContent = {
         ],
       },
       {
-        title: "Quality & Collaboration",
+        title: "Quality & Cross-functional Delivery",
         items: [
           "Accessibility Checks",
           "Cross-browser QA",
@@ -278,8 +279,8 @@ export const portfolioContent = {
 
   ai: {
     kicker: "AI Product Direction",
-    title: "Exploring practical AI for web and content workflows.",
-    copy: "I am interested in using AI to make web production faster and smarter — from generating UI ideas and page structures to helping teams create content, components, and developer-ready outputs.",
+    title: "Using AI where it improves the workflow.",
+    copy: "My focus is practical: use AI to accelerate ideation, content structure, UI scaffolding, developer handoff, personalization, and repetitive delivery work while keeping human review in control of facts, UX, accessibility, security, and production quality.",
 
     actions: [
       {

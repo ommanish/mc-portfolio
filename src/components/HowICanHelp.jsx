@@ -1,41 +1,45 @@
-import Reveal from "./Reveal";
+import { useState } from "react";
+import { SERVICE_DEFAULT_BY_LENS } from "../content/lensConfig";
 import SectionHeader from "./SectionHeader";
 
 const SERVICES = [
-  {
-    title: "Web experience modernization",
-    copy: "Improve enterprise pages and journeys with responsive implementation, reusable UI patterns, accessibility, and practical design-to-production delivery.",
-  },
-  {
-    title: "CMS & page-builder delivery",
-    copy: "Turn approved content and design into launch-ready experiences across CMS and page-builder workflows, with structured QA and stakeholder review.",
-  },
-  {
-    title: "Frontend UI & quality",
-    copy: "Strengthen component-based interfaces with HTML, CSS, JavaScript, React, responsive behavior, accessibility, maintainability, and cross-browser QA.",
-  },
-  {
-    title: "AI-assisted web workflows",
-    copy: "Explore practical ways AI can improve content, UI, handoff, and delivery workflows while keeping human review, security, and factual accuracy in control.",
-  },
+  ["Own complex web delivery", "Bring structure to work that crosses content, design, CMS, frontend, QA, stakeholders, and launch — especially when the request starts out unclear or fragmented.", ["Responsive UI","Reusable patterns","Accessibility"]],
+  ["Modernize CMS & page-builder experiences", "Turn approved content and design into reusable, responsive, launch-ready experiences while working within the real constraints of enterprise CMS and page-builder systems.", ["CMS","Page Builder","Launch readiness"]],
+  ["Raise frontend quality", "Improve component-based UI with stronger responsive behavior, accessibility, maintainability, and cross-browser quality — without losing sight of the delivery deadline.", ["React","Frontend","Cross-browser QA"]],
+  ["Build practical AI workflows", "Use AI to remove repetitive friction from content, UI, handoff, personalization, and delivery workflows while keeping people responsible for judgment, accuracy, security, and quality.", ["Human review","Structured output","Automation"]],
 ];
 
-export default function HowICanHelp() {
+export default function HowICanHelp({ embedded = false, lensKey = "general" }) {
+  const [active, setActive] = useState(SERVICE_DEFAULT_BY_LENS[lensKey] ?? 0);
+  const [title, copy, tags] = SERVICES[active];
+
   return (
-    <section id="services">
+    <section id={embedded ? undefined : "services"} className="editorial-section">
       <SectionHeader
         kicker="How I can help"
-        title="Practical support for modern web teams."
-        copy="For consulting, collaboration, or focused project support, these are the areas where I can contribute most directly."
+        title="Where I can make an immediate difference."
+        copy="I’m most useful when web work crosses multiple disciplines and someone needs to connect the details without losing momentum."
       />
-
-      <div className="service-grid">
-        {SERVICES.map((service) => (
-          <Reveal as="article" className="service-card" key={service.title}>
-            <h3>{service.title}</h3>
-            <p>{service.copy}</p>
-          </Reveal>
-        ))}
+      <div className="capability-layout">
+        <div className="capability-list" role="tablist" aria-label="Capabilities">
+          {SERVICES.map(([name], index) => (
+            <button
+              key={name}
+              type="button"
+              role="tab"
+              aria-selected={active === index}
+              onClick={() => setActive(index)}
+            >
+              <span>{String(index + 1).padStart(2,"0")}</span>{name}
+            </button>
+          ))}
+        </div>
+        <article className="capability-detail">
+          <div className="micro-label">Capability {String(active + 1).padStart(2,"0")}</div>
+          <h3>{title}</h3>
+          <p>{copy}</p>
+          <div className="tag-row">{tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        </article>
       </div>
     </section>
   );

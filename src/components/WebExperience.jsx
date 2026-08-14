@@ -1,53 +1,27 @@
-import { portfolioContent } from "../content/portfolioContent";
-import FeatureCard from "./FeatureCard";
-import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 
-export default function WebExperience() {
-  const { webExperience } = portfolioContent;
+const STEPS = [
+  ["Strategy", "Turn the request into a clear scope: what is changing, why it matters, who needs to review it, and what launch-ready means."],
+  ["Design", "Review design intent and platform constraints early so implementation decisions do not become late-stage surprises."],
+  ["Build", "Implement reusable, responsive sections and content with the CMS, page-builder, and frontend patterns that the platform can support well."],
+  ["QA", "Catch content, responsive, accessibility, browser, and visual issues while there is still time to fix them cleanly."],
+  ["Launch", "Keep previews, stakeholder approvals, final checks, and publishing readiness moving toward a controlled release."],
+  ["Optimize", "Use post-launch feedback and real delivery lessons to improve the next update, component, or workflow."],
+];
 
+export default function WebExperience({ embedded = false }) {
   return (
-    <section id="web-experience">
-      <SectionHeader
-        kicker={webExperience.kicker}
-        title={webExperience.title}
-        copy={webExperience.copy}
-      />
-
-      <div className="grid grid-3">
-        {webExperience.cards.map((item, index) => (
-          <FeatureCard key={item.title} {...item} delay={index * 140} />
+    <section id={embedded ? undefined : "web-experience"} className="editorial-section">
+      <SectionHeader kicker="Web Experience / Web Producer"
+        title="A clear path from request to production."
+        copy="Good web delivery is a chain of decisions, not a handoff. I help connect requirements, design, CMS constraints, frontend quality, review, and launch." />
+      <div className="experience-flow">
+        {STEPS.map(([title, copy], index) => (
+          <article className="experience-step" key={title}>
+            <span className="experience-node">{index + 1}</span>
+            <div><h3>{title}</h3><p>{copy}</p></div>
+          </article>
         ))}
-      </div>
-
-      <div className="grid grid-2 spacing-top">
-        <Reveal as="article" className="case-card" delay={120}>
-          <h3>{webExperience.strengths.title}</h3>
-          <div className="case-meta">
-            {webExperience.strengths.labels.map((label) => (
-              <span className="mini-label" key={label}>
-                {label}
-              </span>
-            ))}
-          </div>
-          <ul className="impact-list">
-            {webExperience.strengths.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-        </Reveal>
-
-        <Reveal as="article" className="case-card" delay={220}>
-          <h3>{webExperience.roles.title}</h3>
-          <p>{webExperience.roles.description}</p>
-          <div className="skill-pills">
-            {webExperience.roles.items.map((role) => (
-              <span className="pill" key={role}>
-                {role}
-              </span>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );
