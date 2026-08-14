@@ -1,3 +1,5 @@
+import HandwrittenAccent from "./HandwrittenAccent";
+
 const STAGES = [
   {
     number: "01",
@@ -64,6 +66,20 @@ export default function CareerCapabilityMap() {
                 {stage.skills.map((skill) => <span key={skill}>{skill}</span>)}
               </div>
             </div>
+            {stage.title === "CMS & Web Experience" ? (
+              <HandwrittenAccent
+                type="marker"
+                label="experience at scale"
+                className="infographic-handwritten-accent career-cms-sketch"
+              />
+            ) : null}
+            {stage.title === "AI-assisted Delivery" ? (
+              <HandwrittenAccent
+                type="arrow"
+                label="human in the loop"
+                className="infographic-handwritten-accent career-ai-sketch"
+              />
+            ) : null}
           </article>
         ))}
       </div>

@@ -2537,3 +2537,97 @@ summary:focus-visible {
     top: 29px;
   }
 }
+
+/* Handwritten Accent v1 — infographic overlays */
+.delivery-infographic-step,
+.career-capability-stage {
+  overflow: visible;
+}
+
+.infographic-handwritten-accent {
+  position: absolute;
+  z-index: 3;
+}
+
+.delivery-qa-sketch {
+  --hand-color: var(--exec-cyan);
+  width: 110px;
+  right: 4px;
+  top: 5px;
+  transform: rotate(-5deg);
+}
+
+.delivery-qa-sketch .handwritten-note {
+  right: 4px;
+  top: 59px;
+  font-size: 15px;
+}
+
+.delivery-launch-sketch {
+  --hand-color: var(--exec-warm);
+  width: 104px;
+  right: -28px;
+  bottom: 5px;
+  transform: rotate(-12deg);
+}
+
+.delivery-launch-sketch .handwritten-note {
+  right: 3px;
+  top: 37px;
+  font-size: 16px;
+}
+
+.career-cms-sketch {
+  --hand-color: var(--exec-cyan);
+  width: 118px;
+  left: -12px;
+  top: 7px;
+  opacity: .95;
+}
+
+.career-cms-sketch .handwritten-note {
+  left: 28px;
+  top: 43px;
+  font-size: 14px;
+}
+
+.career-ai-sketch {
+  --hand-color: var(--exec-warm);
+  width: 118px;
+  right: -16px;
+  bottom: -8px;
+  transform: rotate(-7deg);
+}
+
+.career-ai-sketch .handwritten-note {
+  right: 0;
+  top: 40px;
+  font-size: 14px;
+}
+
+@media (max-width: 1040px) {
+  .delivery-launch-sketch { right: 4px; }
+  .career-cms-sketch,
+  .career-ai-sketch {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .delivery-qa-sketch {
+    width: 88px;
+    right: 0;
+    top: 11px;
+  }
+  .delivery-launch-sketch,
+  .career-cms-sketch { display: none; }
+  .career-ai-sketch {
+    width: 102px;
+    margin-top: 12px;
+  }
+}

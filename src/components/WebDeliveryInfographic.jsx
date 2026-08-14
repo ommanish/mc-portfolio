@@ -1,3 +1,5 @@
+import HandwrittenAccent from "./HandwrittenAccent";
+
 const STEPS = [
   {
     number: "01",
@@ -50,6 +52,20 @@ export default function WebDeliveryInfographic() {
               <h3>{step.title}</h3>
               <p>{step.copy}</p>
             </div>
+            {step.title === "QA" ? (
+              <HandwrittenAccent
+                type="circle"
+                label="validate here"
+                className="infographic-handwritten-accent delivery-qa-sketch"
+              />
+            ) : null}
+            {step.title === "Launch" ? (
+              <HandwrittenAccent
+                type="arrow"
+                label="ship"
+                className="infographic-handwritten-accent delivery-launch-sketch"
+              />
+            ) : null}
           </article>
         ))}
       </div>

@@ -359,4 +359,15 @@ test("adaptive Hero uses restrained handwritten accents without rewriting the he
     expect(screen.getByRole("heading",{name:/turning complex web work into experiences teams can ship with confidence/i})).toBeInTheDocument();
   });
 
+test("infographics add handwritten emphasis without changing their verified structure", () => {
+    const delivery = render(<WebDeliveryInfographic />);
+    expect(delivery.container.querySelectorAll(".infographic-handwritten-accent")).toHaveLength(2);
+    expect(delivery.container.querySelectorAll('[data-testid="delivery-infographic-step"]')).toHaveLength(6);
+    cleanup();
+
+    const career = render(<CareerCapabilityMap />);
+    expect(career.container.querySelectorAll(".infographic-handwritten-accent")).toHaveLength(2);
+    expect(career.container.querySelectorAll('[data-testid="career-capability-stage"]')).toHaveLength(4);
+  });
+
 });
