@@ -1896,3 +1896,94 @@ summary:focus-visible {
     line-height: 1.58;
   }
 }
+
+/* Adaptive Contact: visible Change reason secondary action */
+.contact-change-reason {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  align-self: start;
+  padding: 9px 14px;
+  border: 1px solid color-mix(in srgb, var(--exec-warm) 38%, var(--line));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--exec-warm) 6%, transparent);
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-change-reason:hover,
+.contact-change-reason:focus-visible {
+  border-color: color-mix(in srgb, var(--exec-warm) 72%, var(--line));
+  background: color-mix(in srgb, var(--exec-warm) 11%, transparent);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.contact-change-reason:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--exec-warm) 18%, transparent);
+}
+
+.contact-change-reason-icon {
+  display: inline-block;
+  color: var(--exec-warm);
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.contact-change-reason:hover .contact-change-reason-icon,
+.contact-change-reason:focus-visible .contact-change-reason-icon {
+  transform: rotate(-30deg);
+}
+
+.premium-app.light .contact-change-reason {
+  border-color: rgba(31, 41, 55, .22);
+  background: rgba(255, 255, 255, .82);
+  color: #1f2937;
+}
+
+.premium-app.light .contact-change-reason:hover,
+.premium-app.light .contact-change-reason:focus-visible {
+  border-color: #9a6700;
+  background: #fffaf1;
+  color: #5f4300;
+}
+
+.premium-app.light .contact-change-reason-icon {
+  color: #8a5a00;
+}
+
+@media (max-width: 639px) {
+  .contact-form-heading {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-change-reason {
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-change-reason,
+  .contact-change-reason-icon {
+    transition: none;
+  }
+
+  .contact-change-reason:hover,
+  .contact-change-reason:focus-visible {
+    transform: none;
+  }
+}
