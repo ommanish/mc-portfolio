@@ -10,7 +10,9 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run src/App.test.jsx"
+    "test": "vitest run src/App.test.jsx",
+    "test:experiment": "node --test scripts/experiment-shell.test.mjs",
+    "build:experiment": "bash scripts/build-experiment.sh"
   },
   "dependencies": {
     "react": "^19.0.0",

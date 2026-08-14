@@ -2,8 +2,8 @@ import { useMemo, useState } from "react";
 import { getAudienceProfile } from "../lib/personalization";
 import { collectSafeSignals, localDecision, requestAiDecision } from "../lib/hybridPersonalization";
 
-export const AUDIENCE_STORAGE_KEY = "mc-portfolio-audience";
-export const EXPLORE_SESSION_KEY = "mc-portfolio-explore-general";
+export const AUDIENCE_STORAGE_KEY = "mc-portfolio-adaptive-audience";
+export const EXPLORE_SESSION_KEY = "mc-portfolio-adaptive-explore-general";
 const DEFAULT_API_BASE = import.meta.env.VITE_PORTFOLIO_API_BASE || "";
 
 const safeGet = (storage, key) => {

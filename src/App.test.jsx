@@ -271,4 +271,30 @@ describe("Trust-first adaptive portfolio", () => {
     await user.click(screen.getByRole("button",{name:/send message/i}));
     expect(await screen.findByRole("heading",{name:/message received/i})).toBeInTheDocument();
   });
+
+  test("Experience rows stay isolated from legacy card timeline styles", async () => {
+    const user = userEvent.setup();
+    const { container } = render(<App />);
+
+    await user.click(screen.getByRole("button",{name:/engineering \/ technical/i}));
+    expect(await screen.findByText("Salesforce — Web Experience Manager, Data 360")).toBeInTheDocument();
+
+    expect(container.querySelectorAll(".executive-timeline-item")).toHaveLength(7);
+    expect(container.querySelectorAll(".timeline-item")).toHaveLength(0);
+    expect(container.querySelectorAll(".timeline-list")).toHaveLength(0);
+    expect(container.querySelectorAll(".executive-timeline-content")).toHaveLength(7);
+  });
+
+  test("Experience shows corrected TechDemocracy and Quantious dates", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByRole("button",{name:/engineering \/ technical/i}));
+
+    expect(await screen.findByText("Mar 2025 — Jul 2026")).toBeInTheDocument();
+    expect(screen.getByText("TechDemocracy / Quantious — UI/UX Lead, Salesforce Data Cloud Page Builder")).toBeInTheDocument();
+    expect(screen.getByText("Feb 2024 — Jul 2026")).toBeInTheDocument();
+    expect(screen.getByText("TechDemocracy — Senior UI Frontend Developer & Designer")).toBeInTheDocument();
+  });
+
 });
