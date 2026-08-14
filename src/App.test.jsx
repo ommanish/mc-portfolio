@@ -342,4 +342,21 @@ test("handwritten accent primitive renders decorative reusable SVG marks", () =>
     expect(container.querySelector(".handwritten-note")).toHaveTextContent("hands-on");
   });
 
+test("adaptive Hero uses restrained handwritten accents without rewriting the headline", () => {
+    const profile = getAudienceProfile("engineering");
+    const { container } = render(
+      <Hero
+        audienceProfile={profile}
+        source="preset"
+        recommendedSections={["work","cases","skills","timeline"]}
+        onChangeLens={() => {}}
+      />
+    );
+
+    expect(container.querySelectorAll(".hero-handwritten-accent")).toHaveLength(2);
+    expect(container.querySelector(".hero-sketch-underline")).toHaveAttribute("data-accent-type","underline");
+    expect(container.querySelector(".hero-sketch-arrow")).toHaveAttribute("data-accent-type","arrow");
+    expect(screen.getByRole("heading",{name:/turning complex web work into experiences teams can ship with confidence/i})).toBeInTheDocument();
+  });
+
 });

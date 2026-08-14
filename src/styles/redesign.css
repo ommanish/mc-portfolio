@@ -2470,3 +2470,70 @@ summary:focus-visible {
     opacity: .13;
   }
 }
+
+/* Handwritten Accent v1 — Hero */
+.hero-handwritten-layer {
+  position: relative;
+  width: min(760px, 100%);
+  height: clamp(52px, 5.5vw, 72px);
+  margin: clamp(-10px, -0.7vw, -4px) 0 4px;
+}
+
+.hero-handwritten-accent {
+  position: absolute;
+  z-index: 2;
+}
+
+.hero-sketch-underline {
+  --hand-color: var(--exec-cyan);
+  left: clamp(4px, 3vw, 42px);
+  top: 0;
+  width: clamp(210px, 31vw, 360px);
+}
+
+.hero-sketch-underline .handwritten-note {
+  left: 58%;
+  top: 30px;
+}
+
+.hero-sketch-arrow {
+  --hand-color: var(--exec-warm);
+  right: clamp(0px, 5vw, 70px);
+  top: 2px;
+  width: clamp(135px, 17vw, 205px);
+  transform: rotate(-5deg);
+}
+
+.hero-sketch-arrow .handwritten-note {
+  right: 3px;
+  top: 39px;
+}
+
+.premium-app.light .hero-sketch-underline {
+  --hand-color: #147d77;
+}
+
+.premium-app.light .hero-sketch-arrow {
+  --hand-color: #8a5a00;
+}
+
+@media (max-width: 720px) {
+  .hero-handwritten-layer {
+    height: 58px;
+    margin-top: 0;
+  }
+
+  .hero-sketch-underline {
+    left: 0;
+    width: min(250px, 70vw);
+  }
+
+  .hero-sketch-arrow {
+    display: none;
+  }
+
+  .hero-sketch-underline .handwritten-note {
+    left: 42%;
+    top: 29px;
+  }
+}
