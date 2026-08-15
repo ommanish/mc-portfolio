@@ -2699,3 +2699,209 @@ summary:focus-visible {
     font-size: 14px;
   }
 }
+
+/* Handwritten Alignment v1 — shared note anchors */
+.handwritten-accent[data-note-position] .handwritten-note { margin:0; right:auto; bottom:auto; }
+.handwritten-accent[data-note-position="below"] .handwritten-note {
+  left:50%; top:calc(100% - 6px); right:auto; bottom:auto;
+  transform:translateX(-50%) rotate(-3deg);
+}
+.handwritten-accent[data-note-position="above"] .handwritten-note {
+  left:50%; top:auto; right:auto; bottom:calc(100% - 6px);
+  transform:translateX(-50%) rotate(-3deg);
+}
+.handwritten-accent[data-note-position="start"] .handwritten-note {
+  left:0; top:50%; right:auto; bottom:auto; transform:translate(-92%,-50%) rotate(-3deg);
+}
+.handwritten-accent[data-note-position="end"] .handwritten-note {
+  left:auto; top:50%; right:0; bottom:auto; transform:translate(92%,-50%) rotate(-3deg);
+}
+.hero-sketch-underline .handwritten-note,
+.hero-sketch-arrow .handwritten-note,
+.delivery-qa-sketch .handwritten-note,
+.delivery-launch-sketch .handwritten-note,
+.career-cms-sketch .handwritten-note,
+.career-ai-sketch .handwritten-note,
+.section-header-handwritten .handwritten-note { right:auto; bottom:auto; }
+@media (max-width:720px){
+  .handwritten-accent[data-note-position="below"] .handwritten-note { top:calc(100% - 4px); }
+}
+@media (prefers-reduced-motion:reduce){
+  .handwritten-accent[data-note-position="below"] .handwritten-note { transform:translateX(-50%); }
+}
+
+/* Handwritten Alignment mobile QA containment */
+@media (max-width: 760px) {
+  .delivery-qa-sketch[data-note-position="start"] {
+    right: 8px;
+  }
+
+  .delivery-qa-sketch[data-note-position="start"] .handwritten-note {
+    max-width: min(116px, 31vw);
+    white-space: nowrap;
+  }
+}
+
+/* Handwritten Responsive System — shared mobile contract */
+.handwritten-accent-art-mobile { display: none; }
+
+@media (max-width: 760px) {
+  .handwritten-accent[data-mobile-hidden="true"] { display: none !important; }
+
+  .handwritten-accent-has-mobile-art .handwritten-accent-art-desktop { display: none; }
+  .handwritten-accent-has-mobile-art .handwritten-accent-art-mobile { display: block; }
+
+  .handwritten-accent[data-mobile-note-position="inline"] {
+    display: inline-grid;
+    justify-items: start;
+    align-items: start;
+    gap: 2px;
+  }
+
+  .handwritten-accent[data-mobile-note-position="inline"] .handwritten-note {
+    position: relative;
+    inset: auto;
+    max-width: min(190px, 72vw);
+    margin-top: -2px;
+    white-space: normal;
+    line-height: 1.05;
+    font-size: max(13px, .84rem);
+    transform: rotate(-2deg);
+  }
+
+  .handwritten-accent[data-mobile-note-position="below"] .handwritten-note {
+    max-width: min(190px, 72vw);
+    white-space: normal;
+    font-size: max(13px, .84rem);
+  }
+}
+
+/* Handwritten Responsive System — Hero, headers, career coordinate */
+@media (max-width: 760px) {
+  .hero-handwritten-layer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    display: block;
+    margin: 7px 0 20px;
+  }
+
+  .hero-sketch-underline {
+    position: relative;
+    inset: auto;
+    width: min(218px, 72vw);
+    transform: none;
+  }
+
+  .hero-sketch-underline .handwritten-note {
+    position: relative;
+    inset: auto;
+    margin-top: -4px;
+    transform: rotate(-2deg);
+  }
+
+  .section-header-handwritten {
+    position: relative !important;
+    inset: auto !important;
+    width: min(174px, 62vw) !important;
+    margin: 7px 0 0 !important;
+    transform: none !important;
+  }
+
+  .section-header-handwritten .handwritten-note {
+    position: relative !important;
+    inset: auto !important;
+    margin-top: -3px;
+    transform: rotate(-2deg) !important;
+  }
+
+  .career-coordinate {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto auto;
+    gap: 0;
+    margin: 34px 0 8px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .career-coordinate .coordinate-cross { display: none; }
+
+  .career-coordinate .coordinate-center {
+    position: relative;
+    inset: auto;
+    grid-column: 1 / -1;
+    width: auto;
+    height: auto;
+    min-height: 86px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    justify-content: flex-start;
+    padding: 18px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    transform: none;
+  }
+
+  .career-coordinate .coordinate-center strong { font-size: clamp(42px, 14vw, 58px); }
+  .career-coordinate .coordinate-center span { font-size: 10px; }
+
+  .career-coordinate .coordinate-point {
+    min-height: 0;
+    display: grid;
+    place-content: start;
+    justify-items: start;
+    gap: 4px;
+    padding: 15px 12px 15px 0;
+    border-top: 1px solid var(--line);
+    text-align: left;
+  }
+
+  .career-coordinate .point-web,
+  .career-coordinate .point-cms {
+    padding-left: 12px;
+    border-left: 1px solid var(--line);
+  }
+
+  .career-coordinate .coordinate-point span { font-size: 16px; }
+  .career-coordinate .coordinate-point small { font-size: 9px; line-height: 1.35; }
+}
+
+/* Handwritten Responsive System — mobile infographic containment */
+@media (max-width: 760px) {
+  .delivery-qa-sketch {
+    position: relative !important;
+    grid-column: 2;
+    grid-row: auto;
+    justify-self: start;
+    inset: auto !important;
+    width: min(128px, 48vw) !important;
+    margin: 8px 0 0;
+    transform: none !important;
+  }
+
+  .delivery-qa-sketch .handwritten-note {
+    position: relative !important;
+    inset: auto !important;
+    margin-top: -4px;
+  }
+
+  .career-ai-sketch {
+    position: relative !important;
+    grid-column: 2;
+    inset: auto !important;
+    width: min(142px, 52vw) !important;
+    margin: 9px 0 0 !important;
+    transform: none !important;
+  }
+
+  .career-ai-sketch .handwritten-note {
+    position: relative !important;
+    inset: auto !important;
+    margin-top: -4px;
+  }
+}

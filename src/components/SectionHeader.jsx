@@ -12,6 +12,9 @@ export default function SectionHeader({ kicker, title, copy, accentType, accentL
             type={accentType}
             label={accentLabel}
             className={`section-header-handwritten ${accentClassName}`.trim()}
+            notePosition="below"
+            mobileType={accentType === "underline" ? "" : "underline"}
+            mobileNotePosition="inline"
           />
         ) : null}
       </div>

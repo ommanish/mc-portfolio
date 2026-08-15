@@ -94,11 +94,16 @@ export default function Hero({ audienceProfile, source, recommendedSections, onC
             type="underline"
             label="hands-on, built to ship"
             className="hero-handwritten-accent hero-sketch-underline"
+            notePosition="below"
+            mobileType="underline"
+            mobileNotePosition="inline"
           />
           <HandwrittenAccent
             type="arrow"
             label="follow the path"
             className="hero-handwritten-accent hero-sketch-arrow"
+            notePosition="below"
+            hideOnMobile={true}
           />
         </div>
 

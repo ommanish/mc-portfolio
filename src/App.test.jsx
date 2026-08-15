@@ -390,4 +390,55 @@ test("SectionHeader keeps accents optional and preserves heading semantics", () 
     expect(plain.container.querySelector(".section-header-handwritten")).not.toBeInTheDocument();
   });
 
+  test("handwritten note positioning is owned by the shared accent component", () => {
+    const { container } = render(<HandwrittenAccent type="arrow" label="aligned" notePosition="below" />);
+    expect(container.querySelector(".handwritten-accent")).toHaveAttribute("data-note-position","below");
+  });
+
+test("handwritten accent supports explicit mobile simplification", () => {
+    const { container } = render(
+      <HandwrittenAccent
+        type="circle"
+        label="responsive note"
+        notePosition="below"
+        mobileType="underline"
+        mobileNotePosition="inline"
+      />
+    );
+    const accent = container.querySelector(".handwritten-accent");
+    expect(accent).toHaveAttribute("data-mobile-type","underline");
+    expect(accent).toHaveAttribute("data-mobile-note-position","inline");
+    expect(container.querySelectorAll(".handwritten-accent-art-mobile")).toHaveLength(1);
+  });
+
+test("handwritten Hero and section headers declare mobile simplification", () => {
+    const profile = getAudienceProfile("engineering");
+    const heroView = render(
+      <Hero audienceProfile={profile} source="preset"
+        recommendedSections={["work","cases","skills","timeline"]} onChangeLens={() => {}} />
+    );
+    expect(heroView.container.querySelector(".hero-sketch-underline")).toHaveAttribute("data-mobile-type","underline");
+    expect(heroView.container.querySelector(".hero-sketch-arrow")).toHaveAttribute("data-mobile-hidden","true");
+    cleanup();
+
+    const headerView = render(
+      <SectionHeader kicker="Experience" title="Responsive heading"
+        accentType="circle" accentLabel="built over time" />
+    );
+    expect(headerView.container.querySelector(".section-header-handwritten")).toHaveAttribute("data-mobile-type","underline");
+    expect(headerView.container.querySelector(".section-header-handwritten")).toHaveAttribute("data-mobile-note-position","inline");
+  });
+
+test("infographic handwritten accents simplify inside mobile stage rows", () => {
+    const delivery = render(<WebDeliveryInfographic />);
+    expect(delivery.container.querySelector(".delivery-qa-sketch")).toHaveAttribute("data-mobile-type","underline");
+    expect(delivery.container.querySelector(".delivery-qa-sketch")).toHaveAttribute("data-mobile-note-position","inline");
+    expect(delivery.container.querySelector(".delivery-launch-sketch")).toHaveAttribute("data-mobile-hidden","true");
+    cleanup();
+
+    const career = render(<CareerCapabilityMap />);
+    expect(career.container.querySelector(".career-ai-sketch")).toHaveAttribute("data-mobile-type","underline");
+    expect(career.container.querySelector(".career-ai-sketch")).toHaveAttribute("data-mobile-note-position","inline");
+  });
+
 });

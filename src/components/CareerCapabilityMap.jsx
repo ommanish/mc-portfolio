@@ -71,14 +71,18 @@ export default function CareerCapabilityMap() {
                 type="marker"
                 label="experience at scale"
                 className="infographic-handwritten-accent career-cms-sketch"
-              />
+            notePosition="below"
+          />
             ) : null}
             {stage.title === "AI-assisted Delivery" ? (
               <HandwrittenAccent
                 type="arrow"
                 label="human in the loop"
                 className="infographic-handwritten-accent career-ai-sketch"
-              />
+            notePosition="below"
+            mobileType="underline"
+            mobileNotePosition="inline"
+          />
             ) : null}
           </article>
         ))}

@@ -25,27 +25,45 @@ const PATHS = {
   ),
 };
 
+const viewBoxForAccent = (accentType) =>
+  accentType === "circle" ? "0 0 160 80" : accentType === "arrow" ? "0 0 180 64" : "0 0 180 48";
+
+const renderAccentArt = (accentType, className) => (
+  <svg
+    className={`handwritten-accent-art ${className}`.trim()}
+    viewBox={viewBoxForAccent(accentType)}
+    aria-hidden="true"
+    focusable="false"
+  >
+    {PATHS[accentType] || PATHS.underline}
+  </svg>
+);
+
 export default function HandwrittenAccent({
   type = "underline",
   label = "",
   className = "",
+  notePosition = "below",
+  mobileType = "",
+  mobileNotePosition = "",
+  hideOnMobile = false,
 }) {
-  const drawing = PATHS[type] || PATHS.underline;
+  const resolvedMobileType = mobileType || type;
+  const resolvedMobileNotePosition = mobileNotePosition || notePosition;
+  const hasMobileArt = Boolean(mobileType && mobileType !== type);
 
   return (
     <span
-      className={`handwritten-accent ${className}`.trim()}
+      className={`handwritten-accent ${hasMobileArt ? "handwritten-accent-has-mobile-art" : ""} ${className}`.trim()}
       data-accent-type={type}
+      data-note-position={notePosition}
+      data-mobile-type={resolvedMobileType}
+      data-mobile-note-position={resolvedMobileNotePosition}
+      data-mobile-hidden={hideOnMobile ? "true" : "false"}
       aria-hidden="true"
     >
-      <svg
-        className="handwritten-accent-art"
-        viewBox={type === "circle" ? "0 0 160 80" : type === "arrow" ? "0 0 180 64" : "0 0 180 48"}
-        aria-hidden="true"
-        focusable="false"
-      >
-        {drawing}
-      </svg>
+      {renderAccentArt(type, "handwritten-accent-art-desktop")}
+      {hasMobileArt ? renderAccentArt(resolvedMobileType, "handwritten-accent-art-mobile") : null}
       {label ? <span className="handwritten-note">{label}</span> : null}
     </span>
   );

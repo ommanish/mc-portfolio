@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "test": "vitest run src/App.test.jsx",
     "test:experiment": "node --test scripts/experiment-shell.test.mjs",
-    "build:experiment": "bash scripts/build-experiment.sh"
+    "build:experiment": "bash scripts/build-experiment.sh",
+    "test:handwritten-layout": "node scripts/check-handwritten-layout.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -24,6 +25,7 @@
     "@testing-library/user-event": "^14.6.4",
     "@vitejs/plugin-react": "latest",
     "jsdom": "^30.0.1",
+    "playwright": "^1.62.1",
     "vite": "latest",
     "vitest": "^4.1.10"
   }

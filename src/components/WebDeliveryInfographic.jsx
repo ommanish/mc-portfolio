@@ -57,14 +57,19 @@ export default function WebDeliveryInfographic() {
                 type="circle"
                 label="validate here"
                 className="infographic-handwritten-accent delivery-qa-sketch"
-              />
+            notePosition="start"
+            mobileType="underline"
+            mobileNotePosition="inline"
+          />
             ) : null}
             {step.title === "Launch" ? (
               <HandwrittenAccent
                 type="arrow"
                 label="ship"
                 className="infographic-handwritten-accent delivery-launch-sketch"
-              />
+            notePosition="below"
+            hideOnMobile={true}
+          />
             ) : null}
           </article>
         ))}
