@@ -16,6 +16,7 @@ export default function AISection({ embedded = false }) {
       <SectionHeader kicker="AI in practice" title="I use AI where it improves the workflow — not where it weakens judgment." copy={content.copy}
         accentType="marker"
         accentLabel="human in the loop"
+        accentClassName="ai-owner-accent"
       />
       <div className="ai-pipeline">
         {PIPELINE.map(([title, copy], index) => (

@@ -1,4 +1,6 @@
 /* @vitest-environment jsdom */
+import Timeline from "./components/Timeline";
+import AISection from "./components/AISection";
 import "@testing-library/jest-dom/vitest";
 import { act, cleanup, render, renderHook, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -439,6 +441,25 @@ test("infographic handwritten accents simplify inside mobile stage rows", () => 
     const career = render(<CareerCapabilityMap />);
     expect(career.container.querySelector(".career-ai-sketch")).toHaveAttribute("data-mobile-type","underline");
     expect(career.container.querySelector(".career-ai-sketch")).toHaveAttribute("data-mobile-note-position","inline");
+  });
+
+test("reviewed handwritten accents are attached to explicit content owners", () => {
+    const profile = getAudienceProfile("engineering");
+    const hero = render(<Hero audienceProfile={profile} source="preset" recommendedSections={["work","cases","skills","timeline"]} onChangeLens={() => {}} />);
+    expect(hero.container.querySelector(".hero-sketch-underline .handwritten-note")).toHaveTextContent("built to ship");
+    cleanup();
+    const delivery = render(<WebDeliveryInfographic />);
+    const qa = delivery.container.querySelector(".delivery-qa-sketch");
+    expect(qa).toBeInTheDocument();
+    expect(qa.closest(".delivery-infographic-copy")).not.toBeNull();
+    expect(qa).toHaveAttribute("data-accent-type","underline");
+    cleanup();
+    const ai = render(<AISection />);
+    expect(ai.container.querySelector(".ai-owner-accent")).toBeInTheDocument();
+    cleanup();
+    const timeline = render(<Timeline />);
+    expect(timeline.container.querySelector(".timeline-anchor-years .experience-years-accent")).toBeInTheDocument();
+    expect(timeline.container.querySelector(".timeline-executive .section-header-handwritten")).not.toBeInTheDocument();
   });
 
 });

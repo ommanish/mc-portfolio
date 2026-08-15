@@ -1,4 +1,5 @@
 import SectionHeader from "./SectionHeader";
+import HandwrittenAccent from "./HandwrittenAccent";
 import CareerCapabilityMap from "./CareerCapabilityMap";
 
 const EXPERIENCE = [
@@ -18,15 +19,23 @@ export default function Timeline({ embedded = false }) {
         kicker="Experience"
         title="17+ years of building, improving, and shipping digital experiences."
         copy="My career has moved from hands-on UI development to broader ownership of enterprise web delivery — without losing the technical foundation."
-        accentType="circle"
-        accentLabel="built over time"
       />
 
       <CareerCapabilityMap />
 
       <div className="timeline-layout">
         <aside className="timeline-anchor">
-          <strong>17+</strong>
+          <div className="timeline-anchor-years">
+            <strong>17+</strong>
+            <HandwrittenAccent
+              type="circle"
+              label="built over time"
+              notePosition="below"
+              mobileType="underline"
+              mobileNotePosition="inline"
+              className="experience-years-accent"
+            />
+          </div>
           <span>years connecting technology, design, content, and delivery.</span>
         </aside>
 

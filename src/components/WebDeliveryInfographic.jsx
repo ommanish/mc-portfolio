@@ -51,17 +51,17 @@ export default function WebDeliveryInfographic() {
               <span className="micro-label">Stage {step.number}</span>
               <h3>{step.title}</h3>
               <p>{step.copy}</p>
-            </div>
-            {step.title === "QA" ? (
-              <HandwrittenAccent
-                type="circle"
+              {step.title === "QA" ? (
+                <HandwrittenAccent
+                type="underline"
                 label="validate here"
                 className="infographic-handwritten-accent delivery-qa-sketch"
             notePosition="start"
             mobileType="underline"
             mobileNotePosition="inline"
           />
-            ) : null}
+              ) : null}
+            </div>
             {step.title === "Launch" ? (
               <HandwrittenAccent
                 type="arrow"

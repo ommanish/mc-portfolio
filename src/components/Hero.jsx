@@ -92,7 +92,7 @@ export default function Hero({ audienceProfile, source, recommendedSections, onC
         <div className="hero-handwritten-layer" aria-hidden="true">
           <HandwrittenAccent
             type="underline"
-            label="hands-on, built to ship"
+            label="built to ship"
             className="hero-handwritten-accent hero-sketch-underline"
             notePosition="below"
             mobileType="underline"
