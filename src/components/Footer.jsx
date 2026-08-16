@@ -19,10 +19,10 @@ export default function Footer({ onRestart }) {
       <div className="footer-actions">
         <div className="footer-social-block">
           <span className="footer-social-label">Follow me</span>
-          <nav aria-label="Footer links">
-            <a href={site.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/ommanish/mc-portfolio" target="_blank" rel="noreferrer">GitHub</a>
-            <a href={site.resumeUrl}>Resume</a>
+          <nav aria-label="Footer links" data-analytics-section="footer">
+            <a href={site.linkedinUrl} target="_blank" rel="noreferrer" data-analytics-event="linkedin_click" data-analytics-section="footer">LinkedIn</a>
+            <a href="https://github.com/ommanish/mc-portfolio" target="_blank" rel="noreferrer" data-analytics-event="github_click" data-analytics-section="footer">GitHub</a>
+            <a href={site.resumeUrl} data-analytics-event="resume_click" data-analytics-section="footer">Resume</a>
           </nav>
         </div>
         <button className="footer-restart" type="button" onClick={onRestart}>

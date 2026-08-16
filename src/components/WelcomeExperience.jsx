@@ -64,6 +64,9 @@ export default function WelcomeExperience({ onSelectAudience, onSearchIntent, on
             key={option.key}
             type="button"
             onClick={() => onSelectAudience(option.key)}
+            data-analytics-event="lens_selected"
+            data-analytics-section="welcome"
+            data-analytics-value={option.key}
           >
             <span className="lens-path-number">{String(index + 1).padStart(2, "0")}</span>
             <span className="lens-path-copy">
@@ -96,7 +99,14 @@ export default function WelcomeExperience({ onSelectAudience, onSearchIntent, on
       </form>
 
       <div className="lens-foot">
-        <button className="lens-explore" type="button" onClick={onExploreNormally}>
+        <button
+          className="lens-explore"
+          type="button"
+          onClick={onExploreNormally}
+          data-analytics-event="portfolio_cta_click"
+          data-analytics-section="welcome"
+          data-analytics-value="explore-full"
+        >
           Explore the full portfolio <span aria-hidden="true">→</span>
         </button>
         <p>
