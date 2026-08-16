@@ -2937,3 +2937,79 @@ summary:focus-visible {
   .delivery-qa-sketch { width:min(130px,46vw) !important; margin-top:8px !important; }
   .ai-owner-accent { width:min(178px,62vw) !important; margin-top:7px !important; }
 }
+
+/* Final Handwritten Polish + 18+ */
+
+.hero-sketch-arrow {
+  display: none !important;
+}
+
+.delivery-qa-sketch {
+  width: clamp(126px, 10vw, 148px) !important;
+  margin-top: 8px !important;
+}
+
+.delivery-qa-sketch .handwritten-note {
+  font-size: clamp(15px, .95vw, 17px) !important;
+  line-height: 1.05;
+  margin-top: -3px !important;
+}
+
+.ai-owner-accent {
+  width: clamp(176px, 18vw, 228px) !important;
+  margin-top: 3px !important;
+}
+
+.ai-owner-accent .handwritten-note {
+  font-size: clamp(15px, 1vw, 17px) !important;
+  line-height: 1.05;
+  margin-top: -3px !important;
+}
+
+.timeline-anchor-years {
+  display: inline-grid;
+  justify-items: start;
+  width: max-content;
+  margin-bottom: 14px !important;
+}
+
+.experience-years-accent {
+  --hand-color: var(--exec-warm);
+  position: relative !important;
+  inset: auto !important;
+  width: clamp(118px, 10vw, 148px) !important;
+  margin: -6px 0 0 0 !important;
+  transform: rotate(-2deg) !important;
+}
+
+.experience-years-accent .handwritten-note {
+  position: relative !important;
+  inset: auto !important;
+  font-size: clamp(15px, .95vw, 17px) !important;
+  line-height: 1.05;
+  margin: -4px 0 0 18px !important;
+  transform: rotate(-2deg) !important;
+}
+
+@media (max-width: 980px) {
+  .delivery-qa-sketch {
+    width: min(142px, 42vw) !important;
+  }
+
+  .ai-owner-accent {
+    width: min(202px, 58vw) !important;
+  }
+
+  .experience-years-accent {
+    width: min(142px, 42vw) !important;
+    margin-top: -4px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .delivery-qa-sketch .handwritten-note,
+  .ai-owner-accent .handwritten-note,
+  .experience-years-accent .handwritten-note {
+    font-size: 15px !important;
+  }
+}

@@ -34,7 +34,7 @@ export default function WelcomeExperience({ onSelectAudience, onSearchIntent, on
 
       <div className="lens-masthead">
         <span>MC / PORTFOLIO LENS</span>
-        <span>SAN JOSE · 17+ YEARS · 2026</span>
+        <span>SAN JOSE · 18+ YEARS · 2026</span>
       </div>
 
       <div className="lens-intro">

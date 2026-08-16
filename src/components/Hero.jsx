@@ -98,13 +98,6 @@ export default function Hero({ audienceProfile, source, recommendedSections, onC
             mobileType="underline"
             mobileNotePosition="inline"
           />
-          <HandwrittenAccent
-            type="arrow"
-            label="follow the path"
-            className="hero-handwritten-accent hero-sketch-arrow"
-            notePosition="below"
-            hideOnMobile={true}
-          />
         </div>
 
         <p className="hero-copy">{hero.description}</p>
@@ -118,7 +111,7 @@ export default function Hero({ audienceProfile, source, recommendedSections, onC
       <aside className="career-coordinate" aria-label="Career coordinates">
         <div className="coordinate-cross" aria-hidden="true" />
         <div className="coordinate-center">
-          <strong>17+</strong>
+          <strong>18+</strong>
           <span>YEARS</span>
         </div>
         <div className="coordinate-point point-web"><span>WEB</span><small>Enterprise experience</small></div>

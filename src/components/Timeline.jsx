@@ -17,7 +17,7 @@ export default function Timeline({ embedded = false }) {
     <section id={embedded ? undefined : "timeline"} className="editorial-section timeline-executive">
       <SectionHeader
         kicker="Experience"
-        title="17+ years of building, improving, and shipping digital experiences."
+        title="18+ years of building, improving, and shipping digital experiences."
         copy="My career has moved from hands-on UI development to broader ownership of enterprise web delivery — without losing the technical foundation."
       />
 
@@ -26,9 +26,9 @@ export default function Timeline({ embedded = false }) {
       <div className="timeline-layout">
         <aside className="timeline-anchor">
           <div className="timeline-anchor-years">
-            <strong>17+</strong>
+            <strong>18+</strong>
             <HandwrittenAccent
-              type="circle"
+              type="underline"
               label="built over time"
               notePosition="below"
               mobileType="underline"

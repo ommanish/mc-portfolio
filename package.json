@@ -14,7 +14,8 @@
     "test:experiment": "node --test scripts/experiment-shell.test.mjs",
     "build:experiment": "bash scripts/build-experiment.sh",
     "test:handwritten-layout": "node scripts/check-handwritten-layout.mjs",
-    "test:handwritten-owner-layout": "node scripts/check-handwritten-owner-alignment.mjs"
+    "test:handwritten-owner-layout": "node scripts/check-handwritten-owner-alignment.mjs",
+    "test:handwritten-final-polish": "node scripts/check-handwritten-final-polish.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

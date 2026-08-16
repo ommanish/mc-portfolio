@@ -356,9 +356,9 @@ test("adaptive Hero uses restrained handwritten accents without rewriting the he
       />
     );
 
-    expect(container.querySelectorAll(".hero-handwritten-accent")).toHaveLength(2);
+    expect(container.querySelectorAll(".hero-handwritten-accent")).toHaveLength(1);
     expect(container.querySelector(".hero-sketch-underline")).toHaveAttribute("data-accent-type","underline");
-    expect(container.querySelector(".hero-sketch-arrow")).toHaveAttribute("data-accent-type","arrow");
+    expect(container.querySelector(".hero-sketch-arrow")).not.toBeInTheDocument();
     expect(screen.getByRole("heading",{name:/turning complex web work into experiences teams can ship with confidence/i})).toBeInTheDocument();
   });
 
@@ -420,7 +420,7 @@ test("handwritten Hero and section headers declare mobile simplification", () =>
         recommendedSections={["work","cases","skills","timeline"]} onChangeLens={() => {}} />
     );
     expect(heroView.container.querySelector(".hero-sketch-underline")).toHaveAttribute("data-mobile-type","underline");
-    expect(heroView.container.querySelector(".hero-sketch-arrow")).toHaveAttribute("data-mobile-hidden","true");
+    expect(heroView.container.querySelector(".hero-sketch-arrow")).not.toBeInTheDocument();
     cleanup();
 
     const headerView = render(
@@ -460,6 +460,28 @@ test("reviewed handwritten accents are attached to explicit content owners", () 
     const timeline = render(<Timeline />);
     expect(timeline.container.querySelector(".timeline-anchor-years .experience-years-accent")).toBeInTheDocument();
     expect(timeline.container.querySelector(".timeline-executive .section-header-handwritten")).not.toBeInTheDocument();
+  });
+
+test("final handwritten polish removes floating arrow and updates experience to 18 plus", () => {
+    const profile = getAudienceProfile("engineering");
+    const hero = render(
+      <Hero
+        audienceProfile={profile}
+        source="preset"
+        recommendedSections={["work","cases","skills","timeline"]}
+        onChangeLens={() => {}}
+      />
+    );
+    expect(hero.container.querySelector(".hero-sketch-arrow")).not.toBeInTheDocument();
+    expect(hero.container).toHaveTextContent(/18\+\s*years/i);
+    expect(hero.container).not.toHaveTextContent(/17\+\s*years/i);
+    cleanup();
+
+    const timeline = render(<Timeline />);
+    expect(timeline.container.querySelector(".timeline-anchor-years > strong"))
+      .toHaveTextContent("18+");
+    expect(timeline.container.querySelector(".experience-years-accent"))
+      .toHaveAttribute("data-accent-type","underline");
   });
 
 });
