@@ -1,5 +1,6 @@
 import { portfolioContent } from "../content/portfolioContent";
 import { SECTION_LABELS } from "../content/lensConfig";
+import HandwrittenAccent from "./HandwrittenAccent";
 
 const LENS_META = {
   general: { number: "00", label: "Full Portfolio" },
@@ -88,6 +89,17 @@ export default function Hero({ audienceProfile, source, recommendedSections, onC
           ))}
         </h1>
 
+        <div className="hero-handwritten-layer" aria-hidden="true">
+          <HandwrittenAccent
+            type="underline"
+            label="built to ship"
+            className="hero-handwritten-accent hero-sketch-underline"
+            notePosition="below"
+            mobileType="underline"
+            mobileNotePosition="inline"
+          />
+        </div>
+
         <p className="hero-copy">{hero.description}</p>
 
         <div className="hero-actions">
@@ -99,7 +111,7 @@ export default function Hero({ audienceProfile, source, recommendedSections, onC
       <aside className="career-coordinate" aria-label="Career coordinates">
         <div className="coordinate-cross" aria-hidden="true" />
         <div className="coordinate-center">
-          <strong>17+</strong>
+          <strong>18+</strong>
           <span>YEARS</span>
         </div>
         <div className="coordinate-point point-web"><span>WEB</span><small>Enterprise experience</small></div>

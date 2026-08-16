@@ -35,7 +35,7 @@ export const portfolioContent = {
     ],
 
     description:
-      "I’m Manish Chawla, a Web Experience Manager and frontend professional with 17+ years across enterprise websites, CMS and page-builder platforms, responsive UI, accessibility, design systems, QA, and launch workflows.",
+      "I’m Manish Chawla, a Web Experience Manager and frontend professional with 18+ years across enterprise websites, CMS and page-builder platforms, responsive UI, accessibility, design systems, QA, and launch workflows.",
 
     actions: [
       {
@@ -57,7 +57,7 @@ export const portfolioContent = {
 
     stats: [
       {
-        value: "17+",
+        value: "18+",
         label: "Years web & digital experience",
       },
       {

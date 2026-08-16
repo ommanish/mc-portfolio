@@ -1,11 +1,18 @@
 /* @vitest-environment jsdom */
+import Footer from "./components/Footer";
+import Timeline from "./components/Timeline";
+import AISection from "./components/AISection";
 import "@testing-library/jest-dom/vitest";
 import { act, cleanup, render, renderHook, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import App from "./App";
 import Contact from "./components/Contact";
+import CareerCapabilityMap from "./components/CareerCapabilityMap";
+import WebDeliveryInfographic from "./components/WebDeliveryInfographic";
 import Hero from "./components/Hero";
+import HandwrittenAccent from "./components/HandwrittenAccent";
+import SectionHeader from "./components/SectionHeader";
 import usePersonalization, { AUDIENCE_STORAGE_KEY, EXPLORE_SESSION_KEY } from "./hooks/usePersonalization";
 import { getAudienceProfile } from "./lib/personalization";
 
@@ -306,6 +313,195 @@ describe("Trust-first adaptive portfolio", () => {
     expect(screen.getByText("TechDemocracy / Quantious — UI/UX Lead, Salesforce Data Cloud Page Builder")).toBeInTheDocument();
     expect(screen.getByText("Feb 2024 — Jul 2026")).toBeInTheDocument();
     expect(screen.getByText("TechDemocracy — Senior UI Frontend Developer & Designer")).toBeInTheDocument();
+  });
+
+  test("Web delivery infographic keeps the six verified delivery stages", () => {
+    render(<WebDeliveryInfographic />);
+
+    expect(screen.getByRole("figure",{name:/web delivery process infographic/i})).toBeInTheDocument();
+    expect(screen.getAllByTestId("delivery-infographic-step")).toHaveLength(6);
+    expect(screen.getByRole("heading",{name:"Strategy"})).toBeInTheDocument();
+    expect(screen.getByRole("heading",{name:"Optimize"})).toBeInTheDocument();
+  });
+
+  test("Career capability infographic shows four evidence-based capability stages", () => {
+    render(<CareerCapabilityMap />);
+
+    expect(screen.getByRole("figure",{name:/career capability evolution infographic/i})).toBeInTheDocument();
+    expect(screen.getAllByTestId("career-capability-stage")).toHaveLength(4);
+    expect(screen.getByRole("heading",{name:"UI & Frontend"})).toBeInTheDocument();
+    expect(screen.getByRole("heading",{name:"AI-assisted Delivery"})).toBeInTheDocument();
+    expect(screen.getByText("2007")).toBeInTheDocument();
+    expect(screen.getByText("NOW")).toBeInTheDocument();
+  });
+
+
+test("handwritten accent primitive renders decorative reusable SVG marks", () => {
+    const { container } = render(<HandwrittenAccent type="underline" label="hands-on" />);
+
+    const accent = container.querySelector(".handwritten-accent");
+    expect(accent).toBeInTheDocument();
+    expect(accent).toHaveAttribute("data-accent-type","underline");
+    expect(container.querySelector(".handwritten-accent svg")).toHaveAttribute("aria-hidden","true");
+    expect(container.querySelector(".handwritten-note")).toHaveTextContent("hands-on");
+  });
+
+test("adaptive Hero uses restrained handwritten accents without rewriting the headline", () => {
+    const profile = getAudienceProfile("engineering");
+    const { container } = render(
+      <Hero
+        audienceProfile={profile}
+        source="preset"
+        recommendedSections={["work","cases","skills","timeline"]}
+        onChangeLens={() => {}}
+      />
+    );
+
+    expect(container.querySelectorAll(".hero-handwritten-accent")).toHaveLength(1);
+    expect(container.querySelector(".hero-sketch-underline")).toHaveAttribute("data-accent-type","underline");
+    expect(container.querySelector(".hero-sketch-arrow")).not.toBeInTheDocument();
+    expect(screen.getByRole("heading",{name:/turning complex web work into experiences teams can ship with confidence/i})).toBeInTheDocument();
+  });
+
+test("infographics add handwritten emphasis without changing their verified structure", () => {
+    const delivery = render(<WebDeliveryInfographic />);
+    expect(delivery.container.querySelectorAll(".infographic-handwritten-accent")).toHaveLength(2);
+    expect(delivery.container.querySelectorAll('[data-testid="delivery-infographic-step"]')).toHaveLength(6);
+    cleanup();
+
+    const career = render(<CareerCapabilityMap />);
+    expect(career.container.querySelectorAll(".infographic-handwritten-accent")).toHaveLength(2);
+    expect(career.container.querySelectorAll('[data-testid="career-capability-stage"]')).toHaveLength(4);
+  });
+
+test("SectionHeader keeps accents optional and preserves heading semantics", () => {
+    const accented = render(
+      <SectionHeader
+        kicker="Example"
+        title="A stable professional heading."
+        copy="Example copy."
+        accentType="underline"
+        accentLabel="small human note"
+      />
+    );
+
+    expect(accented.container.querySelectorAll(".section-header-handwritten")).toHaveLength(1);
+    expect(screen.getByRole("heading",{name:"A stable professional heading."})).toBeInTheDocument();
+    cleanup();
+
+    const plain = render(<SectionHeader kicker="Plain" title="No accent here." />);
+    expect(plain.container.querySelector(".section-header-handwritten")).not.toBeInTheDocument();
+  });
+
+  test("handwritten note positioning is owned by the shared accent component", () => {
+    const { container } = render(<HandwrittenAccent type="arrow" label="aligned" notePosition="below" />);
+    expect(container.querySelector(".handwritten-accent")).toHaveAttribute("data-note-position","below");
+  });
+
+test("handwritten accent supports explicit mobile simplification", () => {
+    const { container } = render(
+      <HandwrittenAccent
+        type="circle"
+        label="responsive note"
+        notePosition="below"
+        mobileType="underline"
+        mobileNotePosition="inline"
+      />
+    );
+    const accent = container.querySelector(".handwritten-accent");
+    expect(accent).toHaveAttribute("data-mobile-type","underline");
+    expect(accent).toHaveAttribute("data-mobile-note-position","inline");
+    expect(container.querySelectorAll(".handwritten-accent-art-mobile")).toHaveLength(1);
+  });
+
+test("handwritten Hero and section headers declare mobile simplification", () => {
+    const profile = getAudienceProfile("engineering");
+    const heroView = render(
+      <Hero audienceProfile={profile} source="preset"
+        recommendedSections={["work","cases","skills","timeline"]} onChangeLens={() => {}} />
+    );
+    expect(heroView.container.querySelector(".hero-sketch-underline")).toHaveAttribute("data-mobile-type","underline");
+    expect(heroView.container.querySelector(".hero-sketch-arrow")).not.toBeInTheDocument();
+    cleanup();
+
+    const headerView = render(
+      <SectionHeader kicker="Experience" title="Responsive heading"
+        accentType="circle" accentLabel="built over time" />
+    );
+    expect(headerView.container.querySelector(".section-header-handwritten")).toHaveAttribute("data-mobile-type","underline");
+    expect(headerView.container.querySelector(".section-header-handwritten")).toHaveAttribute("data-mobile-note-position","inline");
+  });
+
+test("infographic handwritten accents simplify inside mobile stage rows", () => {
+    const delivery = render(<WebDeliveryInfographic />);
+    expect(delivery.container.querySelector(".delivery-qa-sketch")).toHaveAttribute("data-mobile-type","underline");
+    expect(delivery.container.querySelector(".delivery-qa-sketch")).toHaveAttribute("data-mobile-note-position","inline");
+    expect(delivery.container.querySelector(".delivery-launch-sketch")).toHaveAttribute("data-mobile-hidden","true");
+    cleanup();
+
+    const career = render(<CareerCapabilityMap />);
+    expect(career.container.querySelector(".career-ai-sketch")).toHaveAttribute("data-mobile-type","underline");
+    expect(career.container.querySelector(".career-ai-sketch")).toHaveAttribute("data-mobile-note-position","inline");
+  });
+
+test("reviewed handwritten accents are attached to explicit content owners", () => {
+    const profile = getAudienceProfile("engineering");
+    const hero = render(<Hero audienceProfile={profile} source="preset" recommendedSections={["work","cases","skills","timeline"]} onChangeLens={() => {}} />);
+    expect(hero.container.querySelector(".hero-sketch-underline .handwritten-note")).toHaveTextContent("built to ship");
+    cleanup();
+    const delivery = render(<WebDeliveryInfographic />);
+    const qa = delivery.container.querySelector(".delivery-qa-sketch");
+    expect(qa).toBeInTheDocument();
+    expect(qa.closest(".delivery-infographic-copy")).not.toBeNull();
+    expect(qa).toHaveAttribute("data-accent-type","underline");
+    cleanup();
+    const ai = render(<AISection />);
+    expect(ai.container.querySelector(".ai-owner-accent")).toBeInTheDocument();
+    cleanup();
+    const timeline = render(<Timeline />);
+    expect(timeline.container.querySelector(".timeline-anchor-years .experience-years-accent")).toBeInTheDocument();
+    expect(timeline.container.querySelector(".timeline-executive .section-header-handwritten")).not.toBeInTheDocument();
+  });
+
+test("final handwritten polish removes floating arrow and updates experience to 18 plus", () => {
+    const profile = getAudienceProfile("engineering");
+    const hero = render(
+      <Hero
+        audienceProfile={profile}
+        source="preset"
+        recommendedSections={["work","cases","skills","timeline"]}
+        onChangeLens={() => {}}
+      />
+    );
+    expect(hero.container.querySelector(".hero-sketch-arrow")).not.toBeInTheDocument();
+    expect(hero.container).toHaveTextContent(/18\+\s*years/i);
+    expect(hero.container).not.toHaveTextContent(/17\+\s*years/i);
+    cleanup();
+
+    const timeline = render(<Timeline />);
+    expect(timeline.container.querySelector(".timeline-anchor-years > strong"))
+      .toHaveTextContent("18+");
+    expect(timeline.container.querySelector(".experience-years-accent"))
+      .toHaveAttribute("data-accent-type","underline");
+  });
+
+test("final UI polish keeps Change reason clean and groups Follow me with social links", async () => {
+    const user = userEvent.setup();
+    const contact = render(<Contact />);
+    await user.click(contact.getByRole("button", { name: "Job opportunity" }));
+
+    const changeReason = contact.getByRole("button", { name: /change reason/i });
+    expect(changeReason.querySelector(".contact-change-reason-icon")).toHaveTextContent("↶");
+    expect(changeReason.querySelectorAll("span")).toHaveLength(2);
+    cleanup();
+
+    const footer = render(<Footer onRestart={() => {}} />);
+    const follow = footer.getByText("Follow me");
+    const socialBlock = follow.closest(".footer-social-block");
+    expect(follow).toHaveClass("footer-social-label");
+    expect(socialBlock).toContainElement(
+      footer.getByRole("navigation", { name: "Footer links" })
+    );
   });
 
 });

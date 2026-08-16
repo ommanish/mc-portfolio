@@ -1,4 +1,6 @@
 import SectionHeader from "./SectionHeader";
+import HandwrittenAccent from "./HandwrittenAccent";
+import CareerCapabilityMap from "./CareerCapabilityMap";
 
 const EXPERIENCE = [
   ["Jul 2026 — Present","Salesforce — Web Experience Manager, Data 360","Focused on Data 360 web experience delivery across enterprise pages, CMS/page-builder workflows, frontend implementation, responsive design, accessibility, QA, and launch readiness."],
@@ -15,13 +17,25 @@ export default function Timeline({ embedded = false }) {
     <section id={embedded ? undefined : "timeline"} className="editorial-section timeline-executive">
       <SectionHeader
         kicker="Experience"
-        title="17+ years of building, improving, and shipping digital experiences."
+        title="18+ years of building, improving, and shipping digital experiences."
         copy="My career has moved from hands-on UI development to broader ownership of enterprise web delivery — without losing the technical foundation."
       />
 
+      <CareerCapabilityMap />
+
       <div className="timeline-layout">
         <aside className="timeline-anchor">
-          <strong>17+</strong>
+          <div className="timeline-anchor-years">
+            <strong>18+</strong>
+            <HandwrittenAccent
+              type="underline"
+              label="built over time"
+              notePosition="below"
+              mobileType="underline"
+              mobileNotePosition="inline"
+              className="experience-years-accent"
+            />
+          </div>
           <span>years connecting technology, design, content, and delivery.</span>
         </aside>
 

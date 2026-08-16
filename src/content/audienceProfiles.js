@@ -2,17 +2,17 @@ export const AUDIENCE_PROFILES = {
   general: {
     key: "general",
     label: "General view",
-    eyebrow: "17+ years · Enterprise Web · Frontend · CMS · AI",
+    eyebrow: "18+ years · Enterprise Web · Frontend · CMS · AI",
     headlineLines: ["I make complex web delivery", "clearer, stronger, and easier to ship."],
     description:
-      "I’m Manish Chawla, a Web Experience Manager and frontend professional with 17+ years across enterprise websites, CMS and page-builder platforms, accessibility, design systems, QA, and launch workflows. I work where design, content, engineering, and business teams need to move together.",
+      "I’m Manish Chawla, a Web Experience Manager and frontend professional with 18+ years across enterprise websites, CMS and page-builder platforms, accessibility, design systems, QA, and launch workflows. I work where design, content, engineering, and business teams need to move together.",
     primaryAction: { label: "See how I work →", href: "#work" },
     sectionOrder: ["work", "services", "web-experience", "cases", "skills", "ai", "timeline", "contact"],
   },
   recruiter: {
     key: "recruiter",
     label: "Recruiter / talent",
-    eyebrow: "17+ years · Web Experience · Frontend · Enterprise delivery",
+    eyebrow: "18+ years · Web Experience · Frontend · Enterprise delivery",
     headlineLines: ["A senior web professional", "who can move between delivery and code."],
     description:
       "My background combines hands-on frontend depth with the ownership needed to move enterprise web work from requirements through CMS implementation, QA, stakeholder review, and launch.",
