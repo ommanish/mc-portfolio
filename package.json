@@ -16,7 +16,10 @@
     "test:handwritten-layout": "node scripts/check-handwritten-layout.mjs",
     "test:handwritten-owner-layout": "node scripts/check-handwritten-owner-alignment.mjs",
     "test:handwritten-final-polish": "node scripts/check-handwritten-final-polish.mjs",
-    "test:final-ui-polish": "node scripts/check-final-ui-polish.mjs"
+    "test:final-ui-polish": "node scripts/check-final-ui-polish.mjs",
+    "test:analytics-client": "node --test scripts/portfolio-analytics.test.mjs",
+    "test:analytics-ui": "vitest run src/analyticsInstrumentation.test.jsx",
+    "test:analytics-config": "node --test scripts/analytics-config.test.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

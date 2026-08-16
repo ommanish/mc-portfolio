@@ -2,6 +2,8 @@ import fs from "node:fs";
 
 const CLASSIC_ID = "adaptive-experiment-invite";
 const RETURN_ID = "classic-experiment-return";
+const ANALYTICS_ID = "portfolio-analytics-client";
+const CF_ANALYTICS_ID = "cloudflare-web-analytics";
 
 const classicStyle = `
 <style id="adaptive-experiment-invite-style">
@@ -44,7 +46,14 @@ font:750 12px/1 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"
 </style>`;
 
 const adaptiveMarkup = `
-<a id="${RETURN_ID}" href="/" data-experiment="adaptive-to-classic-v1" aria-label="Return to the classic portfolio">← Classic portfolio</a>`;
+<a id="${RETURN_ID}" href="/" data-experiment="adaptive-to-classic-v1" data-analytics-event="portfolio_cta_click" data-analytics-value="classic-return" aria-label="Return to the classic portfolio">← Classic portfolio</a>`;
+
+const escapeAttr = (value) =>
+  String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 
 export function injectClassicInvite(html) {
   if (html.includes(`id="${CLASSIC_ID}"`)) return html;
@@ -61,16 +70,53 @@ export function injectAdaptiveReturn(html) {
     .replace("</body>", `${adaptiveMarkup}\n</body>`);
 }
 
-export function applyExperimentShell(classicIndex, adaptiveIndex) {
-  fs.writeFileSync(classicIndex, injectClassicInvite(fs.readFileSync(classicIndex, "utf8")));
-  fs.writeFileSync(adaptiveIndex, injectAdaptiveReturn(fs.readFileSync(adaptiveIndex, "utf8")));
+export function injectAnalytics(html, apiBase = "", webAnalyticsToken = "") {
+  let result = html;
+  const api = String(apiBase || "").trim();
+  const token = String(webAnalyticsToken || "").trim();
+
+  if (api && !result.includes(`id="${ANALYTICS_ID}"`)) {
+    const client = `<script id="${ANALYTICS_ID}" src="/portfolio-analytics.js" data-api-base="${escapeAttr(api)}"></script>`;
+    result = result.replace("<head>", `<head>\n${client}`);
+  }
+
+  if (token && !result.includes(`id="${CF_ANALYTICS_ID}"`)) {
+    if (!/^[A-Za-z0-9_-]{20,100}$/.test(token)) {
+      throw new Error("Invalid Cloudflare Web Analytics site token.");
+    }
+    const config = JSON.stringify({ token });
+    const beacon = `<script id="${CF_ANALYTICS_ID}" defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${config}'></script>`;
+    result = result.replace("</head>", `${beacon}\n</head>`);
+  }
+
+  return result;
+}
+
+export function applyExperimentShell(
+  classicIndex,
+  adaptiveIndex,
+  apiBase = "",
+  webAnalyticsToken = ""
+) {
+  const classic = injectAnalytics(
+    injectClassicInvite(fs.readFileSync(classicIndex, "utf8")),
+    apiBase,
+    webAnalyticsToken
+  );
+  const adaptive = injectAnalytics(
+    injectAdaptiveReturn(fs.readFileSync(adaptiveIndex, "utf8")),
+    apiBase,
+    webAnalyticsToken
+  );
+  fs.writeFileSync(classicIndex, classic);
+  fs.writeFileSync(adaptiveIndex, adaptive);
 }
 
 if (process.argv[1]?.endsWith("experiment-shell.mjs")) {
-  const [, , classicIndex, adaptiveIndex] = process.argv;
+  const [, , classicIndex, adaptiveIndex, apiBase = "", webAnalyticsToken = ""] = process.argv;
   if (!classicIndex || !adaptiveIndex) {
-    console.error("Usage: node scripts/experiment-shell.mjs <classic-index> <adaptive-index>");
+    console.error("Usage: node scripts/experiment-shell.mjs <classic-index> <adaptive-index> [api-base] [web-analytics-token]");
     process.exit(1);
   }
-  applyExperimentShell(classicIndex, adaptiveIndex);
+  applyExperimentShell(classicIndex, adaptiveIndex, apiBase, webAnalyticsToken);
 }

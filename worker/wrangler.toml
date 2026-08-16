@@ -22,6 +22,23 @@ namespace_id = "1002"
   limit = 12
   period = 60
 
+[[ratelimits]]
+name = "ANALYTICS_RATE_LIMITER"
+namespace_id = "1003"
+  [ratelimits.simple]
+  limit = 60
+  period = 60
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "MC_PORTFOLIO_EVENTS"
+
+[[d1_databases]]
+binding = "LEADS_DB"
+database_name = "mc-portfolio-leads"
+database_id = "13d0a326-9931-4630-8c28-dc2ad23bdea5"
+migrations_dir = "migrations"
+
 # Configure these with `wrangler secret put`, never in this file:
 # OPENAI_API_KEY
 # TURNSTILE_SECRET_KEY

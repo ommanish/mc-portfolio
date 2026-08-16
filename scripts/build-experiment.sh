@@ -40,13 +40,25 @@ cp -R "$CLASSIC_OUT/." "$ROOT/dist/"
 cp -R "$ADAPTIVE_OUT/." "$ROOT/dist/new/"
 rm -f "$ROOT/dist/new/CNAME"
 
-node "$ROOT/scripts/experiment-shell.mjs" "$ROOT/dist/index.html" "$ROOT/dist/new/index.html"
+# One privacy-safe analytics client is shared by both routes. The classic source
+# is pinned to an older commit, so copy the current client explicitly.
+cp "$ROOT/public/portfolio-analytics.js" "$ROOT/dist/portfolio-analytics.js"
+rm -f "$ROOT/dist/new/portfolio-analytics.js"
+
+node "$ROOT/scripts/experiment-shell.mjs" \
+  "$ROOT/dist/index.html" \
+  "$ROOT/dist/new/index.html" \
+  "${VITE_PORTFOLIO_API_BASE:-}" \
+  "${CLOUDFLARE_WEB_ANALYTICS_TOKEN:-}"
 
 test -f "$ROOT/dist/index.html"
 test -f "$ROOT/dist/new/index.html"
+test -f "$ROOT/dist/portfolio-analytics.js"
 grep -q 'id="adaptive-experiment-invite"' "$ROOT/dist/index.html"
 grep -q 'href="/new/?from=classic"' "$ROOT/dist/index.html"
 grep -q 'id="classic-experiment-return"' "$ROOT/dist/new/index.html"
 grep -q 'name="robots" content="noindex,follow"' "$ROOT/dist/new/index.html"
+grep -q 'id="portfolio-analytics-client"' "$ROOT/dist/index.html"
+grep -q 'id="portfolio-analytics-client"' "$ROOT/dist/new/index.html"
 
 echo "Experiment artifact ready."

@@ -38,7 +38,13 @@ function LensStatus({ profile, source, recommendedSections, onChangeLens }) {
         <small>{trust}</small>
       </div>
 
-      <button className="hero-change-lens" type="button" onClick={onChangeLens}>
+      <button
+        className="hero-change-lens"
+        type="button"
+        onClick={onChangeLens}
+        data-analytics-event="change_lens"
+        data-analytics-section="hero"
+      >
         Change lens <span aria-hidden="true">↗</span>
       </button>
 
@@ -103,8 +109,23 @@ export default function Hero({ audienceProfile, source, recommendedSections, onC
         <p className="hero-copy">{hero.description}</p>
 
         <div className="hero-actions">
-          <a className="btn btn-primary" href={hero.actions[0].href}>{hero.actions[0].label}</a>
-          <a className="btn btn-ghost" href={site.resumeUrl}>View resume</a>
+          <a
+            className="btn btn-primary"
+            href={hero.actions[0].href}
+            data-analytics-event="portfolio_cta_click"
+            data-analytics-section="hero"
+            data-analytics-value="hero-primary"
+          >
+            {hero.actions[0].label}
+          </a>
+          <a
+            className="btn btn-ghost"
+            href={site.resumeUrl}
+            data-analytics-event="resume_click"
+            data-analytics-section="hero"
+          >
+            View resume
+          </a>
         </div>
       </div>
 

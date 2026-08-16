@@ -10,8 +10,30 @@ const COPY = {
   other: "Tell me what you have in mind.",
 };
 
+function createSubmissionId(cryptoObj = globalThis.crypto) {
+  try {
+    if (cryptoObj?.randomUUID) return cryptoObj.randomUUID();
+    if (cryptoObj?.getRandomValues) {
+      const bytes = new Uint8Array(16);
+      cryptoObj.getRandomValues(bytes);
+      return `contact-${Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("")}`;
+    }
+  } catch {}
+  return `contact-${Date.now()}`;
+}
+
+function getAnonymousAnalyticsContext() {
+  try {
+    const value = globalThis.window?.mcPortfolioAnalytics?.getContext?.();
+    return value && typeof value === "object" ? value : {};
+  } catch {
+    return {};
+  }
+}
+
 export default function Contact({ embedded = false, apiBase = DEFAULT_API_BASE, turnstileSiteKey = DEFAULT_SITE_KEY, fetchImpl = globalThis.fetch }) {
   const startedAt = useRef(Date.now());
+  const submissionId = useRef("");
   const container = useRef(null);
   const widget = useRef(null);
   const [reason, setReason] = useState("");
@@ -48,6 +70,7 @@ export default function Contact({ embedded = false, apiBase = DEFAULT_API_BASE, 
     setReason(value);
     setStatus({ type: "idle", message: "" });
     startedAt.current = Date.now();
+    submissionId.current = value ? createSubmissionId() : "";
   };
 
   const submit = async (event) => {
@@ -57,12 +80,15 @@ export default function Contact({ embedded = false, apiBase = DEFAULT_API_BASE, 
       return;
     }
     const data = new FormData(event.currentTarget);
+    if (!submissionId.current) submissionId.current = createSubmissionId();
     const payload = {
       name: data.get("name"), email: data.get("email"), company: data.get("company"), reason,
       role: data.get("role"), jobUrl: data.get("jobUrl"), message: data.get("message"),
       website: data.get("website"),
       turnstileToken: widget.current !== null ? window.turnstile?.getResponse?.(widget.current) || "" : "",
       startedAt: startedAt.current,
+      submissionId: submissionId.current,
+      analytics: getAnonymousAnalyticsContext(),
     };
     setStatus({ type: "loading", message: "Sending…" });
     try {
@@ -98,7 +124,16 @@ export default function Contact({ embedded = false, apiBase = DEFAULT_API_BASE, 
         ) : !reason ? (
           <div className="contact-reasons" aria-label="Reason for contacting Manish">
             {REASONS.map(([value,label]) => (
-              <button key={value} type="button" onClick={() => choose(value)}><span>{label}</span><span aria-hidden="true">→</span></button>
+              <button
+                key={value}
+                type="button"
+                onClick={() => choose(value)}
+                data-analytics-event="contact_reason"
+                data-analytics-section="contact"
+                data-analytics-value={value}
+              >
+                <span>{label}</span><span aria-hidden="true">→</span>
+              </button>
             ))}
           </div>
         ) : (

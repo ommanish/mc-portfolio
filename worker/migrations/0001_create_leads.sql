@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS leads (
+  id TEXT PRIMARY KEY,
+  submission_id TEXT NOT NULL UNIQUE,
+  created_at TEXT NOT NULL,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  company TEXT NOT NULL DEFAULT '',
+  reason TEXT NOT NULL,
+  role TEXT NOT NULL DEFAULT '',
+  job_url TEXT NOT NULL DEFAULT '',
+  message TEXT NOT NULL,
+  session_id TEXT NOT NULL DEFAULT '',
+  landing_path TEXT NOT NULL DEFAULT '',
+  referrer_hostname TEXT NOT NULL DEFAULT '',
+  utm_source TEXT NOT NULL DEFAULT '',
+  utm_medium TEXT NOT NULL DEFAULT '',
+  utm_campaign TEXT NOT NULL DEFAULT '',
+  lens TEXT NOT NULL DEFAULT '',
+  resume_clicked INTEGER NOT NULL DEFAULT 0,
+  case_study_clicks INTEGER NOT NULL DEFAULT 0,
+  journey TEXT NOT NULL DEFAULT ''
+);
