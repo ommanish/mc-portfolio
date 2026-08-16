@@ -22,6 +22,17 @@ namespace_id = "1002"
   limit = 12
   period = 60
 
+[[ratelimits]]
+name = "ANALYTICS_RATE_LIMITER"
+namespace_id = "1003"
+  [ratelimits.simple]
+  limit = 60
+  period = 60
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "MC_PORTFOLIO_EVENTS"
+
 # Configure these with `wrangler secret put`, never in this file:
 # OPENAI_API_KEY
 # TURNSTILE_SECRET_KEY
