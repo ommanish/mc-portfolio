@@ -1,4 +1,5 @@
 /* @vitest-environment jsdom */
+import Footer from "./components/Footer";
 import Timeline from "./components/Timeline";
 import AISection from "./components/AISection";
 import "@testing-library/jest-dom/vitest";
@@ -482,6 +483,25 @@ test("final handwritten polish removes floating arrow and updates experience to 
       .toHaveTextContent("18+");
     expect(timeline.container.querySelector(".experience-years-accent"))
       .toHaveAttribute("data-accent-type","underline");
+  });
+
+test("final UI polish keeps Change reason clean and groups Follow me with social links", async () => {
+    const user = userEvent.setup();
+    const contact = render(<Contact />);
+    await user.click(contact.getByRole("button", { name: "Job opportunity" }));
+
+    const changeReason = contact.getByRole("button", { name: /change reason/i });
+    expect(changeReason.querySelector(".contact-change-reason-icon")).toHaveTextContent("↶");
+    expect(changeReason.querySelectorAll("span")).toHaveLength(2);
+    cleanup();
+
+    const footer = render(<Footer onRestart={() => {}} />);
+    const follow = footer.getByText("Follow me");
+    const socialBlock = follow.closest(".footer-social-block");
+    expect(follow).toHaveClass("footer-social-label");
+    expect(socialBlock).toContainElement(
+      footer.getByRole("navigation", { name: "Footer links" })
+    );
   });
 
 });

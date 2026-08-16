@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-08-16T01:18:17.588Z",
+  "checks": [
+    {
+      "viewport": {
+        "name": "mobile",
+        "width": 375,
+        "height": 812
+      },
+      "theme": "dark",
+      "screenshot": "docs/experiments/final-ui-polish-v1/screenshots/mobile-dark.png",
+      "changeReason": {
+        "height": 44,
+        "computedGap": 8,
+        "visualGap": 8,
+        "iconSize": 16
+      },
+      "followMe": {
+        "fontSize": 12.5,
+        "leftAlignmentDelta": 0,
+        "gap": 8
+      },
+      "carryForward": {
+        "qaFontSize": 15,
+        "aiFontSize": 15,
+        "aiHeadingGap": -0.5,
+        "experiencePosition": "relative"
+      }
+    },
+    {
+      "viewport": {
+        "name": "mobile",
+        "width": 375,
+        "height": 812
+      },
+      "theme": "light",
+      "screenshot": "docs/experiments/final-ui-polish-v1/screenshots/mobile-light.png",
+      "changeReason": {
+        "height": 44,
+        "computedGap": 8,
+        "visualGap": 8,
+        "iconSize": 16
+      },
+      "followMe": {
+        "fontSize": 12.5,
+        "leftAlignmentDelta": 0,
+        "gap": 8
+      },
+      "carryForward": {
+        "qaFontSize": 15,
+        "aiFontSize": 15,
+        "aiHeadingGap": -0.5,
+        "experiencePosition": "relative"
+      }
+    },
+    {
+      "viewport": {
+        "name": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "theme": "dark",
+      "screenshot": "docs/experiments/final-ui-polish-v1/screenshots/tablet-dark.png",
+      "changeReason": {
+        "height": 44,
+        "computedGap": 8,
+        "visualGap": 8,
+        "iconSize": 16
+      },
+      "followMe": {
+        "fontSize": 12.5,
+        "leftAlignmentDelta": 0,
+        "gap": 8
+      },
+      "carryForward": {
+        "qaFontSize": 15,
+        "aiFontSize": 15,
+        "aiHeadingGap": -0.5,
+        "experiencePosition": "relative"
+      }
+    },
+    {
+      "viewport": {
+        "name": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "theme": "light",
+      "screenshot": "docs/experiments/final-ui-polish-v1/screenshots/tablet-light.png",
+      "changeReason": {
+        "height": 44,
+        "computedGap": 8,
+        "visualGap": 8,
+        "iconSize": 16
+      },
+      "followMe": {
+        "fontSize": 12.5,
+        "leftAlignmentDelta": 0,
+        "gap": 8
+      },
+      "carryForward": {
+        "qaFontSize": 15,
+        "aiFontSize": 15,
+        "aiHeadingGap": -0.5,
+        "experiencePosition": "relative"
+      }
+    },
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "dark",
+      "screenshot": "docs/experiments/final-ui-polish-v1/screenshots/desktop-dark.png",
+      "changeReason": {
+        "height": 44,
+        "computedGap": 8,
+        "visualGap": 8,
+        "iconSize": 16
+      },
+      "followMe": {
+        "fontSize": 12.5,
+        "leftAlignmentDelta": 0,
+        "gap": 8
+      },
+      "carryForward": {
+        "qaFontSize": 15,
+        "aiFontSize": 15,
+        "aiHeadingGap": -1,
+        "experiencePosition": "relative"
+      }
+    },
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "light",
+      "screenshot": "docs/experiments/final-ui-polish-v1/screenshots/desktop-light.png",
+      "changeReason": {
+        "height": 44,
+        "computedGap": 8,
+        "visualGap": 8,
+        "iconSize": 16
+      },
+      "followMe": {
+        "fontSize": 12.5,
+        "leftAlignmentDelta": 0,
+        "gap": 8
+      },
+      "carryForward": {
+        "qaFontSize": 15,
+        "aiFontSize": 15,
+        "aiHeadingGap": -1,
+        "experiencePosition": "relative"
+      }
+    }
+  ]
+}

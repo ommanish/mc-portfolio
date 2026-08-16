@@ -106,7 +106,7 @@ export default function Contact({ embedded = false, apiBase = DEFAULT_API_BASE, 
             <div className="contact-form-heading">
               <div><span className="micro-label">{REASONS.find(([v]) => v === reason)?.[1]}</span><h3>{COPY[reason]}</h3></div>
               <button className="contact-change-reason" type="button" onClick={() => choose("")}>
-                <span className="contact-change-reason-icon" aria-hidden="true">↺</span>
+                <span className="contact-change-reason-icon" aria-hidden="true">↶</span>
                 <span>Change reason</span>
               </button>
             </div>

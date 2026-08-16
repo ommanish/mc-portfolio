@@ -3013,3 +3013,100 @@ summary:focus-visible {
     font-size: 15px !important;
   }
 }
+
+/* Final UI Polish — Change Reason + Follow Me */
+.adaptive-contact-form .contact-change-reason {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 16px !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+  position: relative;
+  transform: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: color-mix(in srgb, var(--exec-warm) 58%, transparent) !important;
+  background-image: none !important;
+}
+
+.adaptive-contact-form .contact-change-reason:hover,
+.adaptive-contact-form .contact-change-reason:focus-visible {
+  transform: none !important;
+  background-image: none !important;
+  border-color: color-mix(in srgb, var(--exec-warm) 78%, transparent) !important;
+}
+
+.adaptive-contact-form .contact-change-reason::before,
+.adaptive-contact-form .contact-change-reason::after,
+.adaptive-contact-form .contact-change-reason > span::before,
+.adaptive-contact-form .contact-change-reason > span::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.adaptive-contact-form .contact-change-reason-icon {
+  display: inline-flex !important;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  transform: none !important;
+}
+
+.adaptive-contact-form .contact-change-reason > span:last-child {
+  display: inline-block;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  transform: none !important;
+}
+
+.footer-social-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: max-content;
+  max-width: 100%;
+}
+
+.footer-social-label {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit;
+  opacity: .68;
+}
+
+.footer-social-block nav {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .adaptive-contact-form .contact-change-reason {
+    min-height: 44px;
+    height: 44px;
+    max-width: 100%;
+  }
+
+  .footer-social-block {
+    align-self: flex-start;
+    width: max-content;
+    max-width: 100%;
+  }
+}
