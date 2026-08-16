@@ -12,11 +12,13 @@ jobs:
   verify:
     name: Test and build
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with classic history
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -27,8 +29,26 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
 
+      - name: Test adaptive UI
+        run: npm test
+
+      - name: Test analytics UI instrumentation
+        run: npm run test:analytics-ui
+
+      - name: Test analytics browser client
+        run: npm run test:analytics-client
+
       - name: Test personalization logic
-        run: node --test src/lib/personalization.test.js
+        run: node --test src/lib/personalization.test.js src/lib/hybridPersonalization.test.js
+
+      - name: Test Worker protections and analytics
+        run: node --test worker/src/index.test.js worker/src/analytics.test.js
+
+      - name: Test experiment shell
+        run: npm run test:experiment
+
+      - name: Test analytics build injection
+        run: npm run test:analytics-config
 
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high

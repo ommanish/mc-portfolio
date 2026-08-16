@@ -38,27 +38,42 @@ jobs:
       - name: Test adaptive UI
         run: npm test
 
+      - name: Test analytics UI instrumentation
+        run: npm run test:analytics-ui
+
+      - name: Test analytics browser client
+        run: npm run test:analytics-client
+
       - name: Test personalization and security
         run: node --test src/lib/personalization.test.js src/lib/hybridPersonalization.test.js
 
-      - name: Test Worker protections
-        run: node --test worker/src/index.test.js
+      - name: Test Worker protections and analytics
+        run: node --test worker/src/index.test.js worker/src/analytics.test.js
 
       - name: Test experiment shell
         run: npm run test:experiment
+
+      - name: Test analytics build injection
+        run: npm run test:analytics-config
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Validate production configuration
         env:
           VITE_PORTFOLIO_API_BASE: ${{ vars.VITE_PORTFOLIO_API_BASE }}
           VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
+          CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
         run: |
           test -n "$VITE_PORTFOLIO_API_BASE" || { echo "VITE_PORTFOLIO_API_BASE is missing"; exit 1; }
           test -n "$VITE_TURNSTILE_SITE_KEY" || { echo "VITE_TURNSTILE_SITE_KEY is missing"; exit 1; }
+          test -n "$CLOUDFLARE_WEB_ANALYTICS_TOKEN" || { echo "CLOUDFLARE_WEB_ANALYTICS_TOKEN is missing"; exit 1; }
 
       - name: Build classic-default experiment
         env:
           VITE_PORTFOLIO_API_BASE: ${{ vars.VITE_PORTFOLIO_API_BASE }}
           VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
+          CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
           CLASSIC_REF: 16a748974a2f2ecc98e22c9849c6a87c52e4ae3d
         run: npm run build:experiment
 
@@ -66,9 +81,14 @@ jobs:
         run: |
           test -f dist/index.html
           test -f dist/new/index.html
+          test -f dist/portfolio-analytics.js
           grep -q 'Try the new adaptive experience' dist/index.html
           grep -q 'Classic portfolio' dist/new/index.html
           grep -q '/new/assets/' dist/new/index.html
+          grep -q 'portfolio-analytics-client' dist/index.html
+          grep -q 'portfolio-analytics-client' dist/new/index.html
+          grep -q 'cloudflare-web-analytics' dist/index.html
+          grep -q 'cloudflare-web-analytics' dist/new/index.html
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
