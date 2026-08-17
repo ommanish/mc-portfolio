@@ -82,6 +82,13 @@ jobs:
           test -f dist/index.html
           test -f dist/new/index.html
           test -f dist/portfolio-analytics.js
+          test -f dist/case-studies/images/adaptive-ai-portfolio.png
+          test -f dist/case-studies/pdfs/adaptive-ai-portfolio.pdf
+          test -f dist/case-studies/adaptive-ai-portfolio/index.html
+          test -f dist/case-studies/website-experience-refresh/index.html
+          test -f dist/case-studies/accessibility-intelligence/index.html
+          test -f dist/case-studies/ai-assisted-page-builder/index.html
+          test -f dist/case-studies/web-experience-quality-score/index.html
           grep -q 'Try the new adaptive experience' dist/index.html
           grep -q 'Classic portfolio' dist/new/index.html
           grep -q '/new/assets/' dist/new/index.html
