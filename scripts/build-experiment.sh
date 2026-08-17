@@ -40,6 +40,12 @@ cp -R "$CLASSIC_OUT/." "$ROOT/dist/"
 cp -R "$ADAPTIVE_OUT/." "$ROOT/dist/new/"
 rm -f "$ROOT/dist/new/CNAME"
 
+# Publish case-study assets at the canonical root paths used by the React app.
+if [ -d "$ROOT/public/case-studies" ]; then
+  mkdir -p "$ROOT/dist/case-studies"
+  cp -R "$ROOT/public/case-studies/." "$ROOT/dist/case-studies/"
+fi
+
 # One privacy-safe analytics client is shared by both routes. The classic source
 # is pinned to an older commit, so copy the current client explicitly.
 cp "$ROOT/public/portfolio-analytics.js" "$ROOT/dist/portfolio-analytics.js"
@@ -50,6 +56,22 @@ node "$ROOT/scripts/experiment-shell.mjs" \
   "$ROOT/dist/new/index.html" \
   "${VITE_PORTFOLIO_API_BASE:-}" \
   "${CLOUDFLARE_WEB_ANALYTICS_TOKEN:-}"
+
+# GitHub Pages has no SPA fallback. Generate physical case-study pages from the
+# fully assembled adaptive HTML so deep links and refreshes behave like /new/.
+CASE_STUDY_SLUGS=(
+  adaptive-ai-portfolio
+  website-experience-refresh
+  accessibility-intelligence
+  ai-assisted-page-builder
+  web-experience-quality-score
+)
+
+for slug in "${CASE_STUDY_SLUGS[@]}"; do
+  route_dir="$ROOT/dist/case-studies/$slug"
+  mkdir -p "$route_dir"
+  cp "$ROOT/dist/new/index.html" "$route_dir/index.html"
+done
 
 test -f "$ROOT/dist/index.html"
 test -f "$ROOT/dist/new/index.html"
