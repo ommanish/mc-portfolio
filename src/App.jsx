@@ -1,5 +1,6 @@
 import { lazy, useMemo, useState } from "react";
 import Footer from "./components/Footer";
+import CaseStudyDetail from "./components/CaseStudyDetail";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
@@ -12,6 +13,7 @@ import usePersonalization from "./hooks/usePersonalization";
 import "./styles/global.css";
 import "./styles/personalization.css";
 import "./styles/contact.css";
+import "./styles/case-studies.css";
 import "./styles/redesign.css";
 
 const FeaturedWork = lazy(() => import("./components/FeaturedWork"));
@@ -58,6 +60,8 @@ export default function App() {
   } = usePersonalization();
 
   const portfolioVisible = stage === "portfolio";
+  const caseStudyMatch = window.location.pathname.match(/^\/case-studies\/([^/]+)\/?$/);
+  const caseStudySlug = caseStudyMatch?.[1] || null;
   const recommendedSections = useMemo(
     () => getRecommendedSections(profile, source),
     [profile, source]
@@ -66,6 +70,25 @@ export default function App() {
     () => new Set(recommendedSections),
     [recommendedSections]
   );
+
+  if (caseStudySlug) {
+    return (
+      <div className={isLight ? "app light premium-app" : "app premium-app"} id="top">
+        <Loader />
+        <ScrollProgress />
+        <Navbar
+          isLight={isLight}
+          onThemeToggle={() => setIsLight((value) => !value)}
+          showNavigation={false}
+          recommendedSections={[]}
+        />
+        <main className="site-shell">
+          <CaseStudyDetail slug={caseStudySlug} />
+        </main>
+        <Footer onRestart={() => { window.location.href = "/"; }} />
+      </div>
+    );
+  }
 
   return (
     <div className={isLight ? "app light premium-app" : "app premium-app"} id="top">

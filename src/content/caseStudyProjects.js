@@ -1,0 +1,141 @@
+export const caseStudyProjects = [
+  {
+    number: "01",
+    slug: "adaptive-ai-portfolio",
+    title: "Adaptive AI Portfolio Experience",
+    status: "Built Project",
+    tags: ["AI", "Product UX", "Frontend", "Privacy"],
+    role: "Product UX · Frontend · AI Workflow",
+    goal: "Create a portfolio that adapts to visitor intent without invasive tracking or fabricated content.",
+    preview: "I explored how a portfolio could adapt to visitor intent while keeping user choice, privacy, and verified content in control.",
+    challenge: "A traditional portfolio gives recruiters, engineering leaders, design partners, and potential clients the same sequence of content. The challenge was to make the experience more relevant without turning personalization into hidden tracking.",
+    research: "I mapped different visitor goals: quickly assess experience, inspect technical depth, understand AI thinking, or explore services. I separated signals into explicit user intent and limited privacy-safe context. Explicit choice always wins.",
+    decisions: [
+      "Use local intent logic first so the experience remains fast and resilient.",
+      "Allow AI to rank only approved portfolio sections; it cannot invent facts or achievements.",
+      "Keep manual audience selection in control of the experience.",
+      "Use sanitized, minimal context and avoid fingerprinting, private history, or sensitive-trait inference.",
+      "Keep a complete no-AI fallback."
+    ],
+    solution: "The experience combines a visitor-selected lens, deterministic local fallback, and structured AI recommendations. Relevant sections can be prioritized while preserving the same verified content. Visitors can reset or change the lens at any time.",
+    accessibility: "Keyboard-accessible controls, visible focus, reduced-motion consideration, clear status messaging, semantic content order, and a no-AI fallback keep personalization from becoming an accessibility barrier.",
+    measurement: "Measure section engagement by selected intent, successful navigation to relevant work, lens changes or resets, AI fallback rate, and qualitative visitor feedback.",
+    learning: "Personalization is most useful when it reduces effort rather than hiding information. Trust improves when AI behavior is constrained, explainable, reversible, and optional.",
+    next: "Run lightweight usability testing across recruiter, technical-leader, and client journeys, then compare personalized and canonical navigation.",
+    approach: "This project shows how I think about building AI into a real user experience. My focus was on making personalization useful without taking control away from the visitor, while keeping privacy, accessibility, and the overall experience in mind.",
+    image: "/case-studies/images/adaptive-ai-portfolio.png",
+    pdf: "/case-studies/pdfs/adaptive-ai-portfolio.pdf"
+  },
+  {
+    number: "02",
+    slug: "website-experience-refresh",
+    title: "Website Experience Refresh",
+    status: "Website Experience Case Study",
+    tags: ["UX", "Web Experience", "Frontend", "Content"],
+    role: "Web Experience · UI/Frontend · Content Structuring · UX",
+    goal: "Improve clarity, usability, and action hierarchy on an existing healthcare website without a full rebuild.",
+    preview: "A focused website refresh exploring how hierarchy, navigation, CTA priority, and accessibility can improve an existing experience without rebuilding everything.",
+    challenge: "The fictional CareBridge Health site had useful content but the experience had grown cluttered. Navigation, service discovery, messaging, and calls to action competed for attention, making the next step less obvious.",
+    research: "I used a heuristic review focused on information hierarchy, navigation clarity, CTA competition, scanning behavior, mobile adaptability, trust cues, and accessibility.",
+    decisions: [
+      "Clarify the hero around the user's care need instead of the organization.",
+      "Create one dominant appointment action and one secondary exploration action.",
+      "Reduce navigation competition and group content by user intent.",
+      "Surface trust and convenience cues near the primary decision point.",
+      "Keep familiar services while improving hierarchy and scanability."
+    ],
+    solution: "The refreshed concept uses a clearer hero, simplified navigation, stronger appointment CTA, concise trust signals, scannable service cards, and a supportive contact path.",
+    accessibility: "The concept prioritizes semantic headings, descriptive links, visible keyboard focus, adequate contrast, clear action labels, large targets, logical reading order, and content that does not rely on color alone.",
+    measurement: "A real implementation would test appointment CTA discovery, time to locate a service, task completion, navigation errors, mobile usability, and qualitative confidence.",
+    learning: "A website refresh can create meaningful improvement without replacing everything. Preserving familiar patterns while fixing hierarchy and friction can be more responsible than a full rebuild.",
+    next: "Prototype the key flows and run task-based usability sessions focused on service discovery, mobile navigation, and appointment scheduling.",
+    approach: "This project reflects how I approach improving an existing website. I look at what is already working, where users may be getting stuck, and how changes to content, hierarchy, navigation, and accessibility can make the experience clearer without rebuilding everything.",
+    image: "/case-studies/images/website-experience-refresh.png",
+    pdf: "/case-studies/pdfs/website-experience-refresh.pdf"
+  },
+  {
+    number: "03",
+    slug: "accessibility-intelligence",
+    title: "Accessibility Intelligence Review",
+    status: "Concept + Prototype",
+    tags: ["Accessibility", "WCAG", "UX", "AI"],
+    role: "Accessibility UX · Frontend QA · AI-assisted Review",
+    goal: "Turn technical accessibility findings into prioritized guidance that teams can act on.",
+    preview: "A concept for translating accessibility findings into user impact, remediation guidance, ownership, and a clear retest workflow.",
+    challenge: "Automated accessibility tools can find certain failures, but their output may be technical, repetitive, and disconnected from user impact. Teams still need to understand what matters, why it matters, and how to verify a fix.",
+    research: "I framed findings around affected users, severity, WCAG criterion, component ownership, remediation guidance, and retest status. Automated detection is evidence, not a complete accessibility verdict.",
+    decisions: [
+      "Group findings by user impact and severity rather than raw error count.",
+      "Translate each issue into plain-language experience impact.",
+      "Keep WCAG references available for traceability.",
+      "Use AI for explanation, not as the authority for accessibility conformance.",
+      "Include retesting as part of the workflow."
+    ],
+    solution: "The prototype organizes issues into a workflow: scan, categorize, explain impact, recommend remediation, and retest. AI can summarize verified findings for different roles while deterministic checks and human testing remain authoritative.",
+    accessibility: "The product itself must model accessible behavior through semantic structures, keyboard navigation, programmatic status, non-color severity cues, focus management, zoom/reflow support, and accessible alternatives for visual summaries.",
+    measurement: "Track time from finding to verified remediation, percentage of critical issues closed, repeated issues by component, false-positive review, and team understanding of user impact.",
+    learning: "Accessibility becomes easier to operationalize when teams share a common language connecting standards, user barriers, ownership, remediation, and verification.",
+    next: "Build a working prototype around a controlled demo page and validate the explanation layer with accessibility practitioners.",
+    approach: "This project shows how I think about accessibility beyond just passing checks. I focus on understanding the real user impact, helping teams prioritize the right issues, and making the path from finding a problem to fixing and validating it easier to follow.",
+    image: "/case-studies/images/accessibility-intelligence.png",
+    pdf: "/case-studies/pdfs/accessibility-intelligence.pdf"
+  },
+  {
+    number: "04",
+    slug: "ai-assisted-page-builder",
+    title: "AI-Assisted Page Builder",
+    status: "Product Concept + MVP",
+    tags: ["AI Product", "CMS", "Design Systems", "UX"],
+    role: "Product Strategy · UX · Frontend Architecture · AI Workflow",
+    goal: "Reduce enterprise web handoff friction using approved components and structured AI assistance.",
+    preview: "An AI-assisted workflow that turns a page brief into information architecture, approved component recommendations, accessibility guidance, and a structured handoff.",
+    challenge: "Enterprise page delivery often starts with disconnected notes, content requirements, design references, CMS constraints, and stakeholder requests. Teams spend time translating the same brief across marketing, UX, content, development, and QA.",
+    research: "I separated decisions AI can assist with from decisions that require human ownership. Information architecture, component suggestions, content structure, and validation prompts can be accelerated; brand, legal, design judgment, and release remain human-controlled.",
+    decisions: [
+      "Start with information architecture before visual component selection.",
+      "Recommend only components from an approved library.",
+      "Explain why a component is suggested and allow human override.",
+      "Surface responsive and accessibility considerations before handoff.",
+      "Export structured specifications rather than uncontrolled production code."
+    ],
+    solution: "The MVP accepts page goal, audience, content needs, constraints, and approved component metadata. It proposes hierarchy, maps sections to allowed components, previews responsive intent, flags accessibility considerations, and exports a structured handoff.",
+    accessibility: "Heading order, content relationships, image alternatives, CTA/link purpose, component semantics, responsive reflow, and known component accessibility metadata are treated as early design inputs.",
+    measurement: "Evaluate time to first structured draft, handoff clarification cycles, component compliance, accessibility issues caught before development, and stakeholder satisfaction.",
+    learning: "The strongest role for AI in enterprise page building is constrained orchestration: organize requirements and make approved patterns easier to use while humans retain judgment.",
+    next: "Create a functioning demo with a small approved component library, structured prompt schema, responsive preview, and exportable handoff.",
+    approach: "This project reflects how I would use AI to reduce friction in enterprise web work. The goal is not to replace design or development decisions, but to help teams organize requirements, work with approved components, and move from an idea to a clearer handoff faster.",
+    image: "/case-studies/images/ai-assisted-page-builder.png",
+    pdf: "/case-studies/pdfs/ai-assisted-page-builder.pdf"
+  },
+  {
+    number: "05",
+    slug: "web-experience-quality-score",
+    title: "Web Experience Quality Score",
+    status: "Concept + Prototype",
+    tags: ["WebOps", "QA", "Accessibility", "UX"],
+    role: "WebOps · Frontend QA · Accessibility · Product UX",
+    goal: "Create a shared pre-launch quality model that helps teams prioritize web experience risks before publishing.",
+    preview: "A pre-launch experience dashboard that brings usability, accessibility, responsiveness, performance, content/SEO, and release risk into one prioritization workflow.",
+    challenge: "Launch reviews often live across separate checklists and tools. Passing one checklist does not necessarily mean the page provides a strong user experience.",
+    research: "I grouped launch readiness into experience dimensions: usability, accessibility, responsive quality, performance, content/SEO, and release risk. The score is a prioritization aid, not a claim that quality can be reduced to one number.",
+    decisions: [
+      "Show category scores and evidence rather than hiding everything behind a single grade.",
+      "Prioritize high-impact issues before low-value polish.",
+      "Separate automated checks from manual UX and accessibility validation.",
+      "Provide a stakeholder summary alongside technical detail.",
+      "Require retest and validation before an issue becomes ready."
+    ],
+    solution: "The prototype consolidates launch findings into a dashboard with category readiness, prioritized issues, ownership, and an AI-assisted summary based only on verified results.",
+    accessibility: "Status is communicated with text and icons in addition to color, the interface supports keyboard use and reflow, and automated accessibility scores are never presented as proof of WCAG conformance.",
+    measurement: "Track high-severity issues caught pre-launch, escaped defects, repeated component issues, review cycle time, and percentage of launches completing manual quality validation.",
+    learning: "A useful quality system creates shared accountability. The score starts the conversation; evidence, ownership, and verification are what improve the experience.",
+    next: "Build a prototype report using a controlled set of checks, connect it to a manual review template, and test whether teams can prioritize launch decisions more consistently.",
+    approach: "This project shows how I think about web quality as more than a final QA step. I wanted to bring usability, accessibility, responsive behavior, performance, and launch readiness together so teams can make better decisions before a page goes live.",
+    image: "/case-studies/images/web-experience-quality-score.png",
+    pdf: "/case-studies/pdfs/web-experience-quality-score.pdf"
+  }
+];
+
+export function getCaseStudy(slug) {
+  return caseStudyProjects.find((project) => project.slug === slug);
+}

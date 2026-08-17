@@ -1,23 +1,53 @@
-import { portfolioContent } from "../content/portfolioContent";
 import SectionHeader from "./SectionHeader";
-
-const outcome = (labels) => (labels.find((x) => x.startsWith("Outcome:")) || "Outcome: Quality-focused delivery").replace("Outcome:", "").trim();
+import { caseStudyProjects } from "../content/caseStudyProjects";
 
 export default function CaseStudies({ embedded = false }) {
-  const content = portfolioContent.caseStudies;
   return (
-    <section id={embedded ? undefined : "cases"} className="editorial-section">
-      <SectionHeader kicker={content.kicker} title="How I think through real web delivery." copy={content.copy} />
-      <div className="case-narratives">
-        {content.items.map((item, index) => (
-          <article className="case-narrative" key={item.title}>
-            <header><span className="case-index">{String(index + 1).padStart(2,"0")}</span><h3>{item.title}</h3></header>
-            <div className="case-logic">
-              <div><span className="micro-label">Challenge</span><p>{item.description}</p></div>
-              <div><span className="micro-label">Context</span><p>{item.labels.join(" · ")}</p></div>
-              <div><span className="micro-label">Execution</span><ul>{item.impact.map((x) => <li key={x}>{x}</li>)}</ul></div>
-              <div className="case-outcome"><span className="micro-label">Result / lesson</span><strong>{outcome(item.labels)}</strong>
-                <p>Keep implementation, QA, accessibility, and stakeholder review connected through launch.</p>
+    <section
+      id={embedded ? undefined : "cases"}
+      className="editorial-section case-study-index"
+    >
+      <SectionHeader
+        kicker="Selected Projects & Case Studies"
+        title="How I think. How I build."
+        copy="Five public-safe projects exploring web experience, usability, accessibility, responsible AI, CMS workflows, and launch quality."
+      />
+
+      <div className="case-study-preview-grid">
+        {caseStudyProjects.map((project) => (
+          <article className="case-study-preview-card" key={project.slug}>
+            <a
+              className="case-study-preview-image"
+              href={`/case-studies/${project.slug}`}
+              aria-label={`View ${project.title} case study`}
+            >
+              <img src={project.image} alt="" loading="lazy" />
+              <span className="case-study-project-number">
+                {project.number}
+              </span>
+            </a>
+            <div className="case-study-preview-body">
+              <div className="case-study-preview-meta">
+                <span>{project.status}</span>
+                <span>{project.tags.slice(0, 2).join(" · ")}</span>
+              </div>
+              <h3>{project.title}</h3>
+              <p>{project.preview}</p>
+              <div className="case-study-preview-actions">
+                <a
+                  className="case-study-primary-link"
+                  href={`/case-studies/${project.slug}`}
+                >
+                  View Case Study <span aria-hidden="true">→</span>
+                </a>
+                <a
+                  className="case-study-secondary-link"
+                  href={project.pdf}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  PDF
+                </a>
               </div>
             </div>
           </article>
