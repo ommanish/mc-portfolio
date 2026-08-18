@@ -20,7 +20,7 @@ export default function CaseStudyDetail({ slug }) {
       <div className="case-study-not-found">
         <p className="case-study-eyebrow">CASE STUDY</p>
         <h1>Case study not found.</h1>
-        <a href="/#cases">← Back to Case Studies</a>
+        <a href="/new/#cases">← Back to Case Studies</a>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default function CaseStudyDetail({ slug }) {
 
   return (
     <article className="case-study-detail">
-      <a className="case-study-back-link" href="/#cases">← Back to Case Studies</a>
+      <a className="case-study-back-link" href="/new/#cases">← Back to Case Studies</a>
 
       <header className="case-study-detail-hero">
         <div className="case-study-detail-intro">
