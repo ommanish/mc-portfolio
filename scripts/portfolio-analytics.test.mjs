@@ -6,7 +6,7 @@ import { JSDOM } from "jsdom";
 const clientPath = new URL("../public/portfolio-analytics.js", import.meta.url);
 
 function loadClient({
-  url = "https://manishchawla.com/new/",
+  url = "https://manishchawla.com/",
   html = '<!doctype html><html><head><script id="portfolio-analytics-client" data-api-base="https://api.example"></script></head><body></body></html>',
   fetchImpl,
 } = {}) {
@@ -76,7 +76,7 @@ test("linkedin and resume clicks map to allowlisted events", async () => {
 });
 
 test("adaptive arrival from classic records adaptive_open once", async () => {
-  const { calls } = loadClient({ url: "https://manishchawla.com/new/?from=classic" });
+  const { calls } = loadClient({ url: "https://manishchawla.com/?from=classic" });
   await new Promise((resolve) => setTimeout(resolve, 0));
   const events = payloads(calls).map((x) => x.event);
   assert.equal(events.filter((x) => x === "adaptive_open").length, 1);

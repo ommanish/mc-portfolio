@@ -71,6 +71,17 @@ base: "/"
 
 because the final site is served from the root of `manishchawla.com`.
 
+## Production routes
+
+```text
+/                    Adaptive portfolio (default)
+/classic/            Preserved classic portfolio
+/new/                Temporary redirect to /
+/case-studies/<slug> Case-study detail pages
+```
+
+The adaptive portfolio is canonical. The classic portfolio is kept temporarily at `/classic/` for reference/rollback and is marked `noindex`.
+
 ## GitHub Pages
 
 Go to your repo settings:
