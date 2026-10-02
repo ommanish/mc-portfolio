@@ -35,6 +35,12 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
 
+      - name: Static security checks
+        run: npm run security:check
+
+      - name: Audit full dependency tree
+        run: npm audit --audit-level=high
+
       - name: Test adaptive UI
         run: npm test
 
