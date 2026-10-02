@@ -25,7 +25,7 @@
     "security:audit:prod": "npm audit --omit=dev --audit-level=high"
   },
   "dependencies": {
-    "react": "^19.0.0",
+    "react": "^19.3.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
