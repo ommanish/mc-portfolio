@@ -122,3 +122,13 @@ test('strong technical signals override recruiter AI classification', async () =
     globalThis.fetch = originalFetch;
   }
 });
+
+
+test('API JSON responses include defensive security headers', async () => {
+  const response = await worker.fetch(new Request('https://api.example.com/api/not-found',{method:'POST',headers:{origin:'https://manishchawla.com','content-type':'application/json'}}),{ALLOWED_ORIGINS:'https://manishchawla.com'});
+  assert.equal(response.status,404);
+  assert.equal(response.headers.get('cache-control'),'no-store');
+  assert.equal(response.headers.get('x-content-type-options'),'nosniff');
+  assert.equal(response.headers.get('referrer-policy'),'no-referrer');
+  assert.equal(response.headers.get('permissions-policy'),'camera=(), microphone=(), geolocation=()');
+});

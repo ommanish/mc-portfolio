@@ -13,8 +13,15 @@ const ANALYTICS_FORBIDDEN_KEYS = new Set(['name','email','company','message','jo
 const SAFE_TOKEN = /^[A-Za-z0-9._~:+\/ -]*$/;
 const SAFE_SLUG = /^[A-Za-z0-9._:-]*$/;
 
+const SECURITY_HEADERS = {
+  'cache-control': 'no-store',
+  'x-content-type-options': 'nosniff',
+  'referrer-policy': 'no-referrer',
+  'permissions-policy': 'camera=(), microphone=(), geolocation=()',
+};
+
 function json(data, status = 200, headers = {}) {
-  return new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json; charset=utf-8', ...headers } });
+  return new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json; charset=utf-8', ...SECURITY_HEADERS, ...headers } });
 }
 
 function allowedOrigins(env) {
@@ -387,7 +394,7 @@ export default {
   async fetch(request, env) {
     const cors = corsHeaders(request, env);
     if (!cors) return json({ message: 'Not allowed.' }, 403);
-    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
+    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: { ...SECURITY_HEADERS, ...cors } });
     if (request.method !== 'POST') return json({ message: 'Method not allowed.' }, 405, cors);
     const path = new URL(request.url).pathname;
     try {
