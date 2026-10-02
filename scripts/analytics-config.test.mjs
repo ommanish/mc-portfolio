@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { applyExperimentShell } from "./experiment-shell.mjs";
+import { applyProductionShell } from "./experiment-shell.mjs";
 
 const html = '<!doctype html><html><head><title>Portfolio</title></head><body><div id="root"></div></body></html>';
 
@@ -19,7 +19,7 @@ function tempIndexes() {
 test("classic and adaptive outputs receive the shared analytics client", () => {
   const { dir, classic, adaptive } = tempIndexes();
   try {
-    applyExperimentShell(classic, adaptive, "https://api.example", "publictoken12345678901234567890");
+    applyProductionShell(classic, adaptive, "https://api.example", "publictoken12345678901234567890");
     for (const file of [classic, adaptive]) {
       const result = fs.readFileSync(file, "utf8");
       assert.match(result, /id="portfolio-analytics-client"/);
@@ -35,8 +35,8 @@ test("Cloudflare Web Analytics beacon is injected in head only when token is pre
   const withToken = tempIndexes();
   const withoutToken = tempIndexes();
   try {
-    applyExperimentShell(withToken.classic, withToken.adaptive, "https://api.example", "publictoken12345678901234567890");
-    applyExperimentShell(withoutToken.classic, withoutToken.adaptive, "https://api.example", "");
+    applyProductionShell(withToken.classic, withToken.adaptive, "https://api.example", "publictoken12345678901234567890");
+    applyProductionShell(withoutToken.classic, withoutToken.adaptive, "https://api.example", "");
 
     const included = fs.readFileSync(withToken.adaptive, "utf8");
     const omitted = fs.readFileSync(withoutToken.adaptive, "utf8");
@@ -57,9 +57,9 @@ test("Cloudflare Web Analytics beacon is injected in head only when token is pre
 test("analytics injection is idempotent", () => {
   const { dir, classic, adaptive } = tempIndexes();
   try {
-    applyExperimentShell(classic, adaptive, "https://api.example", "publictoken12345678901234567890");
+    applyProductionShell(classic, adaptive, "https://api.example", "publictoken12345678901234567890");
     const once = fs.readFileSync(classic, "utf8");
-    applyExperimentShell(classic, adaptive, "https://api.example", "publictoken12345678901234567890");
+    applyProductionShell(classic, adaptive, "https://api.example", "publictoken12345678901234567890");
     const twice = fs.readFileSync(classic, "utf8");
     assert.equal(twice, once);
     assert.equal((twice.match(/portfolio-analytics-client/g) || []).length, 1);

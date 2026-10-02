@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build classic + adaptive experiment
+    name: Build adaptive default + classic fallback
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -69,7 +69,7 @@ jobs:
           test -n "$VITE_TURNSTILE_SITE_KEY" || { echo "VITE_TURNSTILE_SITE_KEY is missing"; exit 1; }
           test -n "$CLOUDFLARE_WEB_ANALYTICS_TOKEN" || { echo "CLOUDFLARE_WEB_ANALYTICS_TOKEN is missing"; exit 1; }
 
-      - name: Build classic-default experiment
+      - name: Build adaptive-default production artifact
         env:
           VITE_PORTFOLIO_API_BASE: ${{ vars.VITE_PORTFOLIO_API_BASE }}
           VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
@@ -80,6 +80,7 @@ jobs:
       - name: Validate assembled routes
         run: |
           test -f dist/index.html
+          test -f dist/classic/index.html
           test -f dist/new/index.html
           test -f dist/portfolio-analytics.js
           test -f dist/case-studies/images/adaptive-ai-portfolio.png
@@ -89,13 +90,16 @@ jobs:
           test -f dist/case-studies/accessibility-intelligence/index.html
           test -f dist/case-studies/ai-assisted-page-builder/index.html
           test -f dist/case-studies/web-experience-quality-score/index.html
-          grep -q 'Try the new adaptive experience' dist/index.html
-          grep -q 'Classic portfolio' dist/new/index.html
-          grep -q '/new/assets/' dist/new/index.html
+          grep -q '/assets/' dist/index.html
+          grep -q '/classic/assets/' dist/classic/index.html
+          ! grep -q 'name="robots" content="noindex,follow"' dist/index.html
+          grep -q 'name="robots" content="noindex,follow"' dist/classic/index.html
+          grep -q 'View the current portfolio' dist/classic/index.html
+          grep -q 'window.location.replace(target)' dist/new/index.html
           grep -q 'portfolio-analytics-client' dist/index.html
-          grep -q 'portfolio-analytics-client' dist/new/index.html
+          grep -q 'portfolio-analytics-client' dist/classic/index.html
           grep -q 'cloudflare-web-analytics' dist/index.html
-          grep -q 'cloudflare-web-analytics' dist/new/index.html
+          grep -q 'cloudflare-web-analytics' dist/classic/index.html
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3

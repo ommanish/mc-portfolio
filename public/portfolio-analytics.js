@@ -62,7 +62,7 @@
 
   const cleanPath = () => {
     const path = globalThis.location?.pathname || "/";
-    return path.startsWith("/new/") || path === "/new" ? "/new/" : "/";
+    return path.startsWith("/classic/") || path === "/classic" ? "/classic/" : "/";
   };
 
   const referrerHostname = () => {
@@ -92,7 +92,7 @@
       try {
         const parsed = JSON.parse(existing);
         return {
-          landingPath: parsed.landingPath === "/new/" ? "/new/" : "/",
+          landingPath: parsed.landingPath === "/classic/" ? "/classic/" : "/",
           referrerHostname: String(parsed.referrerHostname || "").slice(0, 120),
           campaign: {
             source: String(parsed.campaign?.source || "").slice(0, 80),
@@ -311,7 +311,7 @@
 
     try {
       const url = new URL(globalThis.location.href);
-      if (cleanPath() === "/new/" && url.searchParams.get("from") === "classic") {
+      if (cleanPath() === "/" && url.searchParams.get("from") === "classic") {
         track("adaptive_open");
       }
     } catch {}
