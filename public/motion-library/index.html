@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Motion Web Experience Library — standalone, copy-paste motion components for modern websites.">
+  <title>Motion Web Experience Library</title>
+  <link rel="stylesheet" href="./library.css">
+</head>
+<body>
+  <header class="library-header">
+    <a class="library-brand" href="#top" aria-label="Motion Web Experience Library home">
+      <span class="library-brand__mark" aria-hidden="true">M</span>
+      <span><strong>Motion Web Experience Library</strong><small>Standalone · Copy-paste · Production-minded</small></span>
+    </a>
+    <a class="library-back" href="/">Back to portfolio ↗</a>
+  </header>
+
+  <main id="top">
+    <section class="library-hero">
+      <p class="eyebrow">Reusable motion components</p>
+      <h1>Copy the experience.<br>Not just the idea.</h1>
+      <p class="library-hero__copy">Every example runs from the exact HTML, CSS, and JavaScript you can copy. No hidden framework, no Lab-only runtime, no placeholder code.</p>
+      <div class="library-contract" aria-label="Library guarantees">
+        <span>Standalone</span><span>Exact source</span><span>Responsive</span><span>Reduced motion</span>
+      </div>
+    </section>
+
+    <section class="library-section" aria-labelledby="components-title">
+      <div class="library-section__heading">
+        <p class="eyebrow">Component 01</p>
+        <h2 id="components-title">Kinetic Editorial Hero</h2>
+        <p>A full-width hero experience combining masked typography, rotating emphasis, cursor depth, animated CTA treatment, ambient light, and a controlled replay sequence.</p>
+      </div>
+
+      <article class="component-card" data-component="kinetic-hero">
+        <div class="component-toolbar">
+          <div>
+            <span class="component-toolbar__status">Live standalone demo</span>
+            <strong>HTML + CSS + Vanilla JS</strong>
+          </div>
+          <button type="button" data-reload-demo>Replay demo</button>
+        </div>
+
+        <div class="component-preview">
+          <iframe
+            title="Kinetic Editorial Hero live demo"
+            src="./components/kinetic-hero/index.html"
+            loading="eager"
+            data-component-frame
+          ></iframe>
+        </div>
+
+        <div class="component-details">
+          <div>
+            <p class="eyebrow">Interaction system</p>
+            <h3>One section. Multiple coordinated motion layers.</h3>
+          </div>
+          <ul>
+            <li>Masked headline entrance</li>
+            <li>Rotating accent word</li>
+            <li>Pointer-responsive depth</li>
+            <li>Ambient gradient movement</li>
+            <li>CTA micro-interaction</li>
+            <li>Reduced-motion fallback</li>
+          </ul>
+        </div>
+
+        <div class="source-panel">
+          <div class="source-panel__bar">
+            <div class="source-tabs" role="tablist" aria-label="Kinetic Hero source">
+              <button type="button" role="tab" aria-selected="true" data-source-tab="html">HTML</button>
+              <button type="button" role="tab" aria-selected="false" tabindex="-1" data-source-tab="css">CSS</button>
+              <button type="button" role="tab" aria-selected="false" tabindex="-1" data-source-tab="js">JS</button>
+            </div>
+            <div class="source-actions">
+              <button type="button" data-copy-current>Copy current</button>
+              <button type="button" data-copy-all>Copy all</button>
+            </div>
+          </div>
+          <pre tabindex="0"><code data-source-output>Loading exact source…</code></pre>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="library-footer">
+    <span>Motion Web Experience Library</span>
+    <span>Exact source · No hidden runtime</span>
+  </footer>
+
+  <script src="./library.js"></script>
+</body>
+</html>
