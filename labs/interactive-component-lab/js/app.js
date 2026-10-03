@@ -68,6 +68,7 @@
       panels.forEach((panel) => {
         panel.hidden = panel.dataset.labPanel !== name;
       });
+      window.dispatchEvent(new CustomEvent("componentlab:collectionchange", { detail: { name } }));
     };
 
     tabs.forEach((tab, index) => {
@@ -104,7 +105,13 @@
 
     window.InteractiveComponentLab?.mountAll?.(target);
 
-    if (advancedTarget) {
+    let advancedMounted = false;
+    let advancedLoading = false;
+
+    const mountAdvanced = async () => {
+      if (!advancedTarget || advancedMounted || advancedLoading) return;
+      advancedLoading = true;
+
       for (const src of advancedFiles) {
         try {
           await loadAdvancedScript(src);
@@ -112,8 +119,18 @@
           console.warn(`[AdvancedComponentLab] Failed to load ${src}`, error);
         }
       }
+
       window.AdvancedComponentLab?.mountAll?.(advancedTarget);
-    }
+      advancedMounted = true;
+      advancedLoading = false;
+    };
+
+    window.addEventListener("componentlab:collectionchange", (event) => {
+      if (event.detail?.name === "advanced") mountAdvanced();
+    });
+
+    const advancedPanel = document.querySelector('[data-lab-panel="advanced"]');
+    if (advancedPanel && !advancedPanel.hidden) mountAdvanced();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot, { once: true });
