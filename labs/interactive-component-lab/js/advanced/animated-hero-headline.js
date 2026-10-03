@@ -26,7 +26,7 @@
     source: {
       html: `<section class="motion-hero"><h1><span class="hero-word">Design</span> <span class="hero-word">experiences</span></h1><button data-hero-replay>Replay</button></section>`,
       css: `.hero-word{display:inline-block;opacity:0;transform:translateY(1.1em);filter:blur(8px);animation:heroReveal .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--delay)}@keyframes heroReveal{to{opacity:1;transform:none;filter:none}}@media(prefers-reduced-motion:reduce){.hero-word{opacity:1;transform:none;filter:none;animation:none}}`,
-      js: `const words=[...root.querySelectorAll('.hero-word')];words.forEach((word,i)=>word.style.setProperty('--delay',\`${i*90}ms\`));replay.addEventListener('click',()=>{root.classList.remove('is-playing');requestAnimationFrame(()=>root.classList.add('is-playing'))});`,
+      js: `const words=[...root.querySelectorAll('.hero-word')];words.forEach((word,i)=>word.style.setProperty('--delay',\`\${i*90}ms\`));replay.addEventListener('click',()=>{root.classList.remove('is-playing');requestAnimationFrame(()=>root.classList.add('is-playing'))});`,
     },
     accessibility: ["Headline remains real text in logical reading order", "Replay is optional and keyboard accessible", "Reduced motion shows the final state immediately"],
     init(section) {
