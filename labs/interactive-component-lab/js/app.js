@@ -17,9 +17,9 @@
 
   const advancedFiles = [
     "/labs/interactive-component-lab/js/advanced/registry.js",
-    "/labs/interactive-component-lab/js/advanced/spatial-command-center.js",
-    "/labs/interactive-component-lab/js/advanced/ai-command-palette.js",
-    "/labs/interactive-component-lab/js/advanced/elastic-depth-carousel.js"
+    "/labs/interactive-component-lab/js/advanced/animated-hero-headline.js",
+    "/labs/interactive-component-lab/js/advanced/premium-hover-cards.js",
+    "/labs/interactive-component-lab/js/advanced/image-reveal-section.js"
   ];
 
   function ensureExamplesCss() {
