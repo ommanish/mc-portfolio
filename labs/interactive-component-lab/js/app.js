@@ -19,7 +19,7 @@
     if (document.querySelector('link[data-component-examples]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/labs/ai-command-center/css/examples.css";
+    link.href = "/labs/interactive-component-lab/css/examples.css";
     link.dataset.componentExamples = "true";
     document.head.append(link);
   }
@@ -27,7 +27,7 @@
   function loadScript(file) {
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");
-      script.src = `/labs/ai-command-center/js/examples/${file}`;
+      script.src = `/labs/interactive-component-lab/js/examples/${file}`;
       script.dataset.componentExample = file;
       script.onload = resolve;
       script.onerror = reject;
@@ -55,7 +55,7 @@
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => activate(tab.dataset.labTab));
       tab.addEventListener("keydown", (event) => {
-        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
         event.preventDefault();
         let nextIndex = index;
         if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
