@@ -62,12 +62,27 @@ test("AI Command Palette models intent through approval and execution with keybo
   assert.match(source, /Cancel/);
 });
 
+test("AI Command Palette starts compact and can expand or collapse from its trigger", () => {
+  const source = readFileSync(`${advancedRoot}/ai-command-palette.js`, "utf8");
+  assert.match(source, /data-command-open aria-expanded="false"/);
+  assert.match(source, /querySelector\("\[data-command-open\]"\)/);
+  assert.match(source, /panel\.hidden/);
+  assert.match(source, /setAttribute\("aria-expanded"/);
+});
+
 test("Elastic Depth Carousel supports pointer, wheel, buttons, keyboard and continuous progress", () => {
   const source = readFileSync(`${advancedRoot}/elastic-depth-carousel.js`, "utf8");
   for (const event of ["pointerdown", "pointermove", "pointerup", "wheel", "keydown"]) assert.match(source, new RegExp(event));
   assert.match(source, /data-depth-progress/);
   assert.match(source, /data-depth-prev/);
   assert.match(source, /data-depth-next/);
+});
+
+test("Elastic Depth Carousel synchronizes native mobile scroll-snap with active progress", () => {
+  const source = readFileSync(`${advancedRoot}/elastic-depth-carousel.js`, "utf8");
+  assert.match(source, /matchMedia\("\(max-width: 700px\)"\)/);
+  assert.match(source, /addEventListener\("scroll"/);
+  assert.match(source, /scrollLeft/);
 });
 
 test("advanced visual system has responsive and reduced-motion fallbacks", () => {
