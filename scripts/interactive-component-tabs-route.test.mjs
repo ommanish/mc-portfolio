@@ -16,7 +16,7 @@ test("page exposes accessible Current Examples and Advanced Experiments tabs", (
   assert.match(html, />Advanced Experiments</);
   assert.match(html, /data-lab-panel="current"/);
   assert.match(html, /data-lab-panel="advanced"/);
-  assert.match(html, /Three portfolio-grade experiments combine believable product behavior/i);
+  assert.match(html, /Three reusable page patterns focus on animation, interaction, and visual polish/i);
   assert.match(html, /data-advanced-experiments-root/);
 });
 
