@@ -3,55 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AI Command Center — an accessible motion storytelling concept lab by Manish Chawla.">
-  <title>AI Command Center — Motion Storytelling Lab</title>
+  <meta name="description" content="Interactive Component Lab — live CSS, motion, and interaction examples with real code and reusable AI coding prompts.">
+  <title>Interactive Component Lab</title>
   <link rel="stylesheet" href="/labs/ai-command-center/css/base.css">
   <link rel="stylesheet" href="/labs/ai-command-center/css/components.css">
   <link rel="stylesheet" href="/labs/ai-command-center/css/motion.css">
+  <link rel="stylesheet" href="/labs/ai-command-center/css/examples.css" data-component-examples>
 </head>
 <body>
   <div class="lab-shell" data-lab="ai-command-center" data-theme="light" data-motion="full" data-contrast="standard" data-paused="false">
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="lab-header" aria-label="AI Command Center Lab">
-      <a class="lab-brand" href="#welcome" aria-label="AI Command Center home"><span class="lab-brand__mark" aria-hidden="true">◫</span><span><strong>AI Command Center</strong><small>Motion Storytelling Lab</small></span></a>
+
+    <header class="lab-header" aria-label="Interactive Component Lab">
+      <a class="lab-brand" href="#welcome" aria-label="Interactive Component Lab home">
+        <span class="lab-brand__mark" aria-hidden="true">◫</span>
+        <span><strong>Interactive Component Lab</strong><small>CSS · Motion · Vibe Coding</small></span>
+      </a>
       <button class="settings-trigger" type="button" data-settings-toggle aria-expanded="false" aria-controls="experience-settings">Experience settings</button>
     </header>
 
     <aside class="experience-settings" id="experience-settings" aria-labelledby="settings-title" data-settings-panel hidden>
-      <div class="experience-settings__header"><div><p class="eyebrow">Accessibility & control</p><h2 id="settings-title">Experience settings</h2></div><button class="icon-button" type="button" data-settings-close aria-label="Close experience settings">×</button></div>
+      <div class="experience-settings__header">
+        <div><p class="eyebrow">Accessibility & control</p><h2 id="settings-title">Experience settings</h2></div>
+        <button class="icon-button" type="button" data-settings-close aria-label="Close experience settings">×</button>
+      </div>
       <fieldset><legend>Theme</legend><div class="segmented-control" data-theme-control><button type="button" data-theme-value="auto" aria-pressed="true">Auto</button><button type="button" data-theme-value="light" aria-pressed="false">Light</button><button type="button" data-theme-value="dark" aria-pressed="false">Dark</button></div></fieldset>
       <fieldset><legend>Motion</legend><div class="segmented-control" data-motion-control><button type="button" data-motion-value="full" aria-pressed="true">Full</button><button type="button" data-motion-value="reduced" aria-pressed="false">Reduced</button></div></fieldset>
       <fieldset><legend>Contrast</legend><div class="segmented-control" data-contrast-control><button type="button" data-contrast-value="standard" aria-pressed="true">Standard</button><button type="button" data-contrast-value="high" aria-pressed="false">High</button></div></fieldset>
       <button class="pause-button" type="button" data-pause-toggle aria-pressed="false">Pause animation</button>
-      <p class="settings-note">Your choices are kept for this browser session. Manual choices override story-driven theme changes.</p>
+      <p class="settings-note">Your choices are kept for this browser session.</p>
     </aside>
 
-    <div class="story-progress" aria-hidden="true"><span data-progress-bar></span></div>
     <main id="main-content">
-      <section id="welcome" class="chapter chapter--welcome" data-chapter="welcome" data-story-theme="light"><div class="chapter__inner hero-grid">
-        <div class="hero-copy"><p class="concept-label">Concept project · Motion & accessibility lab</p><p class="eyebrow">Human-guided AI workspace</p><h1 data-motion-reveal>Make complex work feel <span>clear, calm, and controllable.</span></h1><p class="hero-lede">Pulseframe is a fictional AI command center created to explore purposeful motion, light/dark storytelling, and accessible interaction design.</p><div class="hero-actions"><a class="button button--primary" href="#ask">Enter the workspace <span aria-hidden="true">↓</span></a><button class="button button--ghost" type="button" data-settings-open>Adjust experience</button></div><ul class="hero-proof" aria-label="Experience principles"><li>Native scroll</li><li>Keyboard ready</li><li>Reduced motion</li><li>High contrast</li></ul></div>
-        <div class="hero-stage" data-motion-stage aria-hidden="true"><div class="ambient-orb ambient-orb--one"></div><div class="ambient-orb ambient-orb--two"></div><div class="command-window command-window--hero"><div class="window-bar"><span></span><span></span><span></span><strong>Pulseframe / Workspace</strong></div><div class="hero-console"><div class="hero-console__nav"><span class="signal-dot"></span><span>Live workspace</span></div><div class="hero-console__prompt"><span class="prompt-avatar">MC</span><div><small>Ask Pulseframe</small><strong>Prepare the launch room for tomorrow’s executive review.</strong></div></div><div class="hero-console__grid"><div class="mini-panel"><span>Context</span><strong>12 sources</strong></div><div class="mini-panel"><span>Decisions</span><strong>4 pending</strong></div><div class="mini-panel"><span>Readiness</span><strong>87%</strong></div></div></div></div></div>
-      </div></section>
+      <section id="welcome" class="component-lab-hero" aria-labelledby="lab-title">
+        <div class="component-lab-hero__inner">
+          <div class="component-lab-hero__copy">
+            <p class="concept-label">Frontend patterns · Accessible motion · AI-assisted development</p>
+            <p class="eyebrow">Interactive Component Lab</p>
+            <h1 id="lab-title">Live components. Real code. Reusable prompts.</h1>
+            <p class="hero-lede">A practical CSS and motion lab where developers can explore live components, inspect the real HTML/CSS/JS, and reuse the prompts in their own AI-assisted coding workflow.</p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="#stacked-card-scroll">Explore examples <span aria-hidden="true">↓</span></a>
+              <button class="button button--ghost" type="button" data-settings-open>Adjust experience</button>
+            </div>
+          </div>
+          <aside class="component-lab-hero__summary" aria-label="What every example includes">
+            <span>12 practical examples</span>
+            <strong>Prompt → Live Demo → HTML / CSS / JS → Accessibility</strong>
+            <p>Copy what works, understand why it works, then adapt it with the coding assistant of your choice.</p>
+          </aside>
+        </div>
+      </section>
 
-      <section id="ask" class="chapter chapter--ask" data-chapter="ask" data-story-theme="light"><div class="chapter__inner split-layout"><div class="chapter-copy"><p class="chapter-index">01 / Ask</p><p class="eyebrow">Start with intent</p><h2 data-motion-reveal>One request becomes a structured plan.</h2><p>The interface keeps the human request visible while the system identifies context, goals, constraints, and the decisions that still need a person.</p></div><div class="workspace-card" data-motion-panel><label for="lab-prompt">What are we trying to accomplish?</label><div class="prompt-box"><textarea id="lab-prompt" rows="4">Prepare the launch room for tomorrow’s executive review. Highlight unresolved risks and ask me before changing any launch commitments.</textarea><button class="send-button" type="button" data-demo-send>Analyze request <span aria-hidden="true">↗</span></button></div><div class="intent-grid" aria-label="Extracted intent"><article><small>Goal</small><strong>Executive launch review</strong></article><article><small>Constraint</small><strong>No autonomous commitments</strong></article><article><small>Priority</small><strong>Surface launch risks first</strong></article></div></div></div></section>
+      <nav class="component-index" aria-label="Component examples">
+        <div class="component-index__inner">
+          <p>Jump to an example</p>
+          <div class="component-index__links">
+            <a href="#stacked-card-scroll">01 Stacked Cards</a>
+            <a href="#text-reveal">02 Text Reveal</a>
+            <a href="#word-reveal">03 Word Reveal</a>
+            <a href="#horizontal-carousel">04 Carousel</a>
+            <a href="#infinite-marquee">05 Marquee</a>
+            <a href="#scroll-progress-story">06 Scroll Progress</a>
+            <a href="#sticky-content-swap">07 Sticky Swap</a>
+            <a href="#image-mask-reveal">08 Mask Reveal</a>
+            <a href="#interactive-hover-cards">09 Hover Cards</a>
+            <a href="#metric-counter">10 Metric Counter</a>
+            <a href="#accessible-accordion">11 Accordion</a>
+            <a href="#parallax-motion-hero">12 Parallax Hero</a>
+          </div>
+        </div>
+      </nav>
 
-      <section id="processing" class="chapter chapter--processing" data-chapter="processing" data-story-theme="dark"><div class="chapter__inner orchestration-layout"><div class="chapter-copy chapter-copy--inverse"><p class="chapter-index">02 / Orchestrate</p><p class="eyebrow">See the system think</p><h2 data-motion-reveal>AI activity is visible, not mysterious.</h2><p>Motion explains how context moves between specialized agents. The human remains the decision boundary for anything consequential.</p></div><div class="orchestration-map" data-motion-orchestration aria-label="Illustration of AI workflow"><div class="orchestration-core" aria-hidden="true"><span class="core-ring core-ring--one"></span><span class="core-ring core-ring--two"></span><strong>Pulseframe</strong><small>Orchestrator</small></div><div class="agent-node agent-node--one" data-motion-node><span>01</span><strong>Context</strong><small>Collect approved sources</small></div><div class="agent-node agent-node--two" data-motion-node><span>02</span><strong>Risk</strong><small>Find launch blockers</small></div><div class="agent-node agent-node--three" data-motion-node><span>03</span><strong>Brief</strong><small>Build executive view</small></div><div class="agent-node agent-node--four" data-motion-node><span>04</span><strong>Guardrail</strong><small>Hold decisions for review</small></div><svg class="orchestration-lines" viewBox="0 0 800 520" aria-hidden="true"><path data-motion-path d="M400 260 C260 210 235 120 155 92"/><path data-motion-path d="M400 260 C545 210 565 120 650 92"/><path data-motion-path d="M400 260 C260 315 220 390 150 430"/><path data-motion-path d="M400 260 C540 315 575 390 650 430"/></svg></div></div></section>
+      <div data-component-examples-root></div>
 
-      <section id="workspace" class="chapter chapter--workspace" data-chapter="workspace" data-story-theme="dark"><div class="chapter__inner"><div class="chapter-copy chapter-copy--center chapter-copy--inverse"><p class="chapter-index">03 / Expand</p><p class="eyebrow">Context becomes workspace</p><h2 data-motion-reveal>The interface grows around the work — not around the AI.</h2><p>Panels reorganize by priority so people can scan, compare, and act without losing the original request.</p></div><div class="command-grid" data-motion-command-grid><article class="command-panel command-panel--wide" data-motion-panel><header><span>Launch readiness</span><strong>87%</strong></header><div class="readiness-chart" aria-label="Launch readiness 87 percent"><span style="--value:87%"></span></div><div class="metric-row"><div><small>Content</small><strong>Ready</strong></div><div><small>QA</small><strong>2 issues</strong></div><div><small>Approvals</small><strong>1 pending</strong></div></div></article><article class="command-panel" data-motion-panel><header><span>Top risk</span><span class="status status--warn">Needs review</span></header><h3>Pricing proof point changed after final QA.</h3><p>Source updated 42 minutes ago. Public page still contains the previous figure.</p></article><article class="command-panel" data-motion-panel><header><span>Signal</span><span class="status status--good">Aligned</span></header><h3>Executive narrative</h3><p>All primary sources support the current launch story.</p></article><article class="command-panel command-panel--activity" data-motion-panel><header><span>Activity</span><small>Live</small></header><ul class="activity-list"><li><span></span><p><strong>Risk agent</strong> compared 12 source updates.</p><time>Now</time></li><li><span></span><p><strong>Brief agent</strong> refreshed the summary.</p><time>1m</time></li><li><span></span><p><strong>Guardrail</strong> paused a commitment change.</p><time>3m</time></li></ul></article></div></div></section>
-
-      <section id="collaboration" class="chapter chapter--collaboration" data-chapter="collaboration" data-story-theme="light"><div class="chapter__inner split-layout split-layout--reverse"><div class="approval-stack" data-motion-stack><article class="approval-card" data-motion-panel><div class="approval-card__meta"><span>Decision request</span><span class="status status--warn">Human required</span></div><h3>Update the public pricing proof point?</h3><p>The approved source now shows a different figure than the staged page.</p><div class="approval-actions"><button type="button">Review source</button><button type="button" class="button--dark">Approve update</button></div></article><article class="approval-card approval-card--ghost" aria-hidden="true"></article><article class="approval-card approval-card--ghost approval-card--ghost-2" aria-hidden="true"></article></div><div class="chapter-copy"><p class="chapter-index">04 / Collaborate</p><p class="eyebrow">Keep humans in the loop</p><h2 data-motion-reveal>Automation can accelerate work without erasing accountability.</h2><p>High-impact actions pause at a clear decision point. The interface explains what changed, why it matters, and what the system recommends.</p></div></div></section>
-
-      <section id="intelligence" class="chapter chapter--intelligence" data-chapter="intelligence" data-story-theme="light"><div class="chapter__inner"><div class="chapter-copy chapter-copy--center"><p class="chapter-index">05 / Understand</p><p class="eyebrow">Live intelligence</p><h2 data-motion-reveal>Signals become decisions, not dashboard noise.</h2><p>Progressive charts and summaries reveal what changed, what matters, and where attention is needed next.</p></div><div class="intelligence-grid"><article class="insight-card insight-card--hero" data-motion-panel><header><span>Launch confidence</span><strong>↑ 14%</strong></header><div class="line-chart" aria-hidden="true"><svg viewBox="0 0 720 260"><path class="chart-grid" d="M0 220H720M0 160H720M0 100H720M0 40H720"/><path class="chart-line" data-motion-chart d="M12 208 C95 190 118 210 175 170 S278 150 342 132 S440 160 500 100 S612 92 704 45"/></svg></div><div class="chart-labels"><span>Context aligned</span><span>Risk resolved</span><span>Review ready</span></div></article><article class="insight-card" data-motion-panel><span class="insight-icon" aria-hidden="true">↗</span><small>Most improved</small><strong>QA confidence</strong><p>Two conflicting source values were reconciled before publish.</p></article><article class="insight-card" data-motion-panel><span class="insight-icon" aria-hidden="true">!</span><small>Needs attention</small><strong>Final approval</strong><p>One pricing update still requires a human decision.</p></article></div></div></section>
-
-      <section id="command-center" class="chapter chapter--command-center" data-chapter="command-center" data-story-theme="dark"><div class="chapter__inner"><div class="command-center-heading chapter-copy--inverse"><div><p class="chapter-index">06 / Command</p><p class="eyebrow">Everything comes together</p></div><h2 data-motion-reveal>A command center designed around confidence, not complexity.</h2></div><div class="final-console" data-motion-final><header class="final-console__header"><div><span class="signal-dot"></span><strong>Executive Launch Room</strong></div><span class="status status--good">Review ready</span></header><div class="final-console__body"><nav class="console-rail" aria-label="Command center demo navigation"><button type="button" aria-label="Overview" class="is-active">01</button><button type="button" aria-label="Risks">02</button><button type="button" aria-label="Sources">03</button><button type="button" aria-label="Decisions">04</button></nav><div class="console-main"><div class="console-summary"><small>Executive summary</small><h3>Launch narrative is aligned. One pricing decision remains.</h3><p>Pulseframe compared approved sources, highlighted conflicts, and prepared the review without changing a public commitment.</p></div><div class="console-kpis"><div><small>Readiness</small><strong>94%</strong></div><div><small>Sources</small><strong>12/12</strong></div><div><small>Risks</small><strong>1 open</strong></div></div></div><aside class="console-assistant"><small>Suggested next action</small><strong>Review the pricing source before publishing.</strong><button type="button">Open decision</button></aside></div></div></div></section>
-
-      <section id="accessibility" class="chapter chapter--accessibility" data-chapter="accessibility" data-story-theme="light"><div class="chapter__inner accessibility-layout"><div class="chapter-copy"><p class="chapter-index">07 / Adapt</p><p class="eyebrow">Motion with user control</p><h2 data-motion-reveal>The experience adapts to the person — not the other way around.</h2><p>Theme, motion, contrast, keyboard access, and pause controls are part of the product system from the beginning.</p><button class="button button--primary" type="button" data-settings-open>Open experience settings</button></div><div class="accessibility-cards"><article data-motion-panel><span aria-hidden="true">◌</span><h3>Reduced motion</h3><p>Removes scrub, parallax, and non-essential movement while preserving the story.</p></article><article data-motion-panel><span aria-hidden="true">⌨</span><h3>Keyboard ready</h3><p>Controls remain reachable in logical DOM order with visible focus treatment.</p></article><article data-motion-panel><span aria-hidden="true">◐</span><h3>Theme control</h3><p>Manual Light or Dark choice overrides automatic story transitions for the session.</p></article><article data-motion-panel><span aria-hidden="true">Aa</span><h3>High contrast</h3><p>Strengthens borders, text, and state indicators without changing the information hierarchy.</p></article></div></div></section>
+      <noscript>
+        <section class="component-lab-noscript">
+          <div>
+            <p class="eyebrow">JavaScript is disabled</p>
+            <h2>The interactive demos need JavaScript to mount.</h2>
+            <p>The Lab uses JavaScript to assemble the reusable demo shell and code tabs. Enable JavaScript to explore the live examples and copy their source.</p>
+          </div>
+        </section>
+      </noscript>
     </main>
 
-    <footer class="lab-footer"><div><strong>AI Command Center</strong><p>Fictional concept created for the Motion Storytelling Lab.</p></div><a href="/" aria-label="Return to Manish Chawla portfolio">Back to portfolio <span aria-hidden="true">↗</span></a></footer>
+    <footer class="lab-footer">
+      <span>Interactive Component Lab</span>
+      <a href="/">Back to portfolio</a>
+    </footer>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="/labs/ai-command-center/js/theme.js"></script><script src="/labs/ai-command-center/js/accessibility.js"></script><script src="/labs/ai-command-center/js/motion.js"></script><script src="/labs/ai-command-center/js/app.js"></script>
+  <script src="/labs/ai-command-center/js/theme.js"></script>
+  <script src="/labs/ai-command-center/js/accessibility.js"></script>
+  <script src="/labs/ai-command-center/js/app.js"></script>
 </body>
 </html>
