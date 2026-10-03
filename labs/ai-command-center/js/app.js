@@ -35,11 +35,44 @@
     });
   }
 
+  function setupLabTabs() {
+    const tabs = [...document.querySelectorAll("[data-lab-tab]")];
+    const panels = [...document.querySelectorAll("[data-lab-panel]")];
+    if (!tabs.length || !panels.length) return;
+
+    const activate = (name, moveFocus = false) => {
+      tabs.forEach((tab) => {
+        const selected = tab.dataset.labTab === name;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        if (selected && moveFocus) tab.focus();
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.labPanel !== name;
+      });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activate(tab.dataset.labTab));
+      tab.addEventListener("keydown", (event) => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        let nextIndex = index;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+        if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+        if (event.key === "Home") nextIndex = 0;
+        if (event.key === "End") nextIndex = tabs.length - 1;
+        activate(tabs[nextIndex].dataset.labTab, true);
+      });
+    });
+  }
+
   async function boot() {
     const root = document.querySelector('[data-lab="ai-command-center"]');
     const target = document.querySelector("[data-component-examples-root]");
     if (!root || !target) return;
 
+    setupLabTabs();
     ensureExamplesCss();
 
     for (const file of exampleFiles) {
