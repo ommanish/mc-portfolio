@@ -17,9 +17,7 @@ test("Advanced Experiments mounts a dedicated advanced registry without replacin
   assert.doesNotMatch(html, /Advanced Experiments gives us a clean place to add richer premium components later/);
   assert.ok(existsSync(`${advancedRoot}/registry.js`));
   const registry = readFileSync(`${advancedRoot}/registry.js`, "utf8");
-  for (const token of ["AdvancedComponentLab", "register", "mountAll", "data-advanced-demo", "data-advanced-prompt", "data-advanced-code-tab", "Accessibility"]) {
-    assert.match(registry, new RegExp(token));
-  }
+  for (const token of ["AdvancedComponentLab", "register", "mountAll", "data-advanced-demo", "data-advanced-prompt", "data-advanced-code-tab", "Accessibility"]) assert.match(registry, new RegExp(token));
 });
 
 test("app loads the advanced registry and exactly the first three approved advanced experiments", () => {
@@ -68,6 +66,19 @@ test("AI Command Palette starts compact and can expand or collapse from its trig
   assert.match(source, /querySelector\("\[data-command-open\]"\)/);
   assert.match(source, /panel\.hidden/);
   assert.match(source, /setAttribute\("aria-expanded"/);
+});
+
+test("AI Command Palette does not steal focus when initialized inside the hidden Advanced tab", () => {
+  const source = readFileSync(`${advancedRoot}/ai-command-palette.js`, "utf8");
+  assert.match(source, /const setOpen = \(open, restoreFocus = false\)/);
+  assert.match(source, /if \(restoreFocus\) trigger\.focus\(\)/);
+  assert.match(source, /setOpen\(false\);/);
+});
+
+test("AI Command Palette keeps approval controls reusable after Execute", () => {
+  const source = readFileSync(`${advancedRoot}/ai-command-palette.js`, "utf8");
+  assert.doesNotMatch(source, /approval\.innerHTML/);
+  assert.match(source, /querySelector\("p"\)\.textContent/);
 });
 
 test("Elastic Depth Carousel supports pointer, wheel, buttons, keyboard and continuous progress", () => {
