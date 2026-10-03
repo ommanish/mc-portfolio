@@ -127,8 +127,10 @@
 
     copyCurrent.addEventListener("click",()=>copyText(source[active]||"",copyCurrent));
     copyAll.addEventListener("click",()=>{
-      const all = `<!-- HTML -->\n${source.html||""}\n\n/* CSS */\n${source.css||""}\n\n// JavaScript\n${source.js||""}`;
-      copyText(all,copyAll);
+      const standalone = (source.html || "")
+        .replace('<link rel="stylesheet" href="./style.css">', `<style>\n${source.css || ""}\n</style>`)
+        .replace('<script src="./script.js"></script>', `<script>\n${source.js || ""}\n<\/script>`);
+      copyText(standalone,copyAll);
     });
 
     loadSource().catch(error => { output.textContent = "Could not load source. " + error.message; });
