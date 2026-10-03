@@ -46,7 +46,7 @@ test("Interactive Component Lab is presented as a standalone practical Lab", () 
   expect(screen.getByRole("heading", { name: /interactive component lab/i })).toBeInTheDocument();
   expect(screen.getByText(/real source code and reusable prompts for ai-assisted development/i)).toBeInTheDocument();
   const experience = screen.getByRole("link", { name: /explore interactive lab/i });
-  expect(experience).toHaveAttribute("href", "/labs/ai-command-center/");
+  expect(experience).toHaveAttribute("href", "/labs/interactive-component-lab/");
   expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(5);
-  expect(container.innerHTML).not.toMatch(/labs\/ai-command-center\/(?:css|js)\//);
+  expect(container.innerHTML).not.toMatch(/labs\/interactive-component-lab\/(?:css|js)\//);
 });
