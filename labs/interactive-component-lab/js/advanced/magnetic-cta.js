@@ -9,9 +9,8 @@
     accessibility:["Native button remains fully usable","Motion is decorative only","Reduced motion disables magnetic transforms"],
     init(section){
       const zone=section.querySelector("[data-magnetic-zone]"),b=section.querySelector("[data-magnetic-cta]");
-      const reduced=window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches||document.querySelector(".lab-shell")?.dataset.motion==="reduced";
-      if(reduced)return;
-      zone.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=e.clientX-cx,dy=e.clientY-cy,dist=Math.hypot(dx,dy),radius=150;if(dist>radius){b.style.transform="";return;}const strength=(1-dist/radius)*.18;b.style.transform="translate("+(dx*strength)+"px,"+(dy*strength)+"px)";});
+      const isReduced=()=>window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches||document.querySelector(".lab-shell")?.dataset.motion==="reduced";
+      zone.addEventListener("pointermove",e=>{if(isReduced()){b.style.transform="";return;}const r=b.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=e.clientX-cx,dy=e.clientY-cy,dist=Math.hypot(dx,dy),radius=150;if(dist>radius){b.style.transform="";return;}const strength=(1-dist/radius)*.18;b.style.transform="translate("+(dx*strength)+"px,"+(dy*strength)+"px)";});
       zone.addEventListener("pointerleave",()=>b.style.transform="");
     }
   });
