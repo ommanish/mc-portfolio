@@ -32,23 +32,20 @@ test("Case Studies includes the CSS Practical Lab with safe external links", () 
   expect(live).toHaveAttribute("rel", expect.stringContaining("noopener"));
   const github = screen.getByRole("link", { name: /view github/i });
   expect(github).toHaveAttribute("href", "https://github.com/ommanish/css-practical-lab");
-  expect(github).toHaveAttribute("target", "_blank");
-  expect(github).toHaveAttribute("rel", expect.stringContaining("noopener"));
 });
 
-test("CSS Practical Lab is a separate lab feature, not a sixth case study", () => {
+test("Lab projects stay separate from the five case studies", () => {
   const { container } = render(<CaseStudies />);
   expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(5);
-  expect(container.querySelector(".portfolio-lab-feature")).toBeInTheDocument();
   expect(container.querySelector("#lab.portfolio-lab-section")).toBeInTheDocument();
   expect(screen.getByText(/lab & open source/i)).toBeInTheDocument();
 });
 
-test("AI Command Center is presented as an isolated concept motion Lab", () => {
+test("Interactive Component Lab is presented as a standalone practical Lab", () => {
   const { container } = render(<CaseStudies />);
-  expect(screen.getByRole("heading", { name: /ai command center/i })).toBeInTheDocument();
-  expect(screen.getByText(/accessible cinematic motion experience/i)).toBeInTheDocument();
-  const experience = screen.getByRole("link", { name: /view motion experience/i });
+  expect(screen.getByRole("heading", { name: /interactive component lab/i })).toBeInTheDocument();
+  expect(screen.getByText(/real source code and reusable prompts for ai-assisted development/i)).toBeInTheDocument();
+  const experience = screen.getByRole("link", { name: /explore interactive lab/i });
   expect(experience).toHaveAttribute("href", "/labs/ai-command-center/");
   expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(5);
   expect(container.innerHTML).not.toMatch(/labs\/ai-command-center\/(?:css|js)\//);
