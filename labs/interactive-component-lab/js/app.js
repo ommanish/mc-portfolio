@@ -15,6 +15,13 @@
     "parallax-hero.js"
   ];
 
+  const advancedFiles = [
+    "/labs/interactive-component-lab/js/advanced/registry.js",
+    "/labs/interactive-component-lab/js/advanced/spatial-command-center.js",
+    "/labs/interactive-component-lab/js/advanced/ai-command-palette.js",
+    "/labs/interactive-component-lab/js/advanced/elastic-depth-carousel.js"
+  ];
+
   function ensureExamplesCss() {
     if (document.querySelector('link[data-component-examples]')) return;
     const link = document.createElement("link");
@@ -29,6 +36,17 @@
       const script = document.createElement("script");
       script.src = `/labs/interactive-component-lab/js/examples/${file}`;
       script.dataset.componentExample = file;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.body.append(script);
+    });
+  }
+
+  function loadAdvancedScript(src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.dataset.advancedExperiment = src.split("/").pop();
       script.onload = resolve;
       script.onerror = reject;
       document.body.append(script);
@@ -70,6 +88,7 @@
   async function boot() {
     const root = document.querySelector('[data-lab="ai-command-center"]');
     const target = document.querySelector("[data-component-examples-root]");
+    const advancedTarget = document.querySelector("[data-advanced-experiments-root]");
     if (!root || !target) return;
 
     setupLabTabs();
@@ -84,6 +103,17 @@
     }
 
     window.InteractiveComponentLab?.mountAll?.(target);
+
+    if (advancedTarget) {
+      for (const src of advancedFiles) {
+        try {
+          await loadAdvancedScript(src);
+        } catch (error) {
+          console.warn(`[AdvancedComponentLab] Failed to load ${src}`, error);
+        }
+      }
+      window.AdvancedComponentLab?.mountAll?.(advancedTarget);
+    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot, { once: true });
