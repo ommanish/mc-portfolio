@@ -2,7 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 
-const app = readFileSync("labs/ai-command-center/js/app.js", "utf8");
+const root = "labs/interactive-component-lab";
+const app = readFileSync(`${root}/js/app.js`, "utf8");
 
 test("app loads the shared registry and stacked-card module", () => {
   assert.match(app, /["']registry\.js["']/);
@@ -10,8 +11,8 @@ test("app loads the shared registry and stacked-card module", () => {
 });
 
 test("stacked-card example registers real prompt, source, demo, and accessibility guidance", () => {
-  assert.ok(existsSync("labs/ai-command-center/js/examples/stacked-cards.js"));
-  const source = readFileSync("labs/ai-command-center/js/examples/stacked-cards.js", "utf8");
+  assert.ok(existsSync(`${root}/js/examples/stacked-cards.js`));
+  const source = readFileSync(`${root}/js/examples/stacked-cards.js`, "utf8");
   assert.match(source, /id:\s*["']stacked-card-scroll["']/);
   assert.match(source, /title:\s*["']Stacked Card Scroll["']/);
   assert.match(source, /prompt/);
@@ -24,7 +25,7 @@ test("stacked-card example registers real prompt, source, demo, and accessibilit
 });
 
 test("stacked-card styles include sticky stacking and a reduced-motion fallback", () => {
-  const css = readFileSync("labs/ai-command-center/css/examples.css", "utf8");
+  const css = readFileSync(`${root}/css/examples.css`, "utf8");
   assert.match(css, /position:\s*sticky/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /\.stack-demo__card--1/);
