@@ -1,0 +1,8 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; }
+body { font-family: system-ui, sans-serif; }
+.lab-shell { min-height: 100vh; }
+section { min-height: 50vh; padding: 4rem 1.5rem; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
