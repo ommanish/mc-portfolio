@@ -14,6 +14,7 @@ export const portfolioContent = {
     { label: "How I Can Help", href: "#services" },
     { label: "Web Experience", href: "#web-experience" },
     { label: "Case Studies", href: "#cases" },
+    { label: "Lab", href: "#lab" },
     { label: "Skills", href: "#skills" },
     { label: "AI Projects", href: "#ai" },
     { label: "Experience", href: "#timeline" },
