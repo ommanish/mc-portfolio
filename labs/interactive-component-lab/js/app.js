@@ -19,7 +19,16 @@
     "/labs/interactive-component-lab/js/advanced/registry.js",
     "/labs/interactive-component-lab/js/advanced/animated-hero-headline.js",
     "/labs/interactive-component-lab/js/advanced/premium-hover-cards.js",
-    "/labs/interactive-component-lab/js/advanced/image-reveal-section.js"
+    "/labs/interactive-component-lab/js/advanced/image-reveal-section.js",
+    "/labs/interactive-component-lab/js/advanced/animated-tabs.js",
+    "/labs/interactive-component-lab/js/advanced/magnetic-cta.js",
+    "/labs/interactive-component-lab/js/advanced/sticky-header-reveal.js",
+    "/labs/interactive-component-lab/js/advanced/before-after-slider.js",
+    "/labs/interactive-component-lab/js/advanced/timeline-reveal.js",
+    "/labs/interactive-component-lab/js/advanced/logo-marquee.js",
+    "/labs/interactive-component-lab/js/advanced/gallery-hover-preview.js",
+    "/labs/interactive-component-lab/js/advanced/scroll-progress-indicator.js",
+    "/labs/interactive-component-lab/js/advanced/section-color-transition.js"
   ];
 
   function ensureExamplesCss() {
