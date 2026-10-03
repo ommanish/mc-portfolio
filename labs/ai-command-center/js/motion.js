@@ -24,6 +24,19 @@
     root?.classList.remove("motion-ready");
   }
 
+  function ensurePreferenceSubscription() {
+    if (unsubscribe || !prefs) return;
+    unsubscribe = prefs.subscribe((state) => {
+      if (state.motion === "reduced") {
+        clearAll();
+        initialized = false;
+        return;
+      }
+      if (!initialized && !state.paused) init();
+      state.paused ? pause() : resume();
+    });
+  }
+
   function revealChapter(chapter) {
     const id = chapter.dataset.chapter;
     const context = window.gsap.context(() => {
@@ -78,9 +91,9 @@
   function storyThemeTriggers() {
     document.querySelectorAll("[data-story-theme]").forEach((chapter) => {
       window.ScrollTrigger.create({
-        trigger: chapter, start:"top 52%", end:"bottom 48%",
-        onEnter: () => { const current = prefs.get(); if (current.theme === "auto") prefs.setStoryTheme(chapter.dataset.storyTheme); },
-        onEnterBack: () => { const current = prefs.get(); if (current.theme === "auto") prefs.setStoryTheme(chapter.dataset.storyTheme); },
+        trigger:chapter, start:"top 52%", end:"bottom 48%",
+        onEnter:() => { const current = prefs.get(); if (current.theme === "auto") prefs.setStoryTheme(chapter.dataset.storyTheme); },
+        onEnterBack:() => { const current = prefs.get(); if (current.theme === "auto") prefs.setStoryTheme(chapter.dataset.storyTheme); },
       });
     });
   }
@@ -93,19 +106,21 @@
 
   function init() {
     if (!root || initialized) return;
-    if (!hasMotionRuntime() || shouldReduce()) { root?.classList.remove("motion-ready"); initialized = true; return; }
+    ensurePreferenceSubscription();
+    if (!hasMotionRuntime() || shouldReduce() || prefs?.get().paused) {
+      root?.classList.remove("motion-ready");
+      initialized = false;
+      return;
+    }
     window.gsap.registerPlugin(window.ScrollTrigger);
     root.classList.add("motion-ready");
     document.querySelectorAll("[data-chapter]").forEach(revealChapter);
-    cinematicProcessing(); cinematicWorkspace(); cinematicFinal(); storyThemeTriggers(); progressTrigger();
+    cinematicProcessing();
+    cinematicWorkspace();
+    cinematicFinal();
+    storyThemeTriggers();
+    progressTrigger();
     initialized = true;
-    if (!unsubscribe && prefs) {
-      unsubscribe = prefs.subscribe((state) => {
-        if (state.motion === "reduced") { clearAll(); initialized = false; }
-        else if (!initialized && !state.paused) init();
-        state.paused ? pause() : resume();
-      });
-    }
   }
 
   function refresh() { if (shouldReduce() || !hasMotionRuntime()) return; window.ScrollTrigger.refresh(); }
