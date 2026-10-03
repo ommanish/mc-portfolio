@@ -43,3 +43,13 @@ test("CSS Practical Lab is a separate lab feature, not a sixth case study", () =
   expect(container.querySelector("#lab.portfolio-lab-section")).toBeInTheDocument();
   expect(screen.getByText(/lab & open source/i)).toBeInTheDocument();
 });
+
+test("AI Command Center is presented as an isolated concept motion Lab", () => {
+  const { container } = render(<CaseStudies />);
+  expect(screen.getByRole("heading", { name: /ai command center/i })).toBeInTheDocument();
+  expect(screen.getByText(/accessible cinematic motion experience/i)).toBeInTheDocument();
+  const experience = screen.getByRole("link", { name: /view motion experience/i });
+  expect(experience).toHaveAttribute("href", "/labs/ai-command-center/");
+  expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(5);
+  expect(container.innerHTML).not.toMatch(/labs\/ai-command-center\/(?:css|js)\//);
+});
