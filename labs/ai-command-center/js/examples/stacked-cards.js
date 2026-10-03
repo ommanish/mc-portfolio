@@ -51,9 +51,9 @@
       <div class="component-example__accessibility"><strong>Accessibility</strong><span>Keyboard-scrollable demo</span><span>Semantic cards</span><span>Reduced motion: sticky stacking becomes a normal vertical list</span></div>
     </div>`;
 
-  const target = document.querySelector("#accessibility");
+  const target = document.querySelector("#welcome");
   if (!target || document.querySelector("#stacked-card-example")) return;
-  target.before(section);
+  target.after(section);
 
   const output = section.querySelector("[data-code-output]");
   let active = "html";
