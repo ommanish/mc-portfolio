@@ -1,0 +1,1 @@
+(() => {const root=document.querySelector("[data-marquee]"),button=root?.querySelector("[data-toggle]");if(!root||!button)return;button.addEventListener("click",()=>{const paused=root.classList.toggle("is-paused");button.textContent=paused?"Play motion":"Pause motion";button.setAttribute("aria-pressed",String(paused));});})();
