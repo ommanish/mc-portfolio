@@ -32,3 +32,11 @@ test("library copy UI reads the same files that power the iframe demo", () => {
   assert.match(app, /source\[active\]/);
   assert.match(app, /data-copy-all/);
 });
+
+
+test("Vite dev and preview explicitly route /motion-library/ to the standalone library", () => {
+  const vite = readFileSync("vite.config.js", "utf8");
+  assert.match(vite, /\/motion-library\/index\.html/);
+  assert.match(vite, /configureServer/);
+  assert.match(vite, /configurePreviewServer/);
+});
