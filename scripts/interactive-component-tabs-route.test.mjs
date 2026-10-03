@@ -16,7 +16,8 @@ test("page exposes accessible Current Examples and Advanced Experiments tabs", (
   assert.match(html, />Advanced Experiments</);
   assert.match(html, /data-lab-panel="current"/);
   assert.match(html, /data-lab-panel="advanced"/);
-  assert.match(html, /Premium product UI and experimental motion components are coming next/i);
+  assert.match(html, /Three portfolio-grade experiments combine believable product behavior/i);
+  assert.match(html, /data-advanced-experiments-root/);
 });
 
 test("app supports keyboard-accessible lab tab switching", () => {
@@ -33,6 +34,7 @@ test("all local Lab asset references use the renamed public route", () => {
   const app = readFileSync(`${root}/js/app.js`, "utf8");
   assert.doesNotMatch(app, /\/labs\/ai-command-center\//);
   assert.match(app, /\/labs\/interactive-component-lab\/js\/examples\//);
+  assert.match(app, /\/labs\/interactive-component-lab\/js\/advanced\//);
 });
 
 test("portfolio links to the renamed Lab route", () => {
