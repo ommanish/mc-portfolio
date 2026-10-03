@@ -1,0 +1,12 @@
+(() => {
+  const demo='<div class="hover-gallery" data-hover-gallery><div class="hover-gallery__preview" data-gallery-preview><span>01</span></div><div class="hover-gallery__list"><button data-gallery-item="0">Editorial launch <span>Brand</span></button><button data-gallery-item="1">Product story <span>Web</span></button><button data-gallery-item="2">Campaign system <span>Motion</span></button></div></div>';
+  window.AdvancedComponentLab.register({
+    id:"gallery-hover-preview",number:10,title:"Gallery Hover Preview",tech:"Hover/focus preview · CSS gradients",
+    description:"A portfolio-style list that updates a large visual preview on hover or keyboard focus.",
+    notes:["Useful for case studies and project lists","Focus mirrors hover","Preview changes without layout shift"],
+    prompt:"Create a project list with a large visual preview that changes on hover and keyboard focus. Keep the list semantic, avoid layout shift, animate preview opacity/scale, and provide reduced-motion fallback.",
+    demo,source:{html:'<button data-gallery-item>Project</button><div data-gallery-preview></div>',css:'.preview{transition:opacity .3s ease,transform .3s ease}',js:'item.addEventListener("focus",update)'},
+    accessibility:["Keyboard focus triggers the same preview state","Buttons remain readable without preview","Reduced motion removes scale/fade transitions"],
+    init(section){const root=section.querySelector("[data-hover-gallery]"),preview=root.querySelector("[data-gallery-preview]"),items=[...root.querySelectorAll("[data-gallery-item]")],styles=["linear-gradient(135deg,#7c3aed,#22d3ee)","linear-gradient(135deg,#f97316,#ec4899)","linear-gradient(135deg,#14b8a6,#2563eb)"];const update=i=>{preview.style.background=styles[i];preview.innerHTML="<span>0"+(i+1)+"</span>";preview.animate?.([{opacity:.4,transform:"scale(.98)"},{opacity:1,transform:"scale(1)"}],{duration:260});};items.forEach((item,i)=>{item.addEventListener("pointerenter",()=>update(i));item.addEventListener("focus",()=>update(i));});update(0);}
+  });
+})();
