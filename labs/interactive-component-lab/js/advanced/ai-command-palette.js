@@ -10,11 +10,11 @@
     <div class="command-palette" data-command-root>
       <div class="command-palette__ambient" aria-hidden="true"></div>
       <div class="command-palette__shell">
-        <button class="command-palette__trigger" type="button" data-command-open aria-expanded="true"><span>⌘K</span><strong>Ask the workspace anything</strong><small>Command palette</small></button>
-        <div class="command-palette__panel" data-command-panel>
+        <button class="command-palette__trigger" type="button" data-command-open aria-expanded="false"><span>⌘K</span><strong>Ask the workspace anything</strong><small>Command palette</small></button>
+        <div class="command-palette__panel" data-command-panel hidden>
           <div class="command-palette__input-wrap">
             <span aria-hidden="true">✦</span>
-            <input data-command-input role="combobox" aria-expanded="true" aria-controls="command-results" aria-activedescendant="command-option-0" autocomplete="off" value="Prepare this launch for executive review">
+            <input data-command-input role="combobox" aria-expanded="false" aria-controls="command-results" aria-activedescendant="command-option-0" autocomplete="off" value="Prepare this launch for executive review">
             <kbd>esc</kbd>
           </div>
           <div class="command-palette__stages" aria-label="Command progress">${stages.map((stage, index) => `<span class="${index === 0 ? "is-active" : ""}" data-command-stage="${index}">${stage}</span>`).join("")}</div>
@@ -41,13 +41,15 @@
     prompt,
     demo,
     source: {
-      html: `<div class="command-palette">\n  <input role="combobox" aria-controls="results" aria-activedescendant="command-option-0">\n  <div id="results" role="listbox">…</div>\n  <aside aria-live="polite">Review → Approve / Cancel</aside>\n</div>`,
+      html: `<div class="command-palette">\n  <button data-command-open aria-expanded="false">Open command palette</button>\n  <div data-command-panel hidden>\n    <input role="combobox" aria-controls="results" aria-activedescendant="command-option-0">\n    <div id="results" role="listbox">…</div>\n    <aside aria-live="polite">Review → Approve / Cancel</aside>\n  </div>\n</div>`,
       css: `.command-palette__panel{transform-origin:50% 0;animation:palette-in .45s cubic-bezier(.2,.8,.2,1)}.command-palette__results [aria-selected="true"]{transform:translateX(6px);border-color:var(--advanced-accent)}@media(prefers-reduced-motion:reduce){.command-palette *{animation:none!important;transition:none!important;transform:none!important}}`,
-      js: `let active=0;\ninput.addEventListener('keydown',event=>{if(event.key==='ArrowDown')setActive(active+1);if(event.key==='ArrowUp')setActive(active-1);if(event.key==='Enter')select(active);if(event.key==='Escape')reset();});\nfunction select(index){showStage('Review');approval.hidden=false;}`,
+      js: `const trigger=root.querySelector('[data-command-open]');\nconst panel=root.querySelector('[data-command-panel]');\nfunction setOpen(open){panel.hidden=!open;trigger.setAttribute('aria-expanded',String(open));if(open)input.focus()}\ntrigger.addEventListener('click',()=>setOpen(panel.hidden));\ninput.addEventListener('keydown',event=>{if(event.key==='ArrowDown')setActive(active+1);if(event.key==='ArrowUp')setActive(active-1);if(event.key==='Enter')select(active);if(event.key==='Escape')setOpen(false)});`,
     },
     accessibility: ["Combobox exposes aria-activedescendant and listbox state", "Arrow keys, Enter and Escape work without a pointer", "Reduced motion keeps state changes immediate and fully functional"],
     init(section) {
       const root = section.querySelector("[data-command-root]");
+      const trigger = root.querySelector("[data-command-open]");
+      const panel = root.querySelector("[data-command-panel]");
       const input = root.querySelector("[data-command-input]");
       const options = [...root.querySelectorAll("[data-command-option]")];
       const stagesEls = [...root.querySelectorAll("[data-command-stage]")];
@@ -56,6 +58,13 @@
       let active = 0;
 
       const setStage = (index) => stagesEls.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex <= index));
+      const setOpen = (open) => {
+        panel.hidden = !open;
+        trigger.setAttribute("aria-expanded", String(open));
+        input.setAttribute("aria-expanded", String(open));
+        if (open) window.requestAnimationFrame(() => input.focus());
+        else { approval.hidden = true; setStage(0); trigger.focus(); }
+      };
       const setActive = (index) => {
         active = (index + options.length) % options.length;
         options.forEach((option, optionIndex) => option.setAttribute("aria-selected", String(optionIndex === active)));
@@ -70,6 +79,8 @@
         approval.hidden = false;
         approval.querySelector("strong").textContent = suggestions[active].risk === "Ready" ? "Ready to execute" : "Review before execution";
       };
+
+      trigger.addEventListener("click", () => setOpen(panel.hidden));
       options.forEach((option, index) => {
         option.addEventListener("pointerenter", () => setActive(index));
         option.addEventListener("click", () => { setActive(index); select(); });
@@ -78,11 +89,12 @@
         if (event.key === "ArrowDown") { event.preventDefault(); setActive(active + 1); }
         if (event.key === "ArrowUp") { event.preventDefault(); setActive(active - 1); }
         if (event.key === "Enter") { event.preventDefault(); select(); }
-        if (event.key === "Escape") { approval.hidden = true; setStage(0); }
+        if (event.key === "Escape") { event.preventDefault(); setOpen(false); }
       });
       root.querySelector("[data-command-approve]").addEventListener("click", () => { setStage(4); approval.innerHTML = "<strong>Executed</strong><p>The approved action is now in progress.</p>"; });
       root.querySelector("[data-command-cancel]").addEventListener("click", () => { approval.hidden = true; setStage(2); input.focus(); });
       setActive(0);
+      setOpen(false);
     },
   });
 })();
