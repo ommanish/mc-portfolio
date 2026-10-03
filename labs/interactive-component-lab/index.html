@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/labs/interactive-component-lab/css/components.css">
   <link rel="stylesheet" href="/labs/interactive-component-lab/css/motion.css">
   <link rel="stylesheet" href="/labs/interactive-component-lab/css/examples.css" data-component-examples>
+  <link rel="stylesheet" href="/labs/interactive-component-lab/css/advanced.css" data-advanced-experiments>
 </head>
 <body>
   <div class="lab-shell" data-lab="ai-command-center" data-theme="light" data-motion="full" data-contrast="standard" data-paused="false">
@@ -44,9 +45,9 @@
             <p class="hero-lede">A practical CSS and motion lab where developers can explore live components, inspect the real HTML/CSS/JS, and reuse the prompts in their own AI-assisted coding workflow.</p>
           </div>
           <aside class="component-lab-hero__summary" aria-label="What every example includes">
-            <span>12 current examples</span>
+            <span>12 current + 3 advanced experiments</span>
             <strong>Prompt → Live Demo → HTML / CSS / JS → Accessibility</strong>
-            <p>The current collection stays intact while Advanced Experiments gives us a clean place to add richer premium components later.</p>
+            <p>Start with practical patterns, then move into premium product interfaces with deeper state, spatial motion, and richer interaction design.</p>
           </aside>
         </div>
       </section>
@@ -73,13 +74,12 @@
       </div>
 
       <div id="lab-panel-advanced" role="tabpanel" aria-labelledby="lab-tab-advanced" data-lab-panel="advanced" hidden>
-        <section class="advanced-experiments-placeholder" aria-labelledby="advanced-experiments-title">
-          <div class="advanced-experiments-placeholder__inner">
-            <p class="eyebrow">Advanced Experiments</p>
-            <h2 id="advanced-experiments-title">A separate space for the next generation of components.</h2>
-            <p>Premium product UI and experimental motion components are coming next. We’ll decide and build them separately without changing the current 12 examples.</p>
-          </div>
+        <section class="advanced-experiments-intro" aria-labelledby="advanced-experiments-title">
+          <p class="eyebrow">Advanced Experiments</p>
+          <h2 id="advanced-experiments-title">Product UI with more depth.</h2>
+          <p>Three portfolio-grade experiments combine believable product behavior with restrained spatial motion. Each one includes a full-width live experience, reusable build prompt, real source, interaction notes, and accessibility guidance.</p>
         </section>
+        <div data-advanced-experiments-root></div>
       </div>
 
       <noscript><section class="component-lab-noscript"><div><p class="eyebrow">JavaScript is disabled</p><h2>The interactive demos need JavaScript to mount.</h2><p>Enable JavaScript to explore the live examples and switch between Lab collections.</p></div></section></noscript>
