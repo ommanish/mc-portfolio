@@ -67,7 +67,7 @@ export default function CaseStudies({ embedded = false }) {
             <h4>Interactive Component Lab</h4>
             <p>Live CSS, motion, and interaction examples with real source code and reusable prompts for AI-assisted development.</p>
             <div className="portfolio-lab-tags" aria-label="Interactive Component Lab topics">{["CSS", "Motion", "JavaScript", "Accessibility", "AI-assisted Development"].map((tag) => <span key={tag}>{tag}</span>)}</div>
-            <div className="portfolio-lab-actions"><a className="case-study-primary-link" href="/labs/ai-command-center/">Explore Interactive Lab <span aria-hidden="true">→</span></a></div>
+            <div className="portfolio-lab-actions"><a className="case-study-primary-link" href="/labs/interactive-component-lab/">Explore Interactive Lab <span aria-hidden="true">→</span></a></div>
           </div>
         </article>
       </div>
