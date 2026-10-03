@@ -10,7 +10,7 @@
     accessibility:["Uses tablist/tab/tabpanel semantics","Roving tabindex keeps only the active tab in the tab order","Arrow keys change tabs"],
     init(section){
       const root=section.querySelector("[data-motion-tabs]"),buttons=[...root.querySelectorAll("[data-tab]")],panel=root.querySelector("[data-tab-panel]"),indicator=root.querySelector("[data-tab-indicator]");
-      const reduced=window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches||document.querySelector(".lab-shell")?.dataset.motion==="reduced";
+      const isReduced=()=>window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches||document.querySelector(".lab-shell")?.dataset.motion==="reduced";
       const activate=(i,focus=false)=>{
         const b=buttons[i],r=b.getBoundingClientRect(),pr=b.parentElement.getBoundingClientRect();
         buttons.forEach((x,j)=>{const selected=i===j;x.setAttribute("aria-selected",String(selected));x.tabIndex=selected?0:-1;});
@@ -18,7 +18,7 @@
         indicator.style.width=r.width+"px";
         indicator.style.transform="translateX("+(r.left-pr.left-b.parentElement.clientLeft)+"px)";
         panel.innerHTML="<span>"+data[i][0]+"</span><h3>"+data[i][1]+"</h3><p>"+data[i][2]+"</p>";
-        if(!reduced) panel.animate?.([{opacity:.25,transform:"translateY(10px)"},{opacity:1,transform:"none"}],{duration:280,easing:"ease-out"});
+        if(!isReduced()) panel.animate?.([{opacity:.25,transform:"translateY(10px)"},{opacity:1,transform:"none"}],{duration:280,easing:"ease-out"});
         if(focus)b.focus();
       };
       buttons.forEach((b,i)=>{b.addEventListener("click",()=>activate(i));b.addEventListener("keydown",e=>{if(!["ArrowLeft","ArrowRight","Home","End"].includes(e.key))return;e.preventDefault();let next=i;if(e.key==="ArrowRight")next=(i+1)%buttons.length;if(e.key==="ArrowLeft")next=(i-1+buttons.length)%buttons.length;if(e.key==="Home")next=0;if(e.key==="End")next=buttons.length-1;activate(next,true);});});
