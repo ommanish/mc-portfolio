@@ -45,8 +45,8 @@ test("each motion component exposes live demo, prompt, source and accessibility 
 
 test("hero replay uses direct Web Animations API sequence", () => {
   const source = readFileSync(`${advancedRoot}/animated-hero-headline.js`, "utf8");
-  assert.match(source, /data-hero-replay/);
-  assert.match(source, /word\.animate/);
+  assert.match(source, /data-rich-hero-replay/);
+  assert.match(source, /w\\.animate/);
   assert.match(source, /getAnimations/);
 });
 
@@ -71,6 +71,22 @@ test("Advanced components mount only when the Advanced collection becomes visibl
 
 test("advanced visual system is responsive and reduced-motion safe", () => {
   const css = readFileSync(`${root}/css/advanced.css`, "utf8");
-  for (const selector of ["motion-hero", "hover-showcase", "image-reveal", "motion-tabs", "magnetic-cta", "compare", "motion-timeline", "brand-marquee", "hover-gallery", "reading-demo", "color-story"]) assert.match(css, new RegExp(selector));
+  for (const selector of ["rich-hero", "rich-card", "rich-reveal", "rich-tabs", "magnetic-cta", "compare", "motion-timeline", "brand-marquee", "hover-gallery", "reading-demo", "color-story"]) assert.match(css, new RegExp(selector));
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
+});
+
+
+test("first four advanced components use richer coordinated interaction patterns", () => {
+  const hero = readFileSync(`${advancedRoot}/animated-hero-headline.js`, "utf8");
+  const cards = readFileSync(`${advancedRoot}/premium-hover-cards.js`, "utf8");
+  const reveal = readFileSync(`${advancedRoot}/image-reveal-section.js`, "utf8");
+  const tabs = readFileSync(`${advancedRoot}/animated-tabs.js`, "utf8");
+  assert.match(hero, /rich-hero__media/);
+  assert.match(hero, /pointermove/);
+  assert.match(cards, /--rx/);
+  assert.match(cards, /perspective|tilt/i);
+  assert.match(reveal, /rich-reveal__float/);
+  assert.match(reveal, /IntersectionObserver/);
+  assert.match(tabs, /rich-tabs__media/);
+  assert.match(tabs, /data-tone/);
 });
