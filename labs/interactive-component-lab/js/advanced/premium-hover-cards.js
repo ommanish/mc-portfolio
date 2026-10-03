@@ -19,7 +19,7 @@
     source:{
       html:`<article class="hover-card" tabindex="0"><div class="hover-card__glow"></div><h3>Strategy</h3><p>...</p><a href="#">View pattern</a></article>`,
       css:`.hover-card{--x:50%;--y:50%;position:relative;transition:transform .25s ease}.hover-card__glow{background:radial-gradient(260px circle at var(--x) var(--y),rgba(255,255,255,.22),transparent 65%)}.hover-card:hover,.hover-card:focus-visible{transform:translateY(-8px)}`,
-      js:`card.addEventListener('pointermove',event=>{const r=card.getBoundingClientRect();card.style.setProperty('--x',\`${event.clientX-r.left}px\`);card.style.setProperty('--y',\`${event.clientY-r.top}px\`)});`
+      js:`card.addEventListener('pointermove',event=>{const r=card.getBoundingClientRect();card.style.setProperty('--x',\`\${event.clientX-r.left}px\`);card.style.setProperty('--y',\`${event.clientY-r.top}px\`)});`
     },
     accessibility:["Cards are focusable without hiding their links","Hover effects are decorative; content never depends on pointer position","Reduced motion removes lift and transform effects"],
     init(section){
