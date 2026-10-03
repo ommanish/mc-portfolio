@@ -37,7 +37,7 @@
       const actions = root.querySelector("[data-hero-actions]");
       const replay = root.querySelector("[data-hero-replay]");
       const line = root.querySelector("[data-hero-line]");
-      const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ||
+      const isReduced = () => window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ||
         document.querySelector(".lab-shell")?.dataset.motion === "reduced";
 
       const cancelAnimations = () => {
@@ -47,8 +47,8 @@
       };
 
       const play = () => {
-        if (reduced || !Element.prototype.animate) return;
         cancelAnimations();
+        if (isReduced() || !Element.prototype.animate) return;
 
         eyebrow.animate(
           [
