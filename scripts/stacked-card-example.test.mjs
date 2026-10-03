@@ -5,8 +5,8 @@ import { existsSync, readFileSync } from "node:fs";
 const app = readFileSync("labs/ai-command-center/js/app.js", "utf8");
 
 test("app loads the shared registry and stacked-card module", () => {
-  assert.match(app, /examples\/registry\.js/);
-  assert.match(app, /examples\/stacked-cards\.js/);
+  assert.match(app, /["']registry\.js["']/);
+  assert.match(app, /["']stacked-cards\.js["']/);
 });
 
 test("stacked-card example registers real prompt, source, demo, and accessibility guidance", () => {
