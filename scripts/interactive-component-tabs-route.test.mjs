@@ -16,7 +16,7 @@ test("page exposes accessible Current Examples and Advanced Experiments tabs", (
   assert.match(html, />Advanced Experiments</);
   assert.match(html, /data-lab-panel="current"/);
   assert.match(html, /data-lab-panel="advanced"/);
-  assert.match(html, /Three reusable page patterns focus on animation, interaction, and visual polish/i);
+  assert.match(html, /12 page-ready motion components focus on practical UI\/UX animation patterns/i);
   assert.match(html, /data-advanced-experiments-root/);
 });
 
