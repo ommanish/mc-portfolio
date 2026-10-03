@@ -83,3 +83,12 @@ test("all three advanced component files execute and register without load-time 
 
   assert.deepEqual(registered, experiments.map(([, id]) => id));
 });
+
+
+test("Advanced components mount only when the Advanced collection becomes visible", () => {
+  const app = readFileSync(`${root}/js/app.js`, "utf8");
+  assert.match(app, /componentlab:collectionchange/);
+  assert.match(app, /detail\?\.name === "advanced"/);
+  assert.match(app, /advancedMounted/);
+  assert.doesNotMatch(app, /AdvancedComponentLab\?\.mountAll\?\.\(advancedTarget\);\s*\n\s*}\s*\n\s*}/);
+});
