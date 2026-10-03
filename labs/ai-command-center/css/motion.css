@@ -1,0 +1,1 @@
+[data-motion-reveal], [data-motion-panel], [data-motion-node], [data-motion-stage], [data-motion-final] { will-change: transform, opacity; }
