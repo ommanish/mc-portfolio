@@ -1,43 +1,16 @@
 (() => {
-  const demo=`
-    <section class="image-reveal" data-image-reveal>
-      <div class="image-reveal__media">
-        <div class="image-reveal__frame" data-reveal-frame>
-          <div class="image-reveal__art" aria-label="Abstract layered product image" role="img"><span></span><i></i><b></b></div>
-          <div class="image-reveal__curtain" aria-hidden="true"></div>
-        </div>
-        <span class="image-reveal__caption">Image reveal · editorial section</span>
-      </div>
-      <div class="image-reveal__copy" data-reveal-copy>
-        <span>03 · Image storytelling</span>
-        <h3>Reveal the visual as the story enters the page.</h3>
-        <p>Use a controlled mask, image scale, and copy stagger for product features, editorial layouts, case studies, or campaign sections.</p>
-        <a href="#image-reveal-section">See implementation <span aria-hidden="true">→</span></a>
-        <button type="button" data-reveal-replay>Replay reveal</button>
-      </div>
-    </section>`;
-
-  const prompt="Create a reusable image-and-copy website section with a scroll-triggered reveal. Use IntersectionObserver to add one visible state when the section enters the viewport. Reveal the image with clip-path or an overlay curtain, scale the image gently from 1.08 to 1, and stagger the eyebrow, headline, paragraph, and CTA. Include a replay button for design review. Do not hijack scrolling. On reduced motion, show the final image and copy instantly.";
-
+  const demo=`<section class="rich-reveal" data-rich-reveal><div class="rich-reveal__visual"><div class="rich-reveal__image" aria-label="Abstract campaign composition" role="img"><span></span><i></i><b></b></div><div class="rich-reveal__mask" aria-hidden="true"></div><div class="rich-reveal__float" aria-hidden="true"><strong>03</strong><small>Motion layer</small></div></div><div class="rich-reveal__copy"><span>Editorial reveal</span><h3>Let the image arrive with the story.</h3><p>Masking, layered media, staggered copy, and background movement turn a standard image/text blade into a premium storytelling section.</p><a href="#image-reveal-section">See implementation <span>→</span></a><button type="button" data-rich-reveal-replay>Replay reveal</button></div></section>`;
   window.AdvancedComponentLab.register({
-    id:"image-reveal-section",number:3,title:"Image Reveal Section",tech:"IntersectionObserver · Clip-path · Content stagger",
-    description:"A reusable image-and-copy section with curtain masking, image scale, and staggered content entrance for real marketing pages.",
-    notes:["Useful for product features, case studies, and editorial sections","Native page scroll remains untouched","Replay helps designers compare timing without refreshing"],
-    prompt,demo,
-    source:{
-      html:`<section class="image-reveal"><div class="image-reveal__frame">...</div><div class="image-reveal__copy"><h2>Reveal the story.</h2></div></section>`,
-      css:`.image-reveal__frame{clip-path:inset(0 100% 0 0)}.image-reveal.is-visible .image-reveal__frame{clip-path:inset(0);transition:clip-path .9s cubic-bezier(.2,.8,.2,1)}.image-reveal__art{transform:scale(1.08)}.image-reveal.is-visible .image-reveal__art{transform:scale(1)}`,
-      js:`const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){root.classList.add('is-visible');observer.unobserve(root)}}),{threshold:.25});observer.observe(root);`
-    },
-    accessibility:["Image alternative is exposed through the demo role and label","Section content is readable before JavaScript styling is considered","Reduced motion disables clip-path and stagger transitions"],
+    id:"image-reveal-section",number:3,title:"Image Reveal Section",tech:"IntersectionObserver · Clip-path · Layered media",
+    description:"A richer image-and-copy section with masking, floating detail card, background shift, and staggered content.",
+    notes:["Useful for product features and case studies","Visual and copy animate as one system","Replay supports motion review"],
+    prompt:"Create a premium image-and-copy section with clip-path reveal, overlay curtain, image scale, floating secondary card, background shift, staggered copy, IntersectionObserver trigger, replay control, and reduced-motion fallback.",
+    demo,source:{html:'<section class="rich-reveal">...</section>',css:'.rich-reveal.is-visible .rich-reveal__mask{transform:translateX(101%)}',js:'IntersectionObserver + replay'},
+    accessibility:["Image has an accessible label","Content order remains logical","Reduced motion removes mask and stagger transitions"],
     init(section){
-      const root=section.querySelector("[data-image-reveal]");
-      const replay=root.querySelector("[data-reveal-replay]");
-      const show=()=>root.classList.add("is-visible");
-      const reset=()=>{root.classList.remove("is-visible");void root.offsetWidth;show();};
-      const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){show();observer.unobserve(root);}}),{threshold:.25});
-      observer.observe(root);
-      replay.addEventListener("click",reset);
+      const root=section.querySelector("[data-rich-reveal]"), replay=root.querySelector("[data-rich-reveal-replay]");
+      const show=()=>root.classList.add("is-visible"),reset=()=>{root.classList.remove("is-visible");void root.offsetWidth;show();};
+      const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){show();obs.unobserve(root);}}),{threshold:.22});obs.observe(root);replay.addEventListener("click",reset);
     }
   });
 })();
