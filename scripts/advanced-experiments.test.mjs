@@ -46,7 +46,7 @@ test("each motion component exposes live demo, prompt, source and accessibility 
 test("hero replay uses direct Web Animations API sequence", () => {
   const source = readFileSync(`${advancedRoot}/animated-hero-headline.js`, "utf8");
   assert.match(source, /data-rich-hero-replay/);
-  assert.match(source, /w\\.animate/);
+  assert.match(source, /animate\\(/);
   assert.match(source, /getAnimations/);
 });
 
