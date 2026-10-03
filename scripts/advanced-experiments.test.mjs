@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
+import vm from "node:vm";
 
 const root = "labs/interactive-component-lab";
 const advancedRoot = `${root}/js/advanced`;
@@ -62,4 +63,23 @@ test("advanced visual system is responsive and reduced-motion safe", () => {
   for (const selector of ["advanced-experiment", "motion-hero", "hover-showcase", "image-reveal"]) assert.match(css, new RegExp(selector));
   assert.match(css, /@media\s*\(max-width:/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
+});
+
+
+test("all three advanced component files execute and register without load-time errors", () => {
+  const registered = [];
+  const context = vm.createContext({
+    window: {
+      AdvancedComponentLab: {
+        register(component) { registered.push(component.id); },
+      },
+    },
+  });
+
+  for (const [file] of experiments) {
+    const source = readFileSync(`${advancedRoot}/${file}`, "utf8");
+    assert.doesNotThrow(() => vm.runInContext(source, context, { filename: file }));
+  }
+
+  assert.deepEqual(registered, experiments.map(([, id]) => id));
 });
