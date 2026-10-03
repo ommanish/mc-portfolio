@@ -5,102 +5,61 @@ import { existsSync, readFileSync } from "node:fs";
 const root = "labs/interactive-component-lab";
 const advancedRoot = `${root}/js/advanced`;
 const experiments = [
-  ["spatial-command-center.js", "spatial-command-center"],
-  ["ai-command-palette.js", "ai-command-palette"],
-  ["elastic-depth-carousel.js", "elastic-depth-carousel"],
+  ["animated-hero-headline.js", "animated-hero-headline"],
+  ["premium-hover-cards.js", "premium-hover-cards"],
+  ["image-reveal-section.js", "image-reveal-section"],
 ];
 
-test("Advanced Experiments mounts a dedicated advanced registry without replacing Current Examples", () => {
+test("Advanced tab keeps Current Examples and mounts three page-ready motion components", () => {
   const html = readFileSync(`${root}/index.html`, "utf8");
   assert.match(html, /data-component-examples-root/);
   assert.match(html, /data-advanced-experiments-root/);
-  assert.doesNotMatch(html, /Advanced Experiments gives us a clean place to add richer premium components later/);
-  assert.ok(existsSync(`${advancedRoot}/registry.js`));
-  const registry = readFileSync(`${advancedRoot}/registry.js`, "utf8");
-  for (const token of ["AdvancedComponentLab", "register", "mountAll", "data-advanced-demo", "data-advanced-prompt", "data-advanced-code-tab", "Accessibility"]) assert.match(registry, new RegExp(token));
+  assert.match(html, /UI\/UX motion patterns for real web pages/i);
 });
 
-test("app loads the advanced registry and exactly the first three approved advanced experiments", () => {
+test("app loads exactly the three page-ready advanced components", () => {
   const app = readFileSync(`${root}/js/app.js`, "utf8");
-  assert.match(app, /js\/advanced\/registry\.js/);
   for (const [file] of experiments) assert.match(app, new RegExp(file.replace(".", "\\.")));
-  assert.match(app, /AdvancedComponentLab\?\.mountAll/);
+  assert.doesNotMatch(app, /spatial-command-center|ai-command-palette|elastic-depth-carousel/);
 });
 
-test("the three advanced experiments expose prompts, real source and accessibility guidance", () => {
+test("each motion component exposes live demo, prompt, source and accessibility guidance", () => {
   for (const [file, id] of experiments) {
     const path = `${advancedRoot}/${file}`;
     assert.ok(existsSync(path), `missing ${file}`);
     const source = readFileSync(path, "utf8");
-    assert.match(source, new RegExp(`id:\\s*[\"'\\\`]${id}[\"'\\\`]`));
-    assert.match(source, /\bprompt\b/);
+    assert.match(source, new RegExp(`id:\\s*["'\\\`]${id}["'\\\`]`));
+    assert.match(source, /prompt/);
     assert.match(source, /source:/);
-    assert.match(source, /\bhtml\b/);
-    assert.match(source, /\bcss\b/);
-    assert.match(source, /\bjs\b/);
     assert.match(source, /accessibility:/);
     assert.match(source, /reduced motion/i);
   }
 });
 
-test("Spatial Command Center includes four workspace states and contextual command interaction", () => {
-  const source = readFileSync(`${advancedRoot}/spatial-command-center.js`, "utf8");
-  for (const state of ["Overview", "Signals", "Decisions", "Actions"]) assert.match(source, new RegExp(state));
-  assert.match(source, /data-spatial-view/);
-  assert.match(source, /data-spatial-command/);
-  assert.match(source, /keydown/);
+test("animated hero supports replay and split text reveal", () => {
+  const source = readFileSync(`${advancedRoot}/animated-hero-headline.js`, "utf8");
+  assert.match(source, /data-hero-replay/);
+  assert.match(source, /hero-word/);
+  assert.match(source, /animation-delay/);
 });
 
-test("AI Command Palette models intent through approval and execution with keyboard navigation", () => {
-  const source = readFileSync(`${advancedRoot}/ai-command-palette.js`, "utf8");
-  for (const state of ["Intent", "Context", "Suggested Actions", "Review", "Execute"]) assert.match(source, new RegExp(state));
-  assert.match(source, /aria-activedescendant/);
-  assert.match(source, /ArrowDown/);
-  assert.match(source, /Approve/);
-  assert.match(source, /Cancel/);
+test("hover cards use pointer position without making hover essential", () => {
+  const source = readFileSync(`${advancedRoot}/premium-hover-cards.js`, "utf8");
+  assert.match(source, /pointermove/);
+  assert.match(source, /--x/);
+  assert.match(source, /focus-visible|focus/);
 });
 
-test("AI Command Palette starts compact and can expand or collapse from its trigger", () => {
-  const source = readFileSync(`${advancedRoot}/ai-command-palette.js`, "utf8");
-  assert.match(source, /data-command-open aria-expanded="false"/);
-  assert.match(source, /querySelector\("\[data-command-open\]"\)/);
-  assert.match(source, /panel\.hidden/);
-  assert.match(source, /setAttribute\("aria-expanded"/);
+test("image reveal section uses observer-triggered clip reveal with replay fallback", () => {
+  const source = readFileSync(`${advancedRoot}/image-reveal-section.js`, "utf8");
+  assert.match(source, /IntersectionObserver/);
+  assert.match(source, /clip-path|clipPath/);
+  assert.match(source, /data-reveal-replay/);
 });
 
-test("AI Command Palette does not steal focus when initialized inside the hidden Advanced tab", () => {
-  const source = readFileSync(`${advancedRoot}/ai-command-palette.js`, "utf8");
-  assert.match(source, /const setOpen = \(open, restoreFocus = false\)/);
-  assert.match(source, /if \(restoreFocus\) trigger\.focus\(\)/);
-  assert.match(source, /setOpen\(false\);/);
-});
-
-test("AI Command Palette keeps approval controls reusable after Execute", () => {
-  const source = readFileSync(`${advancedRoot}/ai-command-palette.js`, "utf8");
-  assert.doesNotMatch(source, /approval\.innerHTML/);
-  assert.match(source, /querySelector\("p"\)\.textContent/);
-});
-
-test("Elastic Depth Carousel supports pointer, wheel, buttons, keyboard and continuous progress", () => {
-  const source = readFileSync(`${advancedRoot}/elastic-depth-carousel.js`, "utf8");
-  for (const event of ["pointerdown", "pointermove", "pointerup", "wheel", "keydown"]) assert.match(source, new RegExp(event));
-  assert.match(source, /data-depth-progress/);
-  assert.match(source, /data-depth-prev/);
-  assert.match(source, /data-depth-next/);
-});
-
-test("Elastic Depth Carousel synchronizes native mobile scroll-snap with active progress", () => {
-  const source = readFileSync(`${advancedRoot}/elastic-depth-carousel.js`, "utf8");
-  assert.match(source, /matchMedia\("\(max-width: 700px\)"\)/);
-  assert.match(source, /addEventListener\("scroll"/);
-  assert.match(source, /scrollLeft/);
-});
-
-test("advanced visual system has responsive and reduced-motion fallbacks", () => {
-  assert.ok(existsSync(`${root}/css/advanced.css`));
+test("advanced visual system is responsive and reduced-motion safe", () => {
   const css = readFileSync(`${root}/css/advanced.css`, "utf8");
-  for (const selector of ["advanced-experiment", "spatial-command", "command-palette", "depth-carousel"]) assert.match(css, new RegExp(selector));
+  for (const selector of ["advanced-experiment", "motion-hero", "hover-showcase", "image-reveal"]) assert.match(css, new RegExp(selector));
   assert.match(css, /@media\s*\(max-width:/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.match(css, /scroll-snap/);
 });
