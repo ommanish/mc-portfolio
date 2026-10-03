@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 
-const root = "labs/ai-command-center";
+const root = "labs/interactive-component-lab";
 const examples = [
   ["stacked-cards.js", "stacked-card-scroll"],
   ["text-reveal.js", "text-reveal"],
