@@ -43,7 +43,7 @@
     source: {
       html: `<div class="command-palette">\n  <button data-command-open aria-expanded="false">Open command palette</button>\n  <div data-command-panel hidden>\n    <input role="combobox" aria-controls="results" aria-activedescendant="command-option-0">\n    <div id="results" role="listbox">…</div>\n    <aside aria-live="polite">Review → Approve / Cancel</aside>\n  </div>\n</div>`,
       css: `.command-palette__panel{transform-origin:50% 0;animation:palette-in .45s cubic-bezier(.2,.8,.2,1)}.command-palette__results [aria-selected="true"]{transform:translateX(6px);border-color:var(--advanced-accent)}@media(prefers-reduced-motion:reduce){.command-palette *{animation:none!important;transition:none!important;transform:none!important}}`,
-      js: `const trigger=root.querySelector('[data-command-open]');\nconst panel=root.querySelector('[data-command-panel]');\nfunction setOpen(open){panel.hidden=!open;trigger.setAttribute('aria-expanded',String(open));if(open)input.focus()}\ntrigger.addEventListener('click',()=>setOpen(panel.hidden));\ninput.addEventListener('keydown',event=>{if(event.key==='ArrowDown')setActive(active+1);if(event.key==='ArrowUp')setActive(active-1);if(event.key==='Enter')select(active);if(event.key==='Escape')setOpen(false)});`,
+      js: `const trigger=root.querySelector('[data-command-open]');\nconst panel=root.querySelector('[data-command-panel]');\nfunction setOpen(open,restoreFocus=false){panel.hidden=!open;trigger.setAttribute('aria-expanded',String(open));if(open)input.focus();else if(restoreFocus)trigger.focus()}\ntrigger.addEventListener('click',()=>setOpen(panel.hidden));\ninput.addEventListener('keydown',event=>{if(event.key==='ArrowDown')setActive(active+1);if(event.key==='ArrowUp')setActive(active-1);if(event.key==='Enter')select(active);if(event.key==='Escape')setOpen(false,true)});`,
     },
     accessibility: ["Combobox exposes aria-activedescendant and listbox state", "Arrow keys, Enter and Escape work without a pointer", "Reduced motion keeps state changes immediate and fully functional"],
     init(section) {
@@ -58,12 +58,16 @@
       let active = 0;
 
       const setStage = (index) => stagesEls.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex <= index));
-      const setOpen = (open) => {
+      const setOpen = (open, restoreFocus = false) => {
         panel.hidden = !open;
         trigger.setAttribute("aria-expanded", String(open));
         input.setAttribute("aria-expanded", String(open));
         if (open) window.requestAnimationFrame(() => input.focus());
-        else { approval.hidden = true; setStage(0); trigger.focus(); }
+        else {
+          approval.hidden = true;
+          setStage(0);
+          if (restoreFocus) trigger.focus();
+        }
       };
       const setActive = (index) => {
         active = (index + options.length) % options.length;
@@ -78,6 +82,7 @@
         setStage(3);
         approval.hidden = false;
         approval.querySelector("strong").textContent = suggestions[active].risk === "Ready" ? "Ready to execute" : "Review before execution";
+        approval.querySelector("p").textContent = suggestions[active].risk === "Ready" ? "This action can run after your confirmation." : "This action changes the launch review package.";
       };
 
       trigger.addEventListener("click", () => setOpen(panel.hidden));
@@ -89,9 +94,13 @@
         if (event.key === "ArrowDown") { event.preventDefault(); setActive(active + 1); }
         if (event.key === "ArrowUp") { event.preventDefault(); setActive(active - 1); }
         if (event.key === "Enter") { event.preventDefault(); select(); }
-        if (event.key === "Escape") { event.preventDefault(); setOpen(false); }
+        if (event.key === "Escape") { event.preventDefault(); setOpen(false, true); }
       });
-      root.querySelector("[data-command-approve]").addEventListener("click", () => { setStage(4); approval.innerHTML = "<strong>Executed</strong><p>The approved action is now in progress.</p>"; });
+      root.querySelector("[data-command-approve]").addEventListener("click", () => {
+        setStage(4);
+        approval.querySelector("strong").textContent = "Executed";
+        approval.querySelector("p").textContent = "The approved action is now in progress.";
+      });
       root.querySelector("[data-command-cancel]").addEventListener("click", () => { approval.hidden = true; setStage(2); input.focus(); });
       setActive(0);
       setOpen(false);
