@@ -13,29 +13,50 @@
         <a href="#animated-hero-headline">Explore pattern <span aria-hidden="true">↗</span></a>
         <button type="button" data-hero-replay>Replay animation</button>
       </div>
-      <div class="motion-hero__line" aria-hidden="true"></div>
+      <div class="motion-hero__line" data-hero-line aria-hidden="true"></div>
     </section>`;
 
-  const prompt = "Create a premium animated website hero using semantic HTML, CSS, and minimal vanilla JavaScript. Split the headline into words or lines and reveal them with an upward masked motion, staggered timing, subtle blur-to-sharp transition, and one highlighted accent word. Add a small eyebrow, supporting copy, CTA, replay control, and a decorative line that grows after the headline. Keep the layout useful for real landing pages. Respect prefers-reduced-motion by showing all text immediately with no transform or blur.";
+  const prompt = "Create a premium animated website hero using semantic HTML, CSS, and minimal vanilla JavaScript. Reveal the headline word-by-word with upward motion, blur-to-sharp transition, staggered timing, one accent word, supporting copy, CTA, and a replay button. Keep all text readable without animation and respect reduced motion.";
 
   window.AdvancedComponentLab.register({
-    id: "animated-hero-headline", number: 1, title: "Animated Hero Headline", tech: "CSS masks · Staggered motion · Minimal JS",
-    description: "A reusable landing-page hero with masked word reveals, accent treatment, CTA choreography, and a replay control.",
-    notes: ["Ideal for landing pages and product launches", "Animation supports hierarchy instead of delaying reading", "Replay makes the motion easy to review during design handoff"],
+    id: "animated-hero-headline", number: 1, title: "Animated Hero Headline", tech: "Web Animations API · Staggered typography",
+    description: "A reusable landing-page hero with a dependable replayable word reveal for launches, campaigns, portfolios, and product pages.",
+    notes: ["Replay always restarts the sequence", "Text remains readable without JavaScript", "Animation enhances hierarchy rather than hiding content"],
     prompt, demo,
     source: {
       html: `<section class="motion-hero"><h1><span class="hero-word">Design</span> <span class="hero-word">experiences</span></h1><button data-hero-replay>Replay</button></section>`,
-      css: `.hero-word{display:inline-block;opacity:0;transform:translateY(1.1em);filter:blur(8px);animation:heroReveal .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--delay)}@keyframes heroReveal{to{opacity:1;transform:none;filter:none}}@media(prefers-reduced-motion:reduce){.hero-word{opacity:1;transform:none;filter:none;animation:none}}`,
-      js: `const words=[...root.querySelectorAll('.hero-word')];words.forEach((word,i)=>word.style.setProperty('--delay',\`\${i*90}ms\`));replay.addEventListener('click',()=>{root.classList.remove('is-playing');requestAnimationFrame(()=>root.classList.add('is-playing'))});`,
+      css: `.hero-word{display:inline-block}.hero-word--accent{color:#7dd3fc}@media(prefers-reduced-motion:reduce){.hero-word{transform:none!important;filter:none!important}}`,
+      js: `words.forEach((word,index)=>word.animate([{opacity:0,transform:'translateY(1em)',filter:'blur(8px)'},{opacity:1,transform:'none',filter:'none'}],{duration:700,delay:index*95,fill:'both',easing:'cubic-bezier(.2,.8,.2,1)'}));`
     },
-    accessibility: ["Headline remains real text in logical reading order", "Replay is optional and keyboard accessible", "Reduced motion shows the final state immediately"],
+    accessibility: ["Headline is real text in logical reading order", "Replay is a native keyboard-accessible button", "Reduced motion skips the animated sequence"],
     init(section) {
-      const root=section.querySelector("[data-motion-hero]");
-      const words=[...root.querySelectorAll(".hero-word")];
-      const replay=root.querySelector("[data-hero-replay]");
-      words.forEach((word,index)=>word.style.setProperty("--delay",`${index*95}ms`));
-      const play=()=>{ root.classList.remove("is-playing"); void root.offsetWidth; root.classList.add("is-playing"); };
-      replay.addEventListener("click",play);
+      const root = section.querySelector("[data-motion-hero]");
+      const words = [...root.querySelectorAll(".hero-word")];
+      const replay = root.querySelector("[data-hero-replay]");
+      const line = root.querySelector("[data-hero-line]");
+      const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ||
+        document.querySelector(".lab-shell")?.dataset.motion === "reduced";
+
+      const play = () => {
+        if (reduced || !Element.prototype.animate) return;
+        words.forEach((word, index) => {
+          word.getAnimations().forEach((animation) => animation.cancel());
+          word.animate(
+            [
+              { opacity: 0, transform: "translateY(1em)", filter: "blur(8px)" },
+              { opacity: 1, transform: "translateY(0)", filter: "blur(0)" }
+            ],
+            { duration: 700, delay: index * 95, fill: "both", easing: "cubic-bezier(.2,.8,.2,1)" }
+          );
+        });
+        line.getAnimations().forEach((animation) => animation.cancel());
+        line.animate(
+          [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
+          { duration: 650, delay: 420, fill: "both", easing: "ease-out" }
+        );
+      };
+
+      replay.addEventListener("click", play);
       play();
     }
   });
