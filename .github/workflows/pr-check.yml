@@ -53,6 +53,9 @@ jobs:
       - name: Test experiment shell
         run: npm run test:experiment
 
+      - name: Test motion library
+        run: npm run test:motion-library
+
       - name: Test analytics build injection
         run: npm run test:analytics-config
 
