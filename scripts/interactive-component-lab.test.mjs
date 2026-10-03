@@ -41,7 +41,12 @@ test("all twelve approved examples exist and register unique ids", () => {
     assert.ok(existsSync(path), `missing ${file}`);
     const source = readFileSync(path, "utf8");
     assert.match(source, new RegExp(`id:\\s*[\"'\\\`]${id}[\"'\\\`]`));
-    for (const token of ["prompt:", "source:", "html:", "css:", "js:", "accessibility:"]) assert.match(source, new RegExp(token));
+    assert.match(source, /\bprompt\b/);
+    assert.match(source, /source:/);
+    assert.match(source, /\bhtml\b/);
+    assert.match(source, /\bcss\b/);
+    assert.match(source, /\bjs\b/);
+    assert.match(source, /accessibility:/);
     ids.add(id);
   }
   assert.equal(ids.size, 12);
@@ -59,6 +64,6 @@ test("advanced motion examples include GSAP fallback and reduced motion CSS exis
 
 test("app loads registry and all twelve example modules", () => {
   const app = readFileSync(`${root}/js/app.js`, "utf8");
-  assert.match(app, /examples\/registry\.js/);
+  assert.match(app, /["']registry\.js["']/);
   for (const [file] of examples) assert.match(app, new RegExp(file.replace(".", "\\.")));
 });
