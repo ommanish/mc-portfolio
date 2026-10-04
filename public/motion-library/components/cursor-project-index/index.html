@@ -7,68 +7,63 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <section class="mx-projects" data-mx-projects>
-    <header class="mx-projects__header">
-      <p>Selected work</p>
-      <h1>Projects reveal themselves as you move.</h1>
-      <span>Hover, focus, or tap a project</span>
+  <section class="mx-index" data-mx-index>
+    <header class="mx-index__header">
+      <p>Selected projects</p>
+      <h1>Move through the index.</h1>
+      <span>Hover a project to reveal its visual</span>
     </header>
 
-    <div class="mx-projects__list" role="list">
-      <article class="mx-project" role="listitem" data-project="0">
-        <button type="button" aria-expanded="true">
-          <span class="mx-project__number">01</span>
-          <span class="mx-project__title">Editorial launch</span>
-          <span class="mx-project__meta">Brand system · 2026</span>
-          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+    <div class="mx-index__list" role="list">
+      <article class="mx-index__row" role="listitem" data-project="0">
+        <button type="button" aria-expanded="false">
+          <span class="mx-index__number">01</span>
+          <span class="mx-index__title">Editorial Launch</span>
+          <span class="mx-index__category">Brand · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
         </button>
-        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
       </article>
 
-      <article class="mx-project" role="listitem" data-project="1">
+      <article class="mx-index__row" role="listitem" data-project="1">
         <button type="button" aria-expanded="false">
-          <span class="mx-project__number">02</span>
-          <span class="mx-project__title">Product story</span>
-          <span class="mx-project__meta">Web experience · 2026</span>
-          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+          <span class="mx-index__number">02</span>
+          <span class="mx-index__title">Product Story</span>
+          <span class="mx-index__category">Web · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
         </button>
-        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
       </article>
 
-      <article class="mx-project" role="listitem" data-project="2">
+      <article class="mx-index__row" role="listitem" data-project="2">
         <button type="button" aria-expanded="false">
-          <span class="mx-project__number">03</span>
-          <span class="mx-project__title">Campaign system</span>
-          <span class="mx-project__meta">Motion language · 2026</span>
-          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+          <span class="mx-index__number">03</span>
+          <span class="mx-index__title">Campaign System</span>
+          <span class="mx-index__category">Motion · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
         </button>
-        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
       </article>
 
-      <article class="mx-project" role="listitem" data-project="3">
+      <article class="mx-index__row" role="listitem" data-project="3">
         <button type="button" aria-expanded="false">
-          <span class="mx-project__number">04</span>
-          <span class="mx-project__title">Experience refresh</span>
-          <span class="mx-project__meta">Design system · 2026</span>
-          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+          <span class="mx-index__number">04</span>
+          <span class="mx-index__title">Experience Refresh</span>
+          <span class="mx-index__category">Design · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
         </button>
-        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
       </article>
     </div>
 
-    <div class="mx-projects__preview" data-preview aria-hidden="true">
-      <div class="mx-projects__preview-window" data-preview-window>
-        <div class="mx-projects__scene mx-projects__scene--current" data-current-scene>
-          <span></span><i></i><b></b><em></em>
-        </div>
-        <div class="mx-projects__scene mx-projects__scene--next" data-next-scene>
-          <span></span><i></i><b></b><em></em>
-        </div>
+    <div class="mx-index__cursor-preview" data-preview aria-hidden="true">
+      <div class="mx-index__image-stack">
+        <div class="mx-index__image is-active" data-image="0"></div>
+        <div class="mx-index__image" data-image="1"></div>
+        <div class="mx-index__image" data-image="2"></div>
+        <div class="mx-index__image" data-image="3"></div>
       </div>
-      <div class="mx-projects__preview-meta">
-        <strong data-preview-title>Editorial launch</strong>
-        <span data-preview-meta>Brand system · 2026</span>
-      </div>
+      <span class="mx-index__view">View</span>
     </div>
   </section>
 
