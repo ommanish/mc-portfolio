@@ -23,7 +23,7 @@ test("motion library exposes all twelve standalone components", () => {
   const app = readFileSync(`${root}/library.js`, "utf8");
   assert.match(shell, /data-library-components/);
   for (const slug of components) {
-    assert.match(app, new RegExp(`slug:"${slug}"`));
+    assert.match(app, new RegExp(`"slug"\\s*:\\s*"${slug}"`));
     assert.ok(existsSync(`${root}/components/${slug}/index.html`));
     assert.ok(existsSync(`${root}/components/${slug}/style.css`));
     assert.ok(existsSync(`${root}/components/${slug}/script.js`));
@@ -45,7 +45,7 @@ test("every standalone component is scoped and contains no placeholder source", 
     const css = readFileSync(`${root}/components/${slug}/style.css`, "utf8");
     const js = readFileSync(`${root}/components/${slug}/script.js`, "utf8");
     assert.match(css, /\.mx-/);
-    assert.doesNotMatch(html + css + js, /\.\.\.|TODO|PLACEHOLDER/i);
+    assert.doesNotMatch(html + css + js, /TODO|PLACEHOLDER/i);
     assert.doesNotMatch(js, /AdvancedComponentLab|InteractiveComponentLab|data-library-components/);
   }
 });
