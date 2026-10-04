@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Smart Motion Header</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="mx-page" data-page>
+    <header class="mx-header" data-header>
+      <a class="mx-header__brand" href="#top">Northstar</a>
+      <nav aria-label="Demo navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <button type="button">Start a project</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="mx-section mx-hero">
+        <div class="mx-section__inner">
+          <p class="mx-kicker">Scroll-aware navigation</p>
+          <h1>A header that knows when to get out of the way.</h1>
+          <p class="mx-lede">Scroll down to watch the header compact and disappear. Reverse direction and it returns immediately.</p>
+          <a class="mx-scroll-cue" href="#work">Explore the page <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section class="mx-section mx-work" id="work">
+        <div class="mx-section__inner">
+          <p class="mx-kicker">01 · Selected work</p>
+          <h2>Real content makes the navigation behavior visible.</h2>
+          <div class="mx-card-grid">
+            <article><span>01</span><h3>Product launch</h3><p>Editorial storytelling with strong hierarchy and motion.</p></article>
+            <article><span>02</span><h3>Experience system</h3><p>Reusable components designed for responsive delivery.</p></article>
+            <article><span>03</span><h3>Campaign refresh</h3><p>A flexible visual language across multiple page types.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-section mx-about" id="about">
+        <div class="mx-section__inner mx-split">
+          <div>
+            <p class="mx-kicker">02 · About</p>
+            <h2>Navigation should stay available without dominating the page.</h2>
+          </div>
+          <div class="mx-copy">
+            <p>The header becomes compact once the opening section is behind you, hides while you continue downward, and returns as soon as the scroll direction changes.</p>
+            <p>Keyboard focus also keeps the header visible, so navigation is never moved away while someone is using it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-section mx-services" id="services">
+        <div class="mx-section__inner">
+          <p class="mx-kicker">03 · Services</p>
+          <h2>Long pages benefit from quiet navigation.</h2>
+          <div class="mx-service-list">
+            <div><strong>Experience design</strong><span>Hierarchy · Interaction · Motion</span></div>
+            <div><strong>Frontend systems</strong><span>Responsive · Accessible · Reusable</span></div>
+            <div><strong>Launch quality</strong><span>QA · Performance · Polish</span></div>
+          </div>
+          <a class="mx-final-cta" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

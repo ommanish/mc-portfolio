@@ -1,0 +1,1 @@
+(() => {const root=document.querySelector("[data-compare]"),range=root?.querySelector("[data-range]"),after=root?.querySelector("[data-after]");if(!root||!range||!after)return;function update(){const value=range.value+"%";root.style.setProperty("--split",value);after.style.clipPath="inset(0 calc(100% - "+value+") 0 0)";}range.addEventListener("input",update);update();})();

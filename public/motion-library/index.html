@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Motion Web Experience Library — standalone, copy-paste motion components for modern websites.">
+  <title>Motion Web Experience Library</title>
+  <link rel="stylesheet" href="./library.css">
+</head>
+<body>
+  <header class="library-header">
+    <a class="library-brand" href="#top" aria-label="Motion Web Experience Library home">
+      <span class="library-brand__mark" aria-hidden="true">M</span>
+      <span><strong>Motion Web Experience Library</strong><small>Standalone · Copy-paste · Production-minded</small></span>
+    </a>
+    <a class="library-back" href="/">Back to portfolio ↗</a>
+  </header>
+
+  <main id="top">
+    <section class="library-hero">
+      <p class="eyebrow">Reusable motion components</p>
+      <h1>Copy the experience.<br>Not just the idea.</h1>
+      <p class="library-hero__copy">Every example runs from the exact HTML, CSS, and JavaScript you can copy. No hidden framework, no Lab-only runtime, no placeholder code.</p>
+      <div class="library-contract" aria-label="Library guarantees">
+        <span>12 standalone experiences</span><span>Exact source</span><span>Responsive</span><span>Reduced motion</span>
+      </div>
+    </section>
+
+    <nav class="library-index" aria-label="Motion components" data-library-index></nav>
+
+    <section class="library-section" aria-labelledby="components-title">
+      <div class="library-section__heading">
+        <p class="eyebrow">Motion library</p>
+        <h2 id="components-title">Standalone web experiences.</h2>
+        <p>Each component is isolated, reusable, and powered by the same source shown below its live demo.</p>
+      </div>
+      <div class="library-components" data-library-components></div>
+    </section>
+  </main>
+
+  <footer class="library-footer">
+    <span>Motion Web Experience Library</span>
+    <span>Exact source · No hidden runtime</span>
+  </footer>
+
+  <script src="./library.js"></script>
+</body>
+</html>

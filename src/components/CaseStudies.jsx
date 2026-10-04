@@ -56,55 +56,100 @@ export default function CaseStudies({ embedded = false }) {
 
       <div id="lab" className="portfolio-lab-section" aria-labelledby="portfolio-lab-title">
         <div className="portfolio-lab-heading">
-          <span className="portfolio-lab-kicker">Lab &amp; Open Source</span>
-          <h3 id="portfolio-lab-title">CSS Practical Lab</h3>
+          <span className="portfolio-lab-kicker">Labs &amp; Open Source</span>
+          <h3 id="portfolio-lab-title">Reusable interaction experiments.</h3>
           <p>
-            A growing collection of reusable frontend interaction patterns
-            exploring modern CSS, motion, scroll-driven experiences,
-            responsive layouts, and product storytelling.
+            Standalone motion systems and practical frontend patterns built
+            to be explored, copied, adapted, and used in real web experiences.
           </p>
         </div>
 
-        <article className="portfolio-lab-feature">
-          <div className="portfolio-lab-visual" aria-hidden="true">
-            <div className="portfolio-lab-windowbar">
-              <span /><span /><span /><strong>css-practical-lab</strong>
+        <div className="portfolio-lab-stack">
+          <article className="portfolio-lab-feature portfolio-lab-feature--motion">
+            <div className="portfolio-lab-visual portfolio-lab-visual--motion" aria-hidden="true">
+              <div className="portfolio-lab-windowbar">
+                <span /><span /><span /><strong>motion-web-experience-library</strong>
+              </div>
+              <div className="portfolio-motion-preview">
+                <div className="portfolio-motion-preview__hero">
+                  <span>Motion</span>
+                  <strong>Web Experience</strong>
+                </div>
+                <div className="portfolio-motion-preview__grid">
+                  <div><span>Hero</span></div>
+                  <div><span>Reveal</span></div>
+                  <div><span>Cursor</span></div>
+                  <div><span>Scroll</span></div>
+                </div>
+              </div>
             </div>
-            <div className="portfolio-lab-demo-grid">
-              <div className="portfolio-lab-demo"><span>Motion</span></div>
-              <div className="portfolio-lab-demo"><span>Scroll</span></div>
-              <div className="portfolio-lab-demo"><span>Carousel</span></div>
-              <div className="portfolio-lab-demo"><span>Layout</span></div>
-            </div>
-          </div>
 
-          <div className="portfolio-lab-content">
-            <div className="portfolio-lab-status">
-              <span>Ongoing Lab</span>
-              <span>Public GitHub Project</span>
+            <div className="portfolio-lab-content">
+              <div className="portfolio-lab-status">
+                <span>New Motion Library</span>
+                <span>12 Standalone Components</span>
+              </div>
+              <h4>Copy the experience. Not just the idea.</h4>
+              <p>
+                A reusable motion library with standalone HTML, CSS, and
+                vanilla JavaScript components. Each example includes a live
+                demo, exact source code, Copy All, accessibility guidance, and
+                a reusable build prompt.
+              </p>
+              <div className="portfolio-lab-tags" aria-label="Motion Web Experience Library topics">
+                {["Motion", "UI/UX", "HTML", "CSS", "Vanilla JS", "Accessibility"].map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+              <div className="portfolio-lab-actions">
+                <a className="case-study-primary-link" href="/motion-library/">
+                  Explore Motion Library <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
-            <h4>Small patterns. Real frontend problems.</h4>
-            <p>
-              Framework-free examples for motion, scroll interactions,
-              carousels, modern selectors, responsive layout, and
-              product-storytelling systems — designed to be inspected,
-              adapted, and reused.
-            </p>
-            <div className="portfolio-lab-tags" aria-label="CSS Practical Lab topics">
-              {["CSS", "Motion", "Frontend", "Accessibility", "Interaction Design"].map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
+          </article>
+
+          <article className="portfolio-lab-feature">
+            <div className="portfolio-lab-visual" aria-hidden="true">
+              <div className="portfolio-lab-windowbar">
+                <span /><span /><span /><strong>css-practical-lab</strong>
+              </div>
+              <div className="portfolio-lab-demo-grid">
+                <div className="portfolio-lab-demo"><span>Motion</span></div>
+                <div className="portfolio-lab-demo"><span>Scroll</span></div>
+                <div className="portfolio-lab-demo"><span>Carousel</span></div>
+                <div className="portfolio-lab-demo"><span>Layout</span></div>
+              </div>
             </div>
-            <div className="portfolio-lab-actions">
-              <a className="case-study-primary-link" href="https://ommanish.github.io/css-practical-lab/" target="_blank" rel="noopener noreferrer">
-                Explore Live Lab <span aria-hidden="true">↗</span>
-              </a>
-              <a className="case-study-secondary-link" href="https://github.com/ommanish/css-practical-lab" target="_blank" rel="noopener noreferrer">
-                View GitHub <span aria-hidden="true">↗</span>
-              </a>
+
+            <div className="portfolio-lab-content">
+              <div className="portfolio-lab-status">
+                <span>Ongoing Lab</span>
+                <span>Public GitHub Project</span>
+              </div>
+              <h4>Small patterns. Real frontend problems.</h4>
+              <p>
+                Framework-free examples for motion, scroll interactions,
+                carousels, modern selectors, responsive layout, and
+                product-storytelling systems — designed to be inspected,
+                adapted, and reused.
+              </p>
+              <div className="portfolio-lab-tags" aria-label="CSS Practical Lab topics">
+                {["CSS", "Motion", "Frontend", "Accessibility", "Interaction Design"].map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+              <div className="portfolio-lab-actions">
+                <a className="case-study-primary-link" href="https://ommanish.github.io/css-practical-lab/" target="_blank" rel="noopener noreferrer">
+                  Explore Live Lab <span aria-hidden="true">↗</span>
+                </a>
+                <a className="case-study-secondary-link" href="https://github.com/ommanish/css-practical-lab" target="_blank" rel="noopener noreferrer">
+                  View GitHub <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
   );

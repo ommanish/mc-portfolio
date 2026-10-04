@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cursor Project Index</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <section class="mx-index" data-mx-index>
+    <header class="mx-index__header">
+      <p>Selected projects</p>
+      <h1>Move through the index.</h1>
+      <span>Hover a project to reveal its visual</span>
+    </header>
+
+    <div class="mx-index__list" role="list">
+      <article class="mx-index__row" role="listitem" data-project="0">
+        <button type="button" aria-expanded="false">
+          <span class="mx-index__number">01</span>
+          <span class="mx-index__title">Editorial Launch</span>
+          <span class="mx-index__category">Brand · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
+      </article>
+
+      <article class="mx-index__row" role="listitem" data-project="1">
+        <button type="button" aria-expanded="false">
+          <span class="mx-index__number">02</span>
+          <span class="mx-index__title">Product Story</span>
+          <span class="mx-index__category">Web · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
+      </article>
+
+      <article class="mx-index__row" role="listitem" data-project="2">
+        <button type="button" aria-expanded="false">
+          <span class="mx-index__number">03</span>
+          <span class="mx-index__title">Campaign System</span>
+          <span class="mx-index__category">Motion · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
+      </article>
+
+      <article class="mx-index__row" role="listitem" data-project="3">
+        <button type="button" aria-expanded="false">
+          <span class="mx-index__number">04</span>
+          <span class="mx-index__title">Experience Refresh</span>
+          <span class="mx-index__category">Design · 2026</span>
+          <span class="mx-index__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-index__mobile-preview" aria-hidden="true"></div>
+      </article>
+    </div>
+
+    <div class="mx-index__cursor-preview" data-preview aria-hidden="true">
+      <div class="mx-index__image-stack">
+        <div class="mx-index__image is-active" data-image="0"></div>
+        <div class="mx-index__image" data-image="1"></div>
+        <div class="mx-index__image" data-image="2"></div>
+        <div class="mx-index__image" data-image="3"></div>
+      </div>
+      <span class="mx-index__view">View</span>
+    </div>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>
