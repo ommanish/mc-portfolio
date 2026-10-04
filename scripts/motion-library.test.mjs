@@ -88,3 +88,18 @@ test("Vite dev and preview explicitly route /motion-library/ to the standalone l
   assert.match(vite, /configureServer/);
   assert.match(vite, /configurePreviewServer/);
 });
+
+
+test("every library component includes a reusable build prompt and copy control", () => {
+  const app = readFileSync(`${root}/library.js`, "utf8");
+  for (const slug of components) {
+    const start = app.indexOf(`"slug": "${slug}"`);
+    assert.notEqual(start, -1);
+    const end = app.indexOf("\n  }", start);
+    const block = app.slice(start, end + 4);
+    assert.match(block, /"prompt":/);
+  }
+  assert.match(app, /data-component-prompt/);
+  assert.match(app, /data-copy-prompt/);
+  assert.match(app, /copyText\(component\?\.prompt/);
+});
