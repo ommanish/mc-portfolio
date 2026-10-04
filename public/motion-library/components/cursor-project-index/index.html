@@ -1,1 +1,77 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cursor Project Index</title><link rel="stylesheet" href="./style.css"></head><body><section class="mx-index" data-index><header><p>Selected work</p><h1>Projects that reveal themselves.</h1></header><div class="mx-index__list"><button data-project="0"><span>Editorial launch</span><small>Brand · 2026</small><i>↗</i></button><button data-project="1"><span>Product story</span><small>Web · 2026</small><i>↗</i></button><button data-project="2"><span>Campaign system</span><small>Motion · 2026</small><i>↗</i></button><button data-project="3"><span>Experience refresh</span><small>Design · 2026</small><i>↗</i></button></div><div class="mx-index__preview" data-preview aria-hidden="true"><div><span></span><i></i><b></b></div><small data-preview-label>Editorial launch</small></div></section><script src="./script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cursor Project Index</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <section class="mx-projects" data-mx-projects>
+    <header class="mx-projects__header">
+      <p>Selected work</p>
+      <h1>Projects reveal themselves as you move.</h1>
+      <span>Hover, focus, or tap a project</span>
+    </header>
+
+    <div class="mx-projects__list" role="list">
+      <article class="mx-project" role="listitem" data-project="0">
+        <button type="button" aria-expanded="true">
+          <span class="mx-project__number">01</span>
+          <span class="mx-project__title">Editorial launch</span>
+          <span class="mx-project__meta">Brand system · 2026</span>
+          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+      </article>
+
+      <article class="mx-project" role="listitem" data-project="1">
+        <button type="button" aria-expanded="false">
+          <span class="mx-project__number">02</span>
+          <span class="mx-project__title">Product story</span>
+          <span class="mx-project__meta">Web experience · 2026</span>
+          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+      </article>
+
+      <article class="mx-project" role="listitem" data-project="2">
+        <button type="button" aria-expanded="false">
+          <span class="mx-project__number">03</span>
+          <span class="mx-project__title">Campaign system</span>
+          <span class="mx-project__meta">Motion language · 2026</span>
+          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+      </article>
+
+      <article class="mx-project" role="listitem" data-project="3">
+        <button type="button" aria-expanded="false">
+          <span class="mx-project__number">04</span>
+          <span class="mx-project__title">Experience refresh</span>
+          <span class="mx-project__meta">Design system · 2026</span>
+          <span class="mx-project__arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="mx-project__mobile-media" aria-hidden="true"></div>
+      </article>
+    </div>
+
+    <div class="mx-projects__preview" data-preview aria-hidden="true">
+      <div class="mx-projects__preview-window" data-preview-window>
+        <div class="mx-projects__scene mx-projects__scene--current" data-current-scene>
+          <span></span><i></i><b></b><em></em>
+        </div>
+        <div class="mx-projects__scene mx-projects__scene--next" data-next-scene>
+          <span></span><i></i><b></b><em></em>
+        </div>
+      </div>
+      <div class="mx-projects__preview-meta">
+        <strong data-preview-title>Editorial launch</strong>
+        <span data-preview-meta>Brand system · 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>
