@@ -96,6 +96,8 @@ jobs:
           test -f dist/case-studies/accessibility-intelligence/index.html
           test -f dist/case-studies/ai-assisted-page-builder/index.html
           test -f dist/case-studies/web-experience-quality-score/index.html
+          test -f dist/case-studies/wenamah-product-catalog/index.html
+          test -f dist/case-studies/vellum-vector-studio/index.html
           grep -q '/assets/' dist/index.html
           grep -q '/classic/assets/' dist/classic/index.html
           ! grep -q 'name="robots" content="noindex,follow"' dist/index.html

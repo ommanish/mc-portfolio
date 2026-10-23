@@ -33,7 +33,7 @@ mkdir -p "$ROOT/dist/new"
 cat > "$ROOT/dist/new/index.html" <<'EOF'
 <!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="robots" content="noindex,follow"/><link rel="canonical" href="https://manishchawla.com/"/><meta http-equiv="refresh" content="0; url=/"/><title>Portfolio moved</title><script>(()=>{const target="/"+window.location.search+window.location.hash;window.location.replace(target);})();</script></head><body><p>This portfolio has moved to <a href="/">manishchawla.com</a>.</p></body></html>
 EOF
-for slug in adaptive-ai-portfolio website-experience-refresh accessibility-intelligence ai-assisted-page-builder web-experience-quality-score; do
+for slug in adaptive-ai-portfolio website-experience-refresh accessibility-intelligence ai-assisted-page-builder web-experience-quality-score wenamah-product-catalog vellum-vector-studio; do
   route_dir="$ROOT/dist/case-studies/$slug"; mkdir -p "$route_dir"; cp "$ROOT/dist/index.html" "$route_dir/index.html"
 done
 test -f "$ROOT/dist/index.html"
