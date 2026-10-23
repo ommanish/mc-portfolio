@@ -141,7 +141,7 @@ export default function CaseStudyDetail({ slug }) {
       {demoOpen && (
         createPortal(
           <div className="case-study-demo-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setDemoOpen(false); }}>
-            <section className="case-study-demo-modal" role="dialog" aria-modal="true" aria-labelledby="case-study-demo-title">
+            <section className="case-study-demo-modal case-study-demo-modal--windowed" role="dialog" aria-modal="true" aria-labelledby="case-study-demo-title">
               <header className="case-study-demo-header">
                 <div><span>INTERACTIVE CONCEPT</span><h2 id="case-study-demo-title">{project.title}</h2></div>
                 <button type="button" className="case-study-demo-close" onClick={() => setDemoOpen(false)} aria-label="Close demo">×</button>

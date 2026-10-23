@@ -23,7 +23,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-test("Vellum demo opens as a viewport modal at the animated hero", async () => {
+test("Vellum demo opens in a windowed modal at the animated hero", async () => {
   const user = userEvent.setup();
   render(<CaseStudyDetail slug="vellum-vector-studio" />);
 
@@ -34,6 +34,7 @@ test("Vellum demo opens as a viewport modal at the animated hero", async () => {
   const iframe = screen.getByTitle(/vellum & vector studio experience demo/i);
 
   expect(dialog).toHaveClass("case-study-demo-modal");
+  expect(dialog).toHaveClass("case-study-demo-modal--windowed");
   expect(backdrop.parentElement).toBe(document.body);
   expect(iframe).toHaveAttribute("src", "/demos/vellum-vector-studio.html#top");
 });
@@ -44,7 +45,7 @@ test("Wenamah stage demo uses the same viewport modal", async () => {
 
   await user.click(screen.getByRole("button", { name: /open stage demo/i }));
 
-  expect(screen.getByRole("dialog", { name: /wenamah product catalog & admin/i })).toHaveClass("case-study-demo-modal");
+  expect(screen.getByRole("dialog", { name: /wenamah product catalog & admin/i })).toHaveClass("case-study-demo-modal--windowed");
   expect(screen.getByTitle(/wenamah product catalog & admin demo/i)).toHaveAttribute(
     "src",
     "https://ommanish.github.io/wenamah-stage/"
