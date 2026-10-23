@@ -123,3 +123,9 @@ test("exploded interface keeps its static fallback when Three.js is unavailable"
   assert.ok(window.document.querySelector("svg[aria-label=\"Five interface layers separated in depth\"]"));
   dom.window.close();
 });
+
+
+test("library entry versions its catalog script so deployments bypass stale browser caches", () => {
+  const shell = readFileSync(`${root}/index.html`, "utf8");
+  assert.match(shell, /<script src="\.\/library\.js\?v=[a-zA-Z0-9._-]+"><\/script>/);
+});
