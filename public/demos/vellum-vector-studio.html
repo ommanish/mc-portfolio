@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<!-- saved from url=(0012)about:srcdoc -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vellum &amp; Vector: UI/UX design consultancy</title>
+<meta name="description" content="Vellum &amp; Vector is a UI/UX design consultancy for website design, interface design, digital experiences and brand identity.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2EEE6;
+  --card:#FBF8F2;
+  --lilac:#E3DDF3;
+  --ink:#16161A;
+  --ink-2:#44444C;
+  --line:#CFC8BA;
+  --accent:#FF5A3C;
+  --accent-text:#B3301A;
+  --accent-on-dark:#FF7A60;
+  --max:1200px;
+  --head:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg,canvas{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);line-height:1.05;margin:0;letter-spacing:-.02em}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--accent-text);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:8px;z-index:100;text-decoration:none;font-weight:600}
+.skip:focus{top:12px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;background:rgba(242,238,230,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--head);font-weight:700;font-size:1.15rem}
+.top nav ul{list-style:none;display:flex;gap:6px;margin:0;padding:0}
+.top nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-weight:500;border-radius:8px}
+.top nav a:hover{background:var(--lilac)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink);font-family:var(--body);font-size:1rem;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink)}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* hero */
+.hero{padding:64px 0 40px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-weight:800}
+.hero h1 em{font-style:normal;position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.16em;background:var(--accent);z-index:-1;border-radius:2px}
+.hero .lede{font-size:1.15rem;color:var(--ink-2);max-width:34em;margin:26px 0 30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-copy > *{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.08s}
+.hero-copy > *:nth-child(3){animation-delay:.16s}
+.hero-copy > *:nth-child(4){animation-delay:.24s}
+@keyframes rise{from{transform:translateY(22px);opacity:0}to{transform:none;opacity:1}}
+.stage-wrap{position:relative}
+.stage{position:relative;aspect-ratio:1/1;width:100%;border-radius:24px;background:
+  radial-gradient(circle at 50% 55%,#fff 0,rgba(255,255,255,0) 60%),
+  linear-gradient(var(--paper),var(--paper));overflow:hidden;border:1px solid var(--line)}
+.stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;opacity:.45}
+.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.stage .fallback{position:absolute;inset:6%;width:88%;height:88%}
+.stage.live .fallback{display:none}
+.caption{font-family:var(--mono);font-size:.82rem;color:var(--ink-2);margin-top:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.tag{position:absolute;font-family:var(--mono);font-size:.75rem;background:var(--ink);color:var(--paper);padding:4px 10px;border-radius:6px;pointer-events:none}
+.tag.t1{top:18px;left:18px}
+.tag.t2{bottom:18px;right:18px;background:var(--accent);color:var(--ink)}
+
+/* marquee strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:48px;overflow:hidden;background:var(--card)}
+.strip ul{display:flex;gap:48px;list-style:none;margin:0;padding:16px 0;width:max-content;animation:slide 40s linear infinite}
+.strip li{font-family:var(--head);font-weight:700;font-size:1.3rem;display:flex;align-items:center;gap:48px;white-space:nowrap}
+.strip li::after{content:"";width:10px;height:10px;background:var(--accent);transform:rotate(45deg)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:800}
+.sec-head p{color:var(--ink-2);max-width:32em;margin:0}
+
+/* services list */
+.services{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.svc{display:grid;grid-template-columns:70px 1fr 1.2fr 64px;gap:28px;align-items:start;padding:34px 0;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+.svc:hover{background:var(--card);padding-left:14px;padding-right:14px}
+.svc .num{font-family:var(--mono);color:var(--accent-text);font-weight:500;padding-top:6px}
+.svc h3{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:700}
+.svc p{color:var(--ink-2);margin:0}
+.svc ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.svc ul li{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--paper)}
+.svc svg{width:56px;height:56px;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.svc:hover svg{transform:rotate(-8deg) scale(1.08)}
+
+/* work */
+.work{background:var(--lilac)}
+.work-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.wcard{background:var(--card);border:2px solid var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.wcard:hover{transform:translateY(-6px);box-shadow:0 10px 0 var(--ink)}
+.wcard:nth-child(1){grid-column:span 4}
+.wcard:nth-child(2){grid-column:span 2}
+.wcard:nth-child(3){grid-column:span 2}
+.wcard:nth-child(4){grid-column:span 4}
+.wcard .art{background:var(--paper);border-bottom:2px solid var(--ink);aspect-ratio:16/10;position:relative;overflow:hidden}
+.wcard .art svg{width:100%;height:100%}
+.wcard .art .mv{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.wcard:hover .art .mv{transform:translateY(-8px)}
+.wcard:hover .art .mv2{transform:translateX(10px)}
+.wcard .body{padding:22px 24px 26px}
+.wcard .kind{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-text)}
+.wcard h3{font-size:1.45rem;margin:6px 0 8px}
+.wcard p{color:var(--ink-2);margin:0;font-size:1rem}
+.note{font-family:var(--mono);font-size:.82rem;color:var(--ink-2);margin-top:28px}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;top:27px;left:28px;right:28px;height:2px;background:repeating-linear-gradient(90deg,var(--ink) 0 8px,transparent 8px 14px)}
+.step{padding-right:20px;position:relative}
+.step .dot{width:56px;height:56px;border-radius:50%;background:var(--card);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--mono);font-weight:500;position:relative;z-index:1;margin-bottom:20px;transition:background .3s,transform .3s}
+.step:hover .dot{background:var(--accent);transform:scale(1.08)}
+.step h3{font-size:1.3rem;margin-bottom:8px}
+.step p{color:var(--ink-2);font-size:1rem}
+
+/* principles dark */
+.dark{background:var(--ink);color:var(--paper)}
+.dark .eyebrow{color:var(--accent-on-dark)}
+.quote{font-family:var(--head);font-weight:700;font-size:clamp(2rem,4.8vw,3.8rem);line-height:1.08;letter-spacing:-.02em;max-width:18em;margin:0 0 64px}
+.quote span{color:var(--accent-on-dark)}
+.princ{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.p-card{border:1px solid #3A3A42;border-radius:18px;padding:28px;background:#1E1E24;transition:transform .35s,border-color .35s}
+.p-card:hover{transform:translateY(-5px);border-color:var(--accent-on-dark)}
+.p-card h3{font-size:1.35rem;margin:16px 0 10px}
+.p-card p{color:#C9C6BF;margin:0;font-size:1rem}
+.p-card svg{width:44px;height:44px}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:56px}
+.faq-grid h2{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+details{border-top:1px solid var(--line);padding:4px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;font-family:var(--head);font-weight:700;font-size:1.2rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);font-size:1.5rem;transition:transform .3s;color:var(--accent-text)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--ink-2);max-width:40em;padding-bottom:12px}
+
+/* contact */
+.contact{background:var(--card);border-top:2px solid var(--ink)}
+.c-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.c-grid h2{font-size:clamp(2.2rem,5vw,4rem);font-weight:800;margin-bottom:20px}
+.c-grid .lead{color:var(--ink-2);max-width:28em}
+form{background:var(--paper);border:2px solid var(--ink);border-radius:22px;padding:30px;display:grid;gap:18px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{font-weight:600;font-size:.95rem;display:block;margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid #8C877C;border-radius:10px;padding:12px 14px;min-height:48px}
+textarea{min-height:130px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-text);outline-offset:1px}
+.err{color:var(--accent-text);font-size:.9rem;margin-top:4px;min-height:1em;font-weight:500}
+.status{font-weight:600;min-height:1.4em;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips span{border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-family:var(--mono);font-size:.85rem}
+
+footer{background:var(--ink);color:#C9C6BF;padding:40px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--paper);text-decoration:none;display:inline-flex;min-height:44px;align-items:center;padding:0 8px}
+footer a:hover{text-decoration:underline}
+footer .brand{color:var(--paper)}
+
+@media (max-width:980px){
+  .hero-grid,.sec-head,.faq-grid,.c-grid{grid-template-columns:1fr}
+  .hero-grid{gap:32px}
+  .stage-wrap{max-width:560px}
+  .steps{grid-template-columns:1fr 1fr;gap:32px}
+  .steps::before{display:none}
+  .princ{grid-template-columns:1fr 1fr}
+  .wcard:nth-child(n){grid-column:span 3}
+}
+@media (max-width:760px){
+  .top nav{display:none}
+  .svc{grid-template-columns:44px 1fr;gap:12px 16px}
+  .svc > div:nth-child(3){grid-column:2}
+  .svc svg{display:none}
+  .work-grid{grid-template-columns:1fr}
+  .wcard:nth-child(n){grid-column:auto}
+  .princ{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  section{padding:72px 0}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .steps{grid-template-columns:1fr}
+  .hero{padding-top:40px}
+  .hero h1 em{white-space:normal}
+  .top .btn{padding:0 14px;font-size:.9rem}
+  form{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .strip ul{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Vellum and Vector, back to top">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="8" width="20" height="20" rx="4" fill="none" stroke="#16161A" stroke-width="2.5"></rect><rect x="12" y="2" width="20" height="20" rx="4" fill="#FF5A3C" stroke="#16161A" stroke-width="2.5"></rect></svg>
+      Vellum &amp; Vector
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-ink" href="#contact">Start a project</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title" style="padding-bottom:0">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">UI/UX design consultancy</p>
+        <h1 id="hero-title">Design that earns its place on the <em>screen.</em></h1>
+        <p class="lede">We design websites, interfaces, digital experiences and brand identities. Every screen is drafted in layers, tested with real people and refined until each line, button and colour has a reason to be there.</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="#contact">Tell us about your project <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#work">See the kind of work we do</a>
+        </div>
+      </div>
+      <div class="stage-wrap">
+        <div class="stage" id="stage" role="img" aria-label="An exploded view of one interface screen, separated into five floating layers: page, layout grid, content, components and design notes.">
+          <svg class="fallback" viewBox="0 0 400 400" aria-hidden="true">
+            <g transform="translate(200 210)">
+              <g transform="translate(0 70) skewY(-14) skewX(22)"><rect x="-120" y="-70" width="220" height="140" rx="10" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5"></rect><circle cx="-104" cy="-56" r="4" fill="#FF5A3C"></circle><circle cx="-92" cy="-56" r="4" fill="#16161A"></circle></g>
+              <g transform="translate(0 25) skewY(-14) skewX(22)" stroke="#FF5A3C" stroke-width="1.2" opacity=".8"><rect x="-120" y="-70" width="220" height="140" rx="10" fill="none" stroke="#16161A" stroke-dasharray="5 5"></rect><path d="M-100 -70v140M-80 -70v140M-60 -70v140M-40 -70v140M-20 -70v140M0 -70v140M20 -70v140M40 -70v140M60 -70v140M80 -70v140"></path></g>
+              <g transform="translate(0 -20) skewY(-14) skewX(22)"><rect x="-100" y="-50" width="120" height="14" rx="4" fill="#16161A"></rect><rect x="-100" y="-28" width="90" height="14" rx="4" fill="#16161A"></rect><rect x="-100" y="-4" width="150" height="6" rx="3" fill="#8C877C"></rect><rect x="-100" y="8" width="130" height="6" rx="3" fill="#8C877C"></rect><rect x="30" y="-50" width="60" height="60" rx="8" fill="#E3DDF3" stroke="#16161A" stroke-width="2"></rect></g>
+              <g transform="translate(0 -65) skewY(-14) skewX(22)"><rect x="-100" y="24" width="70" height="24" rx="12" fill="#FF5A3C" stroke="#16161A" stroke-width="2"></rect><rect x="-20" y="24" width="70" height="24" rx="12" fill="none" stroke="#16161A" stroke-width="2"></rect><rect x="60" y="28" width="32" height="16" rx="8" fill="#16161A"></rect><circle cx="84" cy="36" r="6" fill="#FBF8F2"></circle></g>
+              <g transform="translate(0 -110) skewY(-14) skewX(22)"><path d="M40 -20 l0 34 l9 -8 l7 14 l6 -3 l-7 -14 l12 0 z" fill="#16161A"></path><path d="M-100 -30h80" stroke="#FF5A3C" stroke-width="2"></path><path d="M-100 -36v12M-20 -36v12" stroke="#FF5A3C" stroke-width="2"></path></g>
+            </g>
+          </svg>
+          <span class="tag t1">screen / exploded</span>
+          <span class="tag t2">5 layers</span>
+        </div>
+        <p class="caption"><span>Fig. 01: One screen, five layers of decisions.</span><span aria-hidden="true">Move your pointer to tilt</span></p>
+      </div>
+    </div>
+    <div class="strip" aria-hidden="true">
+      <ul>
+        <li>Website design</li><li>Interface design</li><li>Digital experiences</li><li>Brand identity</li><li>Design systems</li><li>Prototyping</li>
+        <li>Website design</li><li>Interface design</li><li>Digital experiences</li><li>Brand identity</li><li>Design systems</li><li>Prototyping</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="eyebrow">What we design</p>
+          <h2 id="services-title">Four disciplines, one consistent point of view.</h2>
+        </div>
+        <p>Most projects touch more than one of these. We keep them under one roof so your brand, your website and your product feel like they were made by the same hands, because they were.</p>
+      </div>
+      <ul class="services">
+        <li class="svc reveal">
+          <span class="num">01</span>
+          <div><h3>Website design</h3></div>
+          <div>
+            <p>Marketing sites and content-rich websites with a clear structure, a voice of their own and pages that guide visitors to the thing they came for.</p>
+            <ul><li>Information architecture</li><li>Page design</li><li>Responsive layouts</li></ul>
+          </div>
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="5" y="9" width="46" height="38" rx="6" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5"></rect><path d="M5 18h46" stroke="#16161A" stroke-width="2.5"></path><circle cx="11" cy="13.5" r="2" fill="#FF5A3C"></circle><rect x="12" y="25" width="20" height="5" rx="2" fill="#16161A"></rect><rect x="12" y="34" width="30" height="3" rx="1.5" fill="#8C877C"></rect></svg>
+        </li>
+        <li class="svc reveal">
+          <span class="num">02</span>
+          <div><h3>User interface design</h3></div>
+          <div>
+            <p>Interfaces for apps, dashboards and tools, built on components that stay consistent as your product grows and handed over in a form your developers can work with.</p>
+            <ul><li>Component libraries</li><li>Design systems</li><li>Interaction states</li></ul>
+          </div>
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="10" width="28" height="12" rx="6" fill="#FF5A3C" stroke="#16161A" stroke-width="2.5"></rect><rect x="6" y="28" width="44" height="10" rx="3" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5"></rect><rect x="38" y="10" width="14" height="12" rx="6" fill="#16161A"></rect><circle cx="46" cy="16" r="3.5" fill="#FBF8F2"></circle><rect x="6" y="43" width="20" height="4" rx="2" fill="#16161A"></rect></svg>
+        </li>
+        <li class="svc reveal">
+          <span class="num">03</span>
+          <div><h3>Digital experiences</h3></div>
+          <div>
+            <p>End-to-end journeys across screens: onboarding, booking, checkout, sign-up. We map where people hesitate and redesign the moments that matter most.</p>
+            <ul><li>User research</li><li>Journey mapping</li><li>Prototypes and testing</li></ul>
+          </div>
+          <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="12" cy="40" r="6" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5"></circle><circle cx="44" cy="16" r="6" fill="#FF5A3C" stroke="#16161A" stroke-width="2.5"></circle><path d="M17 36c8-4 4-14 12-16s6 2 10-2" fill="none" stroke="#16161A" stroke-width="2.5" stroke-dasharray="4 4"></path></svg>
+        </li>
+        <li class="svc reveal">
+          <span class="num">04</span>
+          <div><h3>Brand identity</h3></div>
+          <div>
+            <p>Logos, type, colour and the rules that hold them together, designed for screens first so the identity works as well in a product as on a business card.</p>
+            <ul><li>Logo and marks</li><li>Typography and colour</li><li>Brand guidelines</li></ul>
+          </div>
+          <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="22" cy="28" r="14" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5"></circle><rect x="28" y="14" width="22" height="28" rx="4" fill="#FF5A3C" stroke="#16161A" stroke-width="2.5" opacity=".95"></rect><text x="33" y="34" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#16161A">Aa</text></svg>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="work" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="eyebrow">Work we take on</p>
+          <h2 id="work-title">Digital products that look good and hold up under use.</h2>
+        </div>
+        <p>A look at the shapes our projects usually take. Each one starts with the people who will use it and ends with a design that is ready to be built.</p>
+      </div>
+      <div class="work-grid">
+        <article class="wcard reveal">
+          <div class="art">
+            <svg viewBox="0 0 640 400" aria-hidden="true">
+              <rect width="640" height="400" fill="#F2EEE6"></rect>
+              <g class="mv">
+                <rect x="40" y="40" width="560" height="340" rx="16" fill="#FBF8F2" stroke="#16161A" stroke-width="3"></rect>
+                <rect x="40" y="40" width="130" height="340" rx="16" fill="#16161A"></rect>
+                <rect x="62" y="70" width="70" height="10" rx="5" fill="#FF5A3C"></rect>
+                <rect x="62" y="104" width="86" height="8" rx="4" fill="#5A5A64"></rect><rect x="62" y="128" width="72" height="8" rx="4" fill="#5A5A64"></rect><rect x="62" y="152" width="80" height="8" rx="4" fill="#5A5A64"></rect>
+                <rect x="200" y="70" width="180" height="16" rx="5" fill="#16161A"></rect>
+                <rect x="200" y="110" width="120" height="70" rx="10" fill="#E3DDF3" stroke="#16161A" stroke-width="2"></rect>
+                <rect x="334" y="110" width="120" height="70" rx="10" fill="#FBF8F2" stroke="#16161A" stroke-width="2"></rect>
+                <rect x="468" y="110" width="110" height="70" rx="10" fill="#FF5A3C" stroke="#16161A" stroke-width="2"></rect>
+                <rect x="200" y="200" width="378" height="150" rx="10" fill="#FBF8F2" stroke="#16161A" stroke-width="2"></rect>
+                <g fill="#16161A"><rect x="226" y="290" width="22" height="40"></rect><rect x="262" y="260" width="22" height="70"></rect><rect x="298" y="275" width="22" height="55"></rect><rect x="334" y="236" width="22" height="94"></rect><rect x="370" y="250" width="22" height="80"></rect></g>
+                <path d="M420 320 L460 280 L500 296 L550 230" fill="none" stroke="#FF5A3C" stroke-width="4" stroke-linecap="round"></path>
+                <circle cx="550" cy="230" r="7" fill="#FF5A3C" stroke="#16161A" stroke-width="2"></circle>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kind">Interface design</span>
+            <h3>Dashboards people can read at a glance</h3>
+            <p>Data-heavy tools reorganised around the questions users ask most, with a component system that keeps every chart, table and filter speaking the same language.</p>
+          </div>
+        </article>
+        <article class="wcard reveal">
+          <div class="art">
+            <svg viewBox="0 0 320 200" aria-hidden="true">
+              <rect width="320" height="200" fill="#F2EEE6"></rect>
+              <g class="mv2" style="transition:transform .5s">
+                <rect x="40" y="22" width="80" height="156" rx="14" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5"></rect>
+                <circle cx="80" cy="74" r="20" fill="#FF5A3C" stroke="#16161A" stroke-width="2"></circle>
+                <rect x="56" y="108" width="48" height="6" rx="3" fill="#16161A"></rect><rect x="60" y="120" width="40" height="4" rx="2" fill="#8C877C"></rect>
+                <rect x="56" y="150" width="48" height="14" rx="7" fill="#16161A"></rect>
+                <rect x="132" y="30" width="72" height="140" rx="14" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5" opacity=".9"></rect>
+                <rect x="146" y="60" width="44" height="44" rx="10" fill="#E3DDF3" stroke="#16161A" stroke-width="2"></rect>
+                <rect x="216" y="38" width="64" height="124" rx="14" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5" opacity=".75"></rect>
+                <circle cx="70" cy="40" r="3" fill="#16161A"></circle><circle cx="80" cy="40" r="3" fill="#8C877C"></circle><circle cx="90" cy="40" r="3" fill="#8C877C"></circle>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kind">Digital experience</span>
+            <h3>Onboarding that feels like a welcome</h3>
+            <p>First-run flows that explain just enough, ask for little and get people to the useful part quickly.</p>
+          </div>
+        </article>
+        <article class="wcard reveal">
+          <div class="art">
+            <svg viewBox="0 0 320 200" aria-hidden="true">
+              <rect width="320" height="200" fill="#16161A"></rect>
+              <g class="mv">
+                <circle cx="100" cy="96" r="44" fill="none" stroke="#FBF8F2" stroke-width="3"></circle>
+                <rect x="100" y="52" width="88" height="88" rx="10" fill="#FF5A3C"></rect>
+                <text x="210" y="112" font-family="Georgia,serif" font-size="48" font-weight="700" fill="#FBF8F2">Aa</text>
+                <rect x="40" y="160" width="40" height="18" rx="4" fill="#FF5A3C"></rect><rect x="88" y="160" width="40" height="18" rx="4" fill="#E3DDF3"></rect><rect x="136" y="160" width="40" height="18" rx="4" fill="#FBF8F2"></rect><rect x="184" y="160" width="40" height="18" rx="4" fill="#5A5A64"></rect>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kind">Brand identity</span>
+            <h3>Identities built for screens</h3>
+            <p>Marks, palettes and type that scale from a favicon to a full product interface without losing character.</p>
+          </div>
+        </article>
+        <article class="wcard reveal">
+          <div class="art">
+            <svg viewBox="0 0 640 400" aria-hidden="true">
+              <rect width="640" height="400" fill="#E3DDF3"></rect>
+              <g class="mv">
+                <rect x="40" y="40" width="560" height="340" rx="16" fill="#FBF8F2" stroke="#16161A" stroke-width="3"></rect>
+                <path d="M40 90h560" stroke="#16161A" stroke-width="3"></path>
+                <rect x="66" y="58" width="80" height="14" rx="4" fill="#16161A"></rect>
+                <rect x="420" y="56" width="70" height="18" rx="9" fill="none" stroke="#16161A" stroke-width="2"></rect><rect x="500" y="56" width="74" height="18" rx="9" fill="#FF5A3C" stroke="#16161A" stroke-width="2"></rect>
+                <rect x="66" y="120" width="250" height="26" rx="6" fill="#16161A"></rect><rect x="66" y="156" width="190" height="26" rx="6" fill="#16161A"></rect>
+                <rect x="66" y="200" width="220" height="8" rx="4" fill="#8C877C"></rect><rect x="66" y="216" width="200" height="8" rx="4" fill="#8C877C"></rect>
+                <rect x="66" y="246" width="120" height="34" rx="17" fill="#16161A"></rect>
+                <rect x="350" y="116" width="224" height="170" rx="14" fill="#FF5A3C" stroke="#16161A" stroke-width="2.5"></rect>
+                <circle cx="420" cy="200" r="40" fill="#FBF8F2" stroke="#16161A" stroke-width="2.5"></circle>
+                <rect x="460" y="160" width="80" height="80" rx="12" fill="#16161A" transform="rotate(12 500 200)"></rect>
+                <rect x="66" y="310" width="160" height="50" rx="10" fill="#F2EEE6" stroke="#16161A" stroke-width="2"></rect><rect x="240" y="310" width="160" height="50" rx="10" fill="#F2EEE6" stroke="#16161A" stroke-width="2"></rect><rect x="414" y="310" width="160" height="50" rx="10" fill="#F2EEE6" stroke="#16161A" stroke-width="2"></rect>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kind">Website design</span>
+            <h3>Websites with a clear first sentence</h3>
+            <p>Sites that say what you do within seconds, then reward the visitors who keep reading with structure, pace and detail.</p>
+          </div>
+        </article>
+      </div>
+      <p class="note">Illustrations above show project types, drawn for this page.</p>
+    </div>
+  </section>
+
+  <section id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="eyebrow">How we work</p>
+          <h2 id="process-title">Sketch early, test often, ship nothing we can't explain.</h2>
+        </div>
+        <p>Our process is deliberately visible. You see rough work before polished work, and every decision comes with the reasoning behind it.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal"><span class="dot">01</span><h3>Listen</h3><p>We learn your goals, your users and your constraints before anyone opens a design tool.</p></li>
+        <li class="step reveal"><span class="dot">02</span><h3>Map</h3><p>Journeys, content and structure come first, laid out as flows and wireframes you can react to.</p></li>
+        <li class="step reveal"><span class="dot">03</span><h3>Draft</h3><p>Visual directions, type and colour are explored side by side so the choice is clear.</p></li>
+        <li class="step reveal"><span class="dot">04</span><h3>Prove</h3><p>Clickable prototypes go in front of real people. What confuses them gets redesigned.</p></li>
+        <li class="step reveal"><span class="dot">05</span><h3>Hand over</h3><p>Organised files, documented components and time with your developers to answer questions.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="dark" id="principles" aria-labelledby="principles-title">
+    <div class="wrap">
+      <p class="eyebrow">What we believe</p>
+      <h2 id="principles-title" class="quote">A beautiful screen that confuses people is a <span>draft</span>, not a design.</h2>
+      <div class="princ">
+        <div class="p-card reveal">
+          <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="none" stroke="#FF7A60" stroke-width="2.5"></circle><circle cx="22" cy="22" r="6" fill="#FF7A60"></circle></svg>
+          <h3>Clarity before decoration</h3>
+          <p>We decide what a screen is for, then design how it looks. Style supports the message instead of competing with it.</p>
+        </div>
+        <div class="p-card reveal">
+          <svg viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="#FF7A60" stroke-width="2.5"></rect><rect x="24" y="4" width="16" height="16" rx="3" fill="#FF7A60"></rect><rect x="4" y="24" width="16" height="16" rx="3" fill="#FF7A60"></rect><rect x="24" y="24" width="16" height="16" rx="3" fill="none" stroke="#FF7A60" stroke-width="2.5"></rect></svg>
+          <h3>Systems, not one-offs</h3>
+          <p>Every component we draw is meant to be reused, so the tenth screen is as considered as the first.</p>
+        </div>
+        <div class="p-card reveal">
+          <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M6 30 L16 20 L24 26 L38 10" fill="none" stroke="#FF7A60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 38h32" stroke="#FF7A60" stroke-width="2.5" stroke-linecap="round"></path></svg>
+          <h3>Accessible by default</h3>
+          <p>Contrast, focus states, readable type and keyboard paths are part of the first draft, not a fix at the end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="reveal">
+        <p class="eyebrow">Good questions</p>
+        <h2 id="faq-title">Before we start talking about pixels.</h2>
+      </div>
+      <div>
+        <details>
+          <summary>Do you build the websites you design?</summary>
+          <p>Our focus is design: research, structure, interface and identity. We prepare developer-ready files and documentation, and we are happy to work alongside your own developers or a development partner you choose.</p>
+        </details>
+        <details>
+          <summary>Can you work with our existing brand?</summary>
+          <p>Yes. Many projects start with an identity that already exists. We can design within it, extend it for digital use, or suggest a refresh if the brand is holding the product back.</p>
+        </details>
+        <details>
+          <summary>How do you price a project?</summary>
+          <p>Every project is scoped individually once we understand what you need. Tell us about your goals and timeline and we will come back with a proposal that explains what is included.</p>
+        </details>
+        <details>
+          <summary>What do you need from us to begin?</summary>
+          <p>A conversation about what you are trying to achieve, access to anything that already exists, and someone on your side who can make decisions. Research with your users is something we can plan together.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap c-grid">
+      <div class="reveal">
+        <p class="eyebrow">Start a project</p>
+        <h2 id="contact-title">Bring us the problem, not just the brief.</h2>
+        <p class="lead">Tell us what you are building, who it is for and what is getting in the way. We read every message and reply with questions, ideas or a next step.</p>
+        <div class="chips" aria-label="Services we offer">
+          <span>Website design</span><span>UI design</span><span>Digital experiences</span><span>Brand identity</span>
+        </div>
+      </div>
+      <form id="form" novalidate="">
+        <div class="row2">
+          <div>
+            <label for="name">Your name</label>
+            <input id="name" name="name" autocomplete="name" required="" aria-describedby="name-err">
+            <p class="err" id="name-err" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required="" aria-describedby="email-err">
+            <p class="err" id="email-err" aria-live="polite"></p>
+          </div>
+        </div>
+        <div>
+          <label for="type">What do you need?</label>
+          <select id="type" name="type">
+            <option>Website design</option>
+            <option>User interface design</option>
+            <option>Digital experience</option>
+            <option>Brand identity</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="msg">Tell us about the project</label>
+          <textarea id="msg" name="msg" required="" aria-describedby="msg-err"></textarea>
+          <p class="err" id="msg-err" aria-live="polite"></p>
+        </div>
+        <button class="btn btn-ink" type="submit">Send project details <span class="arr" aria-hidden="true">→</span></button>
+        <p class="status" id="status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="28" height="28" viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="8" width="20" height="20" rx="4" fill="none" stroke="#FBF8F2" stroke-width="2.5"></rect><rect x="12" y="2" width="20" height="20" rx="4" fill="#FF5A3C" stroke="#FBF8F2" stroke-width="2.5"></rect></svg>
+      Vellum &amp; Vector
+    </a>
+    <p style="margin:0">UI/UX design consultancy: websites, interfaces, experiences, identity.</p>
+    <nav aria-label="Footer"><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a></nav>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Form ---------- */
+  var form = document.getElementById('form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    function check(id, test, msg){
+      var el = document.getElementById(id), err = document.getElementById(id+'-err');
+      if(!test(el.value.trim())){ err.textContent = msg; el.setAttribute('aria-invalid','true'); if(ok) el.focus(); ok = false; }
+      else { err.textContent = ''; el.removeAttribute('aria-invalid'); }
+    }
+    check('name', function(v){return v.length>0}, 'Please tell us your name.');
+    check('email', function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}, 'Please enter an email address like name@company.com.');
+    check('msg', function(v){return v.length>9}, 'A sentence or two about the project helps us reply properly.');
+    var st = document.getElementById('status');
+    if(ok){
+      st.textContent = 'Thanks, ' + document.getElementById('name').value.trim() + '. Your details are ready, but this preview form does not send messages yet.';
+    } else { st.textContent = 'A few fields need attention before sending.'; }
+  });
+
+  /* ---------- Scroll reveal (moves visible elements only) ---------- */
+  if(window.gsap && !reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var el = en.target, sibs = Array.prototype.filter.call(el.parentNode.children, function(c){return c.classList.contains('reveal')});
+          var i = Math.min(sibs.indexOf(el), 5);
+          gsap.fromTo(el, {y:28}, {y:0, duration:.6, ease:'power2.out', delay: i*0.09});
+          io.unobserve(el);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top > window.innerHeight) io.observe(el);
+    });
+  }
+
+  /* ---------- Three.js exploded interface ---------- */
+  var host = document.getElementById('stage');
+  function hasGL(){ try{ var c=document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl')||c.getContext('experimental-webgl'))); }catch(e){ return false; } }
+  if(!window.THREE || reduce || !hasGL()) return;
+
+  var renderer;
+  try{ renderer = new THREE.WebGLRenderer({antialias:true, alpha:true}); }catch(e){ return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+  host.appendChild(renderer.domElement);
+  renderer.domElement.setAttribute('aria-hidden','true');
+  host.classList.add('live');
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+  camera.position.set(0, 0, 11);
+
+  var INK='#16161A', PAPER='#FBF8F2', ACC='#FF5A3C', LIL='#E3DDF3', GREY='#8C877C';
+  var W=640, H=440;
+  function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+  function tex(draw){
+    var c=document.createElement('canvas'); c.width=W; c.height=H;
+    var ctx=c.getContext('2d'); draw(ctx);
+    var t=new THREE.CanvasTexture(c); t.anisotropy=4; return t;
+  }
+  var layers = [
+    function(ctx){ // page
+      rr(ctx,6,6,W-12,H-12,28); ctx.fillStyle=PAPER; ctx.fill(); ctx.lineWidth=6; ctx.strokeStyle=INK; ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(6,62); ctx.lineTo(W-6,62); ctx.stroke();
+      ctx.fillStyle=ACC; ctx.beginPath(); ctx.arc(40,34,9,0,7); ctx.fill();
+      ctx.fillStyle=INK; ctx.beginPath(); ctx.arc(68,34,9,0,7); ctx.fill();
+      ctx.fillStyle=GREY; ctx.beginPath(); ctx.arc(96,34,9,0,7); ctx.fill();
+    },
+    function(ctx){ // grid
+      ctx.strokeStyle='rgba(255,90,60,.75)'; ctx.lineWidth=2;
+      for(var i=0;i<12;i++){ var x=40+i*(W-80)/12; ctx.fillStyle='rgba(255,90,60,.10)'; ctx.fillRect(x+4,20,(W-80)/12-8,H-40); }
+      ctx.setLineDash([12,10]); ctx.strokeStyle=INK; rr(ctx,10,10,W-20,H-20,26); ctx.stroke();
+    },
+    function(ctx){ // content
+      ctx.fillStyle=INK; rr(ctx,60,100,300,40,10); ctx.fill(); rr(ctx,60,152,220,40,10); ctx.fill();
+      ctx.fillStyle=GREY; for(var i=0;i<4;i++){ rr(ctx,60,220+i*24,280-i*30,12,6); ctx.fill(); }
+      rr(ctx,400,100,180,180,22); ctx.fillStyle=LIL; ctx.fill(); ctx.lineWidth=5; ctx.strokeStyle=INK; ctx.stroke();
+      ctx.fillStyle=ACC; ctx.beginPath(); ctx.arc(490,190,46,0,7); ctx.fill(); ctx.stroke();
+    },
+    function(ctx){ // components
+      ctx.lineWidth=5; ctx.strokeStyle=INK;
+      rr(ctx,60,340,170,58,29); ctx.fillStyle=ACC; ctx.fill(); ctx.stroke();
+      ctx.fillStyle=INK; ctx.font='600 26px IBM Plex Sans, sans-serif'; ctx.fillText('Get started',82,378);
+      rr(ctx,250,340,150,58,29); ctx.stroke(); ctx.fillText('Learn more',267,378);
+      rr(ctx,460,350,100,40,20); ctx.fillStyle=INK; ctx.fill();
+      ctx.fillStyle=PAPER; ctx.beginPath(); ctx.arc(540,370,14,0,7); ctx.fill();
+    },
+    function(ctx){ // annotations
+      ctx.strokeStyle=ACC; ctx.lineWidth=4;
+      ctx.beginPath(); ctx.moveTo(60,70); ctx.lineTo(360,70); ctx.moveTo(60,58); ctx.lineTo(60,82); ctx.moveTo(360,58); ctx.lineTo(360,82); ctx.stroke();
+      ctx.fillStyle=ACC; rr(ctx,180,36,60,26,6); ctx.fill();
+      ctx.fillStyle=INK; ctx.font='500 18px IBM Plex Mono, monospace'; ctx.fillText('8 col',187,55);
+      ctx.save(); ctx.translate(430,300); ctx.fillStyle=INK; ctx.strokeStyle=PAPER; ctx.lineWidth=4;
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0,70); ctx.lineTo(18,54); ctx.lineTo(32,82); ctx.lineTo(46,75); ctx.lineTo(32,48); ctx.lineTo(56,48); ctx.closePath(); ctx.stroke(); ctx.fill(); ctx.restore();
+    }
+  ];
+
+  var group = new THREE.Group();
+  scene.add(group);
+  var pw=4.4, ph=pw*H/W, meshes=[];
+  var geo = new THREE.PlaneGeometry(pw, ph);
+  layers.forEach(function(draw, i){
+    var m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({map:tex(draw), transparent:true, side:THREE.DoubleSide, depthWrite:false}));
+    m.renderOrder = i;
+    group.add(m); meshes.push(m);
+  });
+  group.rotation.set(-0.5, 0.55, 0.12);
+
+  function size(){
+    var w=host.clientWidth, h=host.clientHeight; if(!w||!h) return;
+    renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+  }
+  size();
+  if('ResizeObserver' in window) new ResizeObserver(size).observe(host); else window.addEventListener('resize', size);
+
+  var tx=0, ty=0, cx=0, cy=0;
+  window.addEventListener('pointermove', function(e){
+    var r=host.getBoundingClientRect();
+    tx = Math.max(-1,Math.min(1,((e.clientX-r.left)/r.width-.5)*2));
+    ty = Math.max(-1,Math.min(1,((e.clientY-r.top)/r.height-.5)*2));
+  }, {passive:true});
+
+  var running=false, visible=true, onScreen=false, raf=0, t0=performance.now();
+  function frame(now){
+    raf=0; if(!running) return;
+    var t=(now-t0)/1000;
+    cx += (tx-cx)*0.05; cy += (ty-cy)*0.05;
+    group.rotation.y = 0.55 + cx*0.35 + Math.sin(t*0.35)*0.06;
+    group.rotation.x = -0.5 + cy*0.2;
+    var spread = 0.62 + Math.sin(t*0.6)*0.14 + Math.abs(cx)*0.12;
+    meshes.forEach(function(m,i){
+      m.position.z = (i-2)*spread;
+      m.position.y = Math.sin(t*0.8 + i*0.7)*0.04;
+    });
+    renderer.render(scene, camera);
+    raf=requestAnimationFrame(frame);
+  }
+  function update(){
+    var should = onScreen && visible;
+    if(should && !running){ running=true; if(!raf) raf=requestAnimationFrame(frame); }
+    else if(!should){ running=false; if(raf){ cancelAnimationFrame(raf); raf=0; } }
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ onScreen=en[0].isIntersecting; update(); }, {threshold:0}).observe(host);
+  } else { onScreen=true; update(); }
+  document.addEventListener('visibilitychange', function(){ visible=!document.hidden; update(); });
+  renderer.render(scene, camera);
+})();
+</script>
+
+</body></html>

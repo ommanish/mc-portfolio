@@ -133,6 +133,62 @@ export const caseStudyProjects = [
     approach: "This project shows how I think about web quality as more than a final QA step. I wanted to bring usability, accessibility, responsive behavior, performance, and launch readiness together so teams can make better decisions before a page goes live.",
     image: "/case-studies/images/web-experience-quality-score.png",
     pdf: "/case-studies/pdfs/web-experience-quality-score.pdf"
+  },
+  {
+    number: "06",
+    slug: "wenamah-product-catalog",
+    title: "Wenamah Product Catalog & Admin",
+    status: "Built Product",
+    tags: ["Next.js", "Supabase", "Commerce UX", "WhatsApp"],
+    role: "Product Engineering · UX · Frontend Architecture",
+    goal: "Build a responsive product catalog and a secure, manageable product workflow for Wenamah, with direct WhatsApp ordering.",
+    preview: "A mobile-friendly catalog with search and filters, product details, and a Supabase-backed admin for managing products, photos, and categories.",
+    challenge: "Wenamah needed a public catalog that could stay current as products, images, and categories change. The experience also needed a clear path from product discovery to contacting the business without adding an online cart or payment flow.",
+    research: "The product scope centers on the customer journey from browsing to product details to a prefilled WhatsApp inquiry, alongside an admin workflow for maintaining published catalog content. The project README defines these boundaries and notes that actual catalog items come from configured Supabase data.",
+    decisions: [
+      "Keep product discovery focused on search, category, color, occasion, and price filters.",
+      "Use a secure Supabase-backed admin to manage products, images, and categories.",
+      "Require an image and category before a product can be published.",
+      "Use a configurable WhatsApp link with product context; the visitor confirms before sending in WhatsApp.",
+      "Keep cart and online payment outside the product scope."
+    ],
+    solution: "Wenamah combines a responsive catalog, product detail views, and direct WhatsApp contact with an admin for email/password sign-in, product editing, image uploads, category management, and a configurable business WhatsApp destination. Public catalog pages use published product data when Supabase is configured.",
+    accessibility: "The catalog should keep filter and product controls understandable on mobile and keyboard accessible. Product images are public catalog content, and the project guidance explicitly excludes private documents from uploads. Supabase policies enforce admin roles for edits.",
+    measurement: "Validate product discovery and inquiry completion with task-based usability sessions. Useful measures include time to find a product, filter use, product detail engagement, WhatsApp link activation, and admin time to publish or update a product. No outcome metrics are claimed here.",
+    learning: "A focused catalog can support product discovery and personal assistance without taking on cart and payment complexity. Clear system boundaries make the customer journey and operational model easier to understand.",
+    next: "Test the catalog with real product data and representative mobile devices, review the admin publishing workflow with its operators, and validate the configured Supabase policies and WhatsApp destination before public launch.",
+    approach: "Wenamah reflects my approach to building a practical product experience around its real operating needs. I connected public discovery with manageable catalog operations and a direct human inquiry path, while keeping the product's payment boundaries explicit.",
+    image: "/case-studies/images/wenamah-product-catalog.svg",
+    demoUrl: "https://ommanish.github.io/wenamah-stage/",
+    demoMode: "drawer"
+  },
+  {
+    number: "07",
+    slug: "vellum-vector-studio",
+    title: "Vellum & Vector Studio Experience",
+    status: "Studio Website Concept",
+    tags: ["UI/UX", "Brand Identity", "Web Design", "Responsive"],
+    role: "UX · Visual Design · Frontend Concept",
+    goal: "Present a UI/UX consultancy through a clear, distinctive studio website that explains its services, working process, and project fit.",
+    preview: "A warm editorial studio concept combining a layered interface illustration, service overview, selected work, process, principles, FAQs, and a project inquiry form.",
+    challenge: "A design consultancy needs to communicate both range and point of view quickly. The supplied concept positions website design, interface design, digital experiences, and brand identity together, while showing enough process and work detail to help prospective clients decide whether to start a conversation.",
+    research: "The reference page organizes the story around four disciplines, representative project types, a five-step process, studio principles, common questions, and a contact form. It also includes responsive layouts, focus styling, and reduced-motion handling in the supplied HTML.",
+    decisions: [
+      "Lead with a plain-language statement of the studio's value and a direct project CTA.",
+      "Present related design disciplines under one consistent visual identity.",
+      "Use illustrative project-type cards as examples, clearly labeled as illustrations rather than client results.",
+      "Make the working process and principles visible before the inquiry step.",
+      "Include responsive behavior, keyboard focus, and reduced-motion support in the concept."
+    ],
+    solution: "The concept uses a paper-and-lilac palette with a vermilion accent, expressive type, an exploded interface illustration, a service list, illustrated work cards, a five-step process, principles, FAQs, and a project inquiry form. Its content moves from what the studio does to how it works and how to begin.",
+    accessibility: "The reference includes a skip link, visible focus treatment, labeled sections and navigation, responsive layouts, and a reduced-motion preference. The live portfolio adaptation should preserve these behaviors and verify form labels, contrast, keyboard flow, and mobile navigation.",
+    measurement: "Evaluate whether prospective clients can identify the studio's services, understand its process, distinguish illustrative examples from client work, and complete the project inquiry. No client conversion or usability results are provided in the supplied concept.",
+    learning: "A strong studio site can make visual character and practical clarity reinforce one another. The process and inquiry path are part of the experience, not supporting details hidden after the portfolio.",
+    next: "Adapt the concept to the portfolio's shared case study system, review responsive and accessibility behavior in the local preview, and validate the inquiry journey before considering any public release.",
+    approach: "Vellum & Vector is a studio website concept rather than a claim of a deployed client engagement. The reference demonstrates how I bring brand, content hierarchy, interaction, and responsive considerations together in a cohesive digital experience.",
+    image: "/case-studies/images/vellum-vector-studio.svg",
+    demoUrl: "/demos/vellum-vector-studio.html",
+    demoMode: "drawer"
   }
 ];
 

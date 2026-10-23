@@ -24,8 +24,8 @@ afterEach(() => {
 
 test("Case Studies includes the CSS Practical Lab with safe external links", () => {
   render(<CaseStudies />);
-  expect(screen.getByRole("heading", { name: /css practical lab/i })).toBeInTheDocument();
-  expect(screen.getByText(/reusable frontend interaction patterns/i)).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /small patterns\. real frontend problems/i })).toBeInTheDocument();
+  expect(screen.getByText(/framework-free examples for motion/i)).toBeInTheDocument();
   const live = screen.getByRole("link", { name: /explore live lab/i });
   expect(live).toHaveAttribute("href", "https://ommanish.github.io/css-practical-lab/");
   expect(live).toHaveAttribute("target", "_blank");
@@ -36,10 +36,12 @@ test("Case Studies includes the CSS Practical Lab with safe external links", () 
   expect(github).toHaveAttribute("rel", expect.stringContaining("noopener"));
 });
 
-test("CSS Practical Lab is a separate lab feature, not a sixth case study", () => {
+test("CSS Practical Lab stays separate from the seven case studies", () => {
   const { container } = render(<CaseStudies />);
-  expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(5);
+  expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(7);
+  expect(screen.getByRole("heading", { name: /wenamah product catalog/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /vellum & vector studio experience/i })).toBeInTheDocument();
   expect(container.querySelector(".portfolio-lab-feature")).toBeInTheDocument();
   expect(container.querySelector("#lab.portfolio-lab-section")).toBeInTheDocument();
-  expect(screen.getByText(/lab & open source/i)).toBeInTheDocument();
+  expect(screen.getByText(/labs & open source/i)).toBeInTheDocument();
 });

@@ -10,7 +10,7 @@ export default function CaseStudies({ embedded = false }) {
       <SectionHeader
         kicker="Selected Projects & Case Studies"
         title="How I think. How I build."
-        copy="Five public-safe projects exploring web experience, usability, accessibility, responsible AI, CMS workflows, and launch quality."
+        copy="Seven public-safe projects exploring web experience, product design, accessibility, responsible AI, and digital experiences."
       />
 
       <div className="case-study-preview-grid">
@@ -40,14 +40,16 @@ export default function CaseStudies({ embedded = false }) {
                 >
                   View Case Study <span aria-hidden="true">→</span>
                 </a>
-                <a
-                  className="case-study-secondary-link"
-                  href={project.pdf}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  PDF
-                </a>
+                {project.pdf && (
+                  <a
+                    className="case-study-secondary-link"
+                    href={project.pdf}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    PDF
+                  </a>
+                )}
               </div>
             </div>
           </article>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Wenamah product catalog case study board</title><desc id="desc">Hand-drawn case study board showing a product catalog, customer path, and catalog management notes.</desc>
+  <defs><pattern id="paper" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 21.5H22" stroke="#e8e1d6" stroke-width=".7"/></pattern></defs>
+  <rect width="1600" height="1000" fill="#f8f5ec"/><rect width="1600" height="1000" fill="url(#paper)" opacity=".45"/>
+  <g fill="#171717" font-family="'Comic Sans MS','Bradley Hand',cursive" font-style="italic">
+    <text x="48" y="64" font-size="26">Project 6 of 7</text><text x="350" y="76" font-size="52" font-weight="bold">WENAMAH · PRODUCT CATALOG</text>
+    <text x="42" y="132" font-size="25">Catalog experience · Next.js · Supabase · WhatsApp</text>
+    <text x="70" y="208" font-size="29" fill="#1656c0">THE GOAL</text><text x="70" y="252" font-size="25">Make product discovery</text><text x="70" y="286" font-size="25">simple and keep updates</text><text x="70" y="320" font-size="25">manageable for the team.</text>
+    <text x="70" y="400" font-size="29" fill="#1656c0">CUSTOMER PATH</text>
+    <text x="68" y="453" font-size="24">Browse → Filter → Product</text><text x="68" y="487" font-size="24">details → WhatsApp inquiry</text>
+    <text x="68" y="575" font-size="29" fill="#1656c0">ADMIN</text><text x="68" y="620" font-size="23">Products · Photos · Categories</text><text x="68" y="654" font-size="23">Published catalog data</text>
+    <text x="68" y="750" font-size="25">No cart or online payment</text>
+    <text x="1150" y="210" font-size="24" fill="#1656c0">Search, category, color,</text><text x="1150" y="244" font-size="24" fill="#1656c0">occasion and price filters</text>
+    <text x="1150" y="550" font-size="24" fill="#1656c0">Human conversation</text><text x="1150" y="584" font-size="24" fill="#1656c0">starts in WhatsApp</text>
+    <text x="1150" y="780" font-size="23">Image + category required</text><text x="1150" y="814" font-size="23">before publishing</text>
+    <text x="42" y="965" font-size="22">A focused catalog that connects discovery with a direct, human inquiry.</text>
+  </g>
+  <g transform="rotate(-1 800 490)" stroke="#171717" stroke-width="3" fill="none" stroke-linejoin="round">
+    <rect x="390" y="160" width="690" height="630" rx="14" fill="#fffdf8"/><path d="M390 228h690"/><circle cx="420" cy="194" r="7" fill="#d05e43"/><circle cx="444" cy="194" r="7"/><circle cx="468" cy="194" r="7"/>
+    <text x="510" y="204" fill="#171717" stroke="none" font-family="Arial,sans-serif" font-size="20" font-weight="bold">WENAMAH</text>
+    <rect x="820" y="177" width="220" height="34" rx="17" fill="#f2eee6" stroke="#aaa"/><path d="m835 188 12 12m0-12-12 12" stroke="#777" stroke-width="2"/>
+    <text x="430" y="278" fill="#171717" stroke="none" font-family="Georgia,serif" font-size="31">Find something lovely.</text>
+    <rect x="430" y="300" width="140" height="34" rx="17" fill="#fff" stroke="#aaa"/><rect x="584" y="300" width="130" height="34" rx="17" fill="#fff" stroke="#aaa"/><rect x="728" y="300" width="130" height="34" rx="17" fill="#fff" stroke="#aaa"/><rect x="872" y="300" width="150" height="34" rx="17" fill="#fff" stroke="#aaa"/>
+    <g><rect x="430" y="360" width="184" height="252" rx="8" fill="#e8d8c9"/><circle cx="522" cy="455" r="55" fill="#bd7c59"/><circle cx="522" cy="455" r="31" fill="#f1d7af"/><path d="M480 416q-10-35 4-44 25 13 20 40m28 4q2-35 28-43 13 25-3 47" fill="#6f8965" stroke="none"/><text x="445" y="650" fill="#171717" stroke="none" font-family="Arial,sans-serif" font-size="17">Featured keepsake</text>
+      <rect x="642" y="360" width="184" height="252" rx="8" fill="#e1e4d8"/><path d="M684 440h102l-8 90h-86z" fill="#c7944f"/><path d="M704 440q30-50 60 0" stroke="#8a6036" stroke-width="8"/><text x="657" y="650" fill="#171717" stroke="none" font-family="Arial,sans-serif" font-size="17">Woven market tote</text>
+      <rect x="854" y="360" width="184" height="252" rx="8" fill="#e7d8d1"/><path d="M893 446h106l-8 86h-90z" fill="#915b4e"/><path d="M914 446q31-50 63 0" stroke="#915b4e" stroke-width="8"/><text x="869" y="650" fill="#171717" stroke="none" font-family="Arial,sans-serif" font-size="17">Everyday carryall</text>
+    </g>
+    <path d="M340 428q32-40 54-42m-18-10 18 10-16 13" stroke="#1656c0" stroke-width="4"/><path d="M1084 466q35 6 58 32m-2-21 2 21-20-4" stroke="#1656c0" stroke-width="4"/>
+    <path d="M48 92q100 6 224-2m92 10q270 12 560-5" stroke="#1656c0" stroke-width="4"/>
+  </g>
+  <rect x="1080" y="885" width="400" height="56" rx="8" fill="none" stroke="#1656c0" stroke-width="3" transform="rotate(-2 1080 885)"/><text x="1110" y="921" fill="#1656c0" font-family="'Comic Sans MS','Bradley Hand',cursive" font-size="25" font-style="italic">Catalog → conversation</text>
+</svg>
