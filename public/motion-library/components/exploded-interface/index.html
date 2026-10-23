@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f2">
+  <title>Exploded Interface Stage — Motion Library</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="mx-exploded" data-mx-exploded>
+    <div class="mx-exploded__intro">
+      <p class="mx-exploded__eyebrow">INTERFACE, IN LAYERS <span>01 — 05</span></p>
+      <h1>Make the invisible<br><em>structure visible.</em></h1>
+      <p class="mx-exploded__summary">A product interface, separated into the decisions that make it work.</p>
+    </div>
+
+    <section class="mx-exploded__stage" aria-label="Exploded interface stage">
+      <div class="mx-exploded__canvas" data-stage-canvas aria-hidden="true"></div>
+      <svg class="mx-exploded__fallback" viewBox="0 0 640 440" role="img" aria-label="Five interface layers separated in depth" xmlns="http://www.w3.org/2000/svg">
+        <g class="mx-exploded__plane mx-exploded__plane--page">
+          <rect x="36" y="44" width="438" height="300" rx="22" fill="#fbf8f2" stroke="#16161a" stroke-width="5"/>
+          <path d="M38 84h434" stroke="#16161a" stroke-width="4"/><circle cx="62" cy="64" r="7" fill="#ff5a3c"/><circle cx="83" cy="64" r="7" fill="#16161a"/><circle cx="104" cy="64" r="7" fill="#8c877c"/>
+        </g>
+        <g class="mx-exploded__plane mx-exploded__plane--grid" fill="none" stroke="#ff5a3c">
+          <path d="M76 75h360v257H76z" stroke-width="2" stroke-dasharray="10 8"/>
+          <path d="M104 83v240m28-240v240m28-240v240m28-240v240m28-240v240m28-240v240m28-240v240m28-240v240m28-240v240m28-240v240m28-240v240" opacity=".19"/>
+        </g>
+        <g class="mx-exploded__plane mx-exploded__plane--content">
+          <rect x="90" y="118" width="203" height="27" rx="8" fill="#16161a"/><rect x="90" y="155" width="153" height="27" rx="8" fill="#16161a"/>
+          <path d="M90 207h181m-181 17h152m-152 17h127m-127 17h98" stroke="#8c877c" stroke-width="8" stroke-linecap="round"/>
+          <rect x="322" y="118" width="126" height="126" rx="16" fill="#e3ddf3" stroke="#16161a" stroke-width="4"/><circle cx="385" cy="181" r="31" fill="#ff5a3c" stroke="#16161a" stroke-width="4"/>
+        </g>
+        <g class="mx-exploded__plane mx-exploded__plane--controls">
+          <rect x="90" y="294" width="120" height="40" rx="20" fill="#ff5a3c" stroke="#16161a" stroke-width="4"/><rect x="222" y="294" width="111" height="40" rx="20" fill="#fbf8f2" stroke="#16161a" stroke-width="4"/><rect x="365" y="300" width="72" height="29" rx="15" fill="#16161a"/>
+        </g>
+        <g class="mx-exploded__plane mx-exploded__plane--notes" fill="none" stroke="#ff5a3c" stroke-width="4">
+          <path d="M89 96h216M89 86v20m216-20v20"/><rect x="171" y="78" width="54" height="24" rx="5" fill="#ff5a3c" stroke="none"/><path d="m423 261 0 54 14-12 12 20 10-6-12-20 18 0z" fill="#16161a" stroke="#fbf8f2" stroke-width="3"/>
+          <text x="180" y="95" fill="#16161a" stroke="none" font-size="15" font-family="monospace">8 col</text>
+        </g>
+      </svg>
+      <span class="mx-exploded__stage-label">POINTER TO EXPLORE <span aria-hidden="true">↗</span></span>
+    </section>
+
+    <div class="mx-exploded__legend" aria-hidden="true">
+      <span><i>01</i> Canvas</span><span><i>02</i> Grid</span><span><i>03</i> Content</span><span><i>04</i> Controls</span><span><i>05</i> Annotation</span>
+    </div>
+    <p class="mx-exploded__footnote">Five planes. One interface. Move your pointer to inspect the depth.</p>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

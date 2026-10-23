@@ -49,8 +49,24 @@
     "prompt": "Build a standalone split-layout image reveal section using semantic HTML, scoped CSS, and vanilla JavaScript. The left media frame should begin covered by a dark curtain that collapses inside the image frame while the artwork scales from roughly 1.08 to 1. Stagger the eyebrow, large editorial headline, supporting copy, CTA, and floating detail badge. Trigger on viewport entry, include a Replay Reveal button, never allow the curtain to cover the content column, and include a safety fallback plus prefers-reduced-motion behavior so content can never remain hidden."
   },
   {
-    "slug": "morph-tabs",
+    "slug": "exploded-interface",
     "number": "04",
+    "title": "Exploded Interface Stage",
+    "tech": "HTML + CSS + Three.js r128",
+    "description": "A product interface separated into five canvas-textured planes with pointer-responsive perspective and animated depth.",
+    "features": [
+      "Five procedural texture layers",
+      "Pointer-responsive tilt",
+      "Animated layer spacing",
+      "Viewport-aware rendering",
+      "Static SVG fallback",
+      "Reduced-motion support"
+    ],
+    "prompt": "Build a standalone exploded interface stage with semantic HTML, scoped CSS, vanilla JavaScript, and Three.js r128 from its CDN. Draw five coordinated interface planes into canvas textures and separate them in depth with a restrained animated spread. Let pointer movement subtly change perspective and spacing. Animate only while visible in the viewport and active browser tab. Keep an accessible static SVG fallback visible for reduced-motion users, missing Three.js, or WebGL setup failure. Make the composition responsive and keep all styles and DOM behavior scoped to one component root."
+  },
+  {
+    "slug": "morph-tabs",
+    "number": "05",
     "title": "Morphing Feature Tabs",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "Accessible tabs where indicator, typography, and abstract media morph together as one state change.",
@@ -66,7 +82,7 @@
   },
   {
     "slug": "magnetic-cta",
-    "number": "05",
+    "number": "06",
     "title": "Magnetic CTA Field",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "A conversion moment with proximity-based magnetic motion, ambient pointer light, and restrained arrow behavior.",
@@ -82,7 +98,7 @@
   },
   {
     "slug": "smart-header",
-    "number": "06",
+    "number": "07",
     "title": "Smart Motion Header",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "A sticky header that compacts, hides on downward scroll, returns upward, and stays visible during keyboard focus.",
@@ -98,7 +114,7 @@
   },
   {
     "slug": "before-after",
-    "number": "07",
+    "number": "08",
     "title": "Cinematic Before / After",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "A fully keyboard-accessible comparison slider with clipped transformation visuals and a visible draggable handle.",
@@ -114,7 +130,7 @@
   },
   {
     "slug": "sticky-process",
-    "number": "08",
+    "number": "09",
     "title": "Sticky Process Story",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "Long-form process storytelling with a sticky visual, changing geometry, active steps, and progress state.",
@@ -130,7 +146,7 @@
   },
   {
     "slug": "dual-marquee",
-    "number": "09",
+    "number": "10",
     "title": "Dual-Track Brand Marquee",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "Two opposing seamless brand tracks with exact duplicated groups, hover pause, and an explicit motion control.",
@@ -146,7 +162,7 @@
   },
   {
     "slug": "cursor-project-index",
-    "number": "10",
+    "number": "11",
     "title": "Cursor Project Index",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "A true editorial project index where the project visual follows the cursor with inertia and changes as each row becomes active.",
@@ -162,7 +178,7 @@
   },
   {
     "slug": "chapter-progress",
-    "number": "11",
+    "number": "12",
     "title": "Chapter Scroll Progress",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "A long-form chapter navigator combining continuous reading progress with active section labels.",
@@ -178,7 +194,7 @@
   },
   {
     "slug": "theme-morph",
-    "number": "12",
+    "number": "13",
     "title": "Theme Morph Story",
     "tech": "HTML + CSS + Vanilla JS",
     "description": "State-driven storytelling where color, typography, content, and abstract media morph as one coordinated system.",

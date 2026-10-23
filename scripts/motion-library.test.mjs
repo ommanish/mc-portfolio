@@ -1,12 +1,14 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
+import { JSDOM } from "jsdom";
 
 const root = "public/motion-library";
 const components = [
   "kinetic-hero",
   "directional-cards",
   "layered-reveal",
+  "exploded-interface",
   "morph-tabs",
   "magnetic-cta",
   "smart-header",
@@ -18,7 +20,7 @@ const components = [
   "theme-morph",
 ];
 
-test("motion library exposes all twelve standalone components", () => {
+test("motion library exposes all thirteen standalone components", () => {
   const shell = readFileSync(`${root}/index.html`, "utf8");
   const app = readFileSync(`${root}/library.js`, "utf8");
   assert.match(shell, /data-library-components/);
@@ -55,6 +57,7 @@ test("motion-heavy components include reduced-motion behavior", () => {
     "kinetic-hero",
     "directional-cards",
     "layered-reveal",
+    "exploded-interface",
     "morph-tabs",
     "magnetic-cta",
     "smart-header",
@@ -102,4 +105,21 @@ test("every library component includes a reusable build prompt and copy control"
   assert.match(app, /data-component-prompt/);
   assert.match(app, /data-copy-prompt/);
   assert.match(app, /copyText\(component\?\.prompt/);
+});
+
+
+test("exploded interface keeps its static fallback when Three.js is unavailable", () => {
+  const html = readFileSync(`${root}/components/exploded-interface/index.html`, "utf8");
+  const script = readFileSync(`${root}/components/exploded-interface/script.js`, "utf8");
+  assert.match(html, /cdnjs\.cloudflare\.com\/ajax\/libs\/three\.js\/r128\/three\.min\.js/);
+  assert.match(html, /<svg[^>]+aria-label="Five interface layers separated in depth"/);
+
+  const dom = new JSDOM(html, { runScripts: "outside-only", pretendToBeVisual: true });
+  const { window } = dom;
+  window.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {} });
+  window.requestAnimationFrame = () => { throw new Error("animation must not start without Three.js"); };
+  window.eval(script);
+  assert.equal(window.document.querySelector("[data-mx-exploded]").classList.contains("is-live"), false);
+  assert.ok(window.document.querySelector("svg[aria-label=\"Five interface layers separated in depth\"]"));
+  dom.window.close();
 });
