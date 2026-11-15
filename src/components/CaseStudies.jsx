@@ -10,7 +10,7 @@ export default function CaseStudies({ embedded = false }) {
       <SectionHeader
         kicker="Selected Projects & Case Studies"
         title="How I think. How I build."
-        copy="Seven public-safe projects exploring web experience, product design, accessibility, responsible AI, and digital experiences."
+        copy={`${caseStudyProjects.length} projects exploring web experience, product design, accessibility, responsible AI, and digital experiences.`}
       />
 
       <div className="case-study-preview-grid">

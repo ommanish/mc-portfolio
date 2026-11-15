@@ -189,6 +189,47 @@ export const caseStudyProjects = [
     image: "/case-studies/images/vellum-vector-studio.svg",
     demoUrl: "/demos/vellum-vector-studio.html",
     demoMode: "drawer"
+  },
+  {
+    number: "08",
+    slug: "second-look-ux-review",
+    title: "Second Look — Browser UX Review",
+    status: "Built Product · Early Test",
+    tags: ["UX Review", "Accessibility", "JavaScript", "Chrome Extension"],
+    role: "Product UX · Frontend Engineering · Web Quality",
+    goal: "Help web teams find, understand, and prioritize page-level UX and accessibility problems before visitors encounter them.",
+    preview: "A browser extension that turns page checks into a visual report with numbered screenshot pins, severity-ranked findings, practical fixes, and PDF export.",
+    challenge: "Web producers, designers, and developers need a practical second review before launch. Missing labels, unreadable text, small targets, and layout problems are easy to overlook when checks are scattered across tools. A useful review needs to explain where a problem occurs, why it matters, and what to fix next.",
+    research: "The product brings automated page inspection together with Nielsen’s ten usability heuristics. Findings are connected to visible evidence and a recommendation, while heuristic areas that require observation remain explicit prompts for human review. The source implementation and the public download experience show both the review workflow and the onboarding needed to make a developer-mode extension usable.",
+    decisions: [
+      "Offer three starting points: the current page, another open tab, or a typed web address.",
+      "Pair numbered screenshot pins with selectors, evidence, severity, and actionable recommendations.",
+      "Use plain-language findings and a heuristic scorecard to support both technical and nontechnical reviewers.",
+      "Run analysis in the browser and retain recent reports locally, with additional site access requested when needed.",
+      "Make reports shareable through the browser’s Save as PDF flow and keep manual review visible."
+    ],
+    solution: "Second Look connects a compact extension popup, a background service worker, an in-page JavaScript analyzer, and a separate report dashboard. The companion download website explains the value, demonstrates the report, and guides users through installing the extension in Chrome, Edge, or Brave.",
+    features: [
+      "Page review: accessible names, image alternatives, form labels, contrast, text size, click targets, heading structure, language, viewport settings, zoom, overflow, and other page-level checks.",
+      "Visual reporting: screenshot annotations, a ten-heuristic scorecard, major/minor/cosmetic severity, evidence, recommendations, and checks that passed.",
+      "Review continuity: reopen the ten most recent reports stored in the browser, enlarge screenshots, and use the print dialog to save a PDF.",
+      "45 documented checks across accessibility, readability, navigation, forms, layout, content, page structure, and go-live readiness; a launch checklist identifies blockers.",
+      "Vision views: simulate blur, low contrast, sun glare, and four types of color blindness on the live page or its screenshot.",
+      "Early-test access: download a ZIP, unzip it, enable Developer mode, and use Load unpacked. The site advertises a seven-day trial followed by a personally supplied activation key."
+    ],
+    stack: "Vanilla JavaScript, HTML, CSS, Chrome Manifest V3, a service worker, scripting and storage APIs, DOM/computed-style inspection, and GitHub Pages for the download website.",
+    releaseNote: "Release snapshot — November 14, 2026: the source manifest and download site both identify v0.10.0, with 45 documented checks. The repository reports Chromium testing against a page with planted problems; real-site validation, Edge/Brave testing, and Chrome Web Store publication remain pending. The extension tests were not independently rerun for this case study.",
+    accessibility: "Automated checks support review; they do not establish WCAG conformance or prove that a task is usable. The inspected scanner does not click through journeys or validate errors after interaction. Severity uses text and distinct icons as well as color. The ten most recent reports stay in local browser storage. Trial dates and a license-key fingerprint can use Chrome sync when enabled. Network checks use credential-free HEAD requests to up to 30 same-origin links plus favicon, robots, and sitemap paths. Automated review does not replace testing with real people.",
+    measurement: "Evaluate whether reviewers can locate a reported issue, understand its impact, apply the recommendation, and verify the fix. Track false positives, time to a useful finding, report export success, and issues caught before launch. These are proposed validation measures; no adoption, time-saving, or usability outcome metrics are claimed.",
+    learning: "A review becomes actionable when evidence and prioritization sit beside the finding. Clear boundaries between automated checks and human judgment help reviewers use the report without mistaking it for a complete usability audit.",
+    next: "Validate findings on varied real websites, gather feedback from early testers, and verify installation and permissions in supported browsers. Planned improvements include dismissing false positives, comparing reviews, phone-size checks, and Chrome Web Store publication. AI task walkthroughs remain a future opt-in concept, not a current capability.",
+    approach: "Second Look connects my web production and frontend experience with a practical quality-review product. It focuses on making findings understandable and useful at handoff, with a local review workflow and explicit limits on what automation can establish.",
+    image: "/case-studies/images/second-look-ux-review.svg",
+    imageAlt: "Second Look case study board showing the review workflow, an illustrative report, and key product features",
+    imageCaption: "Illustrated project board · sample findings, not a live audit",
+    demoUrl: "https://ommanish.github.io/second-look-download/",
+    demoLabel: "Visit Website & Download",
+    sourceUrl: "https://github.com/ommanish/second-look-download"
   }
 ];
 
