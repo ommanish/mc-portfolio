@@ -79,7 +79,7 @@ export default function CaseStudyDetail({ slug }) {
                 </button>
               ) : (
                 <a className="case-study-primary-link" href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                  View Live Demo <span aria-hidden="true">↗</span>
+                  {project.demoLabel || "View Live Demo"} <span aria-hidden="true">↗</span>
                 </a>
               )}
             </div>
@@ -87,8 +87,8 @@ export default function CaseStudyDetail({ slug }) {
         </div>
 
         <figure className="case-study-detail-visual">
-          <img src={project.image} alt={`Annotated concept board for ${project.title}`} />
-          <figcaption>Annotated project concept · portfolio case study</figcaption>
+          <img src={project.image} alt={project.imageAlt || `Annotated concept board for ${project.title}`} />
+          <figcaption>{project.imageCaption || "Annotated project concept · portfolio case study"}</figcaption>
         </figure>
       </header>
 
@@ -107,6 +107,10 @@ export default function CaseStudyDetail({ slug }) {
 
       <DetailSection label="03 · DESIGN" title="The solution">
         <p>{project.solution}</p>
+        {project.features && <ul className="case-study-decision-list">{project.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>}
+        {project.stack && <p><strong>Technology:</strong> {project.stack}</p>}
+        {project.releaseNote && <p className="case-study-note">{project.releaseNote}</p>}
+        {project.sourceUrl && <p><a className="case-study-secondary-link" href={project.sourceUrl} target="_blank" rel="noopener noreferrer">View download-site repository ↗</a></p>}
         <div className="case-study-callout">
           <span>Accessibility & responsible design</span>
           <p>{project.accessibility}</p>

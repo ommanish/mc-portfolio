@@ -23,6 +23,17 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
+test("Second Look uses a download-site link and identifies its actual report image", () => {
+  render(<CaseStudyDetail slug="second-look-ux-review" />);
+  const download = screen.getByRole("link", { name: /visit website & download/i });
+  expect(download).toHaveAttribute("href", "https://ommanish.github.io/second-look-download/");
+  expect(download).toHaveAttribute("rel", "noopener noreferrer");
+  expect(screen.queryByRole("button", { name: /open interactive demo/i })).not.toBeInTheDocument();
+  expect(screen.getByRole("img", { name: /second look report with a page screenshot/i })).toBeInTheDocument();
+  expect(screen.getByText(/actual report screenshot/i)).toBeInTheDocument();
+  expect(screen.getByText(/release snapshot/i)).toHaveTextContent("both identify v0.10.0, with 45 documented checks");
+});
+
 test("Vellum demo opens in a windowed modal at the animated hero", async () => {
   const user = userEvent.setup();
   render(<CaseStudyDetail slug="vellum-vector-studio" />);
