@@ -224,9 +224,9 @@ export const caseStudyProjects = [
     learning: "A review becomes actionable when evidence and prioritization sit beside the finding. Clear boundaries between automated checks and human judgment help reviewers use the report without mistaking it for a complete usability audit.",
     next: "Validate findings on varied real websites, gather feedback from early testers, and verify installation and permissions in supported browsers. Planned improvements include dismissing false positives, comparing reviews, phone-size checks, and Chrome Web Store publication. AI task walkthroughs remain a future opt-in concept, not a current capability.",
     approach: "Second Look connects my web production and frontend experience with a practical quality-review product. It focuses on making findings understandable and useful at handoff, with a local review workflow and explicit limits on what automation can establish.",
-    image: "https://ommanish.github.io/second-look-download/assets/report.png",
-    imageAlt: "Second Look report with a page screenshot, numbered issue pins, and findings ranked by severity",
-    imageCaption: "Actual report screenshot from the Second Look download website",
+    image: "/case-studies/images/second-look-ux-review.svg",
+    imageAlt: "Second Look case study board showing the review workflow, an illustrative report, and key product features",
+    imageCaption: "Illustrated project board · sample findings, not a live audit",
     demoUrl: "https://ommanish.github.io/second-look-download/",
     demoLabel: "Visit Website & Download",
     sourceUrl: "https://github.com/ommanish/second-look-download"

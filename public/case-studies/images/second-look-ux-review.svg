@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Second Look browser UX review case study board</title>
+<desc id="desc">Illustrated product board showing the review workflow, an annotated report concept, 45 automated checks, local report storage, and human validation.</desc>
+<defs>
+<pattern id="paper" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 21.5H22" stroke="#e8e1d6" stroke-width=".7"/></pattern>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#1656c0" stroke-width="1.5"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#f8f5ec"/><rect width="1600" height="1000" fill="url(#paper)" opacity=".45"/>
+<g font-family="'Comic Sans MS','Bradley Hand',cursive" font-style="italic" fill="#171717">
+<text x="48" y="64" font-size="26">Project 08</text>
+<text x="350" y="76" font-size="52" font-weight="bold">SECOND LOOK · UX REVIEW</text>
+<text x="48" y="132" font-size="25">Browser extension · Accessibility · Launch readiness</text>
+<text x="65" y="224" font-size="29" fill="#1656c0">THE GOAL</text>
+<text x="65" y="270" font-size="24">Find what to fix</text><text x="65" y="306" font-size="24">before visitors do.</text>
+<text x="65" y="419" font-size="29" fill="#1656c0">START ANYWHERE</text>
+<text x="65" y="465" font-size="23">This page</text><text x="65" y="503" font-size="23">Another open tab</text><text x="65" y="541" font-size="23">A web address</text>
+<text x="65" y="674" font-size="29" fill="#1656c0">BUILT FOR REVIEW</text>
+<text x="65" y="720" font-size="23">45 automated checks</text><text x="65" y="758" font-size="23">10 usability heuristics</text><text x="65" y="796" font-size="23">Practical recommendations</text>
+<text x="1210" y="224" font-size="28" fill="#1656c0">SEE THE EVIDENCE</text>
+<text x="1210" y="270" font-size="22">Numbered screenshot pins</text><text x="1210" y="306" font-size="22">show where to look.</text>
+<text x="1210" y="455" font-size="28" fill="#1656c0">PRIORITIZE</text>
+<text x="1210" y="501" font-size="22">Issue → impact → fix</text><text x="1210" y="537" font-size="22">Go-live checklist</text><text x="1210" y="573" font-size="22">Save a report as PDF</text>
+<text x="1210" y="704" font-size="28" fill="#1656c0">KEEP IT LOCAL</text>
+<text x="1210" y="750" font-size="22">Reports in your browser</text><text x="1210" y="786" font-size="22">No account needed</text>
+</g>
+<g stroke="#25272b" stroke-width="2.5" stroke-linejoin="round">
+<rect x="390" y="197" width="770" height="609" rx="15" fill="#fffdf7" transform="rotate(-.5 775 500)"/>
+<path d="M392 249H1158" fill="none"/>
+<circle cx="416" cy="224" r="5" fill="#efb6a2" stroke="none"/><circle cx="437" cy="224" r="5" fill="#e9cf75" stroke="none"/><circle cx="458" cy="224" r="5" fill="#b8cbb1" stroke="none"/>
+</g>
+<g font-family="Arial, sans-serif" fill="#25272b">
+<text x="486" y="230" font-size="18" font-weight="bold">Second Look / review report</text><text x="421" y="290" font-size="23" font-weight="bold">A clearer path from finding to fix.</text>
+<rect x="420" y="316" width="710" height="43" rx="8" fill="#edf0f5"/><text x="440" y="344" font-size="16">Problems</text><text x="565" y="344" font-size="16">Heuristics</text><text x="700" y="344" font-size="16">Go live</text><text x="992" y="344" font-size="16">Save as PDF ↗</text>
+<rect x="420" y="382" width="344" height="323" rx="8" fill="#f0eee8" stroke="#d8d3c9"/>
+<rect x="440" y="405" width="304" height="28" rx="4" fill="#dad7ce"/>
+<rect x="440" y="451" width="180" height="15" rx="4" fill="#b7bcc4"/><rect x="440" y="478" width="265" height="8" rx="4" fill="#d2d4d9"/>
+<rect x="440" y="498" width="225" height="8" rx="4" fill="#d2d4d9"/>
+<rect x="440" y="533" width="304" height="88" rx="7" fill="#e1e8ed"/>
+<rect x="440" y="641" width="122" height="38" rx="6" fill="#25272b"/><text x="466" y="666" font-size="15" fill="white">Continue</text>
+<g fill="#b5412e"><circle cx="626" cy="456" r="16"/><circle cx="712" cy="550" r="16"/></g>
+<g fill="white" font-size="17" font-weight="bold" text-anchor="middle"><text x="626" y="462">1</text><text x="712" y="556">2</text></g>
+<g fill="#fff" stroke="#dedbd3"><rect x="784" y="382" width="346" height="99" rx="8"/><rect x="784" y="495" width="346" height="99" rx="8"/><rect x="784" y="608" width="346" height="97" rx="8"/></g>
+<text x="804" y="410" font-size="14" fill="#a63728" font-weight="bold">1 · MAJOR</text><text x="804" y="438" font-size="18" font-weight="bold">Text contrast</text><text x="804" y="462" font-size="14">Evidence + a suggested fix</text>
+<text x="804" y="523" font-size="14" fill="#a63728" font-weight="bold">2 · MAJOR</text><text x="804" y="551" font-size="18" font-weight="bold">Missing field label</text><text x="804" y="575" font-size="14">Explain what the input needs</text>
+<text x="804" y="638" font-size="14" fill="#1656c0" font-weight="bold">FOLLOW UP</text><text x="804" y="666" font-size="18" font-weight="bold">Check the task by hand</text><text x="804" y="690" font-size="14">Automation is a starting point</text>
+<text x="421" y="746" font-size="15" fill="#60646b">Illustrative report layout · sample findings</text><text x="421" y="776" font-size="15" fill="#60646b">JavaScript · Manifest V3 · local report storage</text>
+</g>
+<g fill="none" stroke="#1656c0" stroke-width="2.5" marker-end="url(#arrow)"><path d="M301 482Q354 457 405 454"/><path d="M1200 317Q1176 340 1140 391"/><path d="M1200 554Q1178 569 1141 565"/></g>
+<rect x="390" y="844" width="770" height="66" rx="10" fill="#e8eddf"/>
+<text x="775" y="886" text-anchor="middle" font-family="'Comic Sans MS','Bradley Hand',cursive" font-style="italic" font-size="26" fill="#34432a">Review → Understand → Prioritize → Verify</text>
+<text x="48" y="965" font-family="'Comic Sans MS','Bradley Hand',cursive" font-style="italic" font-size="22" fill="#444">Product concept board · Automated checks support, not replace, human testing.</text>
+</svg>

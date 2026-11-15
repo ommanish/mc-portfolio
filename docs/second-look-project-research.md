@@ -26,13 +26,13 @@ The source documents a seven-day trial with personally supplied keys. Installati
 
 The repository reports Chromium end-to-end testing against a seeded problem page, not real websites. Edge/Brave, real toolbar activation, browser permission prompts, large pages, and multilingual pages remain documented gaps. The test guide says many outcomes are printed for inspection rather than asserted; its test pass status alone should not be described as complete behavioral validation. These extension tests were not independently rerun during portfolio editing.
 
-The actual report image is referenced from https://ommanish.github.io/second-look-download/assets/report.png and depends on that site's availability. The private app repository is retained for maintainer traceability rather than exposed as a public source-code CTA.
+The portfolio uses a local illustrated SVG project board at public/case-studies/images/second-look-ux-review.svg, matching the paper-style boards of the other recent case studies. Its sample findings are labeled as illustrative, not an actual audit. The private app repository is retained for maintainer traceability rather than exposed as a public source-code CTA.
 
 ## Portfolio integration
 
 - Eighth case-study card and `/case-studies/second-look-ux-review` detail route.
 - Project framing, decisions, features, stack, installation, privacy, limitations, proposed measurement, and next steps.
-- Public download-site and repository links; actual screenshot labeling instead of concept-board labeling.
+- Public download-site and repository links; illustrated board labeling with sample findings.
 - Static deployment route added to the existing build script.
 - No invented user research, adoption, revenue, or time-saving metrics.
 
