@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Holiday Deal Radar case study board</title>
+  <desc id="desc">Hand-drawn project board showing deal discovery, price comparisons, and direct retailer links.</desc>
+  <defs><pattern id="paper" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 21.5H22" stroke="#e8e1d6" stroke-width=".7"/></pattern></defs>
+  <rect width="1600" height="1000" fill="#f8f5ec"/><rect width="1600" height="1000" fill="url(#paper)" opacity=".45"/>
+  <g fill="#171717" font-family="'Comic Sans MS','Bradley Hand',cursive" font-style="italic">
+    <text x="48" y="64" font-size="26">Project 09</text><text x="350" y="76" font-size="52" font-weight="bold">HOLIDAY DEAL RADAR</text>
+    <text x="42" y="132" font-size="25">Shopping discovery · Price context · Official retailer offers</text>
+    <text x="65" y="208" font-size="29" fill="#1656c0">THE GOAL</text>
+    <text x="65" y="252" font-size="24">Find useful offers.</text><text x="65" y="286" font-size="24">Understand the price.</text><text x="65" y="320" font-size="24">Choose with confidence.</text>
+    <text x="65" y="410" font-size="29" fill="#1656c0">SHOPPER PATH</text>
+    <text x="65" y="455" font-size="24">Browse → Filter</text><text x="65" y="489" font-size="24">→ Compare → Retailer</text>
+    <text x="65" y="620" font-size="29" fill="#1656c0">LOCAL CONTEXT</text>
+    <text x="65" y="668" font-size="23">Optional ZIP code</text><text x="65" y="702" font-size="23">Online offers stay visible</text>
+    <text x="1140" y="203" font-size="24" fill="#1656c0">Search and categories</text><text x="1140" y="237" font-size="24" fill="#1656c0">make discovery easier</text>
+    <text x="1140" y="490" font-size="24" fill="#1656c0">Price + savings + notes</text><text x="1140" y="524" font-size="24" fill="#1656c0">keep offers in context</text>
+    <text x="1140" y="720" font-size="24" fill="#1656c0">Confirm stock and terms</text><text x="1140" y="754" font-size="24" fill="#1656c0">on the retailer's website</text>
+    <text x="42" y="965" font-size="22">A focused holiday watchlist connecting product discovery with informed shopping.</text>
+  </g>
+  <g transform="rotate(-.7 800 490)" stroke="#171717" stroke-width="3" fill="none" stroke-linejoin="round">
+    <rect x="390" y="160" width="690" height="630" rx="14" fill="#fffdf8"/><path d="M390 228h690"/>
+    <circle cx="420" cy="194" r="7" fill="#d05e43"/><circle cx="444" cy="194" r="7"/><circle cx="468" cy="194" r="7"/>
+    <g fill="#171717" stroke="none" font-family="Arial,sans-serif">
+      <text x="510" y="202" font-size="20" font-weight="bold">DEAL RADAR</text><text x="904" y="201" font-size="15">Online-first · US</text>
+      <text x="430" y="278" font-family="Georgia,serif" font-size="31">Real deals. Clear context.</text>
+    </g>
+    <rect x="430" y="300" width="120" height="34" rx="17" fill="#e1e4d8" stroke="#aaa"/><rect x="565" y="300" width="210" height="34" rx="17" stroke="#aaa"/><rect x="790" y="300" width="248" height="34" rx="17" stroke="#aaa"/>
+    <g fill="#171717" stroke="none" font-family="Arial,sans-serif" font-size="15"><text x="451" y="323">Categories</text><text x="585" y="323">Search products</text><text x="809" y="323">Sort: biggest savings</text></g>
+    <rect x="430" y="360" width="184" height="204" rx="8" fill="#e1e4d8"/><circle cx="522" cy="460" r="59" fill="#54665a"/><circle cx="522" cy="460" r="42" stroke="#dbe2cf"/><circle cx="522" cy="460" r="9" fill="#dbe2cf" stroke="none"/>
+    <rect x="642" y="360" width="184" height="204" rx="8" fill="#e8d8c9"/><path d="M682 470v-32a52 52 0 0 1 104 0v32" stroke="#514c48" stroke-width="13"/><rect x="675" y="456" width="28" height="57" rx="12" fill="#514c48"/><rect x="765" y="456" width="28" height="57" rx="12" fill="#514c48"/>
+    <rect x="854" y="360" width="184" height="204" rx="8" fill="#e7d8d1"/><rect x="878" y="407" width="136" height="91" rx="5" fill="#787f89"/><path d="m945 499-1 22m-30 0h61"/>
+    <g fill="#171717" stroke="none" font-family="Arial,sans-serif" font-size="17">
+      <text x="442" y="599">Robot vacuums</text><text x="654" y="599">Headphones</text><text x="866" y="599">TVs &amp; monitors</text>
+      <text x="442" y="633">Price · Savings</text><text x="654" y="633">Price · Savings</text><text x="866" y="633">Price · Savings</text>
+      <text x="442" y="665" font-size="14">Condition + terms</text><text x="654" y="665" font-size="14">Condition + terms</text><text x="866" y="665" font-size="14">Condition + terms</text>
+      <text x="442" y="711" fill="#1656c0">Official offer ↗</text><text x="654" y="711" fill="#1656c0">Official offer ↗</text><text x="866" y="711" fill="#1656c0">Official offer ↗</text>
+      <text x="430" y="758" font-size="15">Direct sources · Availability labels · Pricing notes</text>
+    </g>
+    <path d="M340 428q32-40 54-42m-18-10 18 10-16 13M1084 466q35 6 48 24m-2-21 2 21-20-4M48 92q100 6 224-2m92 10q270 12 560-5" stroke="#1656c0" stroke-width="4"/>
+  </g>
+  <rect x="1114" y="881" width="370" height="58" rx="8" fill="none" stroke="#1656c0" stroke-width="3" transform="rotate(-2 1114 881)"/><text x="1140" y="918" fill="#1656c0" font-family="'Comic Sans MS','Bradley Hand',cursive" font-size="24" font-style="italic">Discovery → confidence</text>
+</svg>

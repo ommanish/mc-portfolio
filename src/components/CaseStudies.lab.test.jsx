@@ -36,9 +36,9 @@ test("Case Studies includes the CSS Practical Lab with safe external links", () 
   expect(github).toHaveAttribute("rel", expect.stringContaining("noopener"));
 });
 
-test("CSS Practical Lab stays separate from the eight case studies", () => {
+test("CSS Practical Lab stays separate from the nine case studies", () => {
   const { container } = render(<CaseStudies />);
-  expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(8);
+  expect(container.querySelectorAll(".case-study-preview-card")).toHaveLength(9);
   expect(screen.getByRole("heading", { name: /second look/i })).toBeInTheDocument();
   expect(screen.getByRole("heading", { name: /wenamah product catalog/i })).toBeInTheDocument();
   expect(screen.getByRole("heading", { name: /vellum & vector studio experience/i })).toBeInTheDocument();
