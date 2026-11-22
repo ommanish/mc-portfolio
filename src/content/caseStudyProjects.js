@@ -230,6 +230,38 @@ export const caseStudyProjects = [
     demoUrl: "https://ommanish.github.io/second-look-download/",
     demoLabel: "Visit Website & Download",
     sourceUrl: "https://github.com/ommanish/second-look-download"
+  },
+  {
+    number: "09",
+    slug: "holiday-deal-radar",
+    title: "Holiday Deal Radar",
+    status: "Live Website",
+    tags: [
+      "Product UX",
+      "Deal Discovery",
+      "Price Comparison",
+      "Web Design"
+    ],
+    role: "Product Design · Website Development",
+    goal: "Help holiday shoppers discover online and store offers with clear pricing, product photos, and direct retailer links.",
+    preview: "A holiday shopping watchlist with category filters, search, savings comparisons, and ZIP-based store and pickup labels.",
+    challenge: "Holiday offers are scattered across retailer websites, and a large discount does not always explain the real value. Shoppers need to understand the product condition, comparison price, purchase options, and offer terms before leaving for a retailer.",
+    research: "The live experience brings together offers across electronics, vacuums, cameras, clothing, furniture, and refurbished products. Its information hierarchy puts product photos, current and reference prices, discount percentages, dollar savings, and retailer notes together so shoppers can assess an offer in context.",
+    decisions: [
+      "Keep nationwide online offers visible without requiring a ZIP code.",
+      "Use the ZIP code to personalize store, pickup, and local-delivery labels; retailer pages remain the source for inventory confirmation.",
+      "Support category filtering, search, and sorting by price, percentage discount, or dollar savings.",
+      "Show product condition and explain retailer reference prices that may differ from recent street prices.",
+      "Link directly to official retailer offers without affiliate redirects."
+    ],
+    solution: "Holiday Deal Radar is a one-page shopping watchlist with product cards, category filters, text search, and sorting controls. Each offer combines a real product photo with pricing, savings, purchase-channel labels, and relevant terms. A verification-method section explains direct sourcing, availability labels, and condition and pricing notes.",
+    accessibility: "Text labels communicate condition, pricing, and purchase options without relying on color alone. Product photos have descriptive alternatives and the ZIP and sort controls have visible labels. Keyboard flow, contrast, and mobile reflow remain areas for dedicated accessibility validation.",
+    measurement: "Evaluate whether shoppers can find a relevant offer, explain its reference price, identify purchase options, and reach the official retailer. Track search and filter use, outbound offer clicks, and stale-offer reports. No conversion, savings, or usability outcomes are claimed.",
+    learning: "Deal discovery depends on clear context as much as the advertised discount. Putting price caveats and availability information alongside the offer helps shoppers make a more informed next step.",
+    next: "Expand retailer coverage, make freshness and expiry checks easier to maintain, and test filtering and price comprehension with shoppers on mobile devices.",
+    approach: "This project connects a practical seasonal shopping need with a focused discovery experience. The design brings products, price comparisons, and retailer context into one place while keeping the purchase with the official seller.",
+    image: "/case-studies/images/holiday-deal-radar.svg",
+    demoUrl: "https://ommanish.github.io/holiday-deal-radar/"
   }
 ];
 
